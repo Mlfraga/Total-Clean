@@ -1,0 +1,10 @@
+C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.csprojAssemblyReference.cache
+C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.Properties.Resources.resources
+C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.csproj.GenerateResource.cache
+C:\Users\Matheus\source\repos\totalClean\totalClean\bin\Debug\totalClean.exe.config
+C:\Users\Matheus\source\repos\totalClean\totalClean\bin\Debug\totalClean.exe
+C:\Users\Matheus\source\repos\totalClean\totalClean\bin\Debug\totalClean.pdb
+C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.exe
+C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.pdb
+C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.TelaInicialFrm.resources
+C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.TelaCadastrClienteFrm.resources
