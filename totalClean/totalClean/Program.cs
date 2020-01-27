@@ -16,7 +16,7 @@ namespace totalClean
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaInicialFrm());
+            Application.Run(new InicialFrm());
         }
     }
 }

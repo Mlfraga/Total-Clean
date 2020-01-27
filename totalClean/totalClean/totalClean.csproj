@@ -33,8 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>..\..\..\..\Desktop\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,25 +50,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TelaCadastrClienteFrm.cs">
+    <Compile Include="CadastroClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TelaCadastrClienteFrm.Designer.cs">
-      <DependentUpon>TelaCadastrClienteFrm.cs</DependentUpon>
+    <Compile Include="CadastroClientes.Designer.cs">
+      <DependentUpon>CadastroClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="TelaInicialFrm.cs">
+    <Compile Include="Cliente.cs" />
+    <Compile Include="Conexao.cs" />
+    <Compile Include="EdicaoFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TelaInicialFrm.Designer.cs">
-      <DependentUpon>TelaInicialFrm.cs</DependentUpon>
+    <Compile Include="EdicaoFrm.Designer.cs">
+      <DependentUpon>EdicaoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InicialFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InicialFrm.Designer.cs">
+      <DependentUpon>InicialFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="TelaCadastrClienteFrm.resx">
-      <DependentUpon>TelaCadastrClienteFrm.cs</DependentUpon>
+    <EmbeddedResource Include="CadastroClientes.resx">
+      <DependentUpon>CadastroClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TelaInicialFrm.resx">
-      <DependentUpon>TelaInicialFrm.cs</DependentUpon>
+    <EmbeddedResource Include="EdicaoFrm.resx">
+      <DependentUpon>EdicaoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InicialFrm.resx">
+      <DependentUpon>InicialFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

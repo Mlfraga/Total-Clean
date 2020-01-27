@@ -6,5 +6,8 @@ C:\Users\Matheus\source\repos\totalClean\totalClean\bin\Debug\totalClean.exe
 C:\Users\Matheus\source\repos\totalClean\totalClean\bin\Debug\totalClean.pdb
 C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.exe
 C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.pdb
-C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.TelaInicialFrm.resources
-C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.TelaCadastrClienteFrm.resources
+C:\Users\Matheus\source\repos\totalClean\totalClean\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.csproj.CopyComplete
+C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.CadastroClientes.resources
+C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.InicialFrm.resources
+C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.EdicaoFrm.resources
