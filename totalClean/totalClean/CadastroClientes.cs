@@ -12,6 +12,11 @@ namespace totalClean
 {
     public partial class CadastroClientes : Form
     {
+        public static int idSelected { get; set; }
+        public static String nomeSelected { get; set; }
+        public static String telefoneSelected { get; set; }
+        public static String enderecoSelected { get; set; }
+        public static Boolean frotistaSelected { get; set; }
         public CadastroClientes()
         {
             InitializeComponent();
@@ -23,15 +28,26 @@ namespace totalClean
             txtEndereco.ReadOnly = false;
             rdbFrotista.Enabled = true;
             rdbParticular.Enabled = true;
+            
         }
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             btnNovo.Enabled = false;
             EdicaoFrm s = new EdicaoFrm();
             s.Show();
+
+        }
+                    
+        public void voltaAlteracao()
+        {
+            txtId.Text = idSelected.ToString();
+            txtNome.Text = nomeSelected;
+            txtTelefone.Text = telefoneSelected;
+            txtEndereco.Text = enderecoSelected;
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            
             Cliente c = new Cliente();
             c.nome = txtNome.Text;
             c.telefone = txtTelefone.Text;
@@ -41,6 +57,7 @@ namespace totalClean
             {
                 c.frotista = true;
             }
+            
             else
             {
                 c.frotista = false;
@@ -57,7 +74,7 @@ namespace totalClean
                 {
                     Conexao conexao = new Conexao();
                     conexao.conectar();
-
+                    
                     int linhas = conexao.executar($"INSERT INTO Cliente (nome, telefone, endereco, frotista) VALUES ('{c.nome}','{c.telefone}','{c.endereco}',{statusCliente})");
                     limparCampos();
                     MessageBox.Show("Dados salvos com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -75,6 +92,7 @@ namespace totalClean
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             btnNovo.Enabled = true;
+            limparCampos();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)

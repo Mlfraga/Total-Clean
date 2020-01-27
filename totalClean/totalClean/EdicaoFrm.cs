@@ -14,13 +14,13 @@ namespace totalClean
     public partial class EdicaoFrm : Form
     {
         Conexao con = new Conexao();
+        Cliente cSelected = new Cliente();
         public EdicaoFrm()
         {
             InitializeComponent();
 
         }
-
-
+    
 
         private void EdicaoFrm_Load(object sender, EventArgs e)
         {
@@ -41,17 +41,24 @@ namespace totalClean
         {
 
 
-            if (txtId.Text != string.Empty || txtNome.Text != string.Empty ) {
-
-                string nome = txtNome.Text;
+            if (txtId.Text != string.Empty || txtNome.Text != string.Empty)
+            {
 
                 List<Cliente> listCliente = new List<Cliente>();
                 con.conectar();
 
                 SqlDataReader reader;
 
-                reader = con.exeCliente("SELECT [idCliente], [Nome], [telefone], [endereco], [frotista] FROM[dbo].[Cliente] WHERE Nome LIKE '%' " + nome );
-
+                if (txtNome.Text != string.Empty && txtId.Text == string.Empty)
+                {
+                    string nome = txtNome.Text;
+                    reader = con.exeCliente($"SELECT * FROM Cliente WHERE Nome LIKE ('%{nome}%') ");
+                }
+                else
+                {
+                    int g = int.Parse(txtId.Text);
+                    reader = con.exeCliente("SELECT * FROM Cliente WHERE idCliente = " + g);
+                }
                 if (reader.HasRows)
                 {
                     while (reader.Read())
@@ -80,8 +87,28 @@ namespace totalClean
 
             }
         }
-    private void btnSelecionar_Click(object sender, EventArgs e)
+        private void btnSelecionar_Click(object sender, EventArgs e)
         {
+            if (rdbFrotista.Checked == true || rdbParticular.Checked == true)
+            {
+                if (txtId.Text != string.Empty && txtNome.Text != string.Empty && txtTelefone.Text != string.Empty && txtEndereco.Text != string.Empty)
+                {
+                    CadastroClientes.idSelected = int.Parse(txtId.Text);
+                    CadastroClientes.nomeSelected = txtNome.Text;
+                    CadastroClientes.telefoneSelected = txtTelefone.Text;
+                    CadastroClientes.enderecoSelected = txtEndereco.Text;
+
+
+
+                    this.Close();
+                    //CadastroClientes.voltaAlteracao();
+                }
+                else
+                {
+
+                }
+
+            }
 
         }
         private void iniciaGrid()
@@ -126,7 +153,7 @@ namespace totalClean
             txtNome.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
             txtTelefone.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
             txtEndereco.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
-            
+
             if (dgvClientes.CurrentRow.Cells[4].Value.Equals(true))
             {
                 rdbFrotista.Checked = true;
@@ -137,6 +164,6 @@ namespace totalClean
             }
         }
 
- 
+
     }
 }
