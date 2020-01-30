@@ -50,35 +50,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CadastroClientes.cs">
+    <Compile Include="Forms\CadastroClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadastroClientes.Designer.cs">
+    <Compile Include="Forms\CadastroClientes.Designer.cs">
       <DependentUpon>CadastroClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cliente.cs" />
-    <Compile Include="Conexao.cs" />
-    <Compile Include="EdicaoFrm.cs">
+    <Compile Include="Classes\Cliente.cs" />
+    <Compile Include="Util\Conexao.cs" />
+    <Compile Include="Forms\EdicaoFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EdicaoFrm.Designer.cs">
+    <Compile Include="Forms\EdicaoFrm.Designer.cs">
       <DependentUpon>EdicaoFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InicialFrm.cs">
+    <Compile Include="Forms\InicialFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InicialFrm.Designer.cs">
+    <Compile Include="Forms\InicialFrm.Designer.cs">
       <DependentUpon>InicialFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CadastroClientes.resx">
+    <EmbeddedResource Include="Forms\CadastroClientes.resx">
       <DependentUpon>CadastroClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EdicaoFrm.resx">
+    <EmbeddedResource Include="Forms\EdicaoFrm.resx">
       <DependentUpon>EdicaoFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InicialFrm.resx">
+    <EmbeddedResource Include="Forms\InicialFrm.resx">
       <DependentUpon>InicialFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
