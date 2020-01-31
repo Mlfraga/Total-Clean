@@ -11,3 +11,4 @@ C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.csproj.
 C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.CadastroClientes.resources
 C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.InicialFrm.resources
 C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.EdicaoFrm.resources
+C:\Users\Matheus\source\repos\totalClean\totalClean\obj\Debug\totalClean.CadastroServicosFrm.resources

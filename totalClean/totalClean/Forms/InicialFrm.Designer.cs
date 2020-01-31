@@ -146,7 +146,7 @@
             this.btnRelatorioCliente.Text = " Relatório de Clientes";
             this.btnRelatorioCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRelatorioCliente.UseVisualStyleBackColor = true;
-            this.btnRelatorioCliente.Click += new System.EventHandler(this.button1_Click);
+            this.btnRelatorioCliente.Click += new System.EventHandler(this.btnRelatorioCliente_Click);
             // 
             // InicialFrm
             // 
@@ -163,6 +163,7 @@
             this.Name = "InicialFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela Inicial";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InicialFrm_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

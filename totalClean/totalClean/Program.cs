@@ -8,10 +8,12 @@ namespace totalClean
 {
     static class Program
     {
+        static int nome;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+        
         static void Main()
         {
             Application.EnableVisualStyles();

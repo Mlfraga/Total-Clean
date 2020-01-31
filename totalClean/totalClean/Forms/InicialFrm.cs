@@ -43,13 +43,21 @@ namespace totalClean
 
         private void btnCadServ_Click(object sender, EventArgs e)
         {
-
+            CadastroServicosFrm s = new CadastroServicosFrm();
+            s.Show();
+            this.Visible = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        
+
+        private void InicialFrm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnRelatorioCliente_Click(object sender, EventArgs e)
         {
 
         }
-
     }
 }
