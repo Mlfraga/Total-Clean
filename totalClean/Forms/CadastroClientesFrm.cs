@@ -50,7 +50,6 @@ namespace totalClean
 
         private void btnConsulta_Click(object sender, EventArgs e)
         {
-
             btnNovo.Enabled = false;            
             EdicaoFrm s = new EdicaoFrm();
             s.Show();

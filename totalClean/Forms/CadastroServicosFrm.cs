@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace totalClean
@@ -128,7 +121,12 @@ namespace totalClean
 
         private void btnConsulta_Click(object sender, EventArgs e)
         {
-
+            Forms.EdicaoServico s = new Forms.EdicaoServico(); 
+            s.Show();
+            this.Visible = false;
+            
+            
+            
         }
     }
 }

@@ -40,3 +40,4 @@ C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.csproj
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.csproj.CopyComplete
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.exe
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.pdb
+C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.Forms.EdicaoServico.resources
