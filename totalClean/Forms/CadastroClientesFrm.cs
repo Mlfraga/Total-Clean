@@ -19,14 +19,33 @@ namespace totalClean
         {
             InitializeComponent();
         }
-        private void btnNovo_Click(object sender, EventArgs e)
+        private void bloqueiaCampos()
+        {
+            btnSalvar.Enabled = false;
+            btnCancelar.Enabled = false;
+            txtId.ReadOnly = true;
+            txtNome.ReadOnly = true;
+            txtTelefone.ReadOnly = true;
+            txtEndereco.ReadOnly = true;
+            rdbFrotista.Enabled = false;
+            rdbParticular.Enabled = false;
+            rdbParticular.Checked = true;
+        }
+        private void desbloqueaCampos()
         {
             txtNome.ReadOnly = false;
             txtTelefone.ReadOnly = false;
             txtEndereco.ReadOnly = false;
             rdbFrotista.Enabled = true;
             rdbParticular.Enabled = true;
+            btnSalvar.Enabled = true;
+            btnCancelar.Enabled = true;
 
+            btnNovo.Enabled = false;
+        }
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            desbloqueaCampos();
         }
 
         private void btnConsulta_Click(object sender, EventArgs e)
@@ -59,13 +78,12 @@ namespace totalClean
 
             int statusCliente = c.frotista ? 1 : 0;
 
-            var escolha = MessageBox.Show("Você deseja mesmo salvar esses dados?", "Confirmção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (txtNome.Text != string.Empty && txtEndereco.Text != string.Empty && txtTelefone.Text != string.Empty)
+            {
+                var escolha = MessageBox.Show("Você deseja mesmo salvar esses dados?", "Confirmção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (escolha == DialogResult.Yes)
-            {
-
-                if (txtNome.Text != string.Empty)
-                {
+            {            
                     Cliente cliente = new Cliente();
                     Conexao conexao = new Conexao();
                     conexao.conectar();
@@ -74,6 +92,8 @@ namespace totalClean
                     limparCampos();
                     MessageBox.Show("Dados salvos com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                  
+
+                    // Codigo para armazenar ultimo codigo salvo
                     List<Cliente> listCliente = new List<Cliente>();
                     con.conectar();
 
@@ -97,22 +117,34 @@ namespace totalClean
                         }
                         MessageBox.Show("Id do Cliente: " + cliente.id.ToString(),"armazenar ultima id salva");
                         reader.Close();
+                        
+                        btnCancelar.Enabled = false;
+                        btnSalvar.Enabled = false;
+                        btnNovo.Enabled = true;
+                       
+                        bloqueiaCampos();
                     }
-                    else
-                    {
-                        MessageBox.Show("Campo Nome não preenchido", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                   // fim
                 }
                 else
                 {
 
                 }
+
+            }
+            else
+            {
+                MessageBox.Show("Um ou mais campos não foram preenchidos!!!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            btnCancelar.Enabled = false;
+            btnSalvar.Enabled = false;
             btnNovo.Enabled = true;
+
+            bloqueiaCampos();
             limparCampos();
 
         }
@@ -127,13 +159,7 @@ namespace totalClean
 
         private void CadastroClientes_Load(object sender, EventArgs e)
         {
-            txtId.ReadOnly = true;
-            txtNome.ReadOnly = true;
-            txtTelefone.ReadOnly = true;
-            txtEndereco.ReadOnly = true;
-            rdbFrotista.Enabled = false;
-            rdbParticular.Enabled = false;
-            rdbParticular.Checked = true;
+            bloqueiaCampos();
 
         }
         private void limparCampos()

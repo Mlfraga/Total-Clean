@@ -31,16 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroServicosFrm));
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             this.label2 = new System.Windows.Forms.Label();
-            this.rdbParticular = new System.Windows.Forms.RadioButton();
-            this.bunifuSeparator5 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.rdbFrotista = new System.Windows.Forms.RadioButton();
-            this.txtEndereco = new System.Windows.Forms.TextBox();
+            this.rdbDesativo = new System.Windows.Forms.RadioButton();
+            this.rdbAtivo = new System.Windows.Forms.RadioButton();
             this.bunifuSeparator4 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.txtTelefone = new System.Windows.Forms.TextBox();
+            this.txtPreco = new System.Windows.Forms.TextBox();
             this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
             this.txtId = new System.Windows.Forms.TextBox();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -71,20 +68,9 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(780, 216);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 23);
+            this.label5.Size = new System.Drawing.Size(71, 23);
             this.label5.TabIndex = 60;
-            this.label5.Text = "Telefone:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(297, 352);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 23);
-            this.label4.TabIndex = 59;
-            this.label4.Text = "Endereço:";
+            this.label5.Text = "Preço:";
             // 
             // label3
             // 
@@ -116,64 +102,37 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(770, 338);
+            this.label2.Location = new System.Drawing.Point(300, 336);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 25);
+            this.label2.Size = new System.Drawing.Size(108, 25);
             this.label2.TabIndex = 54;
-            this.label2.Text = "Tipo:";
+            this.label2.Text = "Situação:";
             // 
-            // rdbParticular
+            // rdbDesativo
             // 
-            this.rdbParticular.AutoSize = true;
-            this.rdbParticular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbParticular.ForeColor = System.Drawing.Color.White;
-            this.rdbParticular.Location = new System.Drawing.Point(895, 378);
-            this.rdbParticular.Name = "rdbParticular";
-            this.rdbParticular.Size = new System.Drawing.Size(114, 29);
-            this.rdbParticular.TabIndex = 56;
-            this.rdbParticular.TabStop = true;
-            this.rdbParticular.Text = "Particular";
-            this.rdbParticular.UseVisualStyleBackColor = true;
+            this.rdbDesativo.AutoSize = true;
+            this.rdbDesativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbDesativo.ForeColor = System.Drawing.Color.White;
+            this.rdbDesativo.Location = new System.Drawing.Point(425, 376);
+            this.rdbDesativo.Name = "rdbDesativo";
+            this.rdbDesativo.Size = new System.Drawing.Size(109, 29);
+            this.rdbDesativo.TabIndex = 56;
+            this.rdbDesativo.TabStop = true;
+            this.rdbDesativo.Text = "Desativo";
+            this.rdbDesativo.UseVisualStyleBackColor = true;
             // 
-            // bunifuSeparator5
+            // rdbAtivo
             // 
-            this.bunifuSeparator5.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bunifuSeparator5.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.bunifuSeparator5.LineThickness = 1;
-            this.bunifuSeparator5.Location = new System.Drawing.Point(301, 405);
-            this.bunifuSeparator5.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.bunifuSeparator5.Name = "bunifuSeparator5";
-            this.bunifuSeparator5.Size = new System.Drawing.Size(315, 10);
-            this.bunifuSeparator5.TabIndex = 53;
-            this.bunifuSeparator5.Transparency = 255;
-            this.bunifuSeparator5.Vertical = false;
-            // 
-            // rdbFrotista
-            // 
-            this.rdbFrotista.AutoSize = true;
-            this.rdbFrotista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbFrotista.ForeColor = System.Drawing.Color.White;
-            this.rdbFrotista.Location = new System.Drawing.Point(772, 378);
-            this.rdbFrotista.Name = "rdbFrotista";
-            this.rdbFrotista.Size = new System.Drawing.Size(97, 29);
-            this.rdbFrotista.TabIndex = 55;
-            this.rdbFrotista.TabStop = true;
-            this.rdbFrotista.Text = "Frotista";
-            this.rdbFrotista.UseVisualStyleBackColor = true;
-            // 
-            // txtEndereco
-            // 
-            this.txtEndereco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.txtEndereco.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEndereco.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEndereco.ForeColor = System.Drawing.SystemColors.Info;
-            this.txtEndereco.HideSelection = false;
-            this.txtEndereco.Location = new System.Drawing.Point(301, 379);
-            this.txtEndereco.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(315, 25);
-            this.txtEndereco.TabIndex = 52;
+            this.rdbAtivo.AutoSize = true;
+            this.rdbAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbAtivo.ForeColor = System.Drawing.Color.White;
+            this.rdbAtivo.Location = new System.Drawing.Point(302, 376);
+            this.rdbAtivo.Name = "rdbAtivo";
+            this.rdbAtivo.Size = new System.Drawing.Size(77, 29);
+            this.rdbAtivo.TabIndex = 55;
+            this.rdbAtivo.TabStop = true;
+            this.rdbAtivo.Text = "Ativo";
+            this.rdbAtivo.UseVisualStyleBackColor = true;
             // 
             // bunifuSeparator4
             // 
@@ -189,18 +148,18 @@
             this.bunifuSeparator4.Transparency = 255;
             this.bunifuSeparator4.Vertical = false;
             // 
-            // txtTelefone
+            // txtPreco
             // 
-            this.txtTelefone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.txtTelefone.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTelefone.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefone.ForeColor = System.Drawing.SystemColors.Info;
-            this.txtTelefone.HideSelection = false;
-            this.txtTelefone.Location = new System.Drawing.Point(784, 242);
-            this.txtTelefone.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(315, 25);
-            this.txtTelefone.TabIndex = 50;
+            this.txtPreco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.txtPreco.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPreco.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPreco.ForeColor = System.Drawing.SystemColors.Info;
+            this.txtPreco.HideSelection = false;
+            this.txtPreco.Location = new System.Drawing.Point(784, 242);
+            this.txtPreco.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(315, 25);
+            this.txtPreco.TabIndex = 50;
             // 
             // bunifuSeparator3
             // 
@@ -304,6 +263,7 @@
             this.btnNovo.Text = "   Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnConsulta
             // 
@@ -324,6 +284,7 @@
             this.btnConsulta.Text = "Consultar";
             this.btnConsulta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConsulta.UseVisualStyleBackColor = false;
+            this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
             // 
             // btnSalvar
             // 
@@ -344,6 +305,7 @@
             this.btnSalvar.Text = "   Salvar";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // txtNome
             // 
@@ -378,16 +340,13 @@
             this.ClientSize = new System.Drawing.Size(1412, 774);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.bunifuSeparator6);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.rdbParticular);
-            this.Controls.Add(this.bunifuSeparator5);
-            this.Controls.Add(this.rdbFrotista);
-            this.Controls.Add(this.txtEndereco);
+            this.Controls.Add(this.rdbDesativo);
+            this.Controls.Add(this.rdbAtivo);
             this.Controls.Add(this.bunifuSeparator4);
-            this.Controls.Add(this.txtTelefone);
+            this.Controls.Add(this.txtPreco);
             this.Controls.Add(this.bunifuSeparator3);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.bunifuSeparator2);
@@ -402,6 +361,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CadastroServicosFrm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CadastroServicosFrm_FormClosed);
+            this.Load += new System.EventHandler(this.CadastroServicosFrm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,16 +371,13 @@
 
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator6;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton rdbParticular;
-        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator5;
-        private System.Windows.Forms.RadioButton rdbFrotista;
-        private System.Windows.Forms.TextBox txtEndereco;
+        private System.Windows.Forms.RadioButton rdbDesativo;
+        private System.Windows.Forms.RadioButton rdbAtivo;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator4;
-        private System.Windows.Forms.TextBox txtTelefone;
+        private System.Windows.Forms.TextBox txtPreco;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator3;
         private System.Windows.Forms.TextBox txtId;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
