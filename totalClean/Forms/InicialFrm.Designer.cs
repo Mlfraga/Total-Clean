@@ -153,7 +153,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(1412, 788);
+            this.ClientSize = new System.Drawing.Size(1394, 727);
             this.Controls.Add(this.btnRelatorioCliente);
             this.Controls.Add(this.btnRelatorioServico);
             this.Controls.Add(this.pictureBox1);

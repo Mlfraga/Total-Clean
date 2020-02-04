@@ -38,7 +38,9 @@ namespace totalClean
 
         private void btnRealizaVendas_Click(object sender, EventArgs e)
         {
-
+            VendaFrm n = new VendaFrm();
+            n.Show();
+            this.Visible = false;
         }
 
         private void btnCadServ_Click(object sender, EventArgs e)

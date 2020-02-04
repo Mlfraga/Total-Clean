@@ -162,7 +162,8 @@ namespace totalClean
             btnPesquisar.Enabled = true;
             txtTelefone.ReadOnly = true;
             txtEndereco.ReadOnly = true;
-
+            rdbFrotista.Enabled = false;
+            rdbParticular.Enabled = false;
         }
 
         private void limparCampos()
@@ -181,6 +182,8 @@ namespace totalClean
             btnPesquisar.Enabled = true;
             txtTelefone.ReadOnly = true;
             txtEndereco.ReadOnly = true;
+            rdbFrotista.Enabled = false;
+            rdbParticular.Enabled = false;
 
             iniciaGrid();
             limparCampos();
@@ -215,7 +218,7 @@ namespace totalClean
 
 
 
-            // Atualizar Grid com o cliente pesquisado
+            // Atualizar Grid com o cliente salvo
             List<Cliente> listCliente = new List<Cliente>();
             con.conectar();
 

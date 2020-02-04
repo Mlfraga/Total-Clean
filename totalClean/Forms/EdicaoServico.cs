@@ -101,5 +101,138 @@ namespace totalClean.Forms
             }
 
         }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text != string.Empty || txtNome.Text != string.Empty)
+            {
+
+                List<Servico> listServico = new List<Servico>();
+                con.conectar();
+
+                SqlDataReader reader;
+
+                if (txtNome.Text != string.Empty && txtId.Text == string.Empty)
+                {
+                    string nome = txtNome.Text;
+                    reader = con.exeCliente($"SELECT * FROM Servicos WHERE Nome LIKE ('%{nome}%') ");
+                }
+                else
+                {
+                    int g = int.Parse(txtId.Text);
+                    reader = con.exeCliente("SELECT * FROM Servicos WHERE idServico = " + g);
+                }
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Servico servico = new Servico();
+
+                        servico.id = reader.GetInt32(0);
+                        servico.nome = reader.GetString(1);
+                        servico.preco = reader.GetDouble(2);
+                        servico.ativo = reader.GetBoolean(3);
+
+                        listServico.Add(servico);
+                    }
+                    reader.Close();
+                }
+                else
+                {
+                    Console.WriteLine("Não retornou dados");
+                }
+                dgvServicos.DataSource = null;
+                dgvServicos.DataSource = listServico;
+            }
+            else
+            {
+
+            }
+        }
+        private void limparCampos()
+        {
+            txtPreco.Text = "";
+            txtId.Text = "";
+            txtNome.Text = "";
+            iniciaGrid();
+        }
+
+        private void btnLimpaCampos_Click(object sender, EventArgs e)
+        {
+            btnCancelar.Enabled = false;
+            btnSalvar.Enabled = false;
+            btnPesquisar.Enabled = true;
+            txtPreco.ReadOnly = true;
+            rdbAtivo.Enabled = false;
+            rdbDesativo.Enabled = false;
+
+            iniciaGrid();
+            limparCampos();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            btnCancelar.Enabled = false;
+            btnSalvar.Enabled = false;
+            btnPesquisar.Enabled = true;
+            txtPreco.ReadOnly = true;
+            rdbAtivo.Enabled = false;
+            rdbDesativo.Enabled = false;
+
+            iniciaGrid();
+            limparCampos();
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+
+            Servico servico = new Servico();
+            servico.id = int.Parse(txtId.Text);
+            servico.nome = txtNome.Text;
+            servico.preco = Double.Parse(txtPreco.Text);
+            
+
+            if (rdbAtivo.Checked == true)
+            {
+                servico.ativo = true;
+            }
+            else
+            {
+                servico.ativo = false;
+            }
+
+            int aNome = con.executar($"UPDATE [dbo].[Servicos] set nome = '" + servico.nome + "' WHERE idServico = " + servico.id);
+            int apreco= con.executar($"UPDATE [dbo].[Servicos] set preco = '" + servico.preco + "' WHERE idServico = " + servico.id);
+            int aEndereco = con.executar($"UPDATE [dbo].[Servicos] set ativo = '" + servico.ativo + "' WHERE idServico = " + servico.id);
+            
+            // Atualizar Grid com o cliente salvo
+            List<Servico> listServico= new List<Servico>();
+            con.conectar();
+
+            SqlDataReader reader;
+
+            reader = con.exeCliente($"SELECT * FROM Servicos WHERE idServico = ('{servico.id}') ");
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+
+                    servico.id = reader.GetInt32(0);
+                    servico.nome = reader.GetString(1);
+                    servico.preco = reader.GetDouble(2);
+                    servico.ativo = reader.GetBoolean(3);
+
+                    listServico.Add(servico);
+                }
+                reader.Close();
+            }
+            else
+            {
+                Console.WriteLine("Não retornou dados");
+            }
+            dgvServicos.DataSource = null;
+            dgvServicos.DataSource = listServico;
+        }
     }
 }

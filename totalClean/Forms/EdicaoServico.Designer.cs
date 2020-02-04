@@ -73,6 +73,7 @@
             this.btnLimpaCampos.Text = "  Limpar Campos";
             this.btnLimpaCampos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpaCampos.UseVisualStyleBackColor = false;
+            this.btnLimpaCampos.Click += new System.EventHandler(this.btnLimpaCampos_Click);
             // 
             // btnCancelar
             // 
@@ -93,6 +94,7 @@
             this.btnCancelar.Text = "   Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // bunifuSeparator7
             // 
@@ -127,6 +129,7 @@
             this.btnSalvar.Text = "   Salvar";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnPesquisar
             // 
@@ -147,6 +150,7 @@
             this.btnPesquisar.Text = "   Pesquisar";
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // label1
             // 
