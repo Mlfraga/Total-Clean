@@ -180,7 +180,7 @@
             this.btnConcluido.Text = "   Concluído";
             this.btnConcluido.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConcluido.UseVisualStyleBackColor = false;
-            this.btnConcluido.Click += new System.EventHandler(this.btnConsulta_Click);
+            this.btnConcluido.Click += new System.EventHandler(this.btnConcluido_Click);
             // 
             // btnCancelar
             // 
@@ -240,7 +240,7 @@
             this.cmbCliente.FormattingEnabled = true;
             this.cmbCliente.Location = new System.Drawing.Point(305, 244);
             this.cmbCliente.Name = "cmbCliente";
-            this.cmbCliente.Size = new System.Drawing.Size(208, 24);
+            this.cmbCliente.Size = new System.Drawing.Size(280, 24);
             this.cmbCliente.TabIndex = 66;
             // 
             // label2
@@ -248,7 +248,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(546, 216);
+            this.label2.Location = new System.Drawing.Point(599, 216);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 23);
             this.label2.TabIndex = 67;
@@ -260,10 +260,10 @@
             this.bunifuSeparator2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(548, 262);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(603, 262);
             this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
-            this.bunifuSeparator2.Size = new System.Drawing.Size(315, 10);
+            this.bunifuSeparator2.Size = new System.Drawing.Size(266, 10);
             this.bunifuSeparator2.TabIndex = 69;
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = false;
@@ -275,10 +275,10 @@
             this.txtCarro.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCarro.ForeColor = System.Drawing.SystemColors.Info;
             this.txtCarro.HideSelection = false;
-            this.txtCarro.Location = new System.Drawing.Point(554, 243);
+            this.txtCarro.Location = new System.Drawing.Point(603, 243);
             this.txtCarro.Margin = new System.Windows.Forms.Padding(4);
             this.txtCarro.Name = "txtCarro";
-            this.txtCarro.Size = new System.Drawing.Size(315, 25);
+            this.txtCarro.Size = new System.Drawing.Size(266, 25);
             this.txtCarro.TabIndex = 68;
             // 
             // bunifuSeparator1
@@ -290,7 +290,7 @@
             this.bunifuSeparator1.Location = new System.Drawing.Point(897, 262);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(197, 10);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(284, 10);
             this.bunifuSeparator1.TabIndex = 72;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
@@ -305,7 +305,7 @@
             this.txtPlaca.Location = new System.Drawing.Point(901, 243);
             this.txtPlaca.Margin = new System.Windows.Forms.Padding(4);
             this.txtPlaca.Name = "txtPlaca";
-            this.txtPlaca.Size = new System.Drawing.Size(193, 25);
+            this.txtPlaca.Size = new System.Drawing.Size(280, 25);
             this.txtPlaca.TabIndex = 71;
             // 
             // label3
@@ -324,7 +324,7 @@
             this.DtVenda.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.DtVenda.Location = new System.Drawing.Point(305, 364);
             this.DtVenda.Name = "DtVenda";
-            this.DtVenda.Size = new System.Drawing.Size(232, 22);
+            this.DtVenda.Size = new System.Drawing.Size(280, 22);
             this.DtVenda.TabIndex = 73;
             // 
             // label4

@@ -114,7 +114,7 @@ namespace totalClean
 
                             listCliente.Add(cliente);
                         }
-                        MessageBox.Show("Id do Cliente: " + cliente.id.ToString(),"armazenar ultima id salva");
+                        
                         reader.Close();
                         
                         btnCancelar.Enabled = false;
@@ -123,7 +123,8 @@ namespace totalClean
                        
                         bloqueiaCampos();
                     }
-                   // fim
+                    MessageBox.Show("Id do Cliente: " + cliente.id.ToString(), "armazenar ultima id salva");
+                    // fim
                 }
                 else
                 {

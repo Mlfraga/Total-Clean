@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Servico.cs" />
+    <Compile Include="Classes\VendasServicos.cs" />
     <Compile Include="Forms\CadastroClientesFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +92,7 @@
     <Compile Include="Forms\VendaFrm.Designer.cs">
       <DependentUpon>VendaFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Venda.cs" />
     <EmbeddedResource Include="Forms\CadastroClientesFrm.resx">
       <DependentUpon>CadastroClientesFrm.cs</DependentUpon>
     </EmbeddedResource>

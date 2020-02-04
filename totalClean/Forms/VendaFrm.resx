@@ -120,17 +120,16 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnConsulta.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAIHSURBVFhH7ZYxSFtRFIYjFaXQxUUQXaQIHaxDiXRQdHLs0kFdurjoomORQjaXagUFySI42KlD
-        aaeiIrSLk1tdxEkQrBlSEGwHWxu/c+555kKCubz3jB3eBx/Ec+757yHEvOQyMppJpVJ5hGM4ja9xAp9a
-        u3lw6QDu4F+sRwkL2GYjd4NcgO/wCkM4xEEbTxeC23FfbvGQd+g7vkdZdBfL6CNnxi0mPQjd1Pgq37DH
-        2jdQa8EZvMCI39hvR5JDWF5jqyxhi7XrQr8PT+SwsW2t5BD2xWUqn63cEM4+Q/+Dn7dWfAjpwCj0D3ZZ
-        KwjOr+mkY8XK8SHkpctS9qwcDDPyPRVxYOX4EDLrspSilYNhptONKmUrx4eQeZelLFo5GGYeulHl0srx
-        IWTKZSkfrBwMM0/cqHJi5fgQ8txlKSUrB8OMfCdFfLJyMgg6dXnKpJUbwtkHeKBTjlfWSgZBb1ye8hN7
-        rXUrnFvVCYc8UtqtlQyC5GfGmaQa8nrU2jXQkw9yUQ56zFo7HQgcQf8p/w/XUb6nHqMsPYxzeIw+RxaT
-        LgTL5ed6RTj+O7uF6f5GIrAbP0p6A+Rpv4yt+leV9JcSCB3Ct7iHP/AXyn/UBr7Amw8wr2UJn7tZKhQu
-        lx93X2UTj2ypGrg8WyoILq+3VMHa9wML+Evd7zsUwRKy1MJ/sUxGRnPI5a4BCHHjZua2N4gAAAAASUVO
-        RK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAAgdJREFUWEft
+        ljFIW1EUhiMVpdDFRRBdpAgdrEOJdFB0cuzSQV26uOiiY5FCNpdqBQXJIjjYqUNpp6IitIuTW13ESRCs
+        GVIQbAdbG79z7nnmQoK5vPeMHd4HH8Rz7vnvIcS85DIymkmlUnmEYziNr3ECn1q7eXDpAO7gX6xHCQvY
+        ZiN3g1yA7/AKQzjEQRtPF4LbcV9u8ZB36Du+R1l0F8voI2fGLSY9CN3U+CrfsMfaN1BrwRm8wIjf2G9H
+        kkNYXmOrLGGLtetCvw9P5LCxba3kEPbFZSqfrdwQzj5D/4Oft1Z8COnAKPQPdlkrCM6v6aRjxcrxIeSl
+        y1L2rBwMM/I9FXFg5fgQMuuylKKVg2Gm040qZSvHh5B5l6UsWjkYZh66UeXSyvEhZMplKR+sHAwzT9yo
+        cmLl+BDy3GUpJSsHw4x8J0V8snIyCDp1ecqklRvC2Qd4oFOOV9ZKBkFvXJ7yE3utdSucW9UJhzxS2q2V
+        DILkZ8aZpBryetTaNdCTD3JRDnrMWjsdCBxB/yn/D9dRvqceoyw9jHN4jD5HFpMuBMvl53pFOP47u4Xp
+        /kYisBs/SnoD5Gm/jK36V5X0lxIIHcK3uIc/8BfKf9QGvsCbDzCvZQmfu1kqFC6XH3dfZROPbKkauDxb
+        Kggur7dUwdr3Awv4S93vOxTBErLUwn+xTEZGc8jlrgEIceNm5rY3iAAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btnNova.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
