@@ -139,6 +139,7 @@
             this.btnConsulta.Text = "   Consulta";
             this.btnConsulta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConsulta.UseVisualStyleBackColor = false;
+            this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
             // 
             // btnNova
             // 
@@ -242,6 +243,7 @@
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(280, 24);
             this.cmbCliente.TabIndex = 66;
+            this.cmbCliente.SelectedIndexChanged += new System.EventHandler(this.cmbCliente_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -267,6 +269,7 @@
             this.bunifuSeparator2.TabIndex = 69;
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = false;
+            this.bunifuSeparator2.Load += new System.EventHandler(this.bunifuSeparator2_Load);
             // 
             // txtCarro
             // 
@@ -280,6 +283,7 @@
             this.txtCarro.Name = "txtCarro";
             this.txtCarro.Size = new System.Drawing.Size(266, 25);
             this.txtCarro.TabIndex = 68;
+            this.txtCarro.TextChanged += new System.EventHandler(this.txtCarro_TextChanged);
             // 
             // bunifuSeparator1
             // 
@@ -294,6 +298,7 @@
             this.bunifuSeparator1.TabIndex = 72;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
+            this.bunifuSeparator1.Load += new System.EventHandler(this.bunifuSeparator1_Load);
             // 
             // txtPlaca
             // 
@@ -307,6 +312,7 @@
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(280, 25);
             this.txtPlaca.TabIndex = 71;
+            this.txtPlaca.TextChanged += new System.EventHandler(this.txtPlaca_TextChanged);
             // 
             // label3
             // 
@@ -321,11 +327,13 @@
             // 
             // DtVenda
             // 
+            this.DtVenda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtVenda.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.DtVenda.Location = new System.Drawing.Point(305, 364);
             this.DtVenda.Name = "DtVenda";
             this.DtVenda.Size = new System.Drawing.Size(280, 22);
             this.DtVenda.TabIndex = 73;
+            this.DtVenda.ValueChanged += new System.EventHandler(this.DtVenda_ValueChanged);
             // 
             // label4
             // 
@@ -892,7 +900,7 @@
             this.Controls.Add(this.label1);
             this.Name = "VendaFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "VendaFrm";
+            this.Text = "Prestação de Serviços";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VendaFrm_FormClosed);
             this.Load += new System.EventHandler(this.VendaFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd1)).EndInit();

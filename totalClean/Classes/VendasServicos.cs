@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace totalClean.Classes
 {
     class VendasServicos
-    {
+    {     
         public int servico1 { get; set; }
         public int qtd1 { get; set; }
         public int servico2 { get; set; }

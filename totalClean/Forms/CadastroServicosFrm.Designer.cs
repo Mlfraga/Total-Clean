@@ -359,7 +359,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CadastroServicosFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CadastroServicosFrm";
+            this.Text = "Cadastro de Servicos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CadastroServicosFrm_FormClosed);
             this.Load += new System.EventHandler(this.CadastroServicosFrm_Load);
             this.ResumeLayout(false);

@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 namespace totalClean
 {
     public partial class EdicaoFrm : Form
-    {        
+    {
         Conexao con = new Conexao();
         public EdicaoFrm()
         {
@@ -21,7 +21,7 @@ namespace totalClean
         }
 
 
-       
+
         private void EdicaoFrm_Load(object sender, EventArgs e)
         {
             txtTelefone.ReadOnly = true;
@@ -57,11 +57,28 @@ namespace totalClean
                 {
                     string nome = txtNome.Text;
                     reader = con.exeCliente($"SELECT * FROM Cliente WHERE Nome LIKE ('%{nome}%') ");
+                    if (reader.HasRows)
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi encontrado nenhum cliente com nome parecido com " + nome, "ERRO", MessageBoxButtons.OK);
+                    }
+
                 }
                 else
                 {
                     int g = int.Parse(txtId.Text);
                     reader = con.exeCliente("SELECT * FROM Cliente WHERE idCliente = " + g);
+                    if (reader.HasRows)
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi encontrado nenhum cliente com id igual a " + g, "ERRO", MessageBoxButtons.OK);
+                    }
                 }
                 if (reader.HasRows)
                 {
@@ -78,17 +95,18 @@ namespace totalClean
                         listCliente.Add(cliente);
                     }
                     reader.Close();
+                    dgvClientes.DataSource = null;
+                    dgvClientes.DataSource = listCliente;
                 }
                 else
                 {
-                    Console.WriteLine("Não retornou dados");
+
                 }
-                dgvClientes.DataSource = null;
-                dgvClientes.DataSource = listCliente;
+
             }
             else
             {
-
+                MessageBox.Show("Campos não preenchido");
             }
         }
 
@@ -189,9 +207,6 @@ namespace totalClean
             limparCampos();
         }
 
-
-
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
 
@@ -210,43 +225,57 @@ namespace totalClean
                 cliente.frotista = false;
             }
 
-            int aNome = con.executar($"UPDATE [dbo].[Cliente] set nome = '" + cliente.nome + "' WHERE idCliente = " + cliente.id);
-            int atelefone = con.executar($"UPDATE [dbo].[Cliente] set telefone = '" + cliente.telefone + "' WHERE idCliente = " + cliente.id);
-            int aEndereco = con.executar($"UPDATE [dbo].[Cliente] set endereco = '" + cliente.endereco + "' WHERE idCliente = " + cliente.id);
-            int aTipo = con.executar($"UPDATE [dbo].[Cliente] set frotista = '" + cliente.frotista + "' WHERE idCliente = " + cliente.id);
+            int maxChar = 11;
 
-
-
-
-            // Atualizar Grid com o cliente salvo
-            List<Cliente> listCliente = new List<Cliente>();
-            con.conectar();
-
-            SqlDataReader reader;
-
-            reader = con.exeCliente($"SELECT * FROM Cliente WHERE idCliente = ('{cliente.id}') ");
-
-            if (reader.HasRows)
+            if (txtTelefone.Text.Length > maxChar)
             {
-                while (reader.Read())
-                {
-
-                    cliente.id = reader.GetInt32(0);
-                    cliente.nome = reader.GetString(1);
-                    cliente.telefone = reader.GetString(2);
-                    cliente.endereco = reader.GetString(3);
-                    cliente.frotista = reader.GetBoolean(4);
-
-                    listCliente.Add(cliente);
-                }
-                reader.Close();
+                MessageBox.Show("Campo de telefone com mais de 11 caractere", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                Console.WriteLine("Não retornou dados");
+
+
+
+                int aNome = con.executar($"UPDATE [dbo].[Cliente] set nome = '" + cliente.nome + "' WHERE idCliente = " + cliente.id);
+                int atelefone = con.executar($"UPDATE [dbo].[Cliente] set telefone = '" + cliente.telefone + "' WHERE idCliente = " + cliente.id);
+                int aEndereco = con.executar($"UPDATE [dbo].[Cliente] set endereco = '" + cliente.endereco + "' WHERE idCliente = " + cliente.id);
+                int aTipo = con.executar($"UPDATE [dbo].[Cliente] set frotista = '" + cliente.frotista + "' WHERE idCliente = " + cliente.id);
+
+                MessageBox.Show("Dados alterados com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+
+                // Atualizar Grid com o cliente salvo
+                List<Cliente> listCliente = new List<Cliente>();
+                con.conectar();
+
+                SqlDataReader reader;
+
+                reader = con.exeCliente($"SELECT * FROM Cliente WHERE idCliente = ('{cliente.id}') ");
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+
+                        cliente.id = reader.GetInt32(0);
+                        cliente.nome = reader.GetString(1);
+                        cliente.telefone = reader.GetString(2);
+                        cliente.endereco = reader.GetString(3);
+                        cliente.frotista = reader.GetBoolean(4);
+
+                        listCliente.Add(cliente);
+                    }
+                    reader.Close();
+                }
+                else
+                {
+                    Console.WriteLine("Não retornou dados");
+                }
+                dgvClientes.DataSource = null;
+                dgvClientes.DataSource = listCliente;
             }
-            dgvClientes.DataSource = null;
-            dgvClientes.DataSource = listCliente;
         }
 
         private void EdicaoFrm_FormClosed(object sender, FormClosedEventArgs e)
@@ -254,10 +283,7 @@ namespace totalClean
             Application.Exit();
         }
 
-        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
     }
 
 }

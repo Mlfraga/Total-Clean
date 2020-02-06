@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace totalClean
 {
-    class Venda
+    class ServicoVenda
     {
         public int idVenda { get; set; }
-        public int idCliente { get; set; }
+        public Boolean frotista { get; set; }
+        public String cliente { get; set; }
         public String carro { get; set; }
         public String placa { get; set; }
-        public DateTime data { get; set; } 
+        public String servico { get; set; }
+        public DateTime data { get; set; }
     }
 }

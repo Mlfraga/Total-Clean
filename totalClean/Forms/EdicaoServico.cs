@@ -116,12 +116,33 @@ namespace totalClean.Forms
                 {
                     string nome = txtNome.Text;
                     reader = con.exeCliente($"SELECT * FROM Servicos WHERE Nome LIKE ('%{nome}%') ");
+                    if (reader.HasRows)
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi encontrado nenhum serviço com nome parecido com " + nome,"ERRO",MessageBoxButtons.OK);
+                    }
+
+
                 }
+
                 else
                 {
                     int g = int.Parse(txtId.Text);
                     reader = con.exeCliente("SELECT * FROM Servicos WHERE idServico = " + g);
+                    if (reader.HasRows)
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi encontrado nenhum servico com id igual a " + g, "ERRO", MessageBoxButtons.OK);
+                    }
                 }
+
+
                 if (reader.HasRows)
                 {
                     while (reader.Read())
@@ -134,19 +155,21 @@ namespace totalClean.Forms
                         servico.ativo = reader.GetBoolean(3);
 
                         listServico.Add(servico);
+                    
                     }
                     reader.Close();
+                    dgvServicos.DataSource = null;
+                    dgvServicos.DataSource = listServico;
                 }
                 else
                 {
                     Console.WriteLine("Não retornou dados");
                 }
-                dgvServicos.DataSource = null;
-                dgvServicos.DataSource = listServico;
+               
             }
             else
             {
-
+                MessageBox.Show("Nenhum dado inserido");
             }
         }
         private void limparCampos()
@@ -204,7 +227,9 @@ namespace totalClean.Forms
             int aNome = con.executar($"UPDATE [dbo].[Servicos] set nome = '" + servico.nome + "' WHERE idServico = " + servico.id);
             int apreco= con.executar($"UPDATE [dbo].[Servicos] set preco = '" + servico.preco + "' WHERE idServico = " + servico.id);
             int aEndereco = con.executar($"UPDATE [dbo].[Servicos] set ativo = '" + servico.ativo + "' WHERE idServico = " + servico.id);
-            
+
+            MessageBox.Show("Dados alterados com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             // Atualizar Grid com o cliente salvo
             List<Servico> listServico= new List<Servico>();
             con.conectar();

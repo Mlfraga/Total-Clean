@@ -245,7 +245,7 @@
             this.txtTelefone.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefone.ForeColor = System.Drawing.SystemColors.Info;
             this.txtTelefone.HideSelection = false;
-            this.txtTelefone.Location = new System.Drawing.Point(779, 243);
+            this.txtTelefone.Location = new System.Drawing.Point(784, 243);
             this.txtTelefone.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(315, 25);

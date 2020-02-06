@@ -22,6 +22,7 @@ namespace totalClean
 
         private void VendaFrm_Load(object sender, EventArgs e)
         {
+            limpaCampos();
             ocultaCmbs();
             prencheCmbCliente();
             PreencheCmb1();
@@ -63,170 +64,187 @@ namespace totalClean
         }
         private void btnConcluido_Click(object sender, EventArgs e)
         {
+
             if (cmbCliente.Text != string.Empty && txtCarro.Text != string.Empty && txtPlaca.Text != string.Empty && cmbQtd1.Text != string.Empty && cmbServico1.Text != string.Empty)
             {
-                Classes.VendasServicos vs = new Classes.VendasServicos();
-                Venda venda = new Venda();
-                venda.idCliente = int.Parse(cmbCliente.SelectedValue.ToString());
-                venda.carro = txtCarro.Text;
-                venda.placa = txtPlaca.Text;
-                venda.data = DtVenda.Value;
-                Conexao conexao = new Conexao();
-                conexao.conectar();
-
-                int linhas = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente) VALUES('{venda.data.ToShortDateString()}','{venda.carro}','{venda.placa}','{venda.idCliente}') ");
-
-                /// Pegar ultimo id Venda
-                con.conectar();
-
-                SqlDataReader reader;
-
-                reader = con.exeCliente("select * from Vendas");
-
-                if (reader.HasRows)
+                int tamMax = 7;
+                if (txtPlaca.Text.Length <= tamMax)
                 {
-                    while (reader.Read())
+
+                    Classes.VendasServicos vs = new Classes.VendasServicos();
+                    Venda venda = new Venda();
+                    venda.idCliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                    venda.carro = txtCarro.Text;
+                    venda.placa = txtPlaca.Text;
+                    venda.data = DtVenda.Value;
+                    Conexao conexao = new Conexao();
+                    conexao.conectar();
+
+                    int linhas = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente) VALUES('{venda.data.ToShortDateString()}','{venda.carro}','{venda.placa}','{venda.idCliente}') ");
+
+                    /// Pegar ultimo id Venda
+                    con.conectar();
+
+                    SqlDataReader reader;
+
+                    reader = con.exeCliente("select * from Vendas");
+
+                    if (reader.HasRows)
                     {
-                        venda.idVenda = reader.GetInt32(0);
-                        venda.data = reader.GetDateTime(1);
-                        venda.carro = reader.GetString(2);
-                        venda.placa = reader.GetString(3);
-                        venda.idCliente = reader.GetInt32(4);
+                        while (reader.Read())
+                        {
+                            venda.idVenda = reader.GetInt32(0);
+                            venda.data = reader.GetDateTime(1);
+                            venda.carro = reader.GetString(2);
+                            venda.placa = reader.GetString(3);
+                            venda.idCliente = reader.GetInt32(4);
+
+                        }
+
+
+                        reader.Close();
+                    }
+
+
+                    int idVenda = venda.idVenda;
+                    vs.qtd1 = int.Parse(cmbQtd1.Text);
+                    vs.servico1 = int.Parse(cmbServico1.SelectedValue.ToString());
+
+                    for (int i = 1; i <= vs.qtd1; i++)
+                    {
+                        int linhas1 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico1}','{idVenda}') ");
+                    }
+
+
+                    if (cmbServico2.Text != string.Empty && cmbQtd2.Text != string.Empty)
+                    {
+                        vs.qtd2 = int.Parse(cmbQtd2.Text);
+                        vs.servico2 = int.Parse(cmbServico2.SelectedValue.ToString());
+
+                        for (int i = 1; i <= vs.qtd2; i++)
+                        {
+                            int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico2}','{idVenda}') ");
+                        }
+                    }
+                    else
+                    {
 
                     }
 
-                    
-                    reader.Close();
-                }
 
-                
-                int idVenda = venda.idVenda;
-                vs.qtd1 = int.Parse(cmbQtd1.Text);
-                vs.servico1 = int.Parse(cmbServico1.SelectedValue.ToString());
-
-                for (int i = 1; i <= vs.qtd1; i++)
-                {
-                    int linhas1 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico1}','{idVenda}') ");
-                }
-
-
-                if(cmbServico2.Text != string.Empty && cmbQtd2.Text != string.Empty)
-                {
-                    vs.qtd2 = int.Parse(cmbQtd2.Text);
-                    vs.servico2 = int.Parse(cmbServico2.SelectedValue.ToString());
-
-                    for (int i = 1; i <= vs.qtd2; i++)
+                    if (cmbServico3.Text != string.Empty && cmbQtd3.Text != string.Empty)
                     {
-                        int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico2}','{idVenda}') ");
+                        vs.qtd3 = int.Parse(cmbQtd3.Text);
+                        vs.servico3 = int.Parse(cmbServico3.SelectedValue.ToString());
+
+                        for (int i = 1; i <= vs.qtd3; i++)
+                        {
+                            int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico3}','{idVenda}') ");
+                        }
                     }
+                    else
+                    {
+
+                    }
+
+
+                    if (cmbServico4.Text != string.Empty && cmbQtd4.Text != string.Empty)
+                    {
+                        vs.qtd4 = int.Parse(cmbQtd4.Text);
+                        vs.servico4 = int.Parse(cmbServico4.SelectedValue.ToString());
+
+                        for (int i = 1; i <= vs.qtd4; i++)
+                        {
+                            int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico4}','{idVenda}') ");
+                        }
+                    }
+                    else
+                    {
+
+                    }
+
+
+                    if (cmbServico5.Text != string.Empty && cmbQtd5.Text != string.Empty)
+                    {
+                        vs.qtd5 = int.Parse(cmbQtd5.Text);
+                        vs.servico5 = int.Parse(cmbServico5.SelectedValue.ToString());
+
+                        for (int i = 1; i <= vs.qtd5; i++)
+                        {
+                            int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico5}','{idVenda}') ");
+                        }
+                    }
+                    else
+                    {
+
+                    }
+
+
+                    if (cmbServico6.Text != string.Empty && cmbQtd6.Text != string.Empty)
+                    {
+                        vs.qtd6 = int.Parse(cmbQtd6.Text);
+                        vs.servico6 = int.Parse(cmbServico6.SelectedValue.ToString());
+
+                        for (int i = 1; i <= vs.qtd6; i++)
+                        {
+                            int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico6}','{idVenda}') ");
+                        }
+                    }
+                    else
+                    {
+
+                    }
+
+
+                    if (cmbServico7.Text != string.Empty && cmbQtd7.Text != string.Empty)
+                    {
+                        vs.qtd7 = int.Parse(cmbQtd7.Text);
+                        vs.servico7 = int.Parse(cmbServico7.SelectedValue.ToString());
+
+                        for (int i = 1; i <= vs.qtd7; i++)
+                        {
+                            int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico7}','{idVenda}') ");
+                        }
+                    }
+                    else
+                    {
+
+                    }
+
+
+                    if (cmbServico8.Text != string.Empty && cmbQtd8.Text != string.Empty)
+                    {
+                        vs.qtd8 = int.Parse(cmbQtd8.Text);
+                        vs.servico8 = int.Parse(cmbServico8.SelectedValue.ToString());
+
+                        for (int i = 1; i <= vs.qtd8; i++)
+                        {
+                            int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico8}','{idVenda}') ");
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                    MessageBox.Show("Prestação de Serviço Registrada com Sucesso", "Confirmção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpaCampos();
+                    bloqueiaCampos();
+                    ocultaCmbs();
+                    btnNova.Enabled = true;
+                    btnCancelar.Enabled = false;
+                    btnConcluido.Enabled = false;
                 }
                 else
                 {
-
+                    MessageBox.Show("Campo placa com mais de 7 caracteres","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
 
-
-                if (cmbServico3.Text != string.Empty && cmbQtd3.Text != string.Empty)
-                {
-                    vs.qtd3 = int.Parse(cmbQtd3.Text);
-                    vs.servico3 = int.Parse(cmbServico3.SelectedValue.ToString());
-
-                    for (int i = 1; i <= vs.qtd3; i++)
-                    {
-                        int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico3}','{idVenda}') ");
-                    }
-                }
-                else
-                {
-
-                }
-
-
-                if (cmbServico4.Text != string.Empty && cmbQtd4.Text != string.Empty)
-                {
-                    vs.qtd4 = int.Parse(cmbQtd4.Text);
-                    vs.servico4 = int.Parse(cmbServico4.SelectedValue.ToString());
-
-                    for (int i = 1; i <= vs.qtd4; i++)
-                    {
-                        int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico4}','{idVenda}') ");
-                    }
-                }
-                else
-                {
-
-                }
-
-
-                if (cmbServico5.Text != string.Empty && cmbQtd5.Text != string.Empty)
-                {
-                    vs.qtd5 = int.Parse(cmbQtd5.Text);
-                    vs.servico5 = int.Parse(cmbServico5.SelectedValue.ToString());
-
-                    for (int i = 1; i <= vs.qtd5; i++)
-                    {
-                        int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico5}','{idVenda}') ");
-                    }
-                }
-                else
-                {
-
-                }
-
-
-                if (cmbServico6.Text != string.Empty && cmbQtd6.Text != string.Empty)
-                {
-                    vs.qtd6 = int.Parse(cmbQtd6.Text);
-                    vs.servico6 = int.Parse(cmbServico6.SelectedValue.ToString());
-
-                    for (int i = 1; i <= vs.qtd6; i++)
-                    {
-                        int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico6}','{idVenda}') ");
-                    }
-                }
-                else
-                {
-
-                }
-
-
-                if (cmbServico7.Text != string.Empty && cmbQtd7.Text != string.Empty)
-                {
-                    vs.qtd7 = int.Parse(cmbQtd7.Text);
-                    vs.servico7 = int.Parse(cmbServico7.SelectedValue.ToString());
-
-                    for (int i = 1; i <= vs.qtd7; i++)
-                    {
-                        int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico7}','{idVenda}') ");
-                    }
-                }
-                else
-                {
-
-                }
-
-
-                if (cmbServico8.Text != string.Empty && cmbQtd8.Text != string.Empty)
-                {
-                    vs.qtd8 = int.Parse(cmbQtd8.Text);
-                    vs.servico8 = int.Parse(cmbServico8.SelectedValue.ToString());
-
-                    for (int i = 1; i <= vs.qtd8; i++)
-                    {
-                        int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda) VALUES('{vs.servico8}','{idVenda}') ");
-                    }
-                }
-                else
-                {
-
-                }
-                MessageBox.Show("Prestação de Serviço Registrada com Sucesso","Confirmção",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                limpaCampos();
-                bloqueiaCampos();
-                ocultaCmbs();
-                btnCancelar.Enabled = false;
-                btnConcluido.Enabled = false;
             }
+            else
+            {
+                MessageBox.Show("É necessário preencher todos os dados!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
         private void VendaFrm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -739,6 +757,41 @@ namespace totalClean
 
         }
 
+        private void btnConsulta_Click(object sender, EventArgs e)
+        {
+            ConsultaVendaServiço n = new ConsultaVendaServiço();
+            n.Show();
+            this.Visible = false;
+        }
 
+        private void txtPlaca_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuSeparator2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCarro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuSeparator1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DtVenda_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

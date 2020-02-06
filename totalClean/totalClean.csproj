@@ -52,6 +52,12 @@
   <ItemGroup>
     <Compile Include="Classes\Servico.cs" />
     <Compile Include="Classes\VendasServicos.cs" />
+    <Compile Include="Forms\EdicaoVendaServiço.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EdicaoVendaServiço.Designer.cs">
+      <DependentUpon>EdicaoVendaServiço.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CadastroClientesFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,7 @@
     <Compile Include="Forms\EdicaoServico.Designer.cs">
       <DependentUpon>EdicaoServico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\ServicoVenda.cs" />
     <Compile Include="Util\Conexao.cs" />
     <Compile Include="Forms\EdicaoClienteFrm.cs">
       <SubType>Form</SubType>
@@ -92,12 +99,15 @@
     <Compile Include="Forms\VendaFrm.Designer.cs">
       <DependentUpon>VendaFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Venda.cs" />
+    <Compile Include="Classes\Venda.cs" />
     <EmbeddedResource Include="Forms\CadastroClientesFrm.resx">
       <DependentUpon>CadastroClientesFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CadastroServicosFrm.resx">
       <DependentUpon>CadastroServicosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EdicaoVendaServiço.resx">
+      <DependentUpon>EdicaoVendaServiço.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EdicaoClienteFrm.resx">
       <DependentUpon>EdicaoClienteFrm.cs</DependentUpon>

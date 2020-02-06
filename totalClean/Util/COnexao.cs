@@ -37,17 +37,18 @@ namespace totalClean
         public int executar(String sql)
 
         {
-            SqlCommand sqlc = new SqlCommand(sql, sqlCon);
-            return sqlc.ExecuteNonQuery();
+         
+                SqlCommand sqlc = new SqlCommand(sql, sqlCon);
+                return sqlc.ExecuteNonQuery();
+           
         }
+            public SqlDataReader exeCliente(String sql)
 
-        public SqlDataReader exeCliente(String sql)
+            {
 
-        {
+                SqlCommand sqlc = new SqlCommand(sql, sqlCon);
+                return sqlc.ExecuteReader();
 
-            SqlCommand sqlc = new SqlCommand(sql, sqlCon);
-            return sqlc.ExecuteReader();
-
+            }
         }
     }
-}

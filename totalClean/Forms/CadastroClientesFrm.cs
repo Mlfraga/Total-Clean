@@ -50,7 +50,7 @@ namespace totalClean
 
         private void btnConsulta_Click(object sender, EventArgs e)
         {
-            btnNovo.Enabled = false;            
+            btnNovo.Enabled = false;
             EdicaoFrm s = new EdicaoFrm();
             s.Show();
             this.Visible = false;
@@ -81,50 +81,59 @@ namespace totalClean
             {
                 var escolha = MessageBox.Show("Você deseja mesmo salvar esses dados?", "Confirmção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (escolha == DialogResult.Yes)
-            {            
-                    Cliente cliente = new Cliente();
-                    Conexao conexao = new Conexao();
-                    conexao.conectar();
+                if (escolha == DialogResult.Yes)
+                {
+                    int maxChar = 11;
 
-                    int linhas = conexao.executar($"INSERT INTO Cliente (nome, telefone, endereco, frotista) VALUES ('{c.nome}','{c.telefone}','{c.endereco}',{statusCliente})");
-                    limparCampos();
-                    MessageBox.Show("Dados salvos com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                 
-
-                    // Codigo para armazenar ultimo codigo salvo
-                    List<Cliente> listCliente = new List<Cliente>();
-                    con.conectar();
-
-                    SqlDataReader reader;
-
-                    reader = con.exeCliente("select * from Cliente");
-
-                    if (reader.HasRows)
+                    if (txtTelefone.Text.Length > maxChar)
                     {
-                        while (reader.Read())
+                        MessageBox.Show("Campo de telefone com mais de 11 caractere", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+
+                        Cliente cliente = new Cliente();
+                        Conexao conexao = new Conexao();
+                        conexao.conectar();
+
+                        int linhas = conexao.executar($"INSERT INTO Cliente (nome, telefone, endereco, frotista) VALUES ('{c.nome}','{c.telefone}','{c.endereco}',{statusCliente})");
+                        limparCampos();
+                        MessageBox.Show("Dados salvos com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                        // Codigo para armazenar ultimo codigo salvo
+                        List<Cliente> listCliente = new List<Cliente>();
+                        con.conectar();
+
+                        SqlDataReader reader;
+
+                        reader = con.exeCliente("select * from Cliente");
+
+                        if (reader.HasRows)
                         {
+                            while (reader.Read())
+                            {
 
 
-                            cliente.id = reader.GetInt32(0);
-                            cliente.nome = reader.GetString(1);
-                            cliente.telefone = reader.GetString(2);
-                            cliente.endereco = reader.GetString(3);
-                            cliente.frotista = reader.GetBoolean(4);
+                                cliente.id = reader.GetInt32(0);
+                                cliente.nome = reader.GetString(1);
+                                cliente.telefone = reader.GetString(2);
+                                cliente.endereco = reader.GetString(3);
+                                cliente.frotista = reader.GetBoolean(4);
 
-                            listCliente.Add(cliente);
+                                listCliente.Add(cliente);
+                            }
+
+                            reader.Close();
+
+                            btnCancelar.Enabled = false;
+                            btnSalvar.Enabled = false;
+                            btnNovo.Enabled = true;
+
+                            bloqueiaCampos();
                         }
                         
-                        reader.Close();
-                        
-                        btnCancelar.Enabled = false;
-                        btnSalvar.Enabled = false;
-                        btnNovo.Enabled = true;
-                       
-                        bloqueiaCampos();
                     }
-                    MessageBox.Show("Id do Cliente: " + cliente.id.ToString(), "armazenar ultima id salva");
-                    // fim
                 }
                 else
                 {
@@ -153,7 +162,7 @@ namespace totalClean
         {
             InicialFrm f = new InicialFrm();
             f.Show();
-            this.Visible = false; 
+            this.Visible = false;
 
         }
 
