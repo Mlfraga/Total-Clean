@@ -53,33 +53,20 @@ namespace totalClean
 
                 SqlDataReader reader;
 
-                if (txtNome.Text != string.Empty && txtId.Text == string.Empty)
-                {
-                    string nome = txtNome.Text;
-                    reader = con.exeCliente($"SELECT * FROM Cliente WHERE Nome LIKE ('%{nome}%') ");
-                    if (reader.HasRows)
-                    {
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Não foi encontrado nenhum cliente com nome parecido com " + nome, "ERRO", MessageBoxButtons.OK);
-                    }
+                string nome = txtNome.Text;
+                int g = int.Parse(txtId.Text);
+
+                reader = con.exeCliente($"SELECT * FROM Cliente WHERE idCliente = ('{g}') AND Nome LIKE ('%{nome}%') ");
+                if (reader.HasRows)
+                {
 
                 }
                 else
                 {
-                    int g = int.Parse(txtId.Text);
-                    reader = con.exeCliente("SELECT * FROM Cliente WHERE idCliente = " + g);
-                    if (reader.HasRows)
-                    {
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Não foi encontrado nenhum cliente com id igual a " + g, "ERRO", MessageBoxButtons.OK);
-                    }
+                    MessageBox.Show("Não foi encontrado nenhum cliente com nome parecido com " + nome, "ERRO", MessageBoxButtons.OK);
                 }
+
                 if (reader.HasRows)
                 {
                     while (reader.Read())

@@ -33,6 +33,9 @@ namespace totalClean
 
         private void btnRelatorios_Click(object sender, EventArgs e)
         {
+            RelatorioServico n = new RelatorioServico();
+            n.Show();
+            this.Visible = false;
 
         }
 
@@ -59,7 +62,9 @@ namespace totalClean
 
         private void btnRelatorioCliente_Click(object sender, EventArgs e)
         {
-
+            RelatorioClienteFrm n = new RelatorioClienteFrm();
+            n.Show();
+            this.Visible = false;
         }
     }
 }

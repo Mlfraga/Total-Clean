@@ -112,36 +112,19 @@ namespace totalClean.Forms
 
                 SqlDataReader reader;
 
-                if (txtNome.Text != string.Empty && txtId.Text == string.Empty)
+
+                string nome = txtNome.Text;
+                int g = int.Parse(txtId.Text);
+
+                reader = con.exeCliente($"SELECT * FROM Servicos WHERE idServico = ('{g}') AND Nome LIKE ('%{nome}%') ");
+                if (reader.HasRows)
                 {
-                    string nome = txtNome.Text;
-                    reader = con.exeCliente($"SELECT * FROM Servicos WHERE Nome LIKE ('%{nome}%') ");
-                    if (reader.HasRows)
-                    {
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Não foi encontrado nenhum serviço com nome parecido com " + nome,"ERRO",MessageBoxButtons.OK);
-                    }
-
 
                 }
-
                 else
                 {
-                    int g = int.Parse(txtId.Text);
-                    reader = con.exeCliente("SELECT * FROM Servicos WHERE idServico = " + g);
-                    if (reader.HasRows)
-                    {
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Não foi encontrado nenhum servico com id igual a " + g, "ERRO", MessageBoxButtons.OK);
-                    }
+                    MessageBox.Show("Não foi encontrado nenhum serviço com nome parecido com " + nome + " ou id igual a " + g, "ERRO", MessageBoxButtons.OK);
                 }
-
 
                 if (reader.HasRows)
                 {
@@ -155,7 +138,7 @@ namespace totalClean.Forms
                         servico.ativo = reader.GetBoolean(3);
 
                         listServico.Add(servico);
-                    
+
                     }
                     reader.Close();
                     dgvServicos.DataSource = null;
@@ -165,7 +148,7 @@ namespace totalClean.Forms
                 {
                     Console.WriteLine("Não retornou dados");
                 }
-               
+
             }
             else
             {
@@ -213,7 +196,7 @@ namespace totalClean.Forms
             servico.id = int.Parse(txtId.Text);
             servico.nome = txtNome.Text;
             servico.preco = Double.Parse(txtPreco.Text);
-            
+
 
             if (rdbAtivo.Checked == true)
             {
@@ -225,13 +208,13 @@ namespace totalClean.Forms
             }
 
             int aNome = con.executar($"UPDATE [dbo].[Servicos] set nome = '" + servico.nome + "' WHERE idServico = " + servico.id);
-            int apreco= con.executar($"UPDATE [dbo].[Servicos] set preco = '" + servico.preco + "' WHERE idServico = " + servico.id);
+            int apreco = con.executar($"UPDATE [dbo].[Servicos] set preco = '" + servico.preco + "' WHERE idServico = " + servico.id);
             int aEndereco = con.executar($"UPDATE [dbo].[Servicos] set ativo = '" + servico.ativo + "' WHERE idServico = " + servico.id);
 
             MessageBox.Show("Dados alterados com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Atualizar Grid com o cliente salvo
-            List<Servico> listServico= new List<Servico>();
+            List<Servico> listServico = new List<Servico>();
             con.conectar();
 
             SqlDataReader reader;

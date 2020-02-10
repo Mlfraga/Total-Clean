@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultaVendaServiço));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvVendas = new System.Windows.Forms.DataGridView();
@@ -57,8 +57,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dtFinalVenda = new System.Windows.Forms.DateTimePicker();
             this.lblServico1 = new System.Windows.Forms.Label();
-            this.bunifuSeparator5 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.txtServ = new System.Windows.Forms.TextBox();
+            this.cmbServico = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).BeginInit();
             this.SuspendLayout();
@@ -83,9 +82,9 @@
             this.dgvVendas.Location = new System.Drawing.Point(77, 29);
             this.dgvVendas.Name = "dgvVendas";
             this.dgvVendas.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgvVendas.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgvVendas.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvVendas.RowTemplate.Height = 24;
             this.dgvVendas.Size = new System.Drawing.Size(737, 264);
             this.dgvVendas.TabIndex = 70;
@@ -438,32 +437,13 @@
             this.lblServico1.TabIndex = 137;
             this.lblServico1.Text = "Serviço:";
             // 
-            // bunifuSeparator5
+            // cmbServico
             // 
-            this.bunifuSeparator5.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bunifuSeparator5.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.bunifuSeparator5.LineThickness = 1;
-            this.bunifuSeparator5.Location = new System.Drawing.Point(262, 316);
-            this.bunifuSeparator5.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.bunifuSeparator5.Name = "bunifuSeparator5";
-            this.bunifuSeparator5.Size = new System.Drawing.Size(214, 10);
-            this.bunifuSeparator5.TabIndex = 139;
-            this.bunifuSeparator5.Transparency = 255;
-            this.bunifuSeparator5.Vertical = false;
-            // 
-            // txtServ
-            // 
-            this.txtServ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.txtServ.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtServ.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtServ.ForeColor = System.Drawing.SystemColors.Info;
-            this.txtServ.HideSelection = false;
-            this.txtServ.Location = new System.Drawing.Point(262, 297);
-            this.txtServ.Margin = new System.Windows.Forms.Padding(4);
-            this.txtServ.Name = "txtServ";
-            this.txtServ.Size = new System.Drawing.Size(214, 25);
-            this.txtServ.TabIndex = 138;
+            this.cmbServico.FormattingEnabled = true;
+            this.cmbServico.Location = new System.Drawing.Point(262, 298);
+            this.cmbServico.Name = "cmbServico";
+            this.cmbServico.Size = new System.Drawing.Size(208, 24);
+            this.cmbServico.TabIndex = 140;
             // 
             // ConsultaVendaServiço
             // 
@@ -471,8 +451,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
-            this.Controls.Add(this.bunifuSeparator5);
-            this.Controls.Add(this.txtServ);
+            this.Controls.Add(this.cmbServico);
             this.Controls.Add(this.lblServico1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dtFinalVenda);
@@ -540,7 +519,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtFinalVenda;
         private System.Windows.Forms.Label lblServico1;
-        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator5;
-        private System.Windows.Forms.TextBox txtServ;
+        private System.Windows.Forms.ComboBox cmbServico;
     }
 }

@@ -237,10 +237,10 @@
             this.rdbDesativo.ForeColor = System.Drawing.Color.White;
             this.rdbDesativo.Location = new System.Drawing.Point(423, 355);
             this.rdbDesativo.Name = "rdbDesativo";
-            this.rdbDesativo.Size = new System.Drawing.Size(109, 29);
+            this.rdbDesativo.Size = new System.Drawing.Size(90, 29);
             this.rdbDesativo.TabIndex = 89;
             this.rdbDesativo.TabStop = true;
-            this.rdbDesativo.Text = "Desativo";
+            this.rdbDesativo.Text = "Inativo";
             this.rdbDesativo.UseVisualStyleBackColor = true;
             // 
             // rdbAtivo
