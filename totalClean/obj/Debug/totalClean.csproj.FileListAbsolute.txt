@@ -45,3 +45,4 @@ C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.VendaF
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.ConsultaVendaServiço.resources
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.RelatorioClienteFrm.resources
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.RelatorioServico.resources
+C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.csproj.ResolveComReference.cache
