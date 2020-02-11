@@ -37,8 +37,6 @@ namespace totalClean
             btnCancelar.Enabled = false;
             bloqueiaCampos();
         }
-
-
         private void btnNova_Click(object sender, EventArgs e)
         {
             desbloqueiaCampos();
@@ -55,7 +53,6 @@ namespace totalClean
             btnNova.Enabled = true;
             bloqueiaCampos();
         }
-
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             InicialFrm n = new InicialFrm();
@@ -764,34 +761,6 @@ namespace totalClean
             this.Visible = false;
         }
 
-        private void txtPlaca_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuSeparator2_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCarro_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuSeparator1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DtVenda_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }

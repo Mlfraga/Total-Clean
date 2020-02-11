@@ -55,41 +55,64 @@ namespace totalClean
 
 
                 string nome = txtNome.Text;
-                int g = int.Parse(txtId.Text);
 
-                reader = con.exeCliente($"SELECT * FROM Cliente WHERE idCliente = ('{g}') AND Nome LIKE ('%{nome}%') ");
-                if (reader.HasRows)
+                if (txtId.Text != string.Empty)
                 {
+                    int g = int.Parse(txtId.Text);
+                    reader = con.exeCliente($"SELECT * FROM Cliente WHERE idCliente = ('{g}') AND Nome LIKE ('%{nome}%') ");
 
-                }
-                else
-                {
-                    MessageBox.Show("Não foi encontrado nenhum cliente com nome parecido com " + nome, "ERRO", MessageBoxButtons.OK);
-                }
-
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
+                    if (reader.HasRows)
                     {
-                        Cliente cliente = new Cliente();
+                        while (reader.Read())
+                        {
+                            Cliente cliente = new Cliente();
 
-                        cliente.id = reader.GetInt32(0);
-                        cliente.nome = reader.GetString(1);
-                        cliente.telefone = reader.GetString(2);
-                        cliente.endereco = reader.GetString(3);
-                        cliente.frotista = reader.GetBoolean(4);
+                            cliente.id = reader.GetInt32(0);
+                            cliente.nome = reader.GetString(1);
+                            cliente.telefone = reader.GetString(2);
+                            cliente.endereco = reader.GetString(3);
+                            cliente.frotista = reader.GetBoolean(4);
 
-                        listCliente.Add(cliente);
+                            listCliente.Add(cliente);
+                        }
+                        reader.Close();
+                        dgvClientes.DataSource = null;
+                        dgvClientes.DataSource = listCliente;
                     }
-                    reader.Close();
-                    dgvClientes.DataSource = null;
-                    dgvClientes.DataSource = listCliente;
+                    else
+                    {
+                        MessageBox.Show("Não foi encontrado nenhum cliente com nome id igual a" + g, "ERRO", MessageBoxButtons.OK);
+                    }
                 }
+
                 else
                 {
+                    reader = con.exeCliente($"SELECT * FROM Cliente WHERE Nome LIKE ('%{nome}%') ");
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Cliente cliente = new Cliente();
+
+                            cliente.id = reader.GetInt32(0);
+                            cliente.nome = reader.GetString(1);
+                            cliente.telefone = reader.GetString(2);
+                            cliente.endereco = reader.GetString(3);
+                            cliente.frotista = reader.GetBoolean(4);
+
+                            listCliente.Add(cliente);
+                        }
+                        reader.Close();
+                        dgvClientes.DataSource = null;
+                        dgvClientes.DataSource = listCliente;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi encontrado nenhum cliente com nome parecido com " + nome, "ERRO", MessageBoxButtons.OK);
+                    }
 
                 }
-
             }
             else
             {
@@ -216,7 +239,7 @@ namespace totalClean
 
             if (txtTelefone.Text.Length > maxChar)
             {
-                MessageBox.Show("Campo de telefone com mais de 11 caractere", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Campo de telefone com mais de 11 caracteres", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

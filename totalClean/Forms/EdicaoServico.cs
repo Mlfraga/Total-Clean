@@ -114,41 +114,62 @@ namespace totalClean.Forms
 
 
                 string nome = txtNome.Text;
-                int g = int.Parse(txtId.Text);
-
-                reader = con.exeCliente($"SELECT * FROM Servicos WHERE idServico = ('{g}') AND Nome LIKE ('%{nome}%') ");
-                if (reader.HasRows)
+                if (txtId.Text != string.Empty)
                 {
-
-                }
-                else
-                {
-                    MessageBox.Show("Não foi encontrado nenhum serviço com nome parecido com " + nome + " ou id igual a " + g, "ERRO", MessageBoxButtons.OK);
-                }
-
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
+                    int g = int.Parse(txtId.Text);
+                    
+                    reader = con.exeCliente($"SELECT * FROM Servicos WHERE idServico = ('{g}') AND Nome LIKE ('%{nome}%') ");
+                    if (reader.HasRows)
                     {
-                        Servico servico = new Servico();
+                        while (reader.Read())
+                        {
+                            Servico servico = new Servico();
 
-                        servico.id = reader.GetInt32(0);
-                        servico.nome = reader.GetString(1);
-                        servico.preco = reader.GetDouble(2);
-                        servico.ativo = reader.GetBoolean(3);
+                            servico.id = reader.GetInt32(0);
+                            servico.nome = reader.GetString(1);
+                            servico.preco = reader.GetDouble(2);
+                            servico.ativo = reader.GetBoolean(3);
 
-                        listServico.Add(servico);
+                            listServico.Add(servico);
 
+                        }
+                        reader.Close();
+                        dgvServicos.DataSource = null;
+                        dgvServicos.DataSource = listServico;
                     }
-                    reader.Close();
-                    dgvServicos.DataSource = null;
-                    dgvServicos.DataSource = listServico;
+                    else
+                    {
+                        MessageBox.Show("Não foi encontrado nenhum serviço com nome parecido com " + nome + " ou id igual a " + g, "ERRO", MessageBoxButtons.OK);
+                    }
                 }
+
                 else
                 {
-                    Console.WriteLine("Não retornou dados");
-                }
+                    reader = con.exeCliente($"SELECT * FROM Servicos WHERE Nome LIKE ('%{nome}%') ");
 
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Servico servico = new Servico();
+
+                            servico.id = reader.GetInt32(0);
+                            servico.nome = reader.GetString(1);
+                            servico.preco = reader.GetDouble(2);
+                            servico.ativo = reader.GetBoolean(3);
+
+                            listServico.Add(servico);
+
+                        }
+                        reader.Close();
+                        dgvServicos.DataSource = null;
+                        dgvServicos.DataSource = listServico;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi encontrado nenhum serviço com nome parecido com " + nome, "ERRO", MessageBoxButtons.OK);
+                    }
+                }
             }
             else
             {

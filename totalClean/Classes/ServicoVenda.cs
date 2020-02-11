@@ -14,6 +14,7 @@ namespace totalClean
         public String carro { get; set; }
         public String placa { get; set; }
         public String servico { get; set; }
+        public Double preco { get; set; }
         public DateTime data { get; set; }
     }
 }
