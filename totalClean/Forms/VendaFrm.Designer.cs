@@ -243,7 +243,6 @@
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(280, 24);
             this.cmbCliente.TabIndex = 66;
-
             // 
             // label2
             // 
@@ -269,7 +268,6 @@
             this.bunifuSeparator2.TabIndex = 69;
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = false;
-
             // 
             // txtCarro
             // 
@@ -283,7 +281,6 @@
             this.txtCarro.Name = "txtCarro";
             this.txtCarro.Size = new System.Drawing.Size(266, 25);
             this.txtCarro.TabIndex = 68;
-         
             // 
             // bunifuSeparator1
             // 
@@ -298,7 +295,6 @@
             this.bunifuSeparator1.TabIndex = 72;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
-         
             // 
             // txtPlaca
             // 
@@ -312,7 +308,6 @@
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(280, 25);
             this.txtPlaca.TabIndex = 71;
-        
             // 
             // label3
             // 
@@ -333,7 +328,6 @@
             this.DtVenda.Name = "DtVenda";
             this.DtVenda.Size = new System.Drawing.Size(280, 22);
             this.DtVenda.TabIndex = 73;
-            
             // 
             // label4
             // 
@@ -898,6 +892,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.bunifuSeparator6);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VendaFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prestação de Serviços";

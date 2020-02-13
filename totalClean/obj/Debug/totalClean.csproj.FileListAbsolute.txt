@@ -30,7 +30,6 @@ C:\Users\Matheus\source\repos\Total-Clean\totalClean\bin\Debug\totalClean.exe.co
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\bin\Debug\totalClean.exe
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\bin\Debug\totalClean.pdb
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\bin\Debug\Bunifu_UI_v1.52.dll
-C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.csprojAssemblyReference.cache
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.CadastroClientes.resources
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.CadastroServicosFrm.resources
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.EdicaoFrm.resources
@@ -46,3 +45,4 @@ C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.Consul
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.RelatorioClienteFrm.resources
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.RelatorioServico.resources
 C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.csproj.ResolveComReference.cache
+C:\Users\Matheus\source\repos\Total-Clean\totalClean\obj\Debug\totalClean.csprojAssemblyReference.cache

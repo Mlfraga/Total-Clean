@@ -160,6 +160,7 @@
             this.Controls.Add(this.btnRealizaVendas);
             this.Controls.Add(this.btnCadServ);
             this.Controls.Add(this.btnCadClientes);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InicialFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela Inicial";

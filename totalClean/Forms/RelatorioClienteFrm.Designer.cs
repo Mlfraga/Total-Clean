@@ -286,6 +286,7 @@
             this.Controls.Add(this.lblServico1);
             this.Controls.Add(this.bunifuSeparator6);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RelatorioClienteFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RelatorioClienteFrm";
