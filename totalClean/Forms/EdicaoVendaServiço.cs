@@ -42,7 +42,7 @@ namespace totalClean
                     sv.servico = reader.GetString(5);
                     sv.data = reader.GetDateTime(6);
                     sv.preco = reader.GetDouble(7);
-                    
+
 
                     listVendasServicos.Add(sv);
                 }
@@ -62,6 +62,7 @@ namespace totalClean
             iniciaGrid();
             BloqueaBtns();
             PreencheCmbServico();
+            prencheCmbCliente();
             dtFinalVenda.Enabled = false;
             DtInicialVenda.Enabled = false;
         }
@@ -94,13 +95,13 @@ namespace totalClean
             {
                 Classes.VendasServicos vs = new Classes.VendasServicos();
 
-                String cliente = txtCliente.Text;
+                int cliente = int.Parse(cmbCliente.SelectedValue.ToString());
                 String carro = txtCarro.Text;
                 String placa = txtPlaca.Text;
                 DateTime dataI = DtInicialVenda.Value;
                 DateTime dataF = dtFinalVenda.Value;
                 int idVenda = int.Parse(txtIdVenda.Text);
-                
+
                 List<ServicoVenda> listServicoVenda = new List<ServicoVenda>();
                 con.conectar();
 
@@ -108,48 +109,51 @@ namespace totalClean
 
                 if (cmbServico.Text != string.Empty)
                 {
-                    vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
+
                     if (chkFiltroData.Checked == true)
                     {
-                        reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[nome] LIKE ('%{cliente}%') and [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') and [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' AND [VendasServicos].idServico = ('{vs.servico1}')");
+                        vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
+                        reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[idCliente] = '{cliente}' AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' AND [VendasServicos].idServico = ('{vs.servico1}')");
                     }
                     else
                     {
-
-                        reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [VendasServicos].[idVenda] = {idVenda} and [Cliente].[nome] LIKE ('%{cliente}%') and [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') AND [VendasServicos].idServico = ('{vs.servico1}') ");
+                        vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
+                        reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [VendasServicos].[idVenda] = {idVenda} and [Cliente].[idCliente] LIKE ('%{cliente}%') and [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') AND [VendasServicos].idServico = ('{vs.servico1}') ");
                     }
                 }
                 else
                 {
                     if (chkFiltroData.Checked == true)
                     {
-                        reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[nome] LIKE ('%{cliente}%') and [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') and [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}'");
+                        reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[idCliente] = ('{cliente}') and [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') and [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}'");
                     }
                     else
                     {
 
-                        reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [VendasServicos].[idVenda] = {idVenda} and [Cliente].[nome] LIKE ('%{cliente}%') and [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%')");
+                        reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [VendasServicos].[idVenda] = {idVenda} and [Cliente].[nome] LIKE ('%{cliente}%') and [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%')");
                     }
                 }
-               
-           
+
+
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
-                        ServicoVenda servico = new ServicoVenda();
+                        ServicoVenda sv = new ServicoVenda();
 
-                        servico.idVenda = reader.GetInt32(0);
-                        servico.frotista = reader.GetBoolean(1);
-                        servico.cliente = reader.GetString(2);
-                        servico.carro = reader.GetString(3);
-                        servico.placa = reader.GetString(4);
-                        servico.servico = reader.GetString(5);
-                        servico.data = reader.GetDateTime(6);
-                        servico.preco = reader.GetDouble(7);
+                        sv.idVenda = reader.GetInt32(0);
+                        sv.frotista = reader.GetBoolean(1);
+                        sv.cliente = reader.GetString(2);
+                        sv.carro = reader.GetString(3);
+                        sv.placa = reader.GetString(4);
+                        sv.servico = reader.GetString(5);
+                        sv.preco = reader.GetDouble(6);
+                        sv.data = reader.GetDateTime(7);
 
 
-                        listServicoVenda.Add(servico);
+
+
+                        listServicoVenda.Add(sv);
                     }
                     reader.Close();
                     dgvVendas.DataSource = null;
@@ -172,12 +176,8 @@ namespace totalClean
 
                 Classes.VendasServicos vs = new Classes.VendasServicos();
 
-                String cliente = txtCliente.Text;
-                String carro = txtCarro.Text;
-                String placa = txtPlaca.Text;
-                DateTime dataI = DtInicialVenda.Value;
-                DateTime dataF = dtFinalVenda.Value;
-                
+
+
 
                 List<ServicoVenda> listServicoVenda = new List<ServicoVenda>();
                 con.conectar();
@@ -186,27 +186,82 @@ namespace totalClean
 
                 if (cmbServico.Text != string.Empty)
                 {
-                    vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
+
                     if (chkFiltroData.Checked == true)
                     {
-                        reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], Servicos.preco  FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico, servico.preco WHERE [Cliente].[nome] LIKE ('%{cliente}%') and [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') and [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' AND [VendasServicos].idServico = ('{vs.servico1}')");
+
+                        String carro = txtCarro.Text;
+                        String placa = txtPlaca.Text;
+                        DateTime dataI = DtInicialVenda.Value;
+                        DateTime dataF = dtFinalVenda.Value;
+                        vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
+
+                        if (cmbCliente.Text == string.Empty)
+                        {
+                            cmbCliente.SelectedValue = 0;                            
+                            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[carro] LIKE ('%{carro}%') AND [Vendas].[placa] LIKE ('%{placa}%') AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' AND [VendasServicos].idServico = ('{vs.servico1}')");
+                        }
+                        else
+                        {
+                            int cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[idCliente] = '{cliente}'  AND [Vendas].[carro] LIKE ('%{carro}%') AND [Vendas].[placa] LIKE ('%{placa}%') AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' AND [VendasServicos].idServico = ('{vs.servico1}')");
+                        }
+
+
                     }
                     else
                     {
 
-                        reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], Servicos.preco  FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[nome] LIKE ('%{cliente}%') and [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') AND [VendasServicos].idServico = ('{vs.servico1}') ");
+                        String carro = txtCarro.Text;
+                        String placa = txtPlaca.Text;
+                        vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
+                        if (cmbCliente.Text == string.Empty)
+                        {                            
+                            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE  [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') AND [VendasServicos].idServico = ('{vs.servico1}') ");
+                        }
+                        else
+                        {
+                            int cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[idCliente] = ('{cliente}') and [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') AND [VendasServicos].idServico = ('{vs.servico1}') ");
+                        }
+
                     }
                 }
                 else
                 {
                     if (chkFiltroData.Checked == true)
                     {
-                        reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], Servicos.preco  FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[nome] LIKE ('%{cliente}%') and [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') and [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}'");
+                       
+                        String carro = txtCarro.Text;
+                        String placa = txtPlaca.Text;
+                        DateTime dataI = DtInicialVenda.Value;
+                        DateTime dataF = dtFinalVenda.Value;
+                        if (cmbCliente.Text == string.Empty)
+                        {
+                            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') and [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}'");
+                        }
+                        else
+                        {
+                            int cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[idCliente] = ('{cliente}') and  [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') and [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}'");
+                        }
+                      
                     }
                     else
-                    {
+                    {                      
+                        String carro = txtCarro.Text;
+                        String placa = txtPlaca.Text;
+                        if (cmbCliente.Text == string.Empty)
+                        {
+                            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE   [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') ");
+                        }
+                        else
+                        {
+                            int cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[idCliente] = ('{cliente}') and  [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') ");
+                        }
 
-                        reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], Servicos.preco  FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[nome] LIKE ('%{cliente}%') and [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%')");
+
                     }
                 }
 
@@ -215,18 +270,21 @@ namespace totalClean
                 {
                     while (reader.Read())
                     {
-                        ServicoVenda servico = new ServicoVenda();
+                        ServicoVenda sv = new ServicoVenda();
 
-                        servico.idVenda = reader.GetInt32(0);
-                        servico.frotista = reader.GetBoolean(1);
-                        servico.cliente = reader.GetString(2);
-                        servico.carro = reader.GetString(3);
-                        servico.placa = reader.GetString(4);
-                        servico.servico = reader.GetString(5);
-                        servico.data = reader.GetDateTime(6);
-                        servico.preco = reader.GetDouble(7);
+                        sv.idVenda = reader.GetInt32(0);
+                        sv.frotista = reader.GetBoolean(1);
+                        sv.cliente = reader.GetString(2);
+                        sv.carro = reader.GetString(3);
+                        sv.placa = reader.GetString(4);
+                        sv.servico = reader.GetString(5);
+                        sv.preco = reader.GetDouble(6);
+                        sv.data = reader.GetDateTime(7);
 
-                        listServicoVenda.Add(servico);
+
+
+
+                        listServicoVenda.Add(sv);
                     }
                     reader.Close();
                     dgvVendas.DataSource = null;
@@ -279,13 +337,13 @@ namespace totalClean
             DtInicialVenda.Enabled = false;
 
             txtIdVenda.Text = dgvVendas.CurrentRow.Cells[0].Value.ToString();
-            txtCliente.Text = dgvVendas.CurrentRow.Cells[2].Value.ToString();
+            cmbCliente.Text = dgvVendas.CurrentRow.Cells[2].Value.ToString();
             txtCarro.Text = dgvVendas.CurrentRow.Cells[3].Value.ToString();
             txtPlaca.Text = dgvVendas.CurrentRow.Cells[4].Value.ToString();
             cmbServico.Text = dgvVendas.CurrentRow.Cells[5].Value.ToString();
 
             txtIdVenda.ReadOnly = true;
-            txtCliente.ReadOnly = true;
+            cmbCliente.Enabled = true;
             txtCarro.ReadOnly = true;
             txtPlaca.ReadOnly = true;
             cmbServico.Enabled = false;
@@ -304,7 +362,7 @@ namespace totalClean
         private void limpaCampos()
         {
             txtCarro.Text = "";
-            txtCliente.Text = "";
+            cmbCliente.Text = "";
             txtIdVenda.Text = "";
             txtPlaca.Text = "";
             cmbServico.Text = "";
@@ -319,7 +377,7 @@ namespace totalClean
             btnCancelar.Enabled = false;
 
             txtIdVenda.ReadOnly = true;
-            txtCliente.ReadOnly = true;
+            cmbCliente.Enabled = true;
             txtCarro.ReadOnly = true;
             txtPlaca.ReadOnly = true;
 
@@ -341,7 +399,7 @@ namespace totalClean
                 btnPesquisar.Enabled = true;
 
                 txtIdVenda.ReadOnly = false;
-                txtCliente.ReadOnly = false;
+                cmbCliente.Enabled = false;
                 txtCarro.ReadOnly = false;
                 txtPlaca.ReadOnly = false;
 
@@ -386,6 +444,38 @@ namespace totalClean
             cmbServico.ValueMember = "id";
             cmbServico.DisplayMember = "nome";
             cmbServico.Text = "";
+        }
+        private void prencheCmbCliente()
+        {
+            List<Cliente> listCliente = new List<Cliente>();
+
+            con.conectar();
+
+            SqlDataReader reader;
+
+            reader = con.exeCliente("select idCliente, nome from CLiente");
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Cliente cliente = new Cliente();
+                    cliente.id = reader.GetInt32(0);
+                    cliente.nome = reader.GetString(1);
+
+                    listCliente.Add(cliente);
+
+                }
+                reader.Close();
+            }
+            else
+            {
+                MessageBox.Show("Não foram encontrado dados.", "", MessageBoxButtons.OK);
+            }
+            cmbCliente.DataSource = listCliente;
+            cmbCliente.ValueMember = "id";
+            cmbCliente.DisplayMember = "nome";
+            cmbCliente.Text = "";
         }
 
     }

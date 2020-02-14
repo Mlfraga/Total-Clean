@@ -160,12 +160,14 @@
             this.Controls.Add(this.btnRealizaVendas);
             this.Controls.Add(this.btnCadServ);
             this.Controls.Add(this.btnCadClientes);
+            this.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InicialFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela Inicial";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InicialFrm_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.InicialFrm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

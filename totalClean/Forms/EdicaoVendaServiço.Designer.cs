@@ -48,8 +48,6 @@
             this.txtCarro = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.txtCliente = new System.Windows.Forms.TextBox();
             this.bunifuSeparator4 = new Bunifu.Framework.UI.BunifuSeparator();
             this.txtIdVenda = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -58,6 +56,7 @@
             this.dtFinalVenda = new System.Windows.Forms.DateTimePicker();
             this.lblServico1 = new System.Windows.Forms.Label();
             this.cmbServico = new System.Windows.Forms.ComboBox();
+            this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).BeginInit();
             this.SuspendLayout();
@@ -328,33 +327,6 @@
             this.label6.TabIndex = 117;
             this.label6.Text = "Cliente:";
             // 
-            // bunifuSeparator3
-            // 
-            this.bunifuSeparator3.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bunifuSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.bunifuSeparator3.LineThickness = 1;
-            this.bunifuSeparator3.Location = new System.Drawing.Point(383, 241);
-            this.bunifuSeparator3.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.bunifuSeparator3.Name = "bunifuSeparator3";
-            this.bunifuSeparator3.Size = new System.Drawing.Size(266, 10);
-            this.bunifuSeparator3.TabIndex = 128;
-            this.bunifuSeparator3.Transparency = 255;
-            this.bunifuSeparator3.Vertical = false;
-            // 
-            // txtCliente
-            // 
-            this.txtCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.txtCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCliente.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCliente.ForeColor = System.Drawing.SystemColors.Info;
-            this.txtCliente.HideSelection = false;
-            this.txtCliente.Location = new System.Drawing.Point(383, 222);
-            this.txtCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(266, 25);
-            this.txtCliente.TabIndex = 127;
-            // 
             // bunifuSeparator4
             // 
             this.bunifuSeparator4.BackColor = System.Drawing.Color.Transparent;
@@ -445,12 +417,21 @@
             this.cmbServico.Size = new System.Drawing.Size(208, 24);
             this.cmbServico.TabIndex = 140;
             // 
+            // cmbCliente
+            // 
+            this.cmbCliente.FormattingEnabled = true;
+            this.cmbCliente.Location = new System.Drawing.Point(383, 227);
+            this.cmbCliente.Name = "cmbCliente";
+            this.cmbCliente.Size = new System.Drawing.Size(243, 24);
+            this.cmbCliente.TabIndex = 143;
+            // 
             // ConsultaVendaServiço
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.cmbCliente);
             this.Controls.Add(this.cmbServico);
             this.Controls.Add(this.lblServico1);
             this.Controls.Add(this.label7);
@@ -459,8 +440,6 @@
             this.Controls.Add(this.bunifuSeparator4);
             this.Controls.Add(this.txtIdVenda);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.bunifuSeparator3);
-            this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.DtInicialVenda);
             this.Controls.Add(this.bunifuSeparator1);
@@ -511,8 +490,6 @@
         private System.Windows.Forms.TextBox txtCarro;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
-        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator3;
-        private System.Windows.Forms.TextBox txtCliente;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator4;
         private System.Windows.Forms.TextBox txtIdVenda;
         private System.Windows.Forms.Label label5;
@@ -521,5 +498,6 @@
         private System.Windows.Forms.DateTimePicker dtFinalVenda;
         private System.Windows.Forms.Label lblServico1;
         private System.Windows.Forms.ComboBox cmbServico;
+        private System.Windows.Forms.ComboBox cmbCliente;
     }
 }

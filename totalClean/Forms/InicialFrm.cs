@@ -19,7 +19,7 @@ namespace totalClean
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //this.WindowState = FormWindowState.Maximized;
+            
         }
 
         private void btnCadClientes_Click(object sender, EventArgs e)
@@ -65,6 +65,11 @@ namespace totalClean
             RelatorioClienteFrm n = new RelatorioClienteFrm();
             n.Show();
             this.Visible = false;
+        }
+
+        private void InicialFrm_Resize(object sender, EventArgs e)
+        {
+
         }
     }
 }

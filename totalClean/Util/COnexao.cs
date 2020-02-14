@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 namespace totalClean
 {
     class Conexao
-    {               
+    {
         private String dadosCon = @"SERVER = fraga.database.windows.net; DATABASE = TotalClean_db; UID = matheus; PASSWORD = Mm884741";
         private SqlConnection sqlCon;
 
@@ -24,7 +24,7 @@ namespace totalClean
             catch (SqlException sqlE)
 
             {
-                Console.WriteLine("Erro: " + sqlE);
+                System.Windows.Forms.MessageBox.Show("Erro de conexão: " + sqlE,"",System.Windows.Forms.MessageBoxButtons.OK,System.Windows.Forms.MessageBoxIcon.Error ) ;
 
             }
         }
