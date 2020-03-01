@@ -91,6 +91,12 @@
     <Compile Include="Forms\RelatorioServico.Designer.cs">
       <DependentUpon>RelatorioServico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Pendentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Pendentes.Designer.cs">
+      <DependentUpon>Pendentes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\Conexao.cs" />
     <Compile Include="Forms\EdicaoClienteFrm.cs">
       <SubType>Form</SubType>
@@ -113,6 +119,8 @@
       <DependentUpon>VendaFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Venda.cs" />
+    <Compile Include="Classes\ValorVenda.cs" />
+    <Compile Include="VendaPendente.cs" />
     <EmbeddedResource Include="Forms\CadastroClientesFrm.resx">
       <DependentUpon>CadastroClientesFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\VendaFrm.resx">
       <DependentUpon>VendaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Pendentes.resx">
+      <DependentUpon>Pendentes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

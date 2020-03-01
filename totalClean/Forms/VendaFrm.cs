@@ -77,7 +77,191 @@ namespace totalClean
                     Conexao conexao = new Conexao();
                     conexao.conectar();
 
-                    int linhas = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente) VALUES('{venda.data.ToShortDateString()}','{venda.carro}','{venda.placa}','{venda.idCliente}') ");
+                    // PEGAR PREÇO DO SERVIÇO
+                    ValorVenda valorVenda = new ValorVenda();
+
+                    con.conectar();
+
+                    SqlDataReader readerPreco;
+
+                    readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico1.SelectedValue}')");
+                    if (readerPreco.HasRows)
+                    {
+                        while (readerPreco.Read())
+                        {
+                            valorVenda.precoServico = readerPreco.GetDouble(0);
+                            valorVenda.qtd = double.Parse(cmbQtd1.Text);
+                        }
+
+                    }
+
+                    double preco = valorVenda.precoServico * valorVenda.qtd;
+
+
+
+                    if (cmbServico2.Text != string.Empty && cmbQtd2.Text != string.Empty)
+                    {
+                        ValorVenda valorVenda2 = new ValorVenda();
+
+                        con.conectar();
+
+                        readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico2.SelectedValue}')");
+                        if (readerPreco.HasRows)
+                        {
+                            while (readerPreco.Read())
+                            {
+                                valorVenda.precoServico = readerPreco.GetDouble(0);
+                                valorVenda.qtd = double.Parse(cmbQtd2.Text);
+                            }
+
+                            readerPreco.Close();
+                            con.desconectar();
+                        }
+                        preco += valorVenda.precoServico * valorVenda.qtd;
+
+                    }
+                    if (cmbServico3.Text != string.Empty && cmbQtd3.Text != string.Empty)
+                    {
+                        ValorVenda valorVenda3 = new ValorVenda();
+
+                        con.conectar();
+
+                        readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico3.SelectedValue}')");
+                        if (readerPreco.HasRows)
+                        {
+                            while (readerPreco.Read())
+                            {
+                                valorVenda.precoServico = readerPreco.GetDouble(0);
+                                valorVenda.qtd = double.Parse(cmbQtd3.Text);
+                            }
+
+                            readerPreco.Close();
+                            con.desconectar();
+                        }
+                        preco += valorVenda.precoServico * valorVenda.qtd;
+
+                    }
+                    if (cmbServico4.Text != string.Empty && cmbQtd4.Text != string.Empty)
+                    {
+                        ValorVenda valorVenda4 = new ValorVenda();
+
+                        con.conectar();
+
+                        readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico4.SelectedValue}')");
+                        if (readerPreco.HasRows)
+                        {
+                            while (readerPreco.Read())
+                            {
+                                valorVenda.precoServico = readerPreco.GetDouble(0);
+                                valorVenda.qtd = double.Parse(cmbQtd4.Text);
+                            }
+
+                            readerPreco.Close();
+                            con.desconectar();
+                        }
+                        preco += valorVenda.precoServico * valorVenda.qtd;
+
+                    }
+                    if (cmbServico5.Text != string.Empty && cmbQtd5.Text != string.Empty)
+                    {
+                        ValorVenda valorVenda5 = new ValorVenda();
+
+                        con.conectar();
+
+                        readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico5.SelectedValue}')");
+                        if (readerPreco.HasRows)
+                        {
+                            while (readerPreco.Read())
+                            {
+                                valorVenda.precoServico = readerPreco.GetDouble(0);
+                                valorVenda.qtd = double.Parse(cmbQtd5.Text);
+                            }
+
+                            readerPreco.Close();
+                            con.desconectar();
+                        }
+                        preco += valorVenda.precoServico * valorVenda.qtd;
+
+                    }
+                    if (cmbServico6.Text != string.Empty && cmbQtd6.Text != string.Empty)
+                    {
+                        ValorVenda valorVenda6 = new ValorVenda();
+
+                        con.conectar();
+
+                        readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico6.SelectedValue}')");
+                        if (readerPreco.HasRows)
+                        {
+                            while (readerPreco.Read())
+                            {
+                                valorVenda.precoServico = readerPreco.GetDouble(0);
+                                valorVenda.qtd = double.Parse(cmbQtd6.Text);
+                            }
+
+                            readerPreco.Close();
+                            con.desconectar();
+                        }
+                        preco += valorVenda.precoServico * valorVenda.qtd;
+
+                    }
+                    if (cmbServico7.Text != string.Empty && cmbQtd7.Text != string.Empty)
+                    {
+                        ValorVenda valorVenda7 = new ValorVenda();
+
+                        con.conectar();
+
+                        readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico7.SelectedValue}')");
+                        if (readerPreco.HasRows)
+                        {
+                            while (readerPreco.Read())
+                            {
+                                valorVenda.precoServico = readerPreco.GetDouble(0);
+                                valorVenda.qtd = double.Parse(cmbQtd7.Text);
+                            }
+
+                            readerPreco.Close();
+                            con.desconectar();
+                        }
+                        preco += valorVenda.precoServico * valorVenda.qtd;
+
+                    }
+                    if (cmbServico8.Text != string.Empty && cmbQtd8.Text != string.Empty)
+                    {
+                        ValorVenda valorVenda3 = new ValorVenda();
+
+                        con.conectar();
+
+                        readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico8.SelectedValue}')");
+                        if (readerPreco.HasRows)
+                        {
+                            while (readerPreco.Read())
+                            {
+                                valorVenda.precoServico = readerPreco.GetDouble(0);
+                                valorVenda.qtd = double.Parse(cmbQtd8.Text);
+                            }
+
+                            readerPreco.Close();
+                            con.desconectar();
+                        }
+                        preco += valorVenda.precoServico * valorVenda.qtd;
+
+                    }
+
+
+
+
+
+
+                    var escolha = MessageBox.Show("O cliente efetuou o pagamento de R$" + preco + ",00 ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (escolha == DialogResult.Yes)
+                    {
+                        int linhas = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago) VALUES('{venda.data.ToShortDateString()}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1)  ");
+                    }
+                    else
+                    {
+                        int linhas = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago) VALUES('{venda.data.ToShortDateString()}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0)  ");
+                    }
 
                     /// Pegar ultimo id Venda
                     con.conectar();
@@ -233,7 +417,7 @@ namespace totalClean
                 }
                 else
                 {
-                    MessageBox.Show("Campo placa com mais de 7 caracteres","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Campo placa com mais de 7 caracteres", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
@@ -761,6 +945,6 @@ namespace totalClean
             this.Visible = false;
         }
 
-     
+
     }
 }

@@ -71,5 +71,12 @@ namespace totalClean
         {
 
         }
+
+        private void btnPendencias_Click(object sender, EventArgs e)
+        {
+            Pendentes p = new Pendentes();
+            p.Show();
+            this.Visible = false;
+        }
     }
 }

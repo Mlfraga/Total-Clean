@@ -289,7 +289,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RelatorioClienteFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RelatorioClienteFrm";
+            this.Text = "Relatorio de Clientes";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RelatorioClienteFrm_FormClosed);
             this.Load += new System.EventHandler(this.RelatorioClienteFrm_Load);
             this.groupBox1.ResumeLayout(false);

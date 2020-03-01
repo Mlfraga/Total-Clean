@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "totalClean", "totalClean\totalClean.csproj", "{459F5966-BAAA-4CC1-8ABD-8848BDD3678D}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador-TotalClean", "totalClean\instalador\Instalador-TotalClean\Instalador-TotalClean.vdproj", "{01AB989C-387F-4424-B07B-F820EF7918DC}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupTotalCleanBaseTeste", "totalClean\instalador\SetupTotalCleanBaseTeste\SetupTotalCleanBaseTeste.vdproj", "{9623A3CB-B303-4716-9087-4747E52E2067}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{459F5966-BAAA-4CC1-8ABD-8848BDD3678D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{459F5966-BAAA-4CC1-8ABD-8848BDD3678D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{459F5966-BAAA-4CC1-8ABD-8848BDD3678D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01AB989C-387F-4424-B07B-F820EF7918DC}.Debug|Any CPU.ActiveCfg = Debug
-		{01AB989C-387F-4424-B07B-F820EF7918DC}.Release|Any CPU.ActiveCfg = Release
+		{9623A3CB-B303-4716-9087-4747E52E2067}.Debug|Any CPU.ActiveCfg = Debug
+		{9623A3CB-B303-4716-9087-4747E52E2067}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

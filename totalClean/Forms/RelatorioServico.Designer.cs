@@ -266,7 +266,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RelatorioServico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RelatorioServiço";
+            this.Text = "Relatorio de Serviço";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RelatorioServico_FormClosed);
             this.Load += new System.EventHandler(this.RelatorioServiço_Load);
             this.groupBox1.ResumeLayout(false);

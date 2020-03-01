@@ -2,6 +2,7 @@
 {
     partial class InicialFrm
     {
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -13,6 +14,7 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -35,6 +37,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnRelatorioServico = new System.Windows.Forms.Button();
             this.btnRelatorioCliente = new System.Windows.Forms.Button();
+            this.btnPendencias = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,12 +151,34 @@
             this.btnRelatorioCliente.UseVisualStyleBackColor = true;
             this.btnRelatorioCliente.Click += new System.EventHandler(this.btnRelatorioCliente_Click);
             // 
+            // btnPendencias
+            // 
+            this.btnPendencias.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnPendencias.FlatAppearance.BorderSize = 0;
+            this.btnPendencias.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnPendencias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnPendencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPendencias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPendencias.ForeColor = System.Drawing.Color.White;
+            this.btnPendencias.Image = ((System.Drawing.Image)(resources.GetObject("btnPendencias.Image")));
+            this.btnPendencias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPendencias.Location = new System.Drawing.Point(597, 569);
+            this.btnPendencias.Name = "btnPendencias";
+            this.btnPendencias.Size = new System.Drawing.Size(215, 71);
+            this.btnPendencias.TabIndex = 6;
+            this.btnPendencias.Text = "    Pendências";
+            this.btnPendencias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPendencias.UseVisualStyleBackColor = true;
+            this.btnPendencias.Click += new System.EventHandler(this.btnPendencias_Click);
+            // 
             // InicialFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.btnPendencias);
             this.Controls.Add(this.btnRelatorioCliente);
             this.Controls.Add(this.btnRelatorioServico);
             this.Controls.Add(this.pictureBox1);
@@ -162,6 +187,8 @@
             this.Controls.Add(this.btnCadClientes);
             this.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "InicialFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela Inicial";
@@ -181,6 +208,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnRelatorioServico;
         private System.Windows.Forms.Button btnRelatorioCliente;
+        private System.Windows.Forms.Button btnPendencias;
     }
 }
 
