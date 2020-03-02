@@ -36,6 +36,14 @@
             this.btnPagamentoRealizado = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvPagamentosPendentes = new System.Windows.Forms.DataGridView();
+            this.preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pago = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Frotista = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IdVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagamentosPendentes)).BeginInit();
             this.SuspendLayout();
@@ -113,28 +121,97 @@
             this.groupBox2.Controls.Add(this.dgvPagamentosPendentes);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(33, 165);
+            this.groupBox2.Location = new System.Drawing.Point(21, 165);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1327, 536);
+            this.groupBox2.Size = new System.Drawing.Size(1349, 550);
             this.groupBox2.TabIndex = 155;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pagamentos Pendentes";
             // 
             // dgvPagamentosPendentes
             // 
+            this.dgvPagamentosPendentes.AllowUserToAddRows = false;
             this.dgvPagamentosPendentes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
             this.dgvPagamentosPendentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPagamentosPendentes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdVenda,
+            this.Frotista,
+            this.Cliente,
+            this.Carro,
+            this.Placa,
+            this.Data,
+            this.pago,
+            this.preco});
             this.dgvPagamentosPendentes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.dgvPagamentosPendentes.Location = new System.Drawing.Point(35, 39);
+            this.dgvPagamentosPendentes.Location = new System.Drawing.Point(16, 39);
             this.dgvPagamentosPendentes.Name = "dgvPagamentosPendentes";
             this.dgvPagamentosPendentes.RowHeadersWidth = 51;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dgvPagamentosPendentes.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPagamentosPendentes.RowTemplate.Height = 24;
-            this.dgvPagamentosPendentes.Size = new System.Drawing.Size(1252, 472);
+            this.dgvPagamentosPendentes.Size = new System.Drawing.Size(1322, 495);
             this.dgvPagamentosPendentes.TabIndex = 70;
             this.dgvPagamentosPendentes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagamentosPendentes_CellClick);
+            this.dgvPagamentosPendentes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagamentosPendentes_CellContentClick);
+            // 
+            // preco
+            // 
+            this.preco.HeaderText = "preco";
+            this.preco.MinimumWidth = 6;
+            this.preco.Name = "preco";
+            this.preco.Width = 125;
+            // 
+            // pago
+            // 
+            this.pago.HeaderText = "pago";
+            this.pago.MinimumWidth = 6;
+            this.pago.Name = "pago";
+            this.pago.Width = 125;
+            // 
+            // Data
+            // 
+            this.Data.HeaderText = "Data";
+            this.Data.MinimumWidth = 6;
+            this.Data.Name = "Data";
+            this.Data.Width = 125;
+            // 
+            // Placa
+            // 
+            this.Placa.HeaderText = "Placa";
+            this.Placa.MinimumWidth = 6;
+            this.Placa.Name = "Placa";
+            this.Placa.Width = 125;
+            // 
+            // Carro
+            // 
+            this.Carro.HeaderText = "Carro";
+            this.Carro.MinimumWidth = 6;
+            this.Carro.Name = "Carro";
+            this.Carro.Width = 125;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.MinimumWidth = 6;
+            this.Cliente.Name = "Cliente";
+            this.Cliente.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Cliente.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Cliente.Width = 125;
+            // 
+            // Frotista
+            // 
+            this.Frotista.HeaderText = "Frotista";
+            this.Frotista.MinimumWidth = 6;
+            this.Frotista.Name = "Frotista";
+            this.Frotista.Width = 125;
+            // 
+            // IdVenda
+            // 
+            this.IdVenda.HeaderText = "IdVenda";
+            this.IdVenda.MinimumWidth = 6;
+            this.IdVenda.Name = "IdVenda";
+            this.IdVenda.Width = 125;
             // 
             // Pendentes
             // 
@@ -169,5 +246,13 @@
         private System.Windows.Forms.Button btnPagamentoRealizado;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvPagamentosPendentes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdVenda;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Frotista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Carro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Placa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Data;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn pago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preco;
     }
 }
