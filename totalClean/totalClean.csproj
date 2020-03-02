@@ -120,7 +120,7 @@
     </Compile>
     <Compile Include="Classes\Venda.cs" />
     <Compile Include="Classes\ValorVenda.cs" />
-    <Compile Include="VendaPendente.cs" />
+    <Compile Include="Classes\VendaPendente.cs" />
     <EmbeddedResource Include="Forms\CadastroClientesFrm.resx">
       <DependentUpon>CadastroClientesFrm.cs</DependentUpon>
     </EmbeddedResource>

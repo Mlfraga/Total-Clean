@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pendentes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             this.label1 = new System.Windows.Forms.Label();
@@ -128,9 +128,9 @@
             this.dgvPagamentosPendentes.Location = new System.Drawing.Point(35, 39);
             this.dgvPagamentosPendentes.Name = "dgvPagamentosPendentes";
             this.dgvPagamentosPendentes.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dgvPagamentosPendentes.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvPagamentosPendentes.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPagamentosPendentes.RowTemplate.Height = 24;
             this.dgvPagamentosPendentes.Size = new System.Drawing.Size(1252, 472);
             this.dgvPagamentosPendentes.TabIndex = 70;
@@ -148,6 +148,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnVoltar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Pendentes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pendentes";
