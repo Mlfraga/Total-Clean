@@ -36,14 +36,14 @@
             this.btnPagamentoRealizado = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvPagamentosPendentes = new System.Windows.Forms.DataGridView();
-            this.preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pago = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Frotista = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.IdVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Frotista = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pago = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagamentosPendentes)).BeginInit();
             this.SuspendLayout();
@@ -155,40 +155,19 @@
             this.dgvPagamentosPendentes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagamentosPendentes_CellClick);
             this.dgvPagamentosPendentes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagamentosPendentes_CellContentClick);
             // 
-            // preco
+            // IdVenda
             // 
-            this.preco.HeaderText = "preco";
-            this.preco.MinimumWidth = 6;
-            this.preco.Name = "preco";
-            this.preco.Width = 125;
+            this.IdVenda.HeaderText = "IdVenda";
+            this.IdVenda.MinimumWidth = 6;
+            this.IdVenda.Name = "IdVenda";
+            this.IdVenda.Width = 125;
             // 
-            // pago
+            // Frotista
             // 
-            this.pago.HeaderText = "pago";
-            this.pago.MinimumWidth = 6;
-            this.pago.Name = "pago";
-            this.pago.Width = 125;
-            // 
-            // Data
-            // 
-            this.Data.HeaderText = "Data";
-            this.Data.MinimumWidth = 6;
-            this.Data.Name = "Data";
-            this.Data.Width = 125;
-            // 
-            // Placa
-            // 
-            this.Placa.HeaderText = "Placa";
-            this.Placa.MinimumWidth = 6;
-            this.Placa.Name = "Placa";
-            this.Placa.Width = 125;
-            // 
-            // Carro
-            // 
-            this.Carro.HeaderText = "Carro";
-            this.Carro.MinimumWidth = 6;
-            this.Carro.Name = "Carro";
-            this.Carro.Width = 125;
+            this.Frotista.HeaderText = "Frotista";
+            this.Frotista.MinimumWidth = 6;
+            this.Frotista.Name = "Frotista";
+            this.Frotista.Width = 125;
             // 
             // Cliente
             // 
@@ -199,19 +178,40 @@
             this.Cliente.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Cliente.Width = 125;
             // 
-            // Frotista
+            // Carro
             // 
-            this.Frotista.HeaderText = "Frotista";
-            this.Frotista.MinimumWidth = 6;
-            this.Frotista.Name = "Frotista";
-            this.Frotista.Width = 125;
+            this.Carro.HeaderText = "Carro";
+            this.Carro.MinimumWidth = 6;
+            this.Carro.Name = "Carro";
+            this.Carro.Width = 125;
             // 
-            // IdVenda
+            // Placa
             // 
-            this.IdVenda.HeaderText = "IdVenda";
-            this.IdVenda.MinimumWidth = 6;
-            this.IdVenda.Name = "IdVenda";
-            this.IdVenda.Width = 125;
+            this.Placa.HeaderText = "Placa";
+            this.Placa.MinimumWidth = 6;
+            this.Placa.Name = "Placa";
+            this.Placa.Width = 125;
+            // 
+            // Data
+            // 
+            this.Data.HeaderText = "Data";
+            this.Data.MinimumWidth = 6;
+            this.Data.Name = "Data";
+            this.Data.Width = 125;
+            // 
+            // pago
+            // 
+            this.pago.HeaderText = "pago";
+            this.pago.MinimumWidth = 6;
+            this.pago.Name = "pago";
+            this.pago.Width = 125;
+            // 
+            // preco
+            // 
+            this.preco.HeaderText = "preco";
+            this.preco.MinimumWidth = 6;
+            this.preco.Name = "preco";
+            this.preco.Width = 125;
             // 
             // Pendentes
             // 

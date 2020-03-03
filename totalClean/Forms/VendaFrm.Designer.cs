@@ -85,6 +85,7 @@
             this.btnAdd5 = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnAdd6 = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnAdd7 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btnNovoCliente = new Bunifu.Framework.UI.BunifuImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd3)).BeginInit();
@@ -92,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNovoCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuSeparator6
@@ -241,7 +243,7 @@
             this.cmbCliente.FormattingEnabled = true;
             this.cmbCliente.Location = new System.Drawing.Point(305, 244);
             this.cmbCliente.Name = "cmbCliente";
-            this.cmbCliente.Size = new System.Drawing.Size(280, 24);
+            this.cmbCliente.Size = new System.Drawing.Size(246, 24);
             this.cmbCliente.TabIndex = 66;
             // 
             // label2
@@ -830,12 +832,27 @@
             this.btnAdd7.Zoom = 10;
             this.btnAdd7.Click += new System.EventHandler(this.btnAdd7_Click);
             // 
+            // btnNovoCliente
+            // 
+            this.btnNovoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btnNovoCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnNovoCliente.Image")));
+            this.btnNovoCliente.ImageActive = null;
+            this.btnNovoCliente.Location = new System.Drawing.Point(561, 244);
+            this.btnNovoCliente.Name = "btnNovoCliente";
+            this.btnNovoCliente.Size = new System.Drawing.Size(31, 27);
+            this.btnNovoCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnNovoCliente.TabIndex = 123;
+            this.btnNovoCliente.TabStop = false;
+            this.btnNovoCliente.Zoom = 10;
+            this.btnNovoCliente.Click += new System.EventHandler(this.btnNovoCliente_Click);
+            // 
             // VendaFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.btnNovoCliente);
             this.Controls.Add(this.btnAdd7);
             this.Controls.Add(this.btnAdd6);
             this.Controls.Add(this.btnAdd5);
@@ -907,6 +924,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNovoCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -970,5 +988,6 @@
         private Bunifu.Framework.UI.BunifuImageButton btnAdd5;
         private Bunifu.Framework.UI.BunifuImageButton btnAdd6;
         private Bunifu.Framework.UI.BunifuImageButton btnAdd7;
+        private Bunifu.Framework.UI.BunifuImageButton btnNovoCliente;
     }
 }

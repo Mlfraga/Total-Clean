@@ -97,6 +97,12 @@
     <Compile Include="Forms\Pendentes.Designer.cs">
       <DependentUpon>Pendentes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NovoClienteFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NovoClienteFrm.Designer.cs">
+      <DependentUpon>NovoClienteFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\Conexao.cs" />
     <Compile Include="Forms\EdicaoClienteFrm.cs">
       <SubType>Form</SubType>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Pendentes.resx">
       <DependentUpon>Pendentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NovoClienteFrm.resx">
+      <DependentUpon>NovoClienteFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -89,7 +89,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente("select idServico, nome from Servicos WHERE ativo = 1");
+            reader = con.exeCliente("select idServico, nome from Servicos WHERE ativo = 1 ORDER BY nome ASC");
 
             if (reader.HasRows)
             {
@@ -122,7 +122,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente("select idCliente, nome from CLiente");
+            reader = con.exeCliente("select idCliente, nome from CLiente order by nome ASC");
 
             if (reader.HasRows)
             {
@@ -308,7 +308,7 @@ namespace totalClean
             xlWorkSheet.Cells[1, 7] = "Preço";
             xlWorkSheet.Cells[1, 8] = "Data";
             xlWorkSheet.Cells[1, 9] = "Pagamento";
-
+            
 
             Classes.VendasServicos vs = new Classes.VendasServicos();
 
@@ -366,7 +366,7 @@ namespace totalClean
                         xlWorkSheet.Cells[i, 9] = "";
                     }
                     i++;
-                }
+                }                
                 int lastCell = i - 1;
                 xlWorkSheet.Cells[i, 6] = "Total:";
                 xlWorkSheet.Cells[i, 7] = "=SOMA(G2:G" + lastCell + ")";

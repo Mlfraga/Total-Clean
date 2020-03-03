@@ -197,7 +197,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente("select idServico, nome from Servicos WHERE ativo = 1");
+            reader = con.exeCliente("select idServico, nome from Servicos WHERE ativo = 1 ORDER BY nome ASC");
 
             if (reader.HasRows)
             {

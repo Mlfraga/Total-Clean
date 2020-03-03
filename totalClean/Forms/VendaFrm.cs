@@ -540,7 +540,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente("select idCliente, nome from CLiente");
+            reader = con.exeCliente("select idCliente, nome from CLiente order by nome ASC");
 
             if (reader.HasRows)
             {
@@ -945,6 +945,12 @@ namespace totalClean
             this.Visible = false;
         }
 
+        private void btnNovoCliente_Click(object sender, EventArgs e)
+        {
+            NovoClienteFrm n = new NovoClienteFrm();
+            n.Show();
+            this.Visible = false;
 
+        }
     }
 }

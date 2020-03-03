@@ -133,46 +133,7 @@ namespace totalClean
             
             btnPagamentoRealizado.Enabled = false;
         }
-      /*  private void atualizarGrid()
-        {
-
-            List<VendaPendente> listVendasServicos = new List<VendaPendente>();
-            con.conectar();
-
-            SqlDataReader reader;
-
-            reader = con.exeCliente("SELECT [Vendas].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Vendas].[data], [Vendas].[pago] FROM [Vendas] INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente WHERE pago = 0");
-
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    VendaPendente sv = new VendaPendente();
-
-                    sv.idVenda = reader.GetInt32(0);
-                    sv.frotista = reader.GetBoolean(1);
-                    sv.cliente = reader.GetString(2);
-                    sv.carro = reader.GetString(3);
-                    sv.placa = reader.GetString(4);
-                    sv.data = reader.GetDateTime(5);
-                    sv.pago = reader.GetBoolean(6);
-
-                    listVendasServicos.Add(sv);
-              
-                }
-                reader.Close();
-                dgvPagamentosPendentes.DataSource = null;
-                dgvPagamentosPendentes.DataSource = listVendasServicos;
-            }
-            else
-            {
-                Console.WriteLine("Não retornou dados");
-            }
-
-
-        }
-
-    */
+     
         private void Pendentes_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -199,5 +160,7 @@ namespace totalClean
         {
 
         }
+
+
     }
 }
