@@ -362,6 +362,16 @@
         vt0oXnvZmlUDS6HifkgywNqBksD4WuT+hjkxq6cnA0XxBTc9yLQU9n86AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnCadastrarGastos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAADnSURBVFhH7c7BCcMwDIXhDNBjd+wxI2SAjtNROkYH6KGH1n75MQSJgEOtUtAHPjw9gzSllCK9
+        f4T1Fn041lv04Vhv0QujYVgjjCx6YTQMa4SRRS+MhmGNMLLohbysSRZmc3kPTbZu5Z06/jQ1u+iF7B30
+        XKPr0vGnqdlFL2TvoD2H/tTsohfy7kHf/OOiF3IetEEv5Dxog17I/3WQ49Cfml30QvYOeq3RNXf8aWp2
+        0QvZO+hanrfwXt65409Ts4teGA3DGmFk0QujYVgjjCx6YTQMa4SRRR+O9RZ9ONZb9OFYn1IKME0fPNzl
+        DvRc6uEAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAUAgIAAAAEAIAAoCAEAVgAAAGBgAAABACAAqJQAAH4IAQBAQAAAAQAgAChCAAAmnQEAMDAAAAEA

@@ -88,7 +88,7 @@ namespace totalClean.Forms
             rdbDesativo.Enabled = true;
 
             txtId.Text = dgvServicos.CurrentRow.Cells[0].Value.ToString();
-            txtNome.Text = dgvServicos.CurrentRow.Cells[1].Value.ToString();
+            txtNome.Text = dgvServicos.CurrentRow.Cells[1].Value.ToString().Trim();
             txtPreco.Text = dgvServicos.CurrentRow.Cells[2].Value.ToString();
 
             if (dgvServicos.CurrentRow.Cells[3].Value.Equals(true))

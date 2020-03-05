@@ -51,6 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\CadastroSetor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CadastroSetor.Designer.cs">
+      <DependentUpon>CadastroSetor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CadastroGastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CadastroGastos.Designer.cs">
+      <DependentUpon>CadastroGastos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Servico.cs" />
     <Compile Include="Classes\VendasServicos.cs" />
     <Compile Include="Forms\EdicaoVendaServiço.cs">
@@ -103,6 +115,13 @@
     <Compile Include="Forms\NovoClienteFrm.Designer.cs">
       <DependentUpon>NovoClienteFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PendenciaPCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PendenciaPCliente.Designer.cs">
+      <DependentUpon>PendenciaPCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Setor.cs" />
     <Compile Include="Util\Conexao.cs" />
     <Compile Include="Forms\EdicaoClienteFrm.cs">
       <SubType>Form</SubType>
@@ -127,6 +146,12 @@
     <Compile Include="Classes\Venda.cs" />
     <Compile Include="Classes\ValorVenda.cs" />
     <Compile Include="Classes\VendaPendente.cs" />
+    <EmbeddedResource Include="Forms\CadastroSetor.resx">
+      <DependentUpon>CadastroSetor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CadastroGastos.resx">
+      <DependentUpon>CadastroGastos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CadastroClientesFrm.resx">
       <DependentUpon>CadastroClientesFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InicialFrm.resx">
       <DependentUpon>InicialFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PendenciaPCliente.resx">
+      <DependentUpon>PendenciaPCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\VendaFrm.resx">
       <DependentUpon>VendaFrm.cs</DependentUpon>

@@ -129,3 +129,6 @@ C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.c
 C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.exe
 C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.pdb
 C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.NovoClienteFrm.resources
+C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.PendenciaPCliente.resources
+C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.CadastroGastos.resources
+C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.CadastroSetor.resources

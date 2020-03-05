@@ -15,6 +15,7 @@ namespace totalClean
     public partial class CadastroClientes : Form
     {
         Conexao con = new Conexao();
+        public int flag = 0;
         public CadastroClientes()
         {
             InitializeComponent();
@@ -59,93 +60,143 @@ namespace totalClean
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            flag = 0;
 
-            Cliente c = new Cliente();
-            c.nome = txtNome.Text;
-            c.telefone = txtTelefone.Text;
-            c.endereco = txtEndereco.Text;
+            con.conectar();
 
-            if (rdbFrotista.Checked == true)
+            SqlDataReader readerC;
+
+            readerC = con.exeCliente("select nome from Cliente");
+
+            String nome = txtNome.Text.Trim();
+
+
+            if (readerC.HasRows)
             {
-                c.frotista = true;
+                Cliente cliente = new Cliente();
+
+                while (readerC.Read())
+                {                
+
+                    cliente.nome = readerC.GetString(0).Trim();
+
+                    if (nome == cliente.nome)
+                    {
+                        flag = 1;
+                    }
+
+
+                }
+                readerC.Close();
             }
 
+            if (flag == 1)
+            {
+                MessageBox.Show("Ja existe um cliente com esse nome", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
-                c.frotista = false;
-            }
+                
 
-            int statusCliente = c.frotista ? 1 : 0;
+                Cliente c = new Cliente();
+                c.nome = txtNome.Text;
+                c.telefone = txtTelefone.Text;
+                c.endereco = txtEndereco.Text;
 
-            if (txtNome.Text != string.Empty && txtEndereco.Text != string.Empty && txtTelefone.Text != string.Empty)
-            {
-                var escolha = MessageBox.Show("Você deseja mesmo salvar esses dados?", "Confirmção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (escolha == DialogResult.Yes)
+                if (rdbFrotista.Checked == true)
                 {
-                    int maxChar = 11;
+                    c.frotista = true;
+                }
 
-                    if (txtTelefone.Text.Length > maxChar)
+                else
+                {
+                    c.frotista = false;
+                }
+
+                int statusCliente = c.frotista ? 1 : 0;
+
+
+
+                if (txtNome.Text != string.Empty && txtEndereco.Text != string.Empty && txtTelefone.Text != string.Empty)
+                {
+                    var escolha = MessageBox.Show("Você deseja mesmo salvar esses dados?", "Confirmção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (escolha == DialogResult.Yes)
                     {
-                        MessageBox.Show("Campo de telefone com mais de 11 caracteres", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        int maxChar = 11;
+
+                        if (txtTelefone.Text.Length > maxChar)
+                        {
+                            MessageBox.Show("Campo de telefone com mais de 11 caracteres", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+
+                            Cliente cliente = new Cliente();
+                            Conexao conexao = new Conexao();
+                            conexao.conectar();
+
+                            int linhas = conexao.executar($"INSERT INTO Cliente (nome, telefone, endereco, frotista) VALUES ('{c.nome}','{c.telefone}','{c.endereco}',{statusCliente})");
+                            limparCampos();
+                            MessageBox.Show("Dados salvos com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                            // Codigo para armazenar ultimo codigo salvo
+                            List<Cliente> listCliente = new List<Cliente>();
+                            con.conectar();
+
+                            SqlDataReader reader;
+
+                            reader = con.exeCliente("select * from Cliente");
+
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+
+
+                                    cliente.id = reader.GetInt32(0);
+                                    cliente.nome = reader.GetString(1);
+                                    cliente.telefone = reader.GetString(2);
+                                    cliente.endereco = reader.GetString(3);
+                                    cliente.frotista = reader.GetBoolean(4);
+
+                                    listCliente.Add(cliente);
+                                }
+
+                                reader.Close();
+
+                                btnCancelar.Enabled = false;
+                                btnSalvar.Enabled = false;
+                                btnNovo.Enabled = true;
+
+                                bloqueiaCampos();
+                            }
+
+                        }
                     }
+
+
+
                     else
                     {
 
-                        Cliente cliente = new Cliente();
-                        Conexao conexao = new Conexao();
-                        conexao.conectar();
-
-                        int linhas = conexao.executar($"INSERT INTO Cliente (nome, telefone, endereco, frotista) VALUES ('{c.nome}','{c.telefone}','{c.endereco}',{statusCliente})");
-                        limparCampos();
-                        MessageBox.Show("Dados salvos com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-                        // Codigo para armazenar ultimo codigo salvo
-                        List<Cliente> listCliente = new List<Cliente>();
-                        con.conectar();
-
-                        SqlDataReader reader;
-
-                        reader = con.exeCliente("select * from Cliente");
-
-                        if (reader.HasRows)
-                        {
-                            while (reader.Read())
-                            {
-
-
-                                cliente.id = reader.GetInt32(0);
-                                cliente.nome = reader.GetString(1);
-                                cliente.telefone = reader.GetString(2);
-                                cliente.endereco = reader.GetString(3);
-                                cliente.frotista = reader.GetBoolean(4);
-
-                                listCliente.Add(cliente);
-                            }
-
-                            reader.Close();
-
-                            btnCancelar.Enabled = false;
-                            btnSalvar.Enabled = false;
-                            btnNovo.Enabled = true;
-
-                            bloqueiaCampos();
-                        }
-                        
                     }
+
                 }
+
+
                 else
                 {
-
+                    MessageBox.Show("Um ou mais campos não foram preenchidos!!!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
 
-            }
-            else
-            {
-                MessageBox.Show("Um ou mais campos não foram preenchidos!!!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
+
+
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {

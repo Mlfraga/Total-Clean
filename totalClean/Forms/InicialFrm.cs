@@ -78,5 +78,12 @@ namespace totalClean
             p.Show();
             this.Visible = false;
         }
+
+        private void btnCadastrarGastos_Click(object sender, EventArgs e)
+        {
+            CadastroGastos n = new CadastroGastos();
+            n.Show();
+            this.Visible = false;
+        }
     }
 }

@@ -156,11 +156,13 @@ namespace totalClean
             btnPagamentoRealizado.Enabled = true;
         }
 
-        private void dgvPagamentosPendentes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        
+
+        private void btnPendenciasPCliente_Click(object sender, EventArgs e)
         {
-
+            PendenciaPCliente n = new PendenciaPCliente();
+            n.Show();
+            this.Visible = false;
         }
-
-
     }
 }

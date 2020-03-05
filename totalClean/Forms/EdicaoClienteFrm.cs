@@ -167,7 +167,7 @@ namespace totalClean
 
 
             txtId.Text = dgvClientes.CurrentRow.Cells[0].Value.ToString();
-            txtNome.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
+            txtNome.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString().Trim();
             txtTelefone.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
             txtEndereco.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
 

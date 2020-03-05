@@ -348,7 +348,7 @@ namespace totalClean
                         xlWorkSheet.Cells[i, 2] = "Particular";
                     }
 
-                    xlWorkSheet.Cells[i, 3] = reader.GetString(2);
+                    xlWorkSheet.Cells[i, 3] = reader.GetString(2).Trim();
                     xlWorkSheet.Cells[i, 4] = reader.GetString(3);
                     xlWorkSheet.Cells[i, 5] = reader.GetString(4);
                     xlWorkSheet.Cells[i, 6] = reader.GetString(5);
@@ -363,13 +363,14 @@ namespace totalClean
                     }
                     else
                     {
-                        xlWorkSheet.Cells[i, 9] = "";
+                        xlWorkSheet.Cells[i, 9] = "EM ABERTO";
                     }
                     i++;
                 }                
                 int lastCell = i - 1;
                 xlWorkSheet.Cells[i, 6] = "Total:";
                 xlWorkSheet.Cells[i, 7] = "=SOMA(G2:G" + lastCell + ")";
+                reader.Close();
             }
 
 

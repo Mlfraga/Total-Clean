@@ -38,6 +38,7 @@
             this.btnRelatorioServico = new System.Windows.Forms.Button();
             this.btnRelatorioCliente = new System.Windows.Forms.Button();
             this.btnPendencias = new System.Windows.Forms.Button();
+            this.btnCadastrarGastos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,6 +172,26 @@
             this.btnPendencias.UseVisualStyleBackColor = true;
             this.btnPendencias.Click += new System.EventHandler(this.btnPendencias_Click);
             // 
+            // btnCadastrarGastos
+            // 
+            this.btnCadastrarGastos.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCadastrarGastos.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarGastos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnCadastrarGastos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnCadastrarGastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarGastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarGastos.ForeColor = System.Drawing.Color.White;
+            this.btnCadastrarGastos.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrarGastos.Image")));
+            this.btnCadastrarGastos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCadastrarGastos.Location = new System.Drawing.Point(818, 569);
+            this.btnCadastrarGastos.Name = "btnCadastrarGastos";
+            this.btnCadastrarGastos.Size = new System.Drawing.Size(215, 71);
+            this.btnCadastrarGastos.TabIndex = 7;
+            this.btnCadastrarGastos.Text = "    Cadastrar Gastos";
+            this.btnCadastrarGastos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCadastrarGastos.UseVisualStyleBackColor = true;
+            this.btnCadastrarGastos.Click += new System.EventHandler(this.btnCadastrarGastos_Click);
+            // 
             // InicialFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -178,6 +199,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.btnCadastrarGastos);
             this.Controls.Add(this.btnPendencias);
             this.Controls.Add(this.btnRelatorioCliente);
             this.Controls.Add(this.btnRelatorioServico);
@@ -209,6 +231,7 @@
         private System.Windows.Forms.Button btnRelatorioServico;
         private System.Windows.Forms.Button btnRelatorioCliente;
         private System.Windows.Forms.Button btnPendencias;
+        private System.Windows.Forms.Button btnCadastrarGastos;
     }
 }
 
