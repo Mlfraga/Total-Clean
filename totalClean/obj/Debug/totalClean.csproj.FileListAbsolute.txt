@@ -132,3 +132,4 @@ C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.N
 C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.PendenciaPCliente.resources
 C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.CadastroGastos.resources
 C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.CadastroSetor.resources
+C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.ConsultaGastos.resources

@@ -51,6 +51,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\EdicaoGastos.cs" />
+    <Compile Include="Forms\ConsultaGastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConsultaGastos.Designer.cs">
+      <DependentUpon>ConsultaGastos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CadastroSetor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +129,7 @@
       <DependentUpon>PendenciaPCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Setor.cs" />
+    <Compile Include="Classes\Gastos.cs" />
     <Compile Include="Util\Conexao.cs" />
     <Compile Include="Forms\EdicaoClienteFrm.cs">
       <SubType>Form</SubType>
@@ -146,6 +154,9 @@
     <Compile Include="Classes\Venda.cs" />
     <Compile Include="Classes\ValorVenda.cs" />
     <Compile Include="Classes\VendaPendente.cs" />
+    <EmbeddedResource Include="Forms\ConsultaGastos.resx">
+      <DependentUpon>ConsultaGastos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CadastroSetor.resx">
       <DependentUpon>CadastroSetor.cs</DependentUpon>
     </EmbeddedResource>

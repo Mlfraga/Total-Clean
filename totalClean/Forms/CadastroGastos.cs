@@ -55,11 +55,13 @@ namespace totalClean
             txtValor.ReadOnly = true;
             txtDescricao.ReadOnly = true;
             cmbSetor.Enabled = false;
-            DtVenda.Enabled = false;
+            DtGasto.Enabled = false;
             rdbBoleto.Enabled = false;
             rdbCartão.Enabled = false;
             rdbDinheiro.Enabled = false;
             rdbPermuta.Enabled = false;
+            rdbPago.Enabled = false;
+            rdbAberto.Enabled = false;
 
             btnSalvar.Enabled = false;
             btnCancelar.Enabled = false;
@@ -69,14 +71,26 @@ namespace totalClean
             txtValor.ReadOnly = false;
             txtDescricao.ReadOnly = false;
             cmbSetor.Enabled = true;
-            DtVenda.Enabled = true;
+            DtGasto.Enabled = true;
             rdbBoleto.Enabled = true;
             rdbCartão.Enabled = true;
             rdbDinheiro.Enabled = true;
             rdbPermuta.Enabled = true;
+            rdbPago.Enabled = true;
+            rdbAberto.Enabled = true;
 
             btnSalvar.Enabled = true;
             btnCancelar.Enabled = true;
+        }
+
+        private void limpaCampos()
+        {
+            cmbSetor.Text = "";
+            txtDescricao.Text = "";
+            txtValor.Text = "";
+            DtGasto.Value = DateTime.Now;
+            rdbPago.Checked = true;
+            rdbDinheiro.Checked = true;
         }
 
         private void CadastroGastos_Load(object sender, EventArgs e)
@@ -88,7 +102,9 @@ namespace totalClean
         private void btnNovo_Click(object sender, EventArgs e)
         {
             desbloqueaCampos();
+            btnNovo.Enabled = false;
             rdbDinheiro.Checked = true;
+            rdbPago.Checked = true;
         }
 
         private void cadastrarSetorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,11 +114,11 @@ namespace totalClean
             this.Visible = false;
         }
 
-    
+
         private void preencheCmbSetor()
         {
             List<Setor> listSetor = new List<Setor>();
-            
+
             con.conectar();
 
             SqlDataReader reader;
@@ -134,6 +150,84 @@ namespace totalClean
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
+            InicialFrm n = new InicialFrm();
+            n.Show();
+            this.Visible = false;
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            Conexao conexao = new Conexao(); 
+
+            if (cmbSetor.Text == string.Empty && txtDescricao.Text == string.Empty && txtValor.Text == string.Empty)
+            {
+                MessageBox.Show("Por Favor insira os dados", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                var choice = MessageBox.Show("Você deseja mesmo salvar esses dados", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (choice == DialogResult.No)
+                {
+                }
+                else
+                {
+
+                    Gastos c = new Gastos();
+                    c.idSetor = int.Parse(cmbSetor.SelectedValue.ToString());
+                    c.descricao = txtDescricao.Text;
+
+                    if (rdbBoleto.Checked == true)
+                    {
+                        c.formaPagamento = "Boleto";
+                    }
+                    if (rdbDinheiro.Checked == true)
+                    {
+                        c.formaPagamento = "Dinheiro";
+                    }
+                    if (rdbPermuta.Checked == true)
+                    {
+                        c.formaPagamento = "Permuta";
+                    }
+                    if (rdbCartão.Checked == true)
+                    {
+                        c.formaPagamento = "Cartão";
+                    }
+
+                    c.data = DtGasto.Value;
+                    c.valor = Double.Parse(txtValor.Text);
+
+                    if (rdbPago.Checked)
+                    {
+                        c.pago = true;
+                    }
+                    else
+                    {
+                        c.pago = false;
+                    }
+                    conexao.conectar();
+
+                    int insere = conexao.executar($"INSERT INTO Gastos (idSetor, descricao, data, valor, formaPagamento, pago ) VALUES ('{c.idSetor}','{c.descricao}','{c.data}','{c.valor}','{c.formaPagamento}','{c.pago}')");
+
+                    MessageBox.Show("Dados salvos com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    bloqueaCampos();
+                    limpaCampos();
+                }
+            }
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limpaCampos();
+        }
+
+        private void btnConsulta_Click(object sender, EventArgs e)
+        {
+            ConsultaGastos n = new ConsultaGastos();
+            n.Show();
+            this.Visible = false;
 
         }
     }

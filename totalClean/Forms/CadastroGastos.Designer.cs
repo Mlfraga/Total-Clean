@@ -42,7 +42,7 @@
             this.rdbBoleto = new System.Windows.Forms.RadioButton();
             this.rdbDinheiro = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.DtVenda = new System.Windows.Forms.DateTimePicker();
+            this.DtGasto = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.bunifuSeparator4 = new Bunifu.Framework.UI.BunifuSeparator();
             this.txtValor = new System.Windows.Forms.TextBox();
@@ -78,8 +78,12 @@
             this.btnVoltar = new System.Windows.Forms.Button();
             this.cadastrarSetorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.rdbAberto = new System.Windows.Forms.RadioButton();
+            this.rdbPago = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuSeparator6
@@ -234,14 +238,14 @@
             this.label4.TabIndex = 153;
             this.label4.Text = "Data:";
             // 
-            // DtVenda
+            // DtGasto
             // 
-            this.DtVenda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtVenda.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DtVenda.Location = new System.Drawing.Point(254, 411);
-            this.DtVenda.Name = "DtVenda";
-            this.DtVenda.Size = new System.Drawing.Size(246, 22);
-            this.DtVenda.TabIndex = 152;
+            this.DtGasto.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtGasto.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.DtGasto.Location = new System.Drawing.Point(254, 411);
+            this.DtGasto.Name = "DtGasto";
+            this.DtGasto.Size = new System.Drawing.Size(246, 22);
+            this.DtGasto.TabIndex = 152;
             // 
             // label5
             // 
@@ -300,6 +304,7 @@
             this.btnCancelar.Text = "   Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnNovo
             // 
@@ -341,6 +346,7 @@
             this.btnConsulta.Text = "Consultar";
             this.btnConsulta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConsulta.UseVisualStyleBackColor = false;
+            this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
             // 
             // btnSalvar
             // 
@@ -361,6 +367,7 @@
             this.btnSalvar.Text = "   Salvar";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // newToolStripMenuItem
             // 
@@ -572,12 +579,52 @@
             this.menuStrip1.TabIndex = 161;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // rdbAberto
+            // 
+            this.rdbAberto.AutoSize = true;
+            this.rdbAberto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rdbAberto.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rdbAberto.Location = new System.Drawing.Point(121, 41);
+            this.rdbAberto.Name = "rdbAberto";
+            this.rdbAberto.Size = new System.Drawing.Size(121, 28);
+            this.rdbAberto.TabIndex = 163;
+            this.rdbAberto.Text = "Em Aberto";
+            this.rdbAberto.UseVisualStyleBackColor = true;
+            // 
+            // rdbPago
+            // 
+            this.rdbPago.AutoSize = true;
+            this.rdbPago.Checked = true;
+            this.rdbPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rdbPago.ForeColor = System.Drawing.Color.White;
+            this.rdbPago.Location = new System.Drawing.Point(40, 39);
+            this.rdbPago.Name = "rdbPago";
+            this.rdbPago.Size = new System.Drawing.Size(75, 28);
+            this.rdbPago.TabIndex = 162;
+            this.rdbPago.TabStop = true;
+            this.rdbPago.Text = "Pago";
+            this.rdbPago.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdbAberto);
+            this.groupBox1.Controls.Add(this.rdbPago);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(821, 353);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(280, 84);
+            this.groupBox1.TabIndex = 164;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Situação do Pagamento";
+            // 
             // CadastroGastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.btnConsulta);
@@ -586,7 +633,7 @@
             this.Controls.Add(this.bunifuSeparator4);
             this.Controls.Add(this.txtValor);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.DtVenda);
+            this.Controls.Add(this.DtGasto);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.bunifuSeparator2);
             this.Controls.Add(this.txtDescricao);
@@ -610,6 +657,8 @@
             this.groupBox2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -630,7 +679,7 @@
         private System.Windows.Forms.RadioButton rdbBoleto;
         private System.Windows.Forms.RadioButton rdbDinheiro;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker DtVenda;
+        private System.Windows.Forms.DateTimePicker DtGasto;
         private System.Windows.Forms.Label label5;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator4;
         private System.Windows.Forms.TextBox txtValor;
@@ -666,5 +715,8 @@
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.ToolStripMenuItem cadastrarSetorToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.RadioButton rdbAberto;
+        private System.Windows.Forms.RadioButton rdbPago;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
