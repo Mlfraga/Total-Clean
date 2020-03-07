@@ -9,10 +9,10 @@ namespace totalClean
     class Gastos
     {
 
-        public int idSetor { get; set; }
+        public int id { get; set; }
         public String nome { get; set; }
         public String descricao { get; set; }
-        public DateTime data { get; set; }
+        public DateTime dataVencimento { get; set; }
         public double valor { get; set; }
         public String formaPagamento { get; set; }
         public Boolean pago { get; set; }

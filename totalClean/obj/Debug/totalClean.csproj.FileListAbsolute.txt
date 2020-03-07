@@ -133,3 +133,6 @@ C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.P
 C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.CadastroGastos.resources
 C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.CadastroSetor.resources
 C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.ConsultaGastos.resources
+C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.GastosAberto.resources
+C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.PendenciasPSetor.resources
+C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.RelatorioGastos.resources

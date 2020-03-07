@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultaGastos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdbAberto = new System.Windows.Forms.RadioButton();
             this.rdbPago = new System.Windows.Forms.RadioButton();
@@ -148,9 +148,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(279, 266);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 23);
+            this.label4.Size = new System.Drawing.Size(181, 23);
             this.label4.TabIndex = 175;
-            this.label4.Text = "Data:";
+            this.label4.Text = "Data Vencimento:";
             // 
             // DtGasto
             // 
@@ -343,9 +343,9 @@
             this.dgvGastos.Location = new System.Drawing.Point(34, 39);
             this.dgvGastos.Name = "dgvGastos";
             this.dgvGastos.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGastos.RowTemplate.Height = 24;
             this.dgvGastos.Size = new System.Drawing.Size(826, 276);
             this.dgvGastos.TabIndex = 70;

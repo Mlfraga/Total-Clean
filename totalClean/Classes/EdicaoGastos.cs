@@ -13,7 +13,7 @@ namespace totalClean
 
         public String nome { get; set; }
         public String descricao { get; set; }
-        public DateTime data { get; set; }
+        public DateTime dataVencimento { get; set; }
         public double valor { get; set; }
         public String formaPagamento { get; set; }
         public Boolean pago { get; set; }

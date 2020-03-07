@@ -76,10 +76,10 @@
             this.bunifuSeparator6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bunifuSeparator6.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.bunifuSeparator6.LineThickness = 1;
-            this.bunifuSeparator6.Location = new System.Drawing.Point(401, 82);
+            this.bunifuSeparator6.Location = new System.Drawing.Point(488, 82);
             this.bunifuSeparator6.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.bunifuSeparator6.Name = "bunifuSeparator6";
-            this.bunifuSeparator6.Size = new System.Drawing.Size(574, 10);
+            this.bunifuSeparator6.Size = new System.Drawing.Size(467, 10);
             this.bunifuSeparator6.TabIndex = 73;
             this.bunifuSeparator6.Transparency = 255;
             this.bunifuSeparator6.Vertical = false;
@@ -89,12 +89,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(423, 24);
+            this.label1.Location = new System.Drawing.Point(513, 24);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(525, 52);
+            this.label1.Size = new System.Drawing.Size(420, 52);
             this.label1.TabIndex = 72;
-            this.label1.Text = "Pagamentos Pendentes";
+            this.label1.Text = "Vendas Em Aberto";
             // 
             // btnPagamentoRealizado
             // 
@@ -154,7 +154,6 @@
             this.dgvPagamentosPendentes.Size = new System.Drawing.Size(1322, 495);
             this.dgvPagamentosPendentes.TabIndex = 70;
             this.dgvPagamentosPendentes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagamentosPendentes_CellClick);
-
             // 
             // IdVenda
             // 

@@ -174,7 +174,7 @@ namespace totalClean
                 {
 
                     Gastos c = new Gastos();
-                    c.idSetor = int.Parse(cmbSetor.SelectedValue.ToString());
+                    c.id = int.Parse(cmbSetor.SelectedValue.ToString());
                     c.descricao = txtDescricao.Text;
 
                     if (rdbBoleto.Checked == true)
@@ -194,7 +194,7 @@ namespace totalClean
                         c.formaPagamento = "Cartão";
                     }
 
-                    c.data = DtGasto.Value;
+                    c.dataVencimento = DtGasto.Value;
                     c.valor = Double.Parse(txtValor.Text);
 
                     if (rdbPago.Checked)
@@ -207,7 +207,7 @@ namespace totalClean
                     }
                     conexao.conectar();
 
-                    int insere = conexao.executar($"INSERT INTO Gastos (idSetor, descricao, data, valor, formaPagamento, pago ) VALUES ('{c.idSetor}','{c.descricao}','{c.data}','{c.valor}','{c.formaPagamento}','{c.pago}')");
+                    int insere = conexao.executar($"INSERT INTO Gastos (idSetor, descricao, data, valor, formaPagamento, pago ) VALUES ('{c.id}','{c.descricao}','{c.dataVencimento}','{c.valor}','{c.formaPagamento}','{c.pago}')");
 
                     MessageBox.Show("Dados salvos com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

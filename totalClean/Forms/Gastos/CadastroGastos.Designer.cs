@@ -232,11 +232,11 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(251, 353);
+            this.label4.Location = new System.Drawing.Point(251, 377);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 23);
+            this.label4.Size = new System.Drawing.Size(181, 23);
             this.label4.TabIndex = 153;
-            this.label4.Text = "Data:";
+            this.label4.Text = "Data Vencimento:";
             // 
             // DtGasto
             // 
@@ -563,7 +563,7 @@
             // 
             this.cadastrarSetorToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.cadastrarSetorToolStripMenuItem.Name = "cadastrarSetorToolStripMenuItem";
-            this.cadastrarSetorToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.cadastrarSetorToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
             this.cadastrarSetorToolStripMenuItem.Text = "Cadastrar Setor";
             this.cadastrarSetorToolStripMenuItem.Click += new System.EventHandler(this.cadastrarSetorToolStripMenuItem_Click);
             // 
@@ -575,7 +575,7 @@
             this.cadastrarSetorToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1394, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1394, 30);
             this.menuStrip1.TabIndex = 161;
             this.menuStrip1.Text = "menuStrip1";
             // 

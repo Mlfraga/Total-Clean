@@ -61,15 +61,28 @@ namespace totalClean
         }
         private void bloqueaBtns()
         {
-            btnSalvar.Enabled = false; ;
+            btnSalvar.Enabled = false; 
             btnCancelar.Enabled = false;
+
+            rdbAberto.Enabled = false;
+            rdbPago.Enabled = false;
+            rdbDinheiro.Enabled = false;
+            rdbCartão.Enabled = false;
+            rdbPermuta.Enabled = false;
+            rdbBoleto.Enabled = false;
 
         }
         private void desbloqueaBtns()
         {
             btnSalvar.Enabled = true;
             btnCancelar.Enabled = true;
-
+            
+            rdbAberto.Enabled = true;
+            rdbPago.Enabled = true;
+            rdbDinheiro.Enabled = true;
+            rdbCartão.Enabled = true;
+            rdbPermuta.Enabled = true;
+            rdbBoleto.Enabled = true;
         }
 
 
@@ -77,6 +90,7 @@ namespace totalClean
         {
             txtDescricao.Enabled = false;
             txtValor.Enabled = false;
+        
         }
 
         private void desbloqueaCampos()
@@ -98,10 +112,10 @@ namespace totalClean
                 while (reader.Read())
                 {
                     Gastos gasto = new Gastos();
-                    gasto.idSetor = reader.GetInt32(0);
+                    gasto.id = reader.GetInt32(0);
                     gasto.nome = reader.GetString(1);
                     gasto.descricao = reader.GetString(2);
-                    gasto.data = reader.GetDateTime(3);
+                    gasto.dataVencimento = reader.GetDateTime(3);
                     gasto.valor = reader.GetDouble(4);
                     gasto.formaPagamento = reader.GetString(5);
                     gasto.pago = reader.GetBoolean(6);
@@ -176,26 +190,26 @@ namespace totalClean
             {
                 Gastos edicaoGastos = new Gastos();
 
-                edicaoGastos.idSetor = int.Parse(cmbSetor.SelectedValue.ToString());
+                edicaoGastos.id = int.Parse(cmbSetor.SelectedValue.ToString());
                 edicaoGastos.descricao = txtDescricao.Text;
-                edicaoGastos.data = DateTime.Parse(DtGasto.Value.ToString());
+                edicaoGastos.dataVencimento = DateTime.Parse(DtGasto.Value.ToString());
 
                 List<Gastos> listGastos = new List<Gastos>();
                 con.conectar();
 
                 SqlDataReader reader;
 
-                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [SetorGastos].[idSetor] = '{edicaoGastos.idSetor}' AND [Gastos].[descricao] LIKE '%{edicaoGastos.descricao}%' AND [Gastos].[data] = '{edicaoGastos.data}'");
+                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [SetorGastos].[idSetor] = '{edicaoGastos.id}' AND [Gastos].[descricao] LIKE '%{edicaoGastos.descricao}%' AND [Gastos].[data] = '{edicaoGastos.dataVencimento}'");
 
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
                         Gastos gasto = new Gastos();
-                        gasto.idSetor = reader.GetInt32(0);
+                        gasto.id= reader.GetInt32(0);
                         gasto.nome = reader.GetString(1);
                         gasto.descricao = reader.GetString(2);
-                        gasto.data = reader.GetDateTime(3);
+                        gasto.dataVencimento = reader.GetDateTime(3);
                         gasto.valor = reader.GetDouble(4);
                         gasto.formaPagamento = reader.GetString(5);
                         gasto.pago = reader.GetBoolean(6);
@@ -215,26 +229,26 @@ namespace totalClean
             {
                 Gastos edicaoGastos = new Gastos();
 
-                edicaoGastos.idSetor = int.Parse(cmbSetor.SelectedValue.ToString());
+                edicaoGastos.id= int.Parse(cmbSetor.SelectedValue.ToString());
                 edicaoGastos.descricao = txtDescricao.Text;
-                edicaoGastos.data = DateTime.Parse(DtGasto.Value.ToString());
+                edicaoGastos.dataVencimento = DateTime.Parse(DtGasto.Value.ToString());
 
                 List<Gastos> listGastos = new List<Gastos>();
                 con.conectar();
 
                 SqlDataReader reader;
 
-                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [SetorGastos].[idSetor] = '{edicaoGastos.idSetor}' AND  [Gastos].[data] = '{edicaoGastos.data}'");
+                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [SetorGastos].[idSetor] = '{edicaoGastos.id}' AND  [Gastos].[data] = '{edicaoGastos.dataVencimento}'");
 
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
                         Gastos gasto = new Gastos();
-                        gasto.idSetor = reader.GetInt32(0);
+                        gasto.id = reader.GetInt32(0);
                         gasto.nome = reader.GetString(1);
                         gasto.descricao = reader.GetString(2);
-                        gasto.data = reader.GetDateTime(3);
+                        gasto.dataVencimento = reader.GetDateTime(3);
                         gasto.valor = reader.GetDouble(4);
                         gasto.formaPagamento = reader.GetString(5);
                         gasto.pago = reader.GetBoolean(6);
@@ -249,37 +263,40 @@ namespace totalClean
                 }
                 else
                 {
-                    MessageBox.Show("Nenhu dado encontrado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Nenhum dado encontrado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     iniciarGrid();
                     bloqueaBtns();
                     bloqueaCampos();
+                    txtValor.Text = "";
+                    txtDescricao.Text = "";
+                    cmbSetor.Text = "";
                 }
 
             }
             else
             {
-                EdicaoGastos edicaoGastos = new EdicaoGastos();
+                Gastos edicaoGastos = new Gastos();
 
                 edicaoGastos.id = int.Parse(cmbSetor.SelectedValue.ToString());
                 edicaoGastos.descricao = txtDescricao.Text;
-                edicaoGastos.data = DateTime.Parse(DtGasto.Value.ToString());
+                edicaoGastos.dataVencimento = DateTime.Parse(DtGasto.Value.ToString());
 
-                List<EdicaoGastos> listGastos = new List<EdicaoGastos>();
+                List<Gastos> listGastos = new List<Gastos>();
                 con.conectar();
 
                 SqlDataReader reader;
 
-                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[data] = '{edicaoGastos.data}'");
+                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[data] = '{edicaoGastos.dataVencimento}'");
 
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
-                        EdicaoGastos gasto = new EdicaoGastos();
+                        Gastos gasto = new Gastos();
                         gasto.id = reader.GetInt32(0);
                         gasto.nome = reader.GetString(1);
                         gasto.descricao = reader.GetString(2);
-                        gasto.data = reader.GetDateTime(3);
+                        gasto.dataVencimento = reader.GetDateTime(3);
                         gasto.valor = reader.GetDouble(4);
                         gasto.formaPagamento = reader.GetString(5);
                         gasto.pago = reader.GetBoolean(6);
@@ -294,10 +311,13 @@ namespace totalClean
                 }
                 else
                 {
-                    MessageBox.Show("Nenhu dado encontrado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Nenhum dado encontrado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     iniciarGrid();
                     bloqueaBtns();
                     bloqueaCampos();
+                    txtValor.Text = "";
+                    txtDescricao.Text = "";
+                    cmbSetor.Text = "";
                 }
             }
         }
@@ -310,6 +330,7 @@ namespace totalClean
             txtValor.Text = "";
             txtDescricao.Text = "";
             cmbSetor.Text = "";
+            DtGasto.Value = DateTime.Now;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -320,6 +341,7 @@ namespace totalClean
             txtValor.Text = "";
             txtDescricao.Text = "";
             cmbSetor.Text = "";
+            DtGasto.Value = DateTime.Now;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -347,7 +369,7 @@ namespace totalClean
                 c.formaPagamento = "Cartão";
             }
 
-            c.data = DtGasto.Value;
+            c.dataVencimento = DtGasto.Value;
             c.valor = Double.Parse(txtValor.Text);
 
             if (rdbPago.Checked)
@@ -368,7 +390,7 @@ namespace totalClean
             int alteraSetor = con.executar($"UPDATE [dbo].[Gastos] SET [idSetor] = '" + c.idSetor + "' WHERE idGasto = " + c.id);
             int alteraDescricao = con.executar($"UPDATE [dbo].[Gastos] SET [descricao] = '" + c.descricao + "' WHERE idGasto = " + c.id);
             int alteraFPagamento = con.executar($"UPDATE [dbo].[Gastos] SET [formaPagamento] = '" + c.formaPagamento + "' WHERE idGasto = " + c.id);
-            int alteraData = con.executar($"UPDATE [dbo].[Gastos] SET [data] = '" + c.data + "' WHERE idGasto = " + c.id);
+            int alteraData = con.executar($"UPDATE [dbo].[Gastos] SET [data] = '" + c.dataVencimento + "' WHERE idGasto = " + c.id);
             int alteraValor = con.executar($"UPDATE [dbo].[Gastos] SET [valor] = '" + c.valor + "' WHERE idGasto = " + c.id);
             int alteraPago = con.executar($"UPDATE [dbo].[Gastos] SET [pago] = '" + c.pago + "' WHERE idGasto = " + c.id);
 
@@ -389,10 +411,10 @@ namespace totalClean
                 while (reader.Read())
                 {
                     Gastos gasto = new Gastos();
-                    gasto.idSetor = reader.GetInt32(0);
+                    gasto.id = reader.GetInt32(0);
                     gasto.nome = reader.GetString(1);
                     gasto.descricao = reader.GetString(2);
-                    gasto.data = reader.GetDateTime(3);
+                    gasto.dataVencimento = reader.GetDateTime(3);
                     gasto.valor = reader.GetDouble(4);
                     gasto.formaPagamento = reader.GetString(5);
                     gasto.pago = reader.GetBoolean(6);
