@@ -310,6 +310,7 @@
             this.relatóriosVendasGastosToolStripMenuItem.Name = "relatóriosVendasGastosToolStripMenuItem";
             this.relatóriosVendasGastosToolStripMenuItem.Size = new System.Drawing.Size(281, 26);
             this.relatóriosVendasGastosToolStripMenuItem.Text = "Relatórios Vendas - Gastos";
+            this.relatóriosVendasGastosToolStripMenuItem.Click += new System.EventHandler(this.relatóriosVendasGastosToolStripMenuItem_Click);
             // 
             // InicialFrm
             // 

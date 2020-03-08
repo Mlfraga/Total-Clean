@@ -215,12 +215,14 @@ namespace totalClean
                     limpaCampos();
                 }
             }
-
+            btnNovo.Enabled = true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limpaCampos();
+            bloqueaCampos();
+            btnNovo.Enabled = true;
         }
 
         private void btnConsulta_Click(object sender, EventArgs e)

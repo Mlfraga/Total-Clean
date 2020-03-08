@@ -1,0 +1,399 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Diagnostics;
+using System.IO;
+using Microsoft.VisualBasic;
+
+namespace totalClean
+{
+    public partial class RelatorioServicos_Gastos : Form
+    {
+        Conexao con = new Conexao();
+        public RelatorioServicos_Gastos()
+        {
+            InitializeComponent();
+        }
+
+        private void RelatorioServicos_Gastos_Load(object sender, EventArgs e)
+        {
+            btnGerarRelatorio.Enabled = false;
+            btnCancelar.Enabled = false;
+            iniciaGridGastos();
+            iniciaGridVendas();
+        }
+        private void iniciaGridGastos()
+        {
+            List<Gastos> listGastos = new List<Gastos>();
+            con.conectar();
+
+            SqlDataReader reader;
+
+            reader = con.exeCliente("SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor]");
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Gastos gasto = new Gastos();
+                    gasto.id = reader.GetInt32(0);
+                    gasto.nome = reader.GetString(1);
+                    gasto.descricao = reader.GetString(2);
+                    gasto.dataVencimento = reader.GetDateTime(3);
+                    gasto.valor = reader.GetDouble(4);
+                    gasto.formaPagamento = reader.GetString(5);
+                    gasto.pago = reader.GetBoolean(6);
+
+                    listGastos.Add(gasto);
+
+                }
+                reader.Close();
+                dgvGastos.DataSource = null;
+                dgvGastos.DataSource = listGastos;
+
+            }
+        }
+        private void iniciaGridVendas()
+        {
+            List<ServicoVenda> listVendasServicos = new List<ServicoVenda>();
+            con.conectar();
+
+            SqlDataReader reader;
+
+            reader = con.exeCliente("SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico");
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    ServicoVenda sv = new ServicoVenda();
+
+                    sv.idVenda = reader.GetInt32(0);
+                    sv.frotista = reader.GetBoolean(1);
+                    sv.cliente = reader.GetString(2);
+                    sv.carro = reader.GetString(3);
+                    sv.placa = reader.GetString(4);
+                    sv.servico = reader.GetString(5);
+                    sv.preco = reader.GetDouble(6);
+                    sv.data = reader.GetDateTime(7);
+                    sv.pago = reader.GetBoolean(8);
+
+                    listVendasServicos.Add(sv);
+                }
+                reader.Close();
+            }
+            else
+            {
+                Console.WriteLine("Não retornou dados");
+            }
+            dgvVendas.DataSource = null;
+            dgvVendas.DataSource = listVendasServicos;
+        }
+
+        private void RelatorioServicos_Gastos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            InicialFrm m = new InicialFrm();
+            m.Show();
+            this.Visible = false;
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            pesquisaGastos();
+            pesquisaVendas();
+            btnGerarRelatorio.Enabled = true;
+            btnCancelar.Enabled = true;
+
+        }
+        private void pesquisaGastos()
+        {
+            DateTime dataI = DtInicial.Value;
+            DateTime dataF = dtFinal.Value;
+
+            List<Gastos> listGastos = new List<Gastos>();
+            con.conectar();
+
+            SqlDataReader reader;
+
+            reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[data] BETWEEN '{dataI}' AND '{dataF}'");
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Gastos gasto = new Gastos();
+                    gasto.id = reader.GetInt32(0);
+                    gasto.nome = reader.GetString(1);
+                    gasto.descricao = reader.GetString(2);
+                    gasto.dataVencimento = reader.GetDateTime(3);
+                    gasto.valor = reader.GetDouble(4);
+                    gasto.formaPagamento = reader.GetString(5);
+                    gasto.pago = reader.GetBoolean(6);
+
+                    listGastos.Add(gasto);
+
+                }
+                reader.Close();
+                dgvGastos.DataSource = null;
+                dgvGastos.DataSource = listGastos;
+
+            }
+            else
+            {
+                MessageBox.Show("Nenhum dado encontrado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                iniciaGridGastos();
+
+            }
+        }
+        private void pesquisaVendas()
+        {
+            DateTime dataI = DtInicial.Value;
+            DateTime dataF = dtFinal.Value;
+
+
+
+            List<ServicoVenda> listServicoVenda = new List<ServicoVenda>();
+            con.conectar();
+
+            SqlDataReader reader;
+
+            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    ServicoVenda servico = new ServicoVenda();
+
+                    servico.idVenda = reader.GetInt32(0);
+                    servico.frotista = reader.GetBoolean(1);
+                    servico.cliente = reader.GetString(2);
+                    servico.carro = reader.GetString(3);
+                    servico.placa = reader.GetString(4);
+                    servico.servico = reader.GetString(5);
+                    servico.preco = reader.GetDouble(6);
+                    servico.data = reader.GetDateTime(7);
+                    servico.pago = reader.GetBoolean(8);
+
+
+
+
+                    listServicoVenda.Add(servico);
+                }
+                reader.Close();
+                dgvVendas.DataSource = null;
+                dgvVendas.DataSource = listServicoVenda;
+
+            }
+
+            else
+            {
+                btnGerarRelatorio.Enabled = false;
+                MessageBox.Show("Não foi encontrado nenhum dado conforme a pesquisa feita ", "ERRO", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            btnCancelar.Enabled = false;
+            btnGerarRelatorio.Enabled = false;
+            iniciaGridGastos();
+            iniciaGridVendas();
+            dtFinal.Value = DateTime.Now;
+            DtInicial.Value = DateTime.Now;
+        }
+
+        private void btnGerarRelatorio_Click(object sender, EventArgs e)
+        {
+            int i = 3;
+
+            String answer = Interaction.InputBox("Digite o nome do arquivo de relatorio", "", null, -1, -1);
+
+            while (answer == null)
+            {
+                answer = Interaction.InputBox("Digite o nome do arquivo de relatorio", "", null, -1, -1);
+            }
+
+
+
+            // Inicia o componente Excel
+            Excel.Application xlApp;
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            //Cria uma planilha temporária na memória do computador
+            xlApp = new Excel.Application();
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            //incluindo dados
+            xlWorkSheet.Cells[1, 1] = "Tabela Vendas";
+            xlWorkSheet.Cells[2, 1] = "Id Venda";
+            xlWorkSheet.Cells[2, 2] = "Classificação";
+            xlWorkSheet.Cells[2, 3] = "Cliente";
+            xlWorkSheet.Cells[2, 4] = "Carro";
+            xlWorkSheet.Cells[2, 5] = "Placa";
+            xlWorkSheet.Cells[2, 6] = "Serviço";
+            xlWorkSheet.Cells[2, 7] = "Preço";
+            xlWorkSheet.Cells[2, 8] = "Data";
+            xlWorkSheet.Cells[2, 9] = "Pagamento";
+
+
+            xlWorkSheet.Cells[1, 12] = "Tabela Gastos";
+            xlWorkSheet.Cells[2, 12] = "Id";
+            xlWorkSheet.Cells[2, 13] = "Setor";
+            xlWorkSheet.Cells[2, 14] = "Descrição";
+            xlWorkSheet.Cells[2, 15] = "Data Vencimento";
+            xlWorkSheet.Cells[2, 16] = "Valor";
+            xlWorkSheet.Cells[2, 17] = "Forma de Pagamento";
+            xlWorkSheet.Cells[2, 18] = "Pago";
+
+
+            //inclui dados de gastos
+            DateTime dataI = DtInicial.Value;
+            DateTime dataF = dtFinal.Value;
+
+            List<Gastos> listGastos = new List<Gastos>();
+            con.conectar();
+
+            SqlDataReader readerGasto;
+
+            readerGasto = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[data] BETWEEN '{dataI}' AND '{dataF}'");
+
+            if (readerGasto.HasRows)
+            {
+                while (readerGasto.Read())
+                {
+                    xlWorkSheet.Cells[i, 12] = readerGasto.GetInt32(0);
+                    xlWorkSheet.Cells[i, 13] = readerGasto.GetString(1);
+                    xlWorkSheet.Cells[i, 14] = readerGasto.GetString(2);
+                    xlWorkSheet.Cells[i, 15] = readerGasto.GetDateTime(3);
+                    xlWorkSheet.Cells[i, 16] = readerGasto.GetDouble(4);
+                    xlWorkSheet.Cells[i, 17] = readerGasto.GetString(5);
+                    Boolean pg = readerGasto.GetBoolean(6);
+                    if (pg == true)
+                    {
+                        xlWorkSheet.Cells[i, 18] = "PG";
+                    }
+                    else
+                    {
+                        xlWorkSheet.Cells[i, 18] = "EM ABERTO";
+                    }
+
+                    i++;
+                }
+                int lastCell = i - 1;
+                xlWorkSheet.Cells[16, 11] = "Total Gastos:";
+                xlWorkSheet.Cells[17, 11] = "=SOMA(P2:P" + lastCell + ")";
+                readerGasto.Close();
+            }
+
+            i = 3;
+
+            SqlDataReader readerVenda;
+
+            readerVenda = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}'");
+
+
+            if (readerVenda.HasRows)
+            {
+                while (readerVenda.Read())
+                {
+
+
+                    xlWorkSheet.Cells[i, 1] = readerVenda.GetInt32(0);
+
+                    Boolean tipo = readerVenda.GetBoolean(1);
+
+                    if (tipo == true)
+                    {
+                        xlWorkSheet.Cells[i, 2] = "Frotista";
+                    }
+                    else
+                    {
+                        xlWorkSheet.Cells[i, 2] = "Particular";
+                    }
+
+                    xlWorkSheet.Cells[i, 3] = readerVenda.GetString(2).Trim();
+                    xlWorkSheet.Cells[i, 4] = readerVenda.GetString(3);
+                    xlWorkSheet.Cells[i, 5] = readerVenda.GetString(4);
+                    xlWorkSheet.Cells[i, 6] = readerVenda.GetString(5);
+                    xlWorkSheet.Cells[i, 7] = readerVenda.GetDouble(6);
+                    xlWorkSheet.Cells[i, 8] = readerVenda.GetDateTime(7);
+
+                    Boolean pg = readerVenda.GetBoolean(8);
+
+                    if (pg == true)
+                    {
+                        xlWorkSheet.Cells[i, 9] = "PG";
+                    }
+                    else
+                    {
+                        xlWorkSheet.Cells[i, 9] = "EM ABERTO";
+                    }
+                    i++;
+                }
+                int lastCell = i - 1;
+                xlWorkSheet.Cells[16, 10] = "Total Vendas:";
+                xlWorkSheet.Cells[17, 10] = "=SOMA(G2:G" + lastCell + ")";
+                readerVenda.Close();
+            }
+
+         
+
+            //Salva o arquivo de acordo com a documentação do Excel.
+            try
+            {
+
+                xlWorkBook.SaveAs(answer, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
+                Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlWorkBook.Close(true, misValue, misValue);
+                xlApp.Quit();
+                //o arquivo foi salvo na pasta Meus Documentos.
+                string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                //MessageBox.Show("Concluído. Verifique em " + caminho + "arquivo.xls");
+
+
+                try
+                {
+                    FileInfo fi = new FileInfo($@"{caminho}/{answer}.xls");
+                    if (fi.Exists)
+                    {
+                        System.Diagnostics.Process.Start($@"{caminho}/{answer}.xls");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Arquivo não encontrado");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Test");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Não foi possivel salvar");
+            }
+
+
+
+        }
+
+    }
+}
+

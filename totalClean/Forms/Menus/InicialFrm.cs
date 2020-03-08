@@ -117,5 +117,12 @@ namespace totalClean
             n.Show();
             this.Visible = false;
         }
+
+        private void relatóriosVendasGastosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RelatorioServicos_Gastos n = new RelatorioServicos_Gastos();
+            n.Show();
+            this.Visible = false;
+        }
     }
 }
