@@ -253,7 +253,7 @@ namespace totalClean
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            InicialFrm n = new InicialFrm();
+            GastosAberto n = new GastosAberto();
             n.Show();
             this.Visible = false;
         }
@@ -304,6 +304,7 @@ namespace totalClean
                 if (choice == DialogResult.Yes)
                 {
                     int att = con.executar($"UPDATE [dbo].[Gastos] set pago = 1 WHERE idGasto= " + id);
+                    dgvGastos.DataSource = null;
                     iniciarGrid();
                     cmbSetor.Text = "";
                     DtGasto.Value = DateTime.Now;

@@ -96,7 +96,9 @@ namespace totalClean
                 if (choice == DialogResult.Yes)
                 {
                     int att = con.executar($"UPDATE [dbo].[Gastos] set pago = 1 WHERE idGasto= " + id);
+                    dgvGastos.DataSource = null;
                     iniciarGrid();
+
 
                 }
                 else
