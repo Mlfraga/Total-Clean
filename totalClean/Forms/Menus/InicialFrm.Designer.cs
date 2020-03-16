@@ -48,6 +48,12 @@
             this.relatóriosVendasPClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosGastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosVendasGastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -193,7 +199,7 @@
             this.btnCadastrarGastos.ForeColor = System.Drawing.Color.White;
             this.btnCadastrarGastos.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrarGastos.Image")));
             this.btnCadastrarGastos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrarGastos.Location = new System.Drawing.Point(463, 572);
+            this.btnCadastrarGastos.Location = new System.Drawing.Point(350, 575);
             this.btnCadastrarGastos.Name = "btnCadastrarGastos";
             this.btnCadastrarGastos.Size = new System.Drawing.Size(215, 71);
             this.btnCadastrarGastos.TabIndex = 7;
@@ -213,7 +219,7 @@
             this.btnGastoAbertos.ForeColor = System.Drawing.Color.White;
             this.btnGastoAbertos.Image = ((System.Drawing.Image)(resources.GetObject("btnGastoAbertos.Image")));
             this.btnGastoAbertos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGastoAbertos.Location = new System.Drawing.Point(684, 572);
+            this.btnGastoAbertos.Location = new System.Drawing.Point(571, 575);
             this.btnGastoAbertos.Name = "btnGastoAbertos";
             this.btnGastoAbertos.Size = new System.Drawing.Size(215, 71);
             this.btnGastoAbertos.TabIndex = 8;
@@ -265,7 +271,9 @@
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastrarSetorToolStripMenuItem});
+            this.cadastrarSetorToolStripMenuItem,
+            this.editarToolStripMenuItem,
+            this.excluirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1394, 28);
@@ -312,6 +320,66 @@
             this.relatóriosVendasGastosToolStripMenuItem.Text = "Relatórios Vendas - Gastos";
             this.relatóriosVendasGastosToolStripMenuItem.Click += new System.EventHandler(this.relatóriosVendasGastosToolStripMenuItem_Click);
             // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(792, 575);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(227, 71);
+            this.button1.TabIndex = 163;
+            this.button1.Text = "Vendas a Notificar";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // editarToolStripMenuItem
+            // 
+            this.editarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientesToolStripMenuItem,
+            this.serviçosToolStripMenuItem});
+            this.editarToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.editarToolStripMenuItem.Text = "Editar";
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
+            // 
+            // serviçosToolStripMenuItem
+            // 
+            this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
+            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.serviçosToolStripMenuItem.Text = "Serviços";
+            this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
+            // 
+            // excluirToolStripMenuItem
+            // 
+            this.excluirToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vendasToolStripMenuItem});
+            this.excluirToolStripMenuItem.ForeColor = System.Drawing.Color.AliceBlue;
+            this.excluirToolStripMenuItem.Name = "excluirToolStripMenuItem";
+            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.excluirToolStripMenuItem.Text = "Excluir";
+            // 
+            // vendasToolStripMenuItem
+            // 
+            this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.vendasToolStripMenuItem.Text = "Vendas";
+            this.vendasToolStripMenuItem.Click += new System.EventHandler(this.vendasToolStripMenuItem_Click);
+            // 
             // InicialFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -319,6 +387,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnRelatorioGastosVendas);
             this.Controls.Add(this.btnRelatorioGastos);
@@ -368,6 +437,12 @@
         private System.Windows.Forms.ToolStripMenuItem relatóriosVendasPClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosGastosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosVendasGastosToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serviçosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excluirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
     }
 }
 

@@ -146,6 +146,7 @@
             this.dgvPagamentosPendentes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.dgvPagamentosPendentes.Location = new System.Drawing.Point(16, 39);
             this.dgvPagamentosPendentes.Name = "dgvPagamentosPendentes";
+            this.dgvPagamentosPendentes.ReadOnly = true;
             this.dgvPagamentosPendentes.RowHeadersWidth = 51;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
@@ -160,6 +161,7 @@
             this.IdVenda.HeaderText = "IdVenda";
             this.IdVenda.MinimumWidth = 6;
             this.IdVenda.Name = "IdVenda";
+            this.IdVenda.ReadOnly = true;
             this.IdVenda.Width = 125;
             // 
             // Frotista
@@ -167,6 +169,7 @@
             this.Frotista.HeaderText = "Frotista";
             this.Frotista.MinimumWidth = 6;
             this.Frotista.Name = "Frotista";
+            this.Frotista.ReadOnly = true;
             this.Frotista.Width = 125;
             // 
             // Cliente
@@ -174,6 +177,7 @@
             this.Cliente.HeaderText = "Cliente";
             this.Cliente.MinimumWidth = 6;
             this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
             this.Cliente.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Cliente.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Cliente.Width = 125;
@@ -183,6 +187,7 @@
             this.Carro.HeaderText = "Carro";
             this.Carro.MinimumWidth = 6;
             this.Carro.Name = "Carro";
+            this.Carro.ReadOnly = true;
             this.Carro.Width = 125;
             // 
             // Placa
@@ -190,6 +195,7 @@
             this.Placa.HeaderText = "Placa";
             this.Placa.MinimumWidth = 6;
             this.Placa.Name = "Placa";
+            this.Placa.ReadOnly = true;
             this.Placa.Width = 125;
             // 
             // Data
@@ -197,6 +203,7 @@
             this.Data.HeaderText = "Data";
             this.Data.MinimumWidth = 6;
             this.Data.Name = "Data";
+            this.Data.ReadOnly = true;
             this.Data.Width = 125;
             // 
             // pago
@@ -204,6 +211,7 @@
             this.pago.HeaderText = "pago";
             this.pago.MinimumWidth = 6;
             this.pago.Name = "pago";
+            this.pago.ReadOnly = true;
             this.pago.Width = 125;
             // 
             // preco
@@ -211,6 +219,7 @@
             this.preco.HeaderText = "preco";
             this.preco.MinimumWidth = 6;
             this.preco.Name = "preco";
+            this.preco.ReadOnly = true;
             this.preco.Width = 125;
             // 
             // btnPendenciasPCliente

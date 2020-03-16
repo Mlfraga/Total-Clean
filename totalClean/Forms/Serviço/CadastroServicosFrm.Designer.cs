@@ -160,6 +160,7 @@
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(315, 25);
             this.txtPreco.TabIndex = 50;
+
             // 
             // bunifuSeparator3
             // 

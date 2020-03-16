@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace totalClean
@@ -44,7 +45,7 @@ namespace totalClean
         {
             desbloqueaCampos();
             btnNovo.Enabled = false;
-            
+
 
         }
         private void limparCampos()
@@ -79,63 +80,73 @@ namespace totalClean
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            Servico servico = new Servico();
 
-            servico.nome = txtNome.Text;
-            servico.preco = float.Parse(txtPreco.Text);
-
-            if (rdbAtivo.Checked == true)
+            decimal numero;
+            
+            if (decimal.TryParse(txtPreco.Text, out numero))
             {
-                servico.ativo = true;
-            }
-            else
-            {
-                servico.ativo = false;
-            }
 
-            int statusServico = servico.ativo ? 1 : 0;
+                Servico servico = new Servico();
 
-            if (txtNome.Text != string.Empty && txtPreco.Text != string.Empty)
-            {
-                var escolha = MessageBox.Show("Você deseja mesmo salvar esses dados?", "Confirmção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                servico.nome = txtNome.Text;
+                servico.preco = float.Parse(txtPreco.Text);
 
-                if(escolha == DialogResult.Yes)
+                if (rdbAtivo.Checked == true)
                 {
-                    Conexao conexao = new Conexao();
-                    conexao.conectar();
-
-                    int linhas = conexao.executar($"INSERT INTO Servicos(nome, preco, ativo) VALUES ('{servico.nome}','{servico.preco}',{statusServico})");
-                    limparCampos();
-                    MessageBox.Show("Dados salvos com sucesso","",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                    
-                    btnSalvar.Enabled = false;
-                    btnCancelar.Enabled = false;
-                    btnNovo.Enabled = true;
-                    bloqueiaCampos();
+                    servico.ativo = true;
                 }
                 else
                 {
-
+                    servico.ativo = false;
                 }
 
+                int statusServico = servico.ativo ? 1 : 0;
+
+                if (txtNome.Text != string.Empty && txtPreco.Text != string.Empty)
+                {
+                    var escolha = MessageBox.Show("Você deseja mesmo salvar esses dados?", "Confirmção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (escolha == DialogResult.Yes)
+                    {
+                        Conexao conexao = new Conexao();
+                        conexao.conectar();
+
+                        int linhas = conexao.executar($"INSERT INTO Servicos(nome, preco, ativo) VALUES ('{servico.nome}','{servico.preco}',{statusServico})");
+                        limparCampos();
+                        MessageBox.Show("Dados salvos com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        btnSalvar.Enabled = false;
+                        btnCancelar.Enabled = false;
+                        btnNovo.Enabled = true;
+                        bloqueiaCampos();
+                    }
+                    else
+                    {
+
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Um ou mais campos não foram preenchido!!!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Um ou mais campos não foram preenchido!!!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor não insira letras no campo preço!!", "ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-
         }
 
         private void btnConsulta_Click(object sender, EventArgs e)
         {
-            Forms.EdicaoServico s = new Forms.EdicaoServico(); 
+            Forms.EdicaoServico s = new Forms.EdicaoServico();
             s.Show();
             this.Visible = false;
-            
-            
-            
+
+
+
         }
 
-        
+
     }
 }

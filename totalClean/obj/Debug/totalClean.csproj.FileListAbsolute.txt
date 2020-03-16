@@ -137,3 +137,64 @@ C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.G
 C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.PendenciasPSetor.resources
 C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.RelatorioGastos.resources
 C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.RelatorioServicos_Gastos.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\bin\Debug\totalClean.exe.config
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\bin\Debug\totalClean.exe
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\bin\Debug\totalClean.pdb
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.csprojAssemblyReference.cache
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.csproj.ResolveComReference.cache
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.ConsultaGastos.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.CadastroSetor.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.CadastroGastos.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.CadastroClientes.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.RelatorioServicos_Gastos.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.CadastroServicosFrm.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.ConsultaVendaServiço.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.EdicaoFrm.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.Forms.EdicaoServico.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.InicialFrm.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.PendenciaPCliente.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.VendaFrm.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.Pendentes.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.NovoClienteFrm.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.GastosAberto.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.PendenciasPSetor.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.Properties.Resources.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.RelatorioClienteFrm.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.RelatorioServico.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.RelatorioGastos.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.csproj.GenerateResource.cache
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.csproj.CopyComplete
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.exe
+C:\Users\Matheus\source\repos\TotalClean-Cloud\totalClean\obj\Debug\totalClean.pdb
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\bin\Debug\totalClean.exe.config
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\bin\Debug\totalClean.exe
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\bin\Debug\totalClean.pdb
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.csprojAssemblyReference.cache
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.csproj.ResolveComReference.cache
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.ConsultaGastos.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.CadastroSetor.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.CadastroGastos.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.CadastroClientes.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.RelatorioServicos_Gastos.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.CadastroServicosFrm.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.ConsultaVendaServiço.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.EdicaoFrm.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.Forms.EdicaoServico.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.InicialFrm.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.PendenciaPCliente.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.VendaFrm.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.Pendentes.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.NovoClienteFrm.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.GastosAberto.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.PendenciasPSetor.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.Properties.Resources.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.RelatorioClienteFrm.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.RelatorioServico.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.RelatorioGastos.resources
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.csproj.GenerateResource.cache
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.csproj.CopyComplete
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.exe
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.pdb
+C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.VendasAFinalizar.resources

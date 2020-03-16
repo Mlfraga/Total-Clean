@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultaGastos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdbAberto = new System.Windows.Forms.RadioButton();
             this.rdbPago = new System.Windows.Forms.RadioButton();
@@ -342,10 +342,11 @@
             this.dgvGastos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.dgvGastos.Location = new System.Drawing.Point(34, 39);
             this.dgvGastos.Name = "dgvGastos";
+            this.dgvGastos.ReadOnly = true;
             this.dgvGastos.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGastos.RowTemplate.Height = 24;
             this.dgvGastos.Size = new System.Drawing.Size(826, 276);
             this.dgvGastos.TabIndex = 70;

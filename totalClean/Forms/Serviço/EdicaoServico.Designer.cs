@@ -342,9 +342,9 @@
             this.groupBox1.Controls.Add(this.dgvServicos);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(235, 431);
+            this.groupBox1.Location = new System.Drawing.Point(117, 400);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(890, 252);
+            this.groupBox1.Size = new System.Drawing.Size(1112, 293);
             this.groupBox1.TabIndex = 93;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados do Serviço";
@@ -354,14 +354,15 @@
             this.dgvServicos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
             this.dgvServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvServicos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.dgvServicos.Location = new System.Drawing.Point(77, 29);
+            this.dgvServicos.Location = new System.Drawing.Point(53, 29);
             this.dgvServicos.Name = "dgvServicos";
+            this.dgvServicos.ReadOnly = true;
             this.dgvServicos.RowHeadersWidth = 51;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dgvServicos.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvServicos.RowTemplate.Height = 24;
-            this.dgvServicos.Size = new System.Drawing.Size(737, 200);
+            this.dgvServicos.Size = new System.Drawing.Size(999, 245);
             this.dgvServicos.TabIndex = 70;
             this.dgvServicos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServicos_CellClick);
             // 

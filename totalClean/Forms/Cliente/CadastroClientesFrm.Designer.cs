@@ -321,10 +321,10 @@
             this.bunifuSeparator6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bunifuSeparator6.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.bunifuSeparator6.LineThickness = 1;
-            this.bunifuSeparator6.Location = new System.Drawing.Point(388, 90);
+            this.bunifuSeparator6.Location = new System.Drawing.Point(433, 90);
             this.bunifuSeparator6.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.bunifuSeparator6.Name = "bunifuSeparator6";
-            this.bunifuSeparator6.Size = new System.Drawing.Size(628, 10);
+            this.bunifuSeparator6.Size = new System.Drawing.Size(533, 10);
             this.bunifuSeparator6.TabIndex = 35;
             this.bunifuSeparator6.Transparency = 255;
             this.bunifuSeparator6.Vertical = false;

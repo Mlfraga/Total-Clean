@@ -81,6 +81,7 @@
             this.dgvGastos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.dgvGastos.Location = new System.Drawing.Point(13, 39);
             this.dgvGastos.Name = "dgvGastos";
+            this.dgvGastos.ReadOnly = true;
             this.dgvGastos.RowHeadersWidth = 51;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;

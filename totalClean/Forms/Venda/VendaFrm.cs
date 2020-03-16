@@ -256,11 +256,28 @@ namespace totalClean
 
                     if (escolha == DialogResult.Yes)
                     {
-                        int linhas = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago) VALUES('{venda.data.ToShortDateString()}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1)  ");
+                        var linhas = MessageBox.Show("Você deseja adicionar esse cliente a lista de clientes a notificar?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (linhas == DialogResult.Yes)
+                        {
+                            int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, 0)  ");
+                        }
+                        else
+                        {
+                            int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, 1)  ");
+                        }
                     }
                     else
                     {
-                        int linhas = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago) VALUES('{venda.data.ToShortDateString()}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0)  ");
+                        var escolha1 = MessageBox.Show("Você deseja adicionar esse cliente a lista de clientes a notificar?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (escolha1 == DialogResult.Yes)
+                        {
+                            int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, 0)  ");
+                        }
+                        else
+                        {
+                            int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, 1)  ");
+                        }
+
                     }
 
                     /// Pegar ultimo id Venda
@@ -952,5 +969,7 @@ namespace totalClean
             this.Visible = false;
 
         }
+
+
     }
 }

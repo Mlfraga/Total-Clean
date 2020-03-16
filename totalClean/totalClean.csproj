@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\VendaFinalizada.cs" />
     <Compile Include="Classes\EdicaoGastos.cs" />
     <Compile Include="Forms\Gastos\ConsultaGastos.cs">
       <SubType>Form</SubType>
@@ -178,6 +179,12 @@
     <Compile Include="Classes\Venda.cs" />
     <Compile Include="Classes\ValorVenda.cs" />
     <Compile Include="Classes\VendaPendente.cs" />
+    <Compile Include="Forms\Venda\VendasAFinalizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Venda\VendasAFinalizar.Designer.cs">
+      <DependentUpon>VendasAFinalizar.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\Gastos\ConsultaGastos.resx">
       <DependentUpon>ConsultaGastos.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Relatório\RelatorioGastos.resx">
       <DependentUpon>RelatorioGastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Venda\VendasAFinalizar.resx">
+      <DependentUpon>VendasAFinalizar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

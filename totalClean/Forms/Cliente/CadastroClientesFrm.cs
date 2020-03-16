@@ -124,11 +124,11 @@ namespace totalClean
 
                     if (escolha == DialogResult.Yes)
                     {
-                        int maxChar = 11;
+                        int maxChar = 9;
 
                         if (txtTelefone.Text.Length > maxChar)
                         {
-                            MessageBox.Show("Campo de telefone com mais de 11 caracteres", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Campo de telefone não aceita mais de 9 caracteres", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {

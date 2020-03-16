@@ -12,6 +12,7 @@ namespace totalClean
 {
     public partial class InicialFrm : Form
     {
+        
         public InicialFrm()
         {
             InitializeComponent();
@@ -121,6 +122,35 @@ namespace totalClean
         private void relatóriosVendasGastosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RelatorioServicos_Gastos n = new RelatorioServicos_Gastos();
+            n.Show();
+            this.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            VendasAFinalizar n = new VendasAFinalizar();
+                n.Show();
+            this.Visible = false;
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            EdicaoFrm n = new EdicaoFrm();
+            n.Show();
+            this.Visible = false;
+        }
+
+        private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            totalClean.Forms.EdicaoServico n = new totalClean.Forms.EdicaoServico();
+            n.Show();
+            this.Visible = false;
+        }
+
+        private void vendasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaVendaServiço n = new ConsultaVendaServiço();
             n.Show();
             this.Visible = false;
         }

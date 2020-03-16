@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RelatorioServico));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnGerarRelatorio = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -182,10 +182,11 @@
             this.dgvVendas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.dgvVendas.Location = new System.Drawing.Point(77, 39);
             this.dgvVendas.Name = "dgvVendas";
+            this.dgvVendas.ReadOnly = true;
             this.dgvVendas.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dgvVendas.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvVendas.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvVendas.RowTemplate.Height = 24;
             this.dgvVendas.Size = new System.Drawing.Size(964, 379);
             this.dgvVendas.TabIndex = 70;
@@ -276,7 +277,6 @@
             this.rdbAmbos.TabStop = true;
             this.rdbAmbos.Text = "Ambos";
             this.rdbAmbos.UseVisualStyleBackColor = true;
-
             // 
             // rdbParticulares
             // 
@@ -289,7 +289,6 @@
             this.rdbParticulares.TabIndex = 163;
             this.rdbParticulares.Text = "Particulares";
             this.rdbParticulares.UseVisualStyleBackColor = true;
-            
             // 
             // rdbFrotistas
             // 
@@ -302,7 +301,6 @@
             this.rdbFrotistas.TabIndex = 162;
             this.rdbFrotistas.Text = "Frotistas";
             this.rdbFrotistas.UseVisualStyleBackColor = true;
-            
             // 
             // RelatorioServico
             // 

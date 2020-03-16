@@ -306,9 +306,9 @@
             this.groupBox1.Controls.Add(this.dgvClientes);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(264, 437);
+            this.groupBox1.Location = new System.Drawing.Point(113, 416);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(890, 252);
+            this.groupBox1.Size = new System.Drawing.Size(1158, 273);
             this.groupBox1.TabIndex = 69;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados de Clientes:";
@@ -318,14 +318,15 @@
             this.dgvClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.dgvClientes.Location = new System.Drawing.Point(77, 29);
+            this.dgvClientes.Location = new System.Drawing.Point(53, 31);
             this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowHeadersWidth = 51;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvClientes.RowTemplate.Height = 24;
-            this.dgvClientes.Size = new System.Drawing.Size(737, 200);
+            this.dgvClientes.Size = new System.Drawing.Size(1053, 229);
             this.dgvClientes.TabIndex = 70;
             this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
             // 

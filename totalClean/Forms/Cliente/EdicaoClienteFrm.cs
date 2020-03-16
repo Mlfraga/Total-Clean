@@ -36,10 +36,11 @@ namespace totalClean
         }
 
         private void btnSair_Click(object sender, EventArgs e)
-        {
-            CadastroClientes f = new CadastroClientes();
-            f.Show();
-            this.Visible = false;
+        {           
+                CadastroClientes f = new CadastroClientes();
+                f.Show();
+                this.Visible = false;
+            
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)

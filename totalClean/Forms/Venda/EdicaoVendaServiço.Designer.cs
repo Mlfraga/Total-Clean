@@ -80,6 +80,7 @@
             this.dgvVendas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.dgvVendas.Location = new System.Drawing.Point(77, 29);
             this.dgvVendas.Name = "dgvVendas";
+            this.dgvVendas.ReadOnly = true;
             this.dgvVendas.RowHeadersWidth = 51;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
