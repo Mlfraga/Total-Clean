@@ -135,22 +135,21 @@ namespace totalClean
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            EdicaoFrm n = new EdicaoFrm();
+            EdicaoClienteShorCut n = new EdicaoClienteShorCut();
             n.Show();
             this.Visible = false;
         }
 
         private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            totalClean.Forms.EdicaoServico n = new totalClean.Forms.EdicaoServico();
+            EdicaoServicoShortCut n = new EdicaoServicoShortCut();
             n.Show();
             this.Visible = false;
         }
 
         private void vendasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConsultaVendaServiço n = new ConsultaVendaServiço();
+            EdicaoVendaServicoShortCut n = new EdicaoVendaServicoShortCut();
             n.Show();
             this.Visible = false;
         }

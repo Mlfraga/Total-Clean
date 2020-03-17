@@ -198,3 +198,7 @@ C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\tota
 C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.exe
 C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.pdb
 C:\Users\Matheus\source\repos\TotalClean-Cloud - Copia\totalClean\obj\Debug\totalClean.VendasAFinalizar.resources
+C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.VendasAFinalizar.resources
+C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.EdicaoClienteShorCut.resources
+C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.EdicaoServicoShortCut.resources
+C:\Users\Matheus\source\repos\TotalClean-Local\totalClean\obj\Debug\totalClean.EdicaoVendaServicoShortCut.resources

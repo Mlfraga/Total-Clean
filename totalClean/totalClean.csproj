@@ -53,6 +53,24 @@
   <ItemGroup>
     <Compile Include="Classes\VendaFinalizada.cs" />
     <Compile Include="Classes\EdicaoGastos.cs" />
+    <Compile Include="Forms\Venda\EdicaoVendaServicoShortCut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Venda\EdicaoVendaServicoShortCut.Designer.cs">
+      <DependentUpon>EdicaoVendaServicoShortCut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Serviço\EdicaoServicoShortCut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Serviço\EdicaoServicoShortCut.Designer.cs">
+      <DependentUpon>EdicaoServicoShortCut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cliente\EdicaoClienteShorCut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cliente\EdicaoClienteShorCut.Designer.cs">
+      <DependentUpon>EdicaoClienteShorCut.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Gastos\ConsultaGastos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +203,15 @@
     <Compile Include="Forms\Venda\VendasAFinalizar.Designer.cs">
       <DependentUpon>VendasAFinalizar.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\Venda\EdicaoVendaServicoShortCut.resx">
+      <DependentUpon>EdicaoVendaServicoShortCut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Serviço\EdicaoServicoShortCut.resx">
+      <DependentUpon>EdicaoServicoShortCut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cliente\EdicaoClienteShorCut.resx">
+      <DependentUpon>EdicaoClienteShorCut.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Gastos\ConsultaGastos.resx">
       <DependentUpon>ConsultaGastos.cs</DependentUpon>
     </EmbeddedResource>

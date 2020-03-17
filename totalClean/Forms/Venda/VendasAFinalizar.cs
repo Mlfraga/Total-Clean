@@ -121,7 +121,7 @@ namespace totalClean
 
         private void btnEnviaMsg_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("chrome.exe", $"https://web.whatsapp.com/send?phone=5531'{telefone}'&text=Olá,%20Tudo%20bem?%20O%20seu%20carro%20já%20está%20brilhando¹");
+            System.Diagnostics.Process.Start("chrome.exe", $"https://web.whatsapp.com/send?phone=5531'{telefone}'&text=Olá,%20Tudo%20bem?%20O%20seu%20carro%20já%20está%20pronto%20na%20Total%20Clean!");
 
 
             int finalizado = con.executar("UPDATE[dbo].[Vendas] set finalizado = 1 WHERE idVenda = " +idVenda);
