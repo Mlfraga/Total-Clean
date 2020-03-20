@@ -463,6 +463,7 @@
             this.Name = "EdicaoVendaServicoShortCut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de Vendas";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EdicaoVendaServicoShortCut_FormClosed);
             this.Load += new System.EventHandler(this.EdicaoVendaServicoShortCut_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).EndInit();
             this.groupBox1.ResumeLayout(false);

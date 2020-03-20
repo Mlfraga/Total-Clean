@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RelatorioServicos_Gastos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.dtFinal = new System.Windows.Forms.DateTimePicker();
             this.DtInicial = new System.Windows.Forms.DateTimePicker();
@@ -194,7 +194,7 @@
             this.groupBox2.Controls.Add(this.dgvGastos);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(13, 255);
+            this.groupBox2.Location = new System.Drawing.Point(677, 258);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(711, 460);
             this.groupBox2.TabIndex = 200;
@@ -210,9 +210,9 @@
             this.dgvGastos.Name = "dgvGastos";
             this.dgvGastos.ReadOnly = true;
             this.dgvGastos.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGastos.RowTemplate.Height = 24;
             this.dgvGastos.Size = new System.Drawing.Size(688, 405);
             this.dgvGastos.TabIndex = 164;
@@ -222,7 +222,7 @@
             this.groupBox1.Controls.Add(this.dgvVendas);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(730, 255);
+            this.groupBox1.Location = new System.Drawing.Point(13, 258);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(652, 460);
             this.groupBox1.TabIndex = 201;
@@ -238,9 +238,9 @@
             this.dgvVendas.Name = "dgvVendas";
             this.dgvVendas.ReadOnly = true;
             this.dgvVendas.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dgvVendas.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dgvVendas.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvVendas.RowTemplate.Height = 24;
             this.dgvVendas.Size = new System.Drawing.Size(620, 405);
             this.dgvVendas.TabIndex = 70;

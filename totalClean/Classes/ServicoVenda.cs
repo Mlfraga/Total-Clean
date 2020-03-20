@@ -18,5 +18,6 @@ namespace totalClean
         public Double preco { get; set; }
         public DateTime data { get; set; }
         public Boolean pago { get; set; }
+        public String formaPagamento { get; set; }
     }
 }

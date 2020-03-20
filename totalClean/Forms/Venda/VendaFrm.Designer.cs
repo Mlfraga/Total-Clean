@@ -86,6 +86,13 @@
             this.btnAdd6 = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnAdd7 = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnNovoCliente = new Bunifu.Framework.UI.BunifuImageButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdbDebito = new System.Windows.Forms.RadioButton();
+            this.rdbPermuta = new System.Windows.Forms.RadioButton();
+            this.rdbCredito = new System.Windows.Forms.RadioButton();
+            this.rdbBoleto = new System.Windows.Forms.RadioButton();
+            this.rdbDinheiro = new System.Windows.Forms.RadioButton();
+            this.rdbTransferencia = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd3)).BeginInit();
@@ -94,6 +101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNovoCliente)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuSeparator6
@@ -328,7 +336,7 @@
             this.DtVenda.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.DtVenda.Location = new System.Drawing.Point(305, 364);
             this.DtVenda.Name = "DtVenda";
-            this.DtVenda.Size = new System.Drawing.Size(280, 22);
+            this.DtVenda.Size = new System.Drawing.Size(246, 22);
             this.DtVenda.TabIndex = 73;
             // 
             // label4
@@ -345,7 +353,7 @@
             // cmbServico1
             // 
             this.cmbServico1.FormattingEnabled = true;
-            this.cmbServico1.Location = new System.Drawing.Point(603, 362);
+            this.cmbServico1.Location = new System.Drawing.Point(901, 364);
             this.cmbServico1.Name = "cmbServico1";
             this.cmbServico1.Size = new System.Drawing.Size(208, 24);
             this.cmbServico1.TabIndex = 76;
@@ -355,7 +363,7 @@
             this.lblServico1.AutoSize = true;
             this.lblServico1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServico1.ForeColor = System.Drawing.Color.White;
-            this.lblServico1.Location = new System.Drawing.Point(599, 336);
+            this.lblServico1.Location = new System.Drawing.Point(897, 338);
             this.lblServico1.Name = "lblServico1";
             this.lblServico1.Size = new System.Drawing.Size(90, 23);
             this.lblServico1.TabIndex = 75;
@@ -375,7 +383,7 @@
             "8",
             "9",
             "10"});
-            this.cmbQtd1.Location = new System.Drawing.Point(817, 362);
+            this.cmbQtd1.Location = new System.Drawing.Point(1115, 364);
             this.cmbQtd1.Name = "cmbQtd1";
             this.cmbQtd1.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd1.TabIndex = 78;
@@ -385,7 +393,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(813, 336);
+            this.label7.Location = new System.Drawing.Point(1111, 338);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 23);
             this.label7.TabIndex = 77;
@@ -396,7 +404,7 @@
             this.lblQtd2.AutoSize = true;
             this.lblQtd2.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQtd2.ForeColor = System.Drawing.Color.White;
-            this.lblQtd2.Location = new System.Drawing.Point(1111, 336);
+            this.lblQtd2.Location = new System.Drawing.Point(515, 446);
             this.lblQtd2.Name = "lblQtd2";
             this.lblQtd2.Size = new System.Drawing.Size(53, 23);
             this.lblQtd2.TabIndex = 81;
@@ -405,7 +413,7 @@
             // cmbServico2
             // 
             this.cmbServico2.FormattingEnabled = true;
-            this.cmbServico2.Location = new System.Drawing.Point(901, 362);
+            this.cmbServico2.Location = new System.Drawing.Point(305, 472);
             this.cmbServico2.Name = "cmbServico2";
             this.cmbServico2.Size = new System.Drawing.Size(208, 24);
             this.cmbServico2.TabIndex = 80;
@@ -415,7 +423,7 @@
             this.lblServico2.AutoSize = true;
             this.lblServico2.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServico2.ForeColor = System.Drawing.Color.White;
-            this.lblServico2.Location = new System.Drawing.Point(897, 336);
+            this.lblServico2.Location = new System.Drawing.Point(301, 446);
             this.lblServico2.Name = "lblServico2";
             this.lblServico2.Size = new System.Drawing.Size(90, 23);
             this.lblServico2.TabIndex = 79;
@@ -426,7 +434,7 @@
             this.lblQtd3.AutoSize = true;
             this.lblQtd3.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQtd3.ForeColor = System.Drawing.Color.White;
-            this.lblQtd3.Location = new System.Drawing.Point(515, 464);
+            this.lblQtd3.Location = new System.Drawing.Point(813, 446);
             this.lblQtd3.Name = "lblQtd3";
             this.lblQtd3.Size = new System.Drawing.Size(53, 23);
             this.lblQtd3.TabIndex = 85;
@@ -435,7 +443,7 @@
             // cmbServico3
             // 
             this.cmbServico3.FormattingEnabled = true;
-            this.cmbServico3.Location = new System.Drawing.Point(305, 490);
+            this.cmbServico3.Location = new System.Drawing.Point(603, 472);
             this.cmbServico3.Name = "cmbServico3";
             this.cmbServico3.Size = new System.Drawing.Size(208, 24);
             this.cmbServico3.TabIndex = 84;
@@ -445,7 +453,7 @@
             this.lblServico3.AutoSize = true;
             this.lblServico3.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServico3.ForeColor = System.Drawing.Color.White;
-            this.lblServico3.Location = new System.Drawing.Point(301, 464);
+            this.lblServico3.Location = new System.Drawing.Point(599, 446);
             this.lblServico3.Name = "lblServico3";
             this.lblServico3.Size = new System.Drawing.Size(90, 23);
             this.lblServico3.TabIndex = 83;
@@ -456,7 +464,7 @@
             this.lblQtd4.AutoSize = true;
             this.lblQtd4.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQtd4.ForeColor = System.Drawing.Color.White;
-            this.lblQtd4.Location = new System.Drawing.Point(813, 464);
+            this.lblQtd4.Location = new System.Drawing.Point(1111, 446);
             this.lblQtd4.Name = "lblQtd4";
             this.lblQtd4.Size = new System.Drawing.Size(53, 23);
             this.lblQtd4.TabIndex = 89;
@@ -465,7 +473,7 @@
             // cmbServico4
             // 
             this.cmbServico4.FormattingEnabled = true;
-            this.cmbServico4.Location = new System.Drawing.Point(603, 490);
+            this.cmbServico4.Location = new System.Drawing.Point(901, 472);
             this.cmbServico4.Name = "cmbServico4";
             this.cmbServico4.Size = new System.Drawing.Size(208, 24);
             this.cmbServico4.TabIndex = 88;
@@ -475,7 +483,7 @@
             this.lblServico4.AutoSize = true;
             this.lblServico4.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServico4.ForeColor = System.Drawing.Color.White;
-            this.lblServico4.Location = new System.Drawing.Point(599, 464);
+            this.lblServico4.Location = new System.Drawing.Point(897, 446);
             this.lblServico4.Name = "lblServico4";
             this.lblServico4.Size = new System.Drawing.Size(90, 23);
             this.lblServico4.TabIndex = 87;
@@ -486,7 +494,7 @@
             this.lblQtd5.AutoSize = true;
             this.lblQtd5.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQtd5.ForeColor = System.Drawing.Color.White;
-            this.lblQtd5.Location = new System.Drawing.Point(1111, 464);
+            this.lblQtd5.Location = new System.Drawing.Point(515, 540);
             this.lblQtd5.Name = "lblQtd5";
             this.lblQtd5.Size = new System.Drawing.Size(53, 23);
             this.lblQtd5.TabIndex = 93;
@@ -495,7 +503,7 @@
             // cmbServico5
             // 
             this.cmbServico5.FormattingEnabled = true;
-            this.cmbServico5.Location = new System.Drawing.Point(901, 490);
+            this.cmbServico5.Location = new System.Drawing.Point(305, 566);
             this.cmbServico5.Name = "cmbServico5";
             this.cmbServico5.Size = new System.Drawing.Size(208, 24);
             this.cmbServico5.TabIndex = 92;
@@ -505,7 +513,7 @@
             this.lblServico5.AutoSize = true;
             this.lblServico5.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServico5.ForeColor = System.Drawing.Color.White;
-            this.lblServico5.Location = new System.Drawing.Point(897, 464);
+            this.lblServico5.Location = new System.Drawing.Point(301, 540);
             this.lblServico5.Name = "lblServico5";
             this.lblServico5.Size = new System.Drawing.Size(90, 23);
             this.lblServico5.TabIndex = 91;
@@ -516,7 +524,7 @@
             this.lblQtd6.AutoSize = true;
             this.lblQtd6.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQtd6.ForeColor = System.Drawing.Color.White;
-            this.lblQtd6.Location = new System.Drawing.Point(515, 604);
+            this.lblQtd6.Location = new System.Drawing.Point(813, 540);
             this.lblQtd6.Name = "lblQtd6";
             this.lblQtd6.Size = new System.Drawing.Size(53, 23);
             this.lblQtd6.TabIndex = 97;
@@ -525,7 +533,7 @@
             // cmbServico6
             // 
             this.cmbServico6.FormattingEnabled = true;
-            this.cmbServico6.Location = new System.Drawing.Point(305, 630);
+            this.cmbServico6.Location = new System.Drawing.Point(603, 566);
             this.cmbServico6.Name = "cmbServico6";
             this.cmbServico6.Size = new System.Drawing.Size(208, 24);
             this.cmbServico6.TabIndex = 96;
@@ -535,7 +543,7 @@
             this.lblServico6.AutoSize = true;
             this.lblServico6.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServico6.ForeColor = System.Drawing.Color.White;
-            this.lblServico6.Location = new System.Drawing.Point(301, 604);
+            this.lblServico6.Location = new System.Drawing.Point(599, 540);
             this.lblServico6.Name = "lblServico6";
             this.lblServico6.Size = new System.Drawing.Size(90, 23);
             this.lblServico6.TabIndex = 95;
@@ -546,7 +554,7 @@
             this.lblQtd7.AutoSize = true;
             this.lblQtd7.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQtd7.ForeColor = System.Drawing.Color.White;
-            this.lblQtd7.Location = new System.Drawing.Point(813, 604);
+            this.lblQtd7.Location = new System.Drawing.Point(1111, 540);
             this.lblQtd7.Name = "lblQtd7";
             this.lblQtd7.Size = new System.Drawing.Size(53, 23);
             this.lblQtd7.TabIndex = 101;
@@ -555,7 +563,7 @@
             // cmbServico7
             // 
             this.cmbServico7.FormattingEnabled = true;
-            this.cmbServico7.Location = new System.Drawing.Point(603, 630);
+            this.cmbServico7.Location = new System.Drawing.Point(901, 566);
             this.cmbServico7.Name = "cmbServico7";
             this.cmbServico7.Size = new System.Drawing.Size(208, 24);
             this.cmbServico7.TabIndex = 100;
@@ -565,7 +573,7 @@
             this.lblServico7.AutoSize = true;
             this.lblServico7.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServico7.ForeColor = System.Drawing.Color.White;
-            this.lblServico7.Location = new System.Drawing.Point(599, 604);
+            this.lblServico7.Location = new System.Drawing.Point(897, 540);
             this.lblServico7.Name = "lblServico7";
             this.lblServico7.Size = new System.Drawing.Size(90, 23);
             this.lblServico7.TabIndex = 99;
@@ -576,7 +584,7 @@
             this.lblQtd8.AutoSize = true;
             this.lblQtd8.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQtd8.ForeColor = System.Drawing.Color.White;
-            this.lblQtd8.Location = new System.Drawing.Point(1111, 604);
+            this.lblQtd8.Location = new System.Drawing.Point(511, 636);
             this.lblQtd8.Name = "lblQtd8";
             this.lblQtd8.Size = new System.Drawing.Size(53, 23);
             this.lblQtd8.TabIndex = 105;
@@ -585,7 +593,7 @@
             // cmbServico8
             // 
             this.cmbServico8.FormattingEnabled = true;
-            this.cmbServico8.Location = new System.Drawing.Point(901, 630);
+            this.cmbServico8.Location = new System.Drawing.Point(301, 662);
             this.cmbServico8.Name = "cmbServico8";
             this.cmbServico8.Size = new System.Drawing.Size(208, 24);
             this.cmbServico8.TabIndex = 104;
@@ -595,7 +603,7 @@
             this.lblServico8.AutoSize = true;
             this.lblServico8.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServico8.ForeColor = System.Drawing.Color.White;
-            this.lblServico8.Location = new System.Drawing.Point(897, 604);
+            this.lblServico8.Location = new System.Drawing.Point(297, 636);
             this.lblServico8.Name = "lblServico8";
             this.lblServico8.Size = new System.Drawing.Size(90, 23);
             this.lblServico8.TabIndex = 103;
@@ -606,7 +614,7 @@
             this.btnAdd1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.btnAdd1.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd1.Image")));
             this.btnAdd1.ImageActive = null;
-            this.btnAdd1.Location = new System.Drawing.Point(603, 392);
+            this.btnAdd1.Location = new System.Drawing.Point(901, 394);
             this.btnAdd1.Name = "btnAdd1";
             this.btnAdd1.Size = new System.Drawing.Size(31, 27);
             this.btnAdd1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -629,7 +637,7 @@
             "8",
             "9",
             "10"});
-            this.cmbQtd2.Location = new System.Drawing.Point(1115, 362);
+            this.cmbQtd2.Location = new System.Drawing.Point(519, 472);
             this.cmbQtd2.Name = "cmbQtd2";
             this.cmbQtd2.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd2.TabIndex = 109;
@@ -648,7 +656,7 @@
             "8",
             "9",
             "10"});
-            this.cmbQtd3.Location = new System.Drawing.Point(519, 490);
+            this.cmbQtd3.Location = new System.Drawing.Point(817, 472);
             this.cmbQtd3.Name = "cmbQtd3";
             this.cmbQtd3.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd3.TabIndex = 110;
@@ -667,7 +675,7 @@
             "8",
             "9",
             "10"});
-            this.cmbQtd4.Location = new System.Drawing.Point(817, 490);
+            this.cmbQtd4.Location = new System.Drawing.Point(1115, 472);
             this.cmbQtd4.Name = "cmbQtd4";
             this.cmbQtd4.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd4.TabIndex = 111;
@@ -686,7 +694,7 @@
             "8",
             "9",
             "10"});
-            this.cmbQtd5.Location = new System.Drawing.Point(1115, 490);
+            this.cmbQtd5.Location = new System.Drawing.Point(519, 566);
             this.cmbQtd5.Name = "cmbQtd5";
             this.cmbQtd5.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd5.TabIndex = 112;
@@ -705,7 +713,7 @@
             "8",
             "9",
             "10"});
-            this.cmbQtd6.Location = new System.Drawing.Point(519, 630);
+            this.cmbQtd6.Location = new System.Drawing.Point(817, 566);
             this.cmbQtd6.Name = "cmbQtd6";
             this.cmbQtd6.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd6.TabIndex = 113;
@@ -724,7 +732,7 @@
             "8",
             "9",
             "10"});
-            this.cmbQtd7.Location = new System.Drawing.Point(817, 630);
+            this.cmbQtd7.Location = new System.Drawing.Point(1115, 566);
             this.cmbQtd7.Name = "cmbQtd7";
             this.cmbQtd7.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd7.TabIndex = 114;
@@ -743,7 +751,7 @@
             "8",
             "9",
             "10"});
-            this.cmbQtd8.Location = new System.Drawing.Point(1115, 630);
+            this.cmbQtd8.Location = new System.Drawing.Point(515, 662);
             this.cmbQtd8.Name = "cmbQtd8";
             this.cmbQtd8.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd8.TabIndex = 115;
@@ -753,7 +761,7 @@
             this.btnAdd2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.btnAdd2.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd2.Image")));
             this.btnAdd2.ImageActive = null;
-            this.btnAdd2.Location = new System.Drawing.Point(901, 392);
+            this.btnAdd2.Location = new System.Drawing.Point(305, 502);
             this.btnAdd2.Name = "btnAdd2";
             this.btnAdd2.Size = new System.Drawing.Size(31, 27);
             this.btnAdd2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -767,7 +775,7 @@
             this.btnAdd3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.btnAdd3.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd3.Image")));
             this.btnAdd3.ImageActive = null;
-            this.btnAdd3.Location = new System.Drawing.Point(305, 520);
+            this.btnAdd3.Location = new System.Drawing.Point(603, 502);
             this.btnAdd3.Name = "btnAdd3";
             this.btnAdd3.Size = new System.Drawing.Size(31, 27);
             this.btnAdd3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -781,7 +789,7 @@
             this.btnAdd4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.btnAdd4.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd4.Image")));
             this.btnAdd4.ImageActive = null;
-            this.btnAdd4.Location = new System.Drawing.Point(603, 520);
+            this.btnAdd4.Location = new System.Drawing.Point(901, 502);
             this.btnAdd4.Name = "btnAdd4";
             this.btnAdd4.Size = new System.Drawing.Size(31, 27);
             this.btnAdd4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -795,7 +803,7 @@
             this.btnAdd5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.btnAdd5.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd5.Image")));
             this.btnAdd5.ImageActive = null;
-            this.btnAdd5.Location = new System.Drawing.Point(901, 520);
+            this.btnAdd5.Location = new System.Drawing.Point(305, 596);
             this.btnAdd5.Name = "btnAdd5";
             this.btnAdd5.Size = new System.Drawing.Size(31, 27);
             this.btnAdd5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -809,7 +817,7 @@
             this.btnAdd6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.btnAdd6.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd6.Image")));
             this.btnAdd6.ImageActive = null;
-            this.btnAdd6.Location = new System.Drawing.Point(305, 660);
+            this.btnAdd6.Location = new System.Drawing.Point(603, 596);
             this.btnAdd6.Name = "btnAdd6";
             this.btnAdd6.Size = new System.Drawing.Size(31, 27);
             this.btnAdd6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -823,7 +831,7 @@
             this.btnAdd7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.btnAdd7.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd7.Image")));
             this.btnAdd7.ImageActive = null;
-            this.btnAdd7.Location = new System.Drawing.Point(603, 660);
+            this.btnAdd7.Location = new System.Drawing.Point(901, 596);
             this.btnAdd7.Name = "btnAdd7";
             this.btnAdd7.Size = new System.Drawing.Size(31, 27);
             this.btnAdd7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -846,12 +854,92 @@
             this.btnNovoCliente.Zoom = 10;
             this.btnNovoCliente.Click += new System.EventHandler(this.btnNovoCliente_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rdbTransferencia);
+            this.groupBox2.Controls.Add(this.rdbDebito);
+            this.groupBox2.Controls.Add(this.rdbPermuta);
+            this.groupBox2.Controls.Add(this.rdbCredito);
+            this.groupBox2.Controls.Add(this.rdbBoleto);
+            this.groupBox2.Controls.Add(this.rdbDinheiro);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(577, 297);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(306, 124);
+            this.groupBox2.TabIndex = 152;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Forma de Pagamento";
+            // 
+            // rdbDebito
+            // 
+            this.rdbDebito.AutoSize = true;
+            this.rdbDebito.Location = new System.Drawing.Point(25, 90);
+            this.rdbDebito.Name = "rdbDebito";
+            this.rdbDebito.Size = new System.Drawing.Size(85, 28);
+            this.rdbDebito.TabIndex = 4;
+            this.rdbDebito.Text = "Débito";
+            this.rdbDebito.UseVisualStyleBackColor = true;
+            // 
+            // rdbPermuta
+            // 
+            this.rdbPermuta.AutoSize = true;
+            this.rdbPermuta.Location = new System.Drawing.Point(151, 60);
+            this.rdbPermuta.Name = "rdbPermuta";
+            this.rdbPermuta.Size = new System.Drawing.Size(101, 28);
+            this.rdbPermuta.TabIndex = 3;
+            this.rdbPermuta.Text = "Permuta";
+            this.rdbPermuta.UseVisualStyleBackColor = true;
+            // 
+            // rdbCredito
+            // 
+            this.rdbCredito.AutoSize = true;
+            this.rdbCredito.Location = new System.Drawing.Point(24, 60);
+            this.rdbCredito.Name = "rdbCredito";
+            this.rdbCredito.Size = new System.Drawing.Size(91, 28);
+            this.rdbCredito.TabIndex = 2;
+            this.rdbCredito.Text = "Crédito";
+            this.rdbCredito.UseVisualStyleBackColor = true;
+            // 
+            // rdbBoleto
+            // 
+            this.rdbBoleto.AutoSize = true;
+            this.rdbBoleto.Location = new System.Drawing.Point(151, 31);
+            this.rdbBoleto.Name = "rdbBoleto";
+            this.rdbBoleto.Size = new System.Drawing.Size(84, 28);
+            this.rdbBoleto.TabIndex = 1;
+            this.rdbBoleto.Text = "Boleto";
+            this.rdbBoleto.UseVisualStyleBackColor = true;
+            // 
+            // rdbDinheiro
+            // 
+            this.rdbDinheiro.AutoSize = true;
+            this.rdbDinheiro.Checked = true;
+            this.rdbDinheiro.Location = new System.Drawing.Point(24, 31);
+            this.rdbDinheiro.Name = "rdbDinheiro";
+            this.rdbDinheiro.Size = new System.Drawing.Size(102, 28);
+            this.rdbDinheiro.TabIndex = 0;
+            this.rdbDinheiro.TabStop = true;
+            this.rdbDinheiro.Text = "Dinheiro";
+            this.rdbDinheiro.UseVisualStyleBackColor = true;
+            // 
+            // rdbTransferencia
+            // 
+            this.rdbTransferencia.AutoSize = true;
+            this.rdbTransferencia.Location = new System.Drawing.Point(151, 90);
+            this.rdbTransferencia.Name = "rdbTransferencia";
+            this.rdbTransferencia.Size = new System.Drawing.Size(146, 28);
+            this.rdbTransferencia.TabIndex = 5;
+            this.rdbTransferencia.Text = "Transferência";
+            this.rdbTransferencia.UseVisualStyleBackColor = true;
+            // 
             // VendaFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnNovoCliente);
             this.Controls.Add(this.btnAdd7);
             this.Controls.Add(this.btnAdd6);
@@ -925,6 +1013,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNovoCliente)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -989,5 +1079,12 @@
         private Bunifu.Framework.UI.BunifuImageButton btnAdd6;
         private Bunifu.Framework.UI.BunifuImageButton btnAdd7;
         private Bunifu.Framework.UI.BunifuImageButton btnNovoCliente;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rdbDebito;
+        private System.Windows.Forms.RadioButton rdbPermuta;
+        private System.Windows.Forms.RadioButton rdbCredito;
+        private System.Windows.Forms.RadioButton rdbBoleto;
+        private System.Windows.Forms.RadioButton rdbDinheiro;
+        private System.Windows.Forms.RadioButton rdbTransferencia;
     }
 }

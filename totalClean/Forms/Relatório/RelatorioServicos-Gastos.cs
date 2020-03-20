@@ -68,7 +68,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente("SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico");
+            reader = con.exeCliente("SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico");
 
             if (reader.HasRows)
             {
@@ -93,6 +93,17 @@ namespace totalClean
                     sv.preco = reader.GetDouble(7);
                     sv.data = reader.GetDateTime(8);
                     sv.pago = reader.GetBoolean(9);
+
+
+                    try
+                    {
+                        sv.formaPagamento = reader.GetString(10);
+                    }
+                    catch (Exception)
+                    {
+                        sv.formaPagamento = "";
+                    }
+
 
                     listVendasServicos.Add(sv);
                 }
@@ -178,7 +189,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
+            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
 
             if (reader.HasRows)
             {
@@ -203,6 +214,17 @@ namespace totalClean
                     servico.preco = reader.GetDouble(7);
                     servico.data = reader.GetDateTime(8);
                     servico.pago = reader.GetBoolean(9);
+
+
+
+                    try
+                    {
+                        servico.formaPagamento = reader.GetString(10);
+                    }
+                    catch (Exception)
+                    {
+                        servico.formaPagamento = "";
+                    }
 
 
 
@@ -268,16 +290,16 @@ namespace totalClean
             xlWorkSheet.Cells[2, 8] = "Preço";
             xlWorkSheet.Cells[2, 9] = "Data";
             xlWorkSheet.Cells[2, 10] = "Pagamento";
+            xlWorkSheet.Cells[2, 11] = "Forma Pagamento";
 
-
-            xlWorkSheet.Cells[1, 12] = "Tabela Gastos";
-            xlWorkSheet.Cells[2, 12] = "Id";
-            xlWorkSheet.Cells[2, 13] = "Setor";
-            xlWorkSheet.Cells[2, 14] = "Descrição";
-            xlWorkSheet.Cells[2, 15] = "Data Vencimento";
-            xlWorkSheet.Cells[2, 16] = "Valor";
-            xlWorkSheet.Cells[2, 17] = "Forma de Pagamento";
-            xlWorkSheet.Cells[2, 18] = "Pago";
+            xlWorkSheet.Cells[1, 13] = "Tabela Gastos";
+            xlWorkSheet.Cells[2, 13] = "Id";
+            xlWorkSheet.Cells[2, 14] = "Setor";
+            xlWorkSheet.Cells[2, 15] = "Descrição";
+            xlWorkSheet.Cells[2, 16] = "Data Vencimento";
+            xlWorkSheet.Cells[2, 17] = "Valor";
+            xlWorkSheet.Cells[2, 18] = "Pagamento";
+            xlWorkSheet.Cells[2, 19] = "Forma de Pagamento";
 
 
             //inclui dados de gastos
@@ -289,19 +311,19 @@ namespace totalClean
 
             SqlDataReader readerGasto;
 
-            readerGasto = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[data] BETWEEN '{dataI}' AND '{dataF}'");
+            readerGasto = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[pago], [Gastos].[formaPagamento] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[data] BETWEEN '{dataI}' AND '{dataF}'");
 
             if (readerGasto.HasRows)
             {
                 while (readerGasto.Read())
                 {
-                    xlWorkSheet.Cells[i, 12] = readerGasto.GetInt32(0);
-                    xlWorkSheet.Cells[i, 13] = readerGasto.GetString(1);
-                    xlWorkSheet.Cells[i, 14] = readerGasto.GetString(2);
-                    xlWorkSheet.Cells[i, 15] = readerGasto.GetDateTime(3);
-                    xlWorkSheet.Cells[i, 16] = readerGasto.GetDouble(4);
-                    xlWorkSheet.Cells[i, 17] = readerGasto.GetString(5);
-                    Boolean pg = readerGasto.GetBoolean(6);
+                    xlWorkSheet.Cells[i, 13] = readerGasto.GetInt32(0);
+                    xlWorkSheet.Cells[i, 14] = readerGasto.GetString(1);
+                    xlWorkSheet.Cells[i, 15] = readerGasto.GetString(2);
+                    xlWorkSheet.Cells[i, 16] = readerGasto.GetDateTime(3);
+                    xlWorkSheet.Cells[i, 17] = readerGasto.GetDouble(4);
+                    xlWorkSheet.Cells[i, 19] = readerGasto.GetString(6);
+                    Boolean pg = readerGasto.GetBoolean(5);
                     if (pg == true)
                     {
                         xlWorkSheet.Cells[i, 18] = "PG";
@@ -314,8 +336,8 @@ namespace totalClean
                     i++;
                 }
                 int lastCell = i - 1;
-                xlWorkSheet.Cells[1, 21] = "Total Gastos:";
-                xlWorkSheet.Cells[2, 21] = "=SOMA(P2:P" + lastCell + ")";
+                xlWorkSheet.Cells[i, 18] = "Total Gastos:";
+                xlWorkSheet.Cells[i, 19] = "=SOMA(Q2:Q" + lastCell + ")";
                 readerGasto.Close();
             }
 
@@ -323,7 +345,7 @@ namespace totalClean
 
             SqlDataReader readerVenda;
 
-            readerVenda = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}'");
+            readerVenda = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}'");
 
 
             if (readerVenda.HasRows)
@@ -371,11 +393,20 @@ namespace totalClean
                     {
                         xlWorkSheet.Cells[i, 10] = "EM ABERTO";
                     }
+
+                    try
+                    {
+                        xlWorkSheet.Cells[i, 11] = readerVenda.GetString(10);
+                    }
+                    catch
+                    {
+
+                    }
                     i++;
                 }
                 int lastCell = i - 1;
-                xlWorkSheet.Cells[1, 20] = "Total Vendas:";
-                xlWorkSheet.Cells[2, 20] = "=SOMA(H2:H" + lastCell + ")";
+                xlWorkSheet.Cells[i, 10] = "Total Vendas:";
+                xlWorkSheet.Cells[i, 11] = "=SOMA(H2:H" + lastCell + ")";
                 readerVenda.Close();
             }
 

@@ -67,7 +67,7 @@ namespace totalClean
             {
                 int tamMax = 7;
                 if (txtPlaca.Text.Length <= tamMax)
-                {
+                {  
 
                     Classes.VendasServicos vs = new Classes.VendasServicos();
                     Venda venda = new Venda();
@@ -75,6 +75,44 @@ namespace totalClean
                     venda.carro = txtCarro.Text;
                     venda.placa = txtPlaca.Text;
                     venda.data = DtVenda.Value;
+
+
+                    if(rdbTransferencia.Checked == true)
+                    {
+                        venda.formaPagamento = "Transferência Bancária";
+                    }
+
+                    if (rdbBoleto.Checked == true)
+                    {
+                        venda.formaPagamento = "Boleto";
+                    }
+
+                    if (rdbCredito.Checked == true)
+                    {
+                        venda.formaPagamento = "Crédito";
+                    }
+
+                    if (rdbDebito.Checked == true)
+                    {
+                        venda.formaPagamento = "Débito";
+                    }
+
+                    if (rdbDinheiro.Checked == true)
+                    {
+                        venda.formaPagamento = "Dinheiro";
+                    }
+
+                    if (rdbPermuta.Checked == true)
+                    {
+                        venda.formaPagamento = "Permuta";
+                    }
+
+
+
+
+
+
+
                     Conexao conexao = new Conexao();
                     conexao.conectar();
 
@@ -260,11 +298,11 @@ namespace totalClean
                         var linhas = MessageBox.Show("Você deseja adicionar esse cliente a lista de clientes a notificar?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (linhas == DialogResult.Yes)
                         {
-                            int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, 0)  ");
+                            int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado, formaPagamento) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, 0, '{venda.formaPagamento}')  ");
                         }
                         else
                         {
-                            int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, 1)  ");
+                            int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado, formaPagamento) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, 1, '{venda.formaPagamento}')  ");
                         }
                     }
                     else
@@ -272,11 +310,11 @@ namespace totalClean
                         var escolha1 = MessageBox.Show("Você deseja adicionar esse cliente a lista de clientes a notificar?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (escolha1 == DialogResult.Yes)
                         {
-                            int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, 0)  ");
+                            int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado, formaPagamento) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, 0, '{venda.formaPagamento}')  ");
                         }
                         else
                         {
-                            int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, 1)  ");
+                            int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado, formaPagamento) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, 1, '{venda.formaPagamento}')  ");
                         }
 
                     }
@@ -975,7 +1013,6 @@ namespace totalClean
             this.Visible = false;
 
         }
-
 
     }
 }

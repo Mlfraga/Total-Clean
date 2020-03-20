@@ -262,7 +262,7 @@
             this.groupBox2.Size = new System.Drawing.Size(359, 64);
             this.groupBox2.TabIndex = 168;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Situação do Pagamento";
+            this.groupBox2.Text = "Tipo do Cliente";
             // 
             // rdbAmbos
             // 

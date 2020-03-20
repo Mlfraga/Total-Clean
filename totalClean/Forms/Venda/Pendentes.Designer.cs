@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pendentes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPagamentoRealizado = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvPagamentosPendentes = new System.Windows.Forms.DataGridView();
-            this.btnPendenciasPCliente = new System.Windows.Forms.Button();
             this.IdVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Frotista = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,8 +45,18 @@
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pago = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormaPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPendenciasPCliente = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdbDebito = new System.Windows.Forms.RadioButton();
+            this.rdbPermuta = new System.Windows.Forms.RadioButton();
+            this.rdbCredito = new System.Windows.Forms.RadioButton();
+            this.rdbBoleto = new System.Windows.Forms.RadioButton();
+            this.rdbDinheiro = new System.Windows.Forms.RadioButton();
+            this.rdbTransferencia = new System.Windows.Forms.RadioButton();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagamentosPendentes)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnVoltar
@@ -108,7 +117,7 @@
             this.btnPagamentoRealizado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagamentoRealizado.ForeColor = System.Drawing.SystemColors.Control;
             this.btnPagamentoRealizado.Image = ((System.Drawing.Image)(resources.GetObject("btnPagamentoRealizado.Image")));
-            this.btnPagamentoRealizado.Location = new System.Drawing.Point(568, 102);
+            this.btnPagamentoRealizado.Location = new System.Drawing.Point(771, 102);
             this.btnPagamentoRealizado.Margin = new System.Windows.Forms.Padding(4);
             this.btnPagamentoRealizado.Name = "btnPagamentoRealizado";
             this.btnPagamentoRealizado.Size = new System.Drawing.Size(264, 56);
@@ -144,40 +153,20 @@
             this.Placa,
             this.Data,
             this.pago,
-            this.preco});
+            this.preco,
+            this.FormaPagamento});
             this.dgvPagamentosPendentes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.dgvPagamentosPendentes.Location = new System.Drawing.Point(16, 39);
             this.dgvPagamentosPendentes.Name = "dgvPagamentosPendentes";
             this.dgvPagamentosPendentes.ReadOnly = true;
             this.dgvPagamentosPendentes.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgvPagamentosPendentes.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgvPagamentosPendentes.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPagamentosPendentes.RowTemplate.Height = 24;
             this.dgvPagamentosPendentes.Size = new System.Drawing.Size(1322, 495);
             this.dgvPagamentosPendentes.TabIndex = 70;
             this.dgvPagamentosPendentes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagamentosPendentes_CellClick);
-            // 
-            // btnPendenciasPCliente
-            // 
-            this.btnPendenciasPCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.btnPendenciasPCliente.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnPendenciasPCliente.FlatAppearance.BorderSize = 0;
-            this.btnPendenciasPCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnPendenciasPCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnPendenciasPCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPendenciasPCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPendenciasPCliente.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPendenciasPCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnPendenciasPCliente.Image")));
-            this.btnPendenciasPCliente.Location = new System.Drawing.Point(1106, 102);
-            this.btnPendenciasPCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPendenciasPCliente.Name = "btnPendenciasPCliente";
-            this.btnPendenciasPCliente.Size = new System.Drawing.Size(264, 56);
-            this.btnPendenciasPCliente.TabIndex = 156;
-            this.btnPendenciasPCliente.Text = "   Filtrar Por Cliente";
-            this.btnPendenciasPCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPendenciasPCliente.UseVisualStyleBackColor = false;
-            this.btnPendenciasPCliente.Click += new System.EventHandler(this.btnPendenciasPCliente_Click);
             // 
             // IdVenda
             // 
@@ -253,12 +242,121 @@
             this.preco.ReadOnly = true;
             this.preco.Width = 125;
             // 
+            // FormaPagamento
+            // 
+            this.FormaPagamento.HeaderText = "FormaPagamento";
+            this.FormaPagamento.MinimumWidth = 6;
+            this.FormaPagamento.Name = "FormaPagamento";
+            this.FormaPagamento.ReadOnly = true;
+            this.FormaPagamento.Width = 125;
+            // 
+            // btnPendenciasPCliente
+            // 
+            this.btnPendenciasPCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btnPendenciasPCliente.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnPendenciasPCliente.FlatAppearance.BorderSize = 0;
+            this.btnPendenciasPCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnPendenciasPCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnPendenciasPCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPendenciasPCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPendenciasPCliente.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnPendenciasPCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnPendenciasPCliente.Image")));
+            this.btnPendenciasPCliente.Location = new System.Drawing.Point(1106, 102);
+            this.btnPendenciasPCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPendenciasPCliente.Name = "btnPendenciasPCliente";
+            this.btnPendenciasPCliente.Size = new System.Drawing.Size(264, 56);
+            this.btnPendenciasPCliente.TabIndex = 156;
+            this.btnPendenciasPCliente.Text = "   Filtrar Por Cliente";
+            this.btnPendenciasPCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPendenciasPCliente.UseVisualStyleBackColor = false;
+            this.btnPendenciasPCliente.Click += new System.EventHandler(this.btnPendenciasPCliente_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdbTransferencia);
+            this.groupBox1.Controls.Add(this.rdbDebito);
+            this.groupBox1.Controls.Add(this.rdbPermuta);
+            this.groupBox1.Controls.Add(this.rdbCredito);
+            this.groupBox1.Controls.Add(this.rdbBoleto);
+            this.groupBox1.Controls.Add(this.rdbDinheiro);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(13, 91);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(739, 68);
+            this.groupBox1.TabIndex = 208;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Forma de Pagamento";
+            // 
+            // rdbDebito
+            // 
+            this.rdbDebito.AutoSize = true;
+            this.rdbDebito.Location = new System.Drawing.Point(149, 27);
+            this.rdbDebito.Name = "rdbDebito";
+            this.rdbDebito.Size = new System.Drawing.Size(85, 28);
+            this.rdbDebito.TabIndex = 4;
+            this.rdbDebito.Text = "Débito";
+            this.rdbDebito.UseVisualStyleBackColor = true;
+            // 
+            // rdbPermuta
+            // 
+            this.rdbPermuta.AutoSize = true;
+            this.rdbPermuta.Location = new System.Drawing.Point(358, 27);
+            this.rdbPermuta.Name = "rdbPermuta";
+            this.rdbPermuta.Size = new System.Drawing.Size(101, 28);
+            this.rdbPermuta.TabIndex = 3;
+            this.rdbPermuta.Text = "Permuta";
+            this.rdbPermuta.UseVisualStyleBackColor = true;
+            // 
+            // rdbCredito
+            // 
+            this.rdbCredito.AutoSize = true;
+            this.rdbCredito.Location = new System.Drawing.Point(479, 27);
+            this.rdbCredito.Name = "rdbCredito";
+            this.rdbCredito.Size = new System.Drawing.Size(91, 28);
+            this.rdbCredito.TabIndex = 2;
+            this.rdbCredito.Text = "Crédito";
+            this.rdbCredito.UseVisualStyleBackColor = true;
+            // 
+            // rdbBoleto
+            // 
+            this.rdbBoleto.AutoSize = true;
+            this.rdbBoleto.Location = new System.Drawing.Point(253, 27);
+            this.rdbBoleto.Name = "rdbBoleto";
+            this.rdbBoleto.Size = new System.Drawing.Size(84, 28);
+            this.rdbBoleto.TabIndex = 1;
+            this.rdbBoleto.Text = "Boleto";
+            this.rdbBoleto.UseVisualStyleBackColor = true;
+            // 
+            // rdbDinheiro
+            // 
+            this.rdbDinheiro.AutoSize = true;
+            this.rdbDinheiro.Checked = true;
+            this.rdbDinheiro.Location = new System.Drawing.Point(24, 27);
+            this.rdbDinheiro.Name = "rdbDinheiro";
+            this.rdbDinheiro.Size = new System.Drawing.Size(102, 28);
+            this.rdbDinheiro.TabIndex = 0;
+            this.rdbDinheiro.TabStop = true;
+            this.rdbDinheiro.Text = "Dinheiro";
+            this.rdbDinheiro.UseVisualStyleBackColor = true;
+            // 
+            // rdbTransferencia
+            // 
+            this.rdbTransferencia.AutoSize = true;
+            this.rdbTransferencia.Location = new System.Drawing.Point(576, 27);
+            this.rdbTransferencia.Name = "rdbTransferencia";
+            this.rdbTransferencia.Size = new System.Drawing.Size(146, 28);
+            this.rdbTransferencia.TabIndex = 209;
+            this.rdbTransferencia.Text = "Transferência";
+            this.rdbTransferencia.UseVisualStyleBackColor = true;
+            // 
             // Pendentes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnPendenciasPCliente);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnPagamentoRealizado);
@@ -275,6 +373,8 @@
             this.Load += new System.EventHandler(this.Pendentes_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagamentosPendentes)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,5 +397,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Data;
         private System.Windows.Forms.DataGridViewCheckBoxColumn pago;
         private System.Windows.Forms.DataGridViewTextBoxColumn preco;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rdbDebito;
+        private System.Windows.Forms.RadioButton rdbPermuta;
+        private System.Windows.Forms.RadioButton rdbCredito;
+        private System.Windows.Forms.RadioButton rdbBoleto;
+        private System.Windows.Forms.RadioButton rdbDinheiro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormaPagamento;
+        private System.Windows.Forms.RadioButton rdbTransferencia;
     }
 }

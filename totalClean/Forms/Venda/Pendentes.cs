@@ -22,7 +22,12 @@ namespace totalClean
         {
             btnPagamentoRealizado.Enabled = false;
             iniciaGrid();
-
+            rdbBoleto.Enabled = false;
+            rdbCredito.Enabled = false;
+            rdbDebito.Enabled = false;
+            rdbDinheiro.Enabled = false;
+            rdbPermuta.Enabled = false;
+            rdbTransferencia.Enabled = false;
         }
 
         public double setPreco(int num)
@@ -53,13 +58,14 @@ namespace totalClean
         private void iniciaGrid()
         {
 
+
             List<VendaPendente> listVendasServicos = new List<VendaPendente>();
             con.conectar();
 
             SqlDataReader reader;
             dgvPagamentosPendentes.Rows.Clear();
 
-            reader = con.exeCliente("SELECT [Vendas].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Vendas].[data], [Vendas].[pago] FROM [Vendas] INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente WHERE pago = 0");
+            reader = con.exeCliente("SELECT [Vendas].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [Vendas] INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente WHERE pago = 0");
 
             if (reader.HasRows)
             {
@@ -70,7 +76,6 @@ namespace totalClean
                     sv.idVenda = reader.GetInt32(0);
                     sv.frotista = reader.GetBoolean(1);
                     sv.cliente = reader.GetString(2);
-
                     try
                     {
                         sv.CpfCnpj = reader.GetString(3);
@@ -79,23 +84,33 @@ namespace totalClean
                     {
 
                     }
-
                     sv.carro = reader.GetString(4);
                     sv.placa = reader.GetString(5);
                     sv.data = reader.GetDateTime(6);
                     sv.pago = reader.GetBoolean(7);
 
-                    
+                    String formaPagamento;
+
+                    try
+                    {
+                        formaPagamento = reader.GetString(8);
+                    }
+                    catch (Exception)
+                    {
+                        formaPagamento = "";
+                    }
+
                     dgvPagamentosPendentes.DataSource = null;
-                    dgvPagamentosPendentes.Rows.Add( sv.idVenda, sv.frotista, sv.cliente, sv.CpfCnpj, sv.carro, sv.placa, sv.data.ToShortDateString(), sv.pago, setPreco(sv.idVenda));
-                }                
+                    dgvPagamentosPendentes.Rows.Add(sv.idVenda, sv.frotista, sv.cliente, sv.CpfCnpj, sv.carro, sv.placa, sv.data.ToShortDateString(), sv.pago, setPreco(sv.idVenda), formaPagamento);
+                }
                 reader.Close();
             }
             else
             {
-                
+
                 Console.WriteLine("Não retornou dados");
             }
+
 
 
         }
@@ -124,11 +139,45 @@ namespace totalClean
 
                 }
                 reader.Close();
+
+
                 var choice = MessageBox.Show("O cliente efetuou o pagamento de R$" + preco + ",00 ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (choice == DialogResult.Yes)
                 {
-                    int att = con.executar($"UPDATE [dbo].[Vendas] set pago = 1 WHERE idVenda = " + id);
+                    Venda venda = new Venda();
+
+                    if (rdbBoleto.Checked == true)
+                    {
+                        venda.formaPagamento = "Boleto";
+                    }
+
+                    if (rdbCredito.Checked == true)
+                    {
+                        venda.formaPagamento = "Crédito";
+                    }
+
+                    if (rdbDebito.Checked == true)
+                    {
+                        venda.formaPagamento = "Débito";
+                    }
+
+                    if (rdbDinheiro.Checked == true)
+                    {
+                        venda.formaPagamento = "Dinheiro";
+                    }
+
+                    if (rdbPermuta.Checked == true)
+                    {
+                        venda.formaPagamento = "Permuta";
+                    }
+                    if(rdbTransferencia.Checked == true)
+                    {
+                        venda.formaPagamento = "Transferência Bancária";
+                    }
+
+                    int attPG = con.executar($"UPDATE [dbo].[Vendas] set pago = 1 WHERE idVenda = " + id);
+                    int att = con.executar($"UPDATE [dbo].[Vendas] set formaPagamento = '{venda.formaPagamento}' WHERE idVenda = " + id);
                     iniciaGrid();
                     
                 }
@@ -140,7 +189,7 @@ namespace totalClean
             }
 
 
-            
+            rdbDinheiro.Checked = true;
             btnPagamentoRealizado.Enabled = false;
         }
      
@@ -163,7 +212,41 @@ namespace totalClean
 
         private void dgvPagamentosPendentes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            String formaPG;
+            formaPG = dgvPagamentosPendentes.CurrentRow.Cells[9].Value.ToString();
+
+            if(formaPG == "Dinheiro")
+            {
+                rdbDinheiro.Checked = true;
+            }
+            if (formaPG == "Boleto")
+            {
+                rdbBoleto.Checked = true;
+            }
+            if (formaPG == "Crédito")
+            {
+                rdbCredito.Checked = true;
+            }
+            if(formaPG == "Débito")
+            {
+                rdbDebito.Checked = true;
+            }
+            if (formaPG == "Permuta")
+            {
+                rdbPermuta.Checked = true;
+            }
+            if(formaPG == "Transferência Bancária")
+            {
+                rdbTransferencia.Checked = true;
+            }
+
             btnPagamentoRealizado.Enabled = true;
+            rdbBoleto.Enabled = true;
+            rdbCredito.Enabled = true;
+            rdbDebito.Enabled = true;
+            rdbDinheiro.Enabled = true;
+            rdbPermuta.Enabled = true;
+            rdbTransferencia.Enabled = true;
         }
 
         

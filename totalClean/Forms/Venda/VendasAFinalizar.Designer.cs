@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VendasAFinalizar));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvVendas = new System.Windows.Forms.DataGridView();
@@ -65,9 +65,9 @@
             this.dgvVendas.Name = "dgvVendas";
             this.dgvVendas.ReadOnly = true;
             this.dgvVendas.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgvVendas.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgvVendas.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvVendas.RowTemplate.Height = 24;
             this.dgvVendas.Size = new System.Drawing.Size(1322, 405);
             this.dgvVendas.TabIndex = 165;
@@ -76,21 +76,23 @@
             // cmbCliente
             // 
             this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(591, 189);
+            this.cmbCliente.Location = new System.Drawing.Point(621, 193);
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(208, 24);
             this.cmbCliente.TabIndex = 205;
+            this.cmbCliente.SelectedIndexChanged += new System.EventHandler(this.cmbCliente_SelectedIndexChanged);
             // 
             // lblServico1
             // 
             this.lblServico1.AutoSize = true;
             this.lblServico1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServico1.ForeColor = System.Drawing.Color.White;
-            this.lblServico1.Location = new System.Drawing.Point(587, 162);
+            this.lblServico1.Location = new System.Drawing.Point(617, 166);
             this.lblServico1.Name = "lblServico1";
             this.lblServico1.Size = new System.Drawing.Size(95, 23);
             this.lblServico1.TabIndex = 204;
             this.lblServico1.Text = "Clientes:";
+            this.lblServico1.Click += new System.EventHandler(this.lblServico1_Click);
             // 
             // btnSair
             // 

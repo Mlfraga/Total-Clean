@@ -23,6 +23,7 @@ namespace totalClean
 
         private void VendasAFinalizar_Load(object sender, EventArgs e)
         {
+            
             iniciaGrid();
             prencheCmbCliente();
             bloqueaBtns();
@@ -76,7 +77,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente("SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj] ,[Cliente].[telefone], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[finalizado] = 0");
+            reader = con.exeCliente("SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj] ,[Cliente].[telefone], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[finalizado] = 0");
 
             if (reader.HasRows)
             {
@@ -102,6 +103,16 @@ namespace totalClean
                     sv.data = reader.GetDateTime(8);
                     sv.preco = reader.GetDouble(9);
 
+                    sv.pago = reader.GetBoolean(10);
+
+                    try
+                    {
+                        sv.formaPagamento = reader.GetString(11);
+                    }
+                    catch
+                    {
+
+                    }
 
                     listVendaFinalizada.Add(sv);
                 }
@@ -156,7 +167,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Cliente].[telefone], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[finalizado] = 0 and [Cliente].[idCliente] = '{pesquisa.id}'");
+            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Cliente].[telefone], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[finalizado] = 0 and [Cliente].[idCliente] = '{pesquisa.id}'");
 
             if (reader.HasRows)
             {
@@ -167,21 +178,31 @@ namespace totalClean
                     sv.idVenda = reader.GetInt32(0);
                     sv.frotista = reader.GetBoolean(1);
                     sv.cliente = reader.GetString(2);
-                    sv.CpfCnpj = reader.GetString(3);
                     try
                     {
-                        sv.telefone = reader.GetString(4);
+                        sv.CpfCnpj = reader.GetString(3);
                     }
                     catch (Exception)
                     {
 
                     }
+                    sv.telefone = reader.GetString(4);
                     sv.carro = reader.GetString(5);
                     sv.placa = reader.GetString(6);
                     sv.servico = reader.GetString(7);
                     sv.data = reader.GetDateTime(8);
                     sv.preco = reader.GetDouble(9);
 
+                    sv.pago = reader.GetBoolean(10);
+
+                    try
+                    {
+                        sv.formaPagamento = reader.GetString(11);
+                    }
+                    catch
+                    {
+
+                    }
 
                     listVendaFinalizada.Add(sv);
                 }
@@ -199,12 +220,37 @@ namespace totalClean
 
         private void dgvVendas_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
+ 
+
             idVenda = int.Parse(dgvVendas.CurrentRow.Cells[0].Value.ToString());
             telefone = dgvVendas.CurrentRow.Cells[3].Value.ToString();
             desbloqueaBtns();
 
         }
 
+        private void rdbDinheiro_CheckedChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void rdbCredito_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdbPermuta_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblServico1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

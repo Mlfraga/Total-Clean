@@ -148,7 +148,7 @@ namespace totalClean
                             Conexao conexao = new Conexao();
                             conexao.conectar();
 
-                            int linhas = conexao.executar($"INSERT INTO Cliente (nome, telefone, endereco, frotista) VALUES ('{c.nome}','{c.telefone}','{c.endereco}','{statusCliente}')");
+                            int linhas = conexao.executar($"INSERT INTO Cliente (nome, telefone, endereco, frotista, pfpj) VALUES ('{c.nome}','{c.telefone}','{c.endereco}','{statusCliente}', '{c.cpf}')");
                             limparCampos();
                             MessageBox.Show("Dados salvos com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
