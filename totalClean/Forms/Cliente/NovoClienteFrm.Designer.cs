@@ -50,6 +50,9 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txtCpf = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label6
@@ -115,7 +118,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(654, 324);
+            this.label2.Location = new System.Drawing.Point(860, 332);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 25);
             this.label2.TabIndex = 54;
@@ -126,7 +129,7 @@
             this.rdbParticular.AutoSize = true;
             this.rdbParticular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbParticular.ForeColor = System.Drawing.Color.White;
-            this.rdbParticular.Location = new System.Drawing.Point(779, 364);
+            this.rdbParticular.Location = new System.Drawing.Point(985, 372);
             this.rdbParticular.Name = "rdbParticular";
             this.rdbParticular.Size = new System.Drawing.Size(114, 29);
             this.rdbParticular.TabIndex = 56;
@@ -153,7 +156,7 @@
             this.rdbFrotista.AutoSize = true;
             this.rdbFrotista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbFrotista.ForeColor = System.Drawing.Color.White;
-            this.rdbFrotista.Location = new System.Drawing.Point(656, 364);
+            this.rdbFrotista.Location = new System.Drawing.Point(862, 372);
             this.rdbFrotista.Name = "rdbFrotista";
             this.rdbFrotista.Size = new System.Drawing.Size(97, 29);
             this.rdbFrotista.TabIndex = 55;
@@ -351,12 +354,53 @@
             this.label1.TabIndex = 40;
             this.label1.Text = "Cadastro de clientes";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(526, 338);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(133, 23);
+            this.label7.TabIndex = 64;
+            this.label7.Text = "Cpf ou Cnpj:";
+            // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bunifuSeparator1.LineThickness = 1;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(530, 391);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(315, 10);
+            this.bunifuSeparator1.TabIndex = 63;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = false;
+            // 
+            // txtCpf
+            // 
+            this.txtCpf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.txtCpf.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCpf.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCpf.ForeColor = System.Drawing.SystemColors.Info;
+            this.txtCpf.HideSelection = false;
+            this.txtCpf.Location = new System.Drawing.Point(530, 365);
+            this.txtCpf.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCpf.Name = "txtCpf";
+            this.txtCpf.Size = new System.Drawing.Size(315, 25);
+            this.txtCpf.TabIndex = 62;
+            // 
             // NovoClienteFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1149, 604);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.bunifuSeparator1);
+            this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -411,5 +455,8 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label7;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
+        private System.Windows.Forms.TextBox txtCpf;
     }
 }

@@ -76,7 +76,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente("SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente',[Cliente].[telefone], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[finalizado] = 0");
+            reader = con.exeCliente("SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj] ,[Cliente].[telefone], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[finalizado] = 0");
 
             if (reader.HasRows)
             {
@@ -87,12 +87,20 @@ namespace totalClean
                     sv.idVenda = reader.GetInt32(0);
                     sv.frotista = reader.GetBoolean(1);
                     sv.cliente = reader.GetString(2);
-                    sv.telefone = reader.GetString(3);
-                    sv.carro = reader.GetString(4);
-                    sv.placa = reader.GetString(5);
-                    sv.servico = reader.GetString(6);
-                    sv.data = reader.GetDateTime(7);
-                    sv.preco = reader.GetDouble(8);
+                    try
+                    {
+                        sv.CpfCnpj = reader.GetString(3);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                    sv.telefone = reader.GetString(4);
+                    sv.carro = reader.GetString(5);
+                    sv.placa = reader.GetString(6);
+                    sv.servico = reader.GetString(7);
+                    sv.data = reader.GetDateTime(8);
+                    sv.preco = reader.GetDouble(9);
 
 
                     listVendaFinalizada.Add(sv);
@@ -121,14 +129,14 @@ namespace totalClean
 
         private void btnEnviaMsg_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("chrome.exe", $"https://web.whatsapp.com/send?phone=5531'{telefone}'&text=Olá,%20Tudo%20bem?%20O%20seu%20carro%20já%20está%20pronto%20na%20Total%20Clean!");
+            System.Diagnostics.Process.Start("chrome.exe", $"https://web.whatsapp.com/send?phone=5531'{telefone}'&text=Olá,%20tudo%20bem?%20Você%20já%20pode%20buscar%20o%20seu%20carro%20na%20Total%20Clean!");
 
 
-            int finalizado = con.executar("UPDATE[dbo].[Vendas] set finalizado = 1 WHERE idVenda = " +idVenda);
+            int finalizado = con.executar("UPDATE[dbo].[Vendas] set finalizado = 1 WHERE idVenda = " + idVenda);
             bloqueaBtns();
             iniciaGrid();
             cmbCliente.Text = "";
-            
+
         }
 
 
@@ -141,14 +149,14 @@ namespace totalClean
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            btnCancelar.Enabled = true;               
+            btnCancelar.Enabled = true;
             List<VendaFinalizada> listVendaFinalizada = new List<VendaFinalizada>();
             Cliente pesquisa = new Cliente();
             pesquisa.id = int.Parse(cmbCliente.SelectedValue.ToString());
 
             SqlDataReader reader;
 
-            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente',[Cliente].[telefone], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[finalizado] = 0 and [Cliente].[idCliente] = '{pesquisa.id}'" );
+            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Cliente].[telefone], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[finalizado] = 0 and [Cliente].[idCliente] = '{pesquisa.id}'");
 
             if (reader.HasRows)
             {
@@ -159,17 +167,25 @@ namespace totalClean
                     sv.idVenda = reader.GetInt32(0);
                     sv.frotista = reader.GetBoolean(1);
                     sv.cliente = reader.GetString(2);
-                    sv.telefone = reader.GetString(3);
-                    sv.carro = reader.GetString(4);
-                    sv.placa = reader.GetString(5);
-                    sv.servico = reader.GetString(6);
-                    sv.data = reader.GetDateTime(7);
-                    sv.preco = reader.GetDouble(8);
+                    sv.CpfCnpj = reader.GetString(3);
+                    try
+                    {
+                        sv.telefone = reader.GetString(4);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                    sv.carro = reader.GetString(5);
+                    sv.placa = reader.GetString(6);
+                    sv.servico = reader.GetString(7);
+                    sv.data = reader.GetDateTime(8);
+                    sv.preco = reader.GetDouble(9);
 
 
                     listVendaFinalizada.Add(sv);
                 }
-                
+
             }
             else
             {
@@ -186,7 +202,7 @@ namespace totalClean
             idVenda = int.Parse(dgvVendas.CurrentRow.Cells[0].Value.ToString());
             telefone = dgvVendas.CurrentRow.Cells[3].Value.ToString();
             desbloqueaBtns();
-            
+
         }
 
 

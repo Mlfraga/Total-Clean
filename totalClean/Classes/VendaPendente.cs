@@ -10,7 +10,8 @@ namespace totalClean
     {
         public int idVenda { get; set; }
         public Boolean frotista { get; set; }
-        public string cliente { get; set; }
+        public String cliente { get; set; }
+        public String CpfCnpj { get; set; }
         public String carro { get; set; }
         public String placa { get; set; }
         public DateTime data { get; set; }

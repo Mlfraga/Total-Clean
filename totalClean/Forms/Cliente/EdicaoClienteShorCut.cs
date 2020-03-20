@@ -123,6 +123,7 @@ namespace totalClean
         }
         private void limparCampos()
         {
+            
             txtNome.Text = "";
             txtEndereco.Text = "";
             txtTelefone.Text = "";
@@ -160,7 +161,14 @@ namespace totalClean
                             cliente.telefone = reader.GetString(2);
                             cliente.endereco = reader.GetString(3);
                             cliente.frotista = reader.GetBoolean(4);
+                            try
+                            {
+                                cliente.cpf = reader.GetString(5);
+                            }
+                            catch (Exception)
+                            {
 
+                            }
                             listCliente.Add(cliente);
                         }
                         reader.Close();
@@ -188,6 +196,15 @@ namespace totalClean
                             cliente.telefone = reader.GetString(2);
                             cliente.endereco = reader.GetString(3);
                             cliente.frotista = reader.GetBoolean(4);
+                            try
+                            {
+                                cliente.cpf = reader.GetString(5);
+                            }
+                            catch
+                            {
+
+                            }
+
 
                             listCliente.Add(cliente);
                         }
@@ -227,6 +244,18 @@ namespace totalClean
                     cliente.telefone = reader.GetString(2);
                     cliente.endereco = reader.GetString(3);
                     cliente.frotista = reader.GetBoolean(4);
+
+
+                    try
+                    {
+                        cliente.cpf = reader.GetString(5);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+
+
 
                     listCliente.Add(cliente);
                 }

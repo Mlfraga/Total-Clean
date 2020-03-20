@@ -22,6 +22,7 @@ namespace totalClean
 
         private void VendaFrm_Load(object sender, EventArgs e)
         {
+            this.AcceptButton = btnConcluido;
             limpaCampos();
             ocultaCmbs();
             prencheCmbCliente();
@@ -850,6 +851,11 @@ namespace totalClean
         {
             if (cmbQtd1.Text != string.Empty && cmbServico1.Text != string.Empty)
             {
+                ComboBox ncmbServico2 = new ComboBox();                
+                this.Controls.Add(ncmbServico2);
+                ncmbServico2.Location = new Point(25, 25);
+                ncmbServico2.Enabled = true;
+
                 lblQtd2.Visible = true;
                 lblServico2.Visible = true;
                 cmbServico2.Visible = true;

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EdicaoFrm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -54,6 +54,9 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnLimpaCampos = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.bunifuSeparator4 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txtCpf = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
@@ -269,37 +272,40 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(778, 323);
+            this.label2.Location = new System.Drawing.Point(999, 320);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 25);
             this.label2.TabIndex = 66;
             this.label2.Text = "Tipo:";
+
             // 
             // rdbParticular
             // 
             this.rdbParticular.AutoSize = true;
             this.rdbParticular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbParticular.ForeColor = System.Drawing.Color.White;
-            this.rdbParticular.Location = new System.Drawing.Point(903, 363);
+            this.rdbParticular.Location = new System.Drawing.Point(1124, 360);
             this.rdbParticular.Name = "rdbParticular";
             this.rdbParticular.Size = new System.Drawing.Size(114, 29);
             this.rdbParticular.TabIndex = 68;
             this.rdbParticular.TabStop = true;
             this.rdbParticular.Text = "Particular";
             this.rdbParticular.UseVisualStyleBackColor = true;
+
             // 
             // rdbFrotista
             // 
             this.rdbFrotista.AutoSize = true;
             this.rdbFrotista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbFrotista.ForeColor = System.Drawing.Color.White;
-            this.rdbFrotista.Location = new System.Drawing.Point(780, 363);
+            this.rdbFrotista.Location = new System.Drawing.Point(1001, 360);
             this.rdbFrotista.Name = "rdbFrotista";
             this.rdbFrotista.Size = new System.Drawing.Size(97, 29);
             this.rdbFrotista.TabIndex = 67;
             this.rdbFrotista.TabStop = true;
             this.rdbFrotista.Text = "Frotista";
             this.rdbFrotista.UseVisualStyleBackColor = true;
+
             // 
             // groupBox1
             // 
@@ -322,9 +328,9 @@
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvClientes.RowTemplate.Height = 24;
             this.dgvClientes.Size = new System.Drawing.Size(1053, 229);
             this.dgvClientes.TabIndex = 70;
@@ -407,12 +413,53 @@
             this.btnLimpaCampos.UseVisualStyleBackColor = false;
             this.btnLimpaCampos.Click += new System.EventHandler(this.btnLimpaCampos_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(645, 326);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(133, 23);
+            this.label7.TabIndex = 76;
+            this.label7.Text = "Cpf ou Cnpj:";
+            // 
+            // bunifuSeparator4
+            // 
+            this.bunifuSeparator4.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bunifuSeparator4.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bunifuSeparator4.LineThickness = 1;
+            this.bunifuSeparator4.Location = new System.Drawing.Point(649, 379);
+            this.bunifuSeparator4.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.bunifuSeparator4.Name = "bunifuSeparator4";
+            this.bunifuSeparator4.Size = new System.Drawing.Size(315, 10);
+            this.bunifuSeparator4.TabIndex = 75;
+            this.bunifuSeparator4.Transparency = 255;
+            this.bunifuSeparator4.Vertical = false;
+            // 
+            // txtCpf
+            // 
+            this.txtCpf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.txtCpf.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCpf.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCpf.ForeColor = System.Drawing.SystemColors.Info;
+            this.txtCpf.HideSelection = false;
+            this.txtCpf.Location = new System.Drawing.Point(649, 353);
+            this.txtCpf.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCpf.Name = "txtCpf";
+            this.txtCpf.Size = new System.Drawing.Size(315, 25);
+            this.txtCpf.TabIndex = 74;
+            // 
             // EdicaoFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.bunifuSeparator4);
+            this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.btnLimpaCampos);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.bunifuSeparator7);
@@ -477,5 +524,8 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnLimpaCampos;
+        private System.Windows.Forms.Label label7;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator4;
+        private System.Windows.Forms.TextBox txtCpf;
     }
 }

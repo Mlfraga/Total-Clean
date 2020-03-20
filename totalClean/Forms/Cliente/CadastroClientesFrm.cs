@@ -28,12 +28,14 @@ namespace totalClean
             txtNome.ReadOnly = true;
             txtTelefone.ReadOnly = true;
             txtEndereco.ReadOnly = true;
+            txtCpf.ReadOnly = true;
             rdbFrotista.Enabled = false;
             rdbParticular.Enabled = false;
             rdbParticular.Checked = true;
         }
         private void desbloqueaCampos()
         {
+            txtCpf.ReadOnly = false;
             txtNome.ReadOnly = false;
             txtTelefone.ReadOnly = false;
             txtEndereco.ReadOnly = false;
@@ -76,7 +78,7 @@ namespace totalClean
                 Cliente cliente = new Cliente();
 
                 while (readerC.Read())
-                {                
+                {
 
                     cliente.nome = readerC.GetString(0).Trim();
 
@@ -96,7 +98,7 @@ namespace totalClean
             }
             else
             {
-                
+
 
                 Cliente c = new Cliente();
                 c.nome = txtNome.Text;
@@ -116,19 +118,28 @@ namespace totalClean
 
                 int statusCliente = c.frotista ? 1 : 0;
 
+               
+                if (txtCpf.Text != string.Empty)
+                {
+                    c.cpf = txtCpf.Text;
+                }
+                else
+                {
+                    
+                }
 
-
-                if (txtNome.Text != string.Empty && txtEndereco.Text != string.Empty && txtTelefone.Text != string.Empty)
+                if (txtNome.Text != string.Empty && txtTelefone.Text != string.Empty)
                 {
                     var escolha = MessageBox.Show("Você deseja mesmo salvar esses dados?", "Confirmção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (escolha == DialogResult.Yes)
                     {
                         int maxChar = 9;
+                        int maxCpf = 14;
 
-                        if (txtTelefone.Text.Length > maxChar)
+                        if (txtTelefone.Text.Length > maxChar || txtCpf.Text.Length > maxCpf)
                         {
-                            MessageBox.Show("Campo de telefone não aceita mais de 9 caracteres", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Campo de telefone ou cpf e cnpj com muitos caracteres", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
@@ -137,7 +148,7 @@ namespace totalClean
                             Conexao conexao = new Conexao();
                             conexao.conectar();
 
-                            int linhas = conexao.executar($"INSERT INTO Cliente (nome, telefone, endereco, frotista) VALUES ('{c.nome}','{c.telefone}','{c.endereco}',{statusCliente})");
+                            int linhas = conexao.executar($"INSERT INTO Cliente (nome, telefone, endereco, frotista) VALUES ('{c.nome}','{c.telefone}','{c.endereco}','{statusCliente}')");
                             limparCampos();
                             MessageBox.Show("Dados salvos com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -224,6 +235,7 @@ namespace totalClean
         }
         private void limparCampos()
         {
+            txtCpf.Text = "";
             txtNome.Text = "";
             txtEndereco.Text = "";
             txtTelefone.Text = "";

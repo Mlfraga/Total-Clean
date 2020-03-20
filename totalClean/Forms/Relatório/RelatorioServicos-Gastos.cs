@@ -68,7 +68,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente("SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico");
+            reader = con.exeCliente("SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico");
 
             if (reader.HasRows)
             {
@@ -79,12 +79,20 @@ namespace totalClean
                     sv.idVenda = reader.GetInt32(0);
                     sv.frotista = reader.GetBoolean(1);
                     sv.cliente = reader.GetString(2);
-                    sv.carro = reader.GetString(3);
-                    sv.placa = reader.GetString(4);
-                    sv.servico = reader.GetString(5);
-                    sv.preco = reader.GetDouble(6);
-                    sv.data = reader.GetDateTime(7);
-                    sv.pago = reader.GetBoolean(8);
+                    try
+                    {
+                        sv.CpfCnpj = reader.GetString(3);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                    sv.carro = reader.GetString(4);
+                    sv.placa = reader.GetString(5);
+                    sv.servico = reader.GetString(6);
+                    sv.preco = reader.GetDouble(7);
+                    sv.data = reader.GetDateTime(8);
+                    sv.pago = reader.GetBoolean(9);
 
                     listVendasServicos.Add(sv);
                 }
@@ -170,7 +178,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
+            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
 
             if (reader.HasRows)
             {
@@ -181,12 +189,20 @@ namespace totalClean
                     servico.idVenda = reader.GetInt32(0);
                     servico.frotista = reader.GetBoolean(1);
                     servico.cliente = reader.GetString(2);
-                    servico.carro = reader.GetString(3);
-                    servico.placa = reader.GetString(4);
-                    servico.servico = reader.GetString(5);
-                    servico.preco = reader.GetDouble(6);
-                    servico.data = reader.GetDateTime(7);
-                    servico.pago = reader.GetBoolean(8);
+                    try
+                    {
+                        servico.CpfCnpj = reader.GetString(3);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                    servico.carro = reader.GetString(4);
+                    servico.placa = reader.GetString(5);
+                    servico.servico = reader.GetString(6);
+                    servico.preco = reader.GetDouble(7);
+                    servico.data = reader.GetDateTime(8);
+                    servico.pago = reader.GetBoolean(9);
 
 
 
@@ -245,12 +261,13 @@ namespace totalClean
             xlWorkSheet.Cells[2, 1] = "Id Venda";
             xlWorkSheet.Cells[2, 2] = "Classificação";
             xlWorkSheet.Cells[2, 3] = "Cliente";
-            xlWorkSheet.Cells[2, 4] = "Carro";
-            xlWorkSheet.Cells[2, 5] = "Placa";
-            xlWorkSheet.Cells[2, 6] = "Serviço";
-            xlWorkSheet.Cells[2, 7] = "Preço";
-            xlWorkSheet.Cells[2, 8] = "Data";
-            xlWorkSheet.Cells[2, 9] = "Pagamento";
+            xlWorkSheet.Cells[2, 4] = "Cpf/Cnpj";
+            xlWorkSheet.Cells[2, 5] = "Carro";
+            xlWorkSheet.Cells[2, 6] = "Placa";
+            xlWorkSheet.Cells[2, 7] = "Serviço";
+            xlWorkSheet.Cells[2, 8] = "Preço";
+            xlWorkSheet.Cells[2, 9] = "Data";
+            xlWorkSheet.Cells[2, 10] = "Pagamento";
 
 
             xlWorkSheet.Cells[1, 12] = "Tabela Gastos";
@@ -297,8 +314,8 @@ namespace totalClean
                     i++;
                 }
                 int lastCell = i - 1;
-                xlWorkSheet.Cells[16, 11] = "Total Gastos:";
-                xlWorkSheet.Cells[17, 11] = "=SOMA(P2:P" + lastCell + ")";
+                xlWorkSheet.Cells[1, 21] = "Total Gastos:";
+                xlWorkSheet.Cells[2, 21] = "=SOMA(P2:P" + lastCell + ")";
                 readerGasto.Close();
             }
 
@@ -306,7 +323,7 @@ namespace totalClean
 
             SqlDataReader readerVenda;
 
-            readerVenda = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}'");
+            readerVenda = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [Vendas].[data], [Vendas].[pago] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}'");
 
 
             if (readerVenda.HasRows)
@@ -329,31 +346,40 @@ namespace totalClean
                     }
 
                     xlWorkSheet.Cells[i, 3] = readerVenda.GetString(2).Trim();
-                    xlWorkSheet.Cells[i, 4] = readerVenda.GetString(3);
+
+                    try
+                    {
+                        xlWorkSheet.Cells[i, 4] = readerVenda.GetString(3).Trim();
+                    }
+                    catch
+                    {
+
+                    }
                     xlWorkSheet.Cells[i, 5] = readerVenda.GetString(4);
                     xlWorkSheet.Cells[i, 6] = readerVenda.GetString(5);
-                    xlWorkSheet.Cells[i, 7] = readerVenda.GetDouble(6);
-                    xlWorkSheet.Cells[i, 8] = readerVenda.GetDateTime(7);
+                    xlWorkSheet.Cells[i, 7] = readerVenda.GetString(6);
+                    xlWorkSheet.Cells[i, 8] = readerVenda.GetDouble(7);
+                    xlWorkSheet.Cells[i, 9] = readerVenda.GetDateTime(8);
 
-                    Boolean pg = readerVenda.GetBoolean(8);
+                    Boolean pg = readerVenda.GetBoolean(9);
 
                     if (pg == true)
                     {
-                        xlWorkSheet.Cells[i, 9] = "PG";
+                        xlWorkSheet.Cells[i, 10] = "PG";
                     }
                     else
                     {
-                        xlWorkSheet.Cells[i, 9] = "EM ABERTO";
+                        xlWorkSheet.Cells[i, 10] = "EM ABERTO";
                     }
                     i++;
                 }
                 int lastCell = i - 1;
-                xlWorkSheet.Cells[16, 10] = "Total Vendas:";
-                xlWorkSheet.Cells[17, 10] = "=SOMA(G2:G" + lastCell + ")";
+                xlWorkSheet.Cells[1, 20] = "Total Vendas:";
+                xlWorkSheet.Cells[2, 20] = "=SOMA(H2:H" + lastCell + ")";
                 readerVenda.Close();
             }
 
-         
+
 
             //Salva o arquivo de acordo com a documentação do Excel.
             try

@@ -24,6 +24,7 @@ namespace totalClean
 
         private void EdicaoFrm_Load(object sender, EventArgs e)
         {
+            txtCpf.ReadOnly = true;
             txtTelefone.ReadOnly = true;
             txtEndereco.ReadOnly = true;
             rdbFrotista.Enabled = false;
@@ -36,11 +37,11 @@ namespace totalClean
         }
 
         private void btnSair_Click(object sender, EventArgs e)
-        {           
-                CadastroClientes f = new CadastroClientes();
-                f.Show();
-                this.Visible = false;
-            
+        {
+            CadastroClientes f = new CadastroClientes();
+            f.Show();
+            this.Visible = false;
+
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -73,7 +74,14 @@ namespace totalClean
                             cliente.telefone = reader.GetString(2);
                             cliente.endereco = reader.GetString(3);
                             cliente.frotista = reader.GetBoolean(4);
+                            try
+                            {
+                                cliente.cpf = reader.GetString(5);
+                            }
+                            catch
+                            {
 
+                            }
                             listCliente.Add(cliente);
                         }
                         reader.Close();
@@ -101,6 +109,15 @@ namespace totalClean
                             cliente.telefone = reader.GetString(2);
                             cliente.endereco = reader.GetString(3);
                             cliente.frotista = reader.GetBoolean(4);
+                            try
+                            {
+                                cliente.cpf = reader.GetString(5);
+                            }
+                            catch
+                            {
+
+                            }
+
 
                             listCliente.Add(cliente);
                         }
@@ -142,6 +159,18 @@ namespace totalClean
                     cliente.endereco = reader.GetString(3);
                     cliente.frotista = reader.GetBoolean(4);
 
+
+                    try
+                    {
+                        cliente.cpf = reader.GetString(5);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+
+
+
                     listCliente.Add(cliente);
                 }
                 reader.Close();
@@ -164,13 +193,15 @@ namespace totalClean
             btnCancelar.Enabled = true;
             txtEndereco.ReadOnly = false;
             txtTelefone.ReadOnly = false;
+            txtCpf.ReadOnly = false;
 
 
 
             txtId.Text = dgvClientes.CurrentRow.Cells[0].Value.ToString();
             txtNome.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString().Trim();
-            txtTelefone.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
-            txtEndereco.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
+            txtTelefone.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString().Trim();
+            txtEndereco.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString().Trim();
+
 
             if (dgvClientes.CurrentRow.Cells[4].Value.Equals(true))
             {
@@ -179,6 +210,14 @@ namespace totalClean
             else
             {
                 rdbParticular.Checked = true;
+            }
+            try
+            {
+                txtCpf.Text = dgvClientes.CurrentRow.Cells[5].Value.ToString().Trim();
+            }
+            catch (Exception)
+            {
+                txtCpf.Text = "";
             }
         }
 
@@ -189,6 +228,7 @@ namespace totalClean
             btnCancelar.Enabled = false;
             btnSalvar.Enabled = false;
             btnPesquisar.Enabled = true;
+            txtCpf.ReadOnly = true;
             txtTelefone.ReadOnly = true;
             txtEndereco.ReadOnly = true;
             rdbFrotista.Enabled = false;
@@ -197,6 +237,7 @@ namespace totalClean
 
         private void limparCampos()
         {
+            txtCpf.Text = "";
             txtNome.Text = "";
             txtEndereco.Text = "";
             txtTelefone.Text = "";
@@ -209,6 +250,7 @@ namespace totalClean
             btnCancelar.Enabled = false;
             btnSalvar.Enabled = false;
             btnPesquisar.Enabled = true;
+            txtCpf.ReadOnly = true;
             txtTelefone.ReadOnly = true;
             txtEndereco.ReadOnly = true;
             rdbFrotista.Enabled = false;
@@ -236,11 +278,14 @@ namespace totalClean
                 cliente.frotista = false;
             }
 
+            cliente.cpf = txtCpf.Text;
+
+            int maxPfPj = 14;
             int maxChar = 11;
 
-            if (txtTelefone.Text.Length > maxChar)
+            if (txtTelefone.Text.Length > maxChar || cliente.cpf.Length > maxPfPj)
             {
-                MessageBox.Show("Campo de telefone com mais de 11 caracteres", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Campo de telefone com mais de 11 caracteres ou de Cpf e Cnpj com mais de 14", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -251,6 +296,7 @@ namespace totalClean
                 int atelefone = con.executar($"UPDATE [dbo].[Cliente] set telefone = '" + cliente.telefone + "' WHERE idCliente = " + cliente.id);
                 int aEndereco = con.executar($"UPDATE [dbo].[Cliente] set endereco = '" + cliente.endereco + "' WHERE idCliente = " + cliente.id);
                 int aTipo = con.executar($"UPDATE [dbo].[Cliente] set frotista = '" + cliente.frotista + "' WHERE idCliente = " + cliente.id);
+                int aCpf = con.executar($"UPDATE [dbo].[Cliente] set pfpj = '" + cliente.cpf + "' WHERE idCliente = " + cliente.id);
 
                 MessageBox.Show("Dados alterados com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

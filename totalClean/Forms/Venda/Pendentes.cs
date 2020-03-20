@@ -59,7 +59,7 @@ namespace totalClean
             SqlDataReader reader;
             dgvPagamentosPendentes.Rows.Clear();
 
-            reader = con.exeCliente("SELECT [Vendas].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Vendas].[carro], [Vendas].[placa], [Vendas].[data], [Vendas].[pago] FROM [Vendas] INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente WHERE pago = 0");
+            reader = con.exeCliente("SELECT [Vendas].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Vendas].[data], [Vendas].[pago] FROM [Vendas] INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente WHERE pago = 0");
 
             if (reader.HasRows)
             {
@@ -70,14 +70,24 @@ namespace totalClean
                     sv.idVenda = reader.GetInt32(0);
                     sv.frotista = reader.GetBoolean(1);
                     sv.cliente = reader.GetString(2);
-                    sv.carro = reader.GetString(3);
-                    sv.placa = reader.GetString(4);
-                    sv.data = reader.GetDateTime(5);
-                    sv.pago = reader.GetBoolean(6);
+
+                    try
+                    {
+                        sv.CpfCnpj = reader.GetString(3);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+
+                    sv.carro = reader.GetString(4);
+                    sv.placa = reader.GetString(5);
+                    sv.data = reader.GetDateTime(6);
+                    sv.pago = reader.GetBoolean(7);
 
                     
                     dgvPagamentosPendentes.DataSource = null;
-                    dgvPagamentosPendentes.Rows.Add( sv.idVenda, sv.frotista, sv.cliente, sv.carro, sv.placa, sv.data.ToShortDateString(), sv.pago, setPreco(sv.idVenda));
+                    dgvPagamentosPendentes.Rows.Add( sv.idVenda, sv.frotista, sv.cliente, sv.CpfCnpj, sv.carro, sv.placa, sv.data.ToShortDateString(), sv.pago, setPreco(sv.idVenda));
                 }                
                 reader.Close();
             }

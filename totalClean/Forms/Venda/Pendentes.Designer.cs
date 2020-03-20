@@ -36,15 +36,16 @@
             this.btnPagamentoRealizado = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvPagamentosPendentes = new System.Windows.Forms.DataGridView();
+            this.btnPendenciasPCliente = new System.Windows.Forms.Button();
             this.IdVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Frotista = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPFCNPJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Carro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pago = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPendenciasPCliente = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagamentosPendentes)).BeginInit();
             this.SuspendLayout();
@@ -138,6 +139,7 @@
             this.IdVenda,
             this.Frotista,
             this.Cliente,
+            this.CPFCNPJ,
             this.Carro,
             this.Placa,
             this.Data,
@@ -155,6 +157,27 @@
             this.dgvPagamentosPendentes.Size = new System.Drawing.Size(1322, 495);
             this.dgvPagamentosPendentes.TabIndex = 70;
             this.dgvPagamentosPendentes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagamentosPendentes_CellClick);
+            // 
+            // btnPendenciasPCliente
+            // 
+            this.btnPendenciasPCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btnPendenciasPCliente.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnPendenciasPCliente.FlatAppearance.BorderSize = 0;
+            this.btnPendenciasPCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnPendenciasPCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnPendenciasPCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPendenciasPCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPendenciasPCliente.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnPendenciasPCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnPendenciasPCliente.Image")));
+            this.btnPendenciasPCliente.Location = new System.Drawing.Point(1106, 102);
+            this.btnPendenciasPCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPendenciasPCliente.Name = "btnPendenciasPCliente";
+            this.btnPendenciasPCliente.Size = new System.Drawing.Size(264, 56);
+            this.btnPendenciasPCliente.TabIndex = 156;
+            this.btnPendenciasPCliente.Text = "   Filtrar Por Cliente";
+            this.btnPendenciasPCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPendenciasPCliente.UseVisualStyleBackColor = false;
+            this.btnPendenciasPCliente.Click += new System.EventHandler(this.btnPendenciasPCliente_Click);
             // 
             // IdVenda
             // 
@@ -181,6 +204,14 @@
             this.Cliente.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Cliente.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Cliente.Width = 125;
+            // 
+            // CPFCNPJ
+            // 
+            this.CPFCNPJ.HeaderText = "CPFCNPJ";
+            this.CPFCNPJ.MinimumWidth = 6;
+            this.CPFCNPJ.Name = "CPFCNPJ";
+            this.CPFCNPJ.ReadOnly = true;
+            this.CPFCNPJ.Width = 125;
             // 
             // Carro
             // 
@@ -222,27 +253,6 @@
             this.preco.ReadOnly = true;
             this.preco.Width = 125;
             // 
-            // btnPendenciasPCliente
-            // 
-            this.btnPendenciasPCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.btnPendenciasPCliente.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnPendenciasPCliente.FlatAppearance.BorderSize = 0;
-            this.btnPendenciasPCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnPendenciasPCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnPendenciasPCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPendenciasPCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPendenciasPCliente.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPendenciasPCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnPendenciasPCliente.Image")));
-            this.btnPendenciasPCliente.Location = new System.Drawing.Point(1106, 102);
-            this.btnPendenciasPCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPendenciasPCliente.Name = "btnPendenciasPCliente";
-            this.btnPendenciasPCliente.Size = new System.Drawing.Size(264, 56);
-            this.btnPendenciasPCliente.TabIndex = 156;
-            this.btnPendenciasPCliente.Text = "   Filtrar Por Cliente";
-            this.btnPendenciasPCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPendenciasPCliente.UseVisualStyleBackColor = false;
-            this.btnPendenciasPCliente.Click += new System.EventHandler(this.btnPendenciasPCliente_Click);
-            // 
             // Pendentes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -277,14 +287,15 @@
         private System.Windows.Forms.Button btnPagamentoRealizado;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvPagamentosPendentes;
+        private System.Windows.Forms.Button btnPendenciasPCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdVenda;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Frotista;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPFCNPJ;
         private System.Windows.Forms.DataGridViewTextBoxColumn Carro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Placa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data;
         private System.Windows.Forms.DataGridViewCheckBoxColumn pago;
         private System.Windows.Forms.DataGridViewTextBoxColumn preco;
-        private System.Windows.Forms.Button btnPendenciasPCliente;
     }
 }

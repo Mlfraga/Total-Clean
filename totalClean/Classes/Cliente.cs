@@ -13,5 +13,6 @@ namespace totalClean
         public String telefone { get; set; }
         public String endereco { get; set; }
         public Boolean frotista { get; set; }
+        public String cpf { get; set; }
     }
 }
