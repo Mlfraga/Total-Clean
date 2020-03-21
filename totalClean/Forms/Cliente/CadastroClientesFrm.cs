@@ -134,7 +134,7 @@ namespace totalClean
 
                     if (escolha == DialogResult.Yes)
                     {
-                        int maxChar = 9;
+                        int maxChar = 11;
                         int maxCpf = 14;
 
                         if (txtTelefone.Text.Length > maxChar || txtCpf.Text.Length > maxCpf)

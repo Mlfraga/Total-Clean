@@ -173,6 +173,12 @@
     <Compile Include="Forms\Relatório\RelatorioServicos-Gastos.Designer.cs">
       <DependentUpon>RelatorioServicos-Gastos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Venda\MessageEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Venda\MessageEdit.Designer.cs">
+      <DependentUpon>MessageEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\Conexao.cs" />
     <Compile Include="Forms\Cliente\EdicaoClienteFrm.cs">
       <SubType>Form</SubType>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Gastos\PendenciasPSetor.resx">
       <DependentUpon>PendenciasPSetor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Venda\MessageEdit.resx">
+      <DependentUpon>MessageEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

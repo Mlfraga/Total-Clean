@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VendasAFinalizar));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvVendas = new System.Windows.Forms.DataGridView();
@@ -40,6 +40,7 @@
             this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEnviaMsg = new System.Windows.Forms.Button();
+            this.btnEditaMsg = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).BeginInit();
             this.SuspendLayout();
@@ -65,9 +66,9 @@
             this.dgvVendas.Name = "dgvVendas";
             this.dgvVendas.ReadOnly = true;
             this.dgvVendas.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dgvVendas.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dgvVendas.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvVendas.RowTemplate.Height = 24;
             this.dgvVendas.Size = new System.Drawing.Size(1322, 405);
             this.dgvVendas.TabIndex = 165;
@@ -76,23 +77,21 @@
             // cmbCliente
             // 
             this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(621, 193);
+            this.cmbCliente.Location = new System.Drawing.Point(609, 190);
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(208, 24);
             this.cmbCliente.TabIndex = 205;
-            this.cmbCliente.SelectedIndexChanged += new System.EventHandler(this.cmbCliente_SelectedIndexChanged);
             // 
             // lblServico1
             // 
             this.lblServico1.AutoSize = true;
             this.lblServico1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServico1.ForeColor = System.Drawing.Color.White;
-            this.lblServico1.Location = new System.Drawing.Point(617, 166);
+            this.lblServico1.Location = new System.Drawing.Point(605, 163);
             this.lblServico1.Name = "lblServico1";
             this.lblServico1.Size = new System.Drawing.Size(95, 23);
             this.lblServico1.TabIndex = 204;
             this.lblServico1.Text = "Clientes:";
-            this.lblServico1.Click += new System.EventHandler(this.lblServico1_Click);
             // 
             // btnSair
             // 
@@ -126,7 +125,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(565, 102);
+            this.btnCancelar.Location = new System.Drawing.Point(436, 93);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(264, 56);
@@ -147,7 +146,7 @@
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.Location = new System.Drawing.Point(293, 102);
+            this.btnPesquisar.Location = new System.Drawing.Point(164, 93);
             this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(264, 56);
@@ -194,7 +193,7 @@
             this.btnEnviaMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnviaMsg.ForeColor = System.Drawing.SystemColors.Control;
             this.btnEnviaMsg.Image = ((System.Drawing.Image)(resources.GetObject("btnEnviaMsg.Image")));
-            this.btnEnviaMsg.Location = new System.Drawing.Point(837, 102);
+            this.btnEnviaMsg.Location = new System.Drawing.Point(708, 93);
             this.btnEnviaMsg.Margin = new System.Windows.Forms.Padding(4);
             this.btnEnviaMsg.Name = "btnEnviaMsg";
             this.btnEnviaMsg.Size = new System.Drawing.Size(264, 56);
@@ -204,12 +203,34 @@
             this.btnEnviaMsg.UseVisualStyleBackColor = false;
             this.btnEnviaMsg.Click += new System.EventHandler(this.btnEnviaMsg_Click);
             // 
+            // btnEditaMsg
+            // 
+            this.btnEditaMsg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btnEditaMsg.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEditaMsg.FlatAppearance.BorderSize = 0;
+            this.btnEditaMsg.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnEditaMsg.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnEditaMsg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditaMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditaMsg.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnEditaMsg.Image = ((System.Drawing.Image)(resources.GetObject("btnEditaMsg.Image")));
+            this.btnEditaMsg.Location = new System.Drawing.Point(980, 93);
+            this.btnEditaMsg.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditaMsg.Name = "btnEditaMsg";
+            this.btnEditaMsg.Size = new System.Drawing.Size(264, 56);
+            this.btnEditaMsg.TabIndex = 207;
+            this.btnEditaMsg.Text = "   Editar Mensagem";
+            this.btnEditaMsg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditaMsg.UseVisualStyleBackColor = false;
+            this.btnEditaMsg.Click += new System.EventHandler(this.btnEditaMsg_Click);
+            // 
             // VendasAFinalizar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.btnEditaMsg);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.cmbCliente);
             this.Controls.Add(this.lblServico1);
@@ -246,5 +267,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEnviaMsg;
         private System.Windows.Forms.DataGridView dgvVendas;
+        private System.Windows.Forms.Button btnEditaMsg;
     }
 }

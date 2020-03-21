@@ -13,7 +13,9 @@ namespace totalClean
 {
     public partial class VendasAFinalizar : Form
     {
+
         Conexao con = new Conexao();
+        public String msg;
         public String telefone;
         public int idVenda;
         public VendasAFinalizar()
@@ -140,7 +142,27 @@ namespace totalClean
 
         private void btnEnviaMsg_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("chrome.exe", $"https://web.whatsapp.com/send?phone=5531'{telefone}'&text=Olá,%20tudo%20bem?%20Você%20já%20pode%20buscar%20o%20seu%20carro%20na%20Total%20Clean!");
+           
+            List<Cliente> listCliente = new List<Cliente>();
+
+            con.conectar();
+
+            SqlDataReader reader;
+
+        
+
+            reader = con.exeCliente("SELECT mensagemWpp FROM Configuracao ");
+            if (reader.HasRows)
+            {                
+                while (reader.Read())
+                {
+                   msg = reader.GetString(0);
+                
+                }
+                reader.Close();                
+            }           
+
+            System.Diagnostics.Process.Start("chrome.exe", $"https://web.whatsapp.com/send?phone=55'{telefone}'&text={msg.Replace(" ", "%20")}" );
 
 
             int finalizado = con.executar("UPDATE[dbo].[Vendas] set finalizado = 1 WHERE idVenda = " + idVenda);
@@ -223,34 +245,15 @@ namespace totalClean
  
 
             idVenda = int.Parse(dgvVendas.CurrentRow.Cells[0].Value.ToString());
-            telefone = dgvVendas.CurrentRow.Cells[3].Value.ToString();
+            telefone = dgvVendas.CurrentRow.Cells[4].Value.ToString();
             desbloqueaBtns();
 
         }
 
-        private void rdbDinheiro_CheckedChanged(object sender, EventArgs e)
+        private void btnEditaMsg_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void rdbCredito_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rdbPermuta_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblServico1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            MessageEdit n = new MessageEdit();
+            n.Show();
         }
     }
 }
