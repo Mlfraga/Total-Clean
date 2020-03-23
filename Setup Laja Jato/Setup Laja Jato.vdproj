@@ -34,12 +34,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D295D575F348492CB25E1DA54C39FE9F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_94C51F2F1A214AD19D4BC2167A1BA70A"
         "MsmSig" = "8:_UNDEFINED"
@@ -81,6 +75,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -105,6 +107,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -197,26 +207,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D295D575F348492CB25E1DA54C39FE9F"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\logooo.ico"
-            "TargetName" = "8:logooo.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_9E3B20EFE7754AB69518945BA0041A15"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -274,7 +264,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TotalClean"
         "ProductCode" = "8:{4FD9FF21-673C-4550-91FD-771C8B5DBF75}"
-        "PackageCode" = "8:{0B3840C8-825C-46E2-9F10-C7C8ECF544E0}"
+        "PackageCode" = "8:{D708F77C-3B0A-454A-BFBA-FD64EB452F3A}"
         "UpgradeCode" = "8:{97D0482D-E0DB-4AA7-9B8E-ACFDB6E9E8D6}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -394,20 +384,6 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_661F3CE75E6748F78BF62C930446D13E"
-            {
-            "Name" = "8:TotalClean"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_94C51F2F1A214AD19D4BC2167A1BA70A"
-            "Folder" = "8:_969972767BC941DA910B93F5CF024FFE"
-            "WorkingFolder" = "8:_6019D8616F5F445DA13CBBEEC4942CFB"
-            "Icon" = "8:"
-            "Feature" = "8:"
-            }
         }
         "UserInterface"
         {

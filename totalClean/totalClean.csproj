@@ -179,6 +179,7 @@
     <Compile Include="Forms\Venda\MessageEdit.Designer.cs">
       <DependentUpon>MessageEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrecoVendaServico.cs" />
     <Compile Include="Util\Conexao.cs" />
     <Compile Include="Forms\Cliente\EdicaoClienteFrm.cs">
       <SubType>Form</SubType>

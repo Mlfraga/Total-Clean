@@ -87,12 +87,16 @@
             this.btnAdd7 = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnNovoCliente = new Bunifu.Framework.UI.BunifuImageButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdbTransferencia = new System.Windows.Forms.RadioButton();
             this.rdbDebito = new System.Windows.Forms.RadioButton();
             this.rdbPermuta = new System.Windows.Forms.RadioButton();
             this.rdbCredito = new System.Windows.Forms.RadioButton();
             this.rdbBoleto = new System.Windows.Forms.RadioButton();
             this.rdbDinheiro = new System.Windows.Forms.RadioButton();
-            this.rdbTransferencia = new System.Windows.Forms.RadioButton();
+            this.label8 = new System.Windows.Forms.Label();
+            this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txtDesconto = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd3)).BeginInit();
@@ -871,6 +875,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Forma de Pagamento";
             // 
+            // rdbTransferencia
+            // 
+            this.rdbTransferencia.AutoSize = true;
+            this.rdbTransferencia.Location = new System.Drawing.Point(151, 90);
+            this.rdbTransferencia.Name = "rdbTransferencia";
+            this.rdbTransferencia.Size = new System.Drawing.Size(146, 28);
+            this.rdbTransferencia.TabIndex = 5;
+            this.rdbTransferencia.Text = "Transferência";
+            this.rdbTransferencia.UseVisualStyleBackColor = true;
+            // 
             // rdbDebito
             // 
             this.rdbDebito.AutoSize = true;
@@ -923,15 +937,54 @@
             this.rdbDinheiro.Text = "Dinheiro";
             this.rdbDinheiro.UseVisualStyleBackColor = true;
             // 
-            // rdbTransferencia
+            // label8
             // 
-            this.rdbTransferencia.AutoSize = true;
-            this.rdbTransferencia.Location = new System.Drawing.Point(151, 90);
-            this.rdbTransferencia.Name = "rdbTransferencia";
-            this.rdbTransferencia.Size = new System.Drawing.Size(146, 28);
-            this.rdbTransferencia.TabIndex = 5;
-            this.rdbTransferencia.Text = "Transferência";
-            this.rdbTransferencia.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(645, 659);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 23);
+            this.label8.TabIndex = 160;
+            this.label8.Text = "R$:";
+            // 
+            // bunifuSeparator3
+            // 
+            this.bunifuSeparator3.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bunifuSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bunifuSeparator3.LineThickness = 1;
+            this.bunifuSeparator3.Location = new System.Drawing.Point(692, 680);
+            this.bunifuSeparator3.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.bunifuSeparator3.Name = "bunifuSeparator3";
+            this.bunifuSeparator3.Size = new System.Drawing.Size(104, 10);
+            this.bunifuSeparator3.TabIndex = 159;
+            this.bunifuSeparator3.Transparency = 255;
+            this.bunifuSeparator3.Vertical = false;
+            // 
+            // txtDesconto
+            // 
+            this.txtDesconto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.txtDesconto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDesconto.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDesconto.ForeColor = System.Drawing.SystemColors.Info;
+            this.txtDesconto.HideSelection = false;
+            this.txtDesconto.Location = new System.Drawing.Point(692, 661);
+            this.txtDesconto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDesconto.Name = "txtDesconto";
+            this.txtDesconto.Size = new System.Drawing.Size(104, 25);
+            this.txtDesconto.TabIndex = 158;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(686, 636);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 23);
+            this.label5.TabIndex = 157;
+            this.label5.Text = "Desconto:";
             // 
             // VendaFrm
             // 
@@ -939,6 +992,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.bunifuSeparator3);
+            this.Controls.Add(this.txtDesconto);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnNovoCliente);
             this.Controls.Add(this.btnAdd7);
@@ -1086,5 +1143,9 @@
         private System.Windows.Forms.RadioButton rdbBoleto;
         private System.Windows.Forms.RadioButton rdbDinheiro;
         private System.Windows.Forms.RadioButton rdbTransferencia;
+        private System.Windows.Forms.Label label8;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator3;
+        private System.Windows.Forms.TextBox txtDesconto;
+        private System.Windows.Forms.Label label5;
     }
 }

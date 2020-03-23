@@ -32,7 +32,7 @@ namespace totalClean
 
         public double setPreco(int num)
         {
-            
+
 
             con.conectar();
             SqlDataReader reader;
@@ -50,9 +50,9 @@ namespace totalClean
                     preco = reader.GetDouble(0) + preco;
 
                 }
-                return preco;               
+                return preco;
             }
-            return 0 ;
+            return 0;
 
         }
         private void iniciaGrid()
@@ -65,7 +65,7 @@ namespace totalClean
             SqlDataReader reader;
             dgvPagamentosPendentes.Rows.Clear();
 
-            reader = con.exeCliente("SELECT [Vendas].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [Vendas] INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente WHERE pago = 0");
+            reader = con.exeCliente("SELECT [Vendas].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento], [Vendas].[ValorCobrado] FROM [Vendas] INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente WHERE pago = 0");
 
             if (reader.HasRows)
             {
@@ -99,9 +99,17 @@ namespace totalClean
                     {
                         formaPagamento = "";
                     }
+                    try
+                    {
+                        sv.valorACobrar = reader.GetDouble(9);
+                    }
+                    catch (Exception)
+                    {
+                        sv.valorACobrar = setPreco(sv.idVenda);
+                    }
 
                     dgvPagamentosPendentes.DataSource = null;
-                    dgvPagamentosPendentes.Rows.Add(sv.idVenda, sv.frotista, sv.cliente, sv.CpfCnpj, sv.carro, sv.placa, sv.data.ToShortDateString(), sv.pago, setPreco(sv.idVenda), formaPagamento);
+                    dgvPagamentosPendentes.Rows.Add(sv.idVenda, sv.frotista, sv.cliente, sv.CpfCnpj, sv.carro, sv.placa, sv.data.ToShortDateString(), sv.pago, setPreco(sv.idVenda), sv.valorACobrar, formaPagamento);
                 }
                 reader.Close();
             }
@@ -125,7 +133,7 @@ namespace totalClean
             con.conectar();
             SqlDataReader reader;
 
-            reader = con.exeCliente($"SELECT Servicos.preco from VendasServicos INNER JOIN Servicos ON [VendasServicos].[idServico] = Servicos.idServico WHERE idVenda =  " + id);
+            reader = con.exeCliente($"SELECT [Servicos].[preco] , [VendasServicos].[valorCobrado]  from VendasServicos INNER JOIN Servicos ON [VendasServicos].[idServico] = Servicos.idServico WHERE idVenda =  " + id);
 
 
             if (reader.HasRows)
@@ -134,9 +142,14 @@ namespace totalClean
 
                 while (reader.Read())
                 {
-
-                    preco = reader.GetDouble(0) + preco;
-
+                    try
+                    {
+                        preco = reader.GetDouble(1) + preco;
+                    }
+                    catch
+                    {
+                        preco = reader.GetDouble(0) + preco;
+                    }
                 }
                 reader.Close();
 
@@ -171,7 +184,7 @@ namespace totalClean
                     {
                         venda.formaPagamento = "Permuta";
                     }
-                    if(rdbTransferencia.Checked == true)
+                    if (rdbTransferencia.Checked == true)
                     {
                         venda.formaPagamento = "Transferência Bancária";
                     }
@@ -179,20 +192,20 @@ namespace totalClean
                     int attPG = con.executar($"UPDATE [dbo].[Vendas] set pago = 1 WHERE idVenda = " + id);
                     int att = con.executar($"UPDATE [dbo].[Vendas] set formaPagamento = '{venda.formaPagamento}' WHERE idVenda = " + id);
                     iniciaGrid();
-                    
+
                 }
                 else
                 {
 
                 }
-                
+
             }
 
 
             rdbDinheiro.Checked = true;
             btnPagamentoRealizado.Enabled = false;
         }
-     
+
         private void Pendentes_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -213,9 +226,9 @@ namespace totalClean
         private void dgvPagamentosPendentes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             String formaPG;
-            formaPG = dgvPagamentosPendentes.CurrentRow.Cells[9].Value.ToString();
+            formaPG = dgvPagamentosPendentes.CurrentRow.Cells[10].Value.ToString();
 
-            if(formaPG == "Dinheiro")
+            if (formaPG == "Dinheiro")
             {
                 rdbDinheiro.Checked = true;
             }
@@ -227,7 +240,7 @@ namespace totalClean
             {
                 rdbCredito.Checked = true;
             }
-            if(formaPG == "Débito")
+            if (formaPG == "Débito")
             {
                 rdbDebito.Checked = true;
             }
@@ -235,7 +248,7 @@ namespace totalClean
             {
                 rdbPermuta.Checked = true;
             }
-            if(formaPG == "Transferência Bancária")
+            if (formaPG == "Transferência Bancária")
             {
                 rdbTransferencia.Checked = true;
             }
@@ -249,7 +262,7 @@ namespace totalClean
             rdbTransferencia.Enabled = true;
         }
 
-        
+
 
         private void btnPendenciasPCliente_Click(object sender, EventArgs e)
         {
