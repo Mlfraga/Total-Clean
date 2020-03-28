@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VendasAFinalizar));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvVendas = new System.Windows.Forms.DataGridView();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.lblServico1 = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
@@ -42,12 +42,12 @@
             this.btnEnviaMsg = new System.Windows.Forms.Button();
             this.btnEditaMsg = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dgvVendas);
+            this.groupBox2.Controls.Add(this.dgvClientes);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(28, 236);
@@ -55,24 +55,24 @@
             this.groupBox2.Size = new System.Drawing.Size(1349, 478);
             this.groupBox2.TabIndex = 206;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Vendas";
+            this.groupBox2.Text = "Clientes";
             // 
-            // dgvVendas
+            // dgvClientes
             // 
-            this.dgvVendas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.dgvVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVendas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.dgvVendas.Location = new System.Drawing.Point(13, 37);
-            this.dgvVendas.Name = "dgvVendas";
-            this.dgvVendas.ReadOnly = true;
-            this.dgvVendas.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgvVendas.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvVendas.RowTemplate.Height = 24;
-            this.dgvVendas.Size = new System.Drawing.Size(1322, 405);
-            this.dgvVendas.TabIndex = 165;
-            this.dgvVendas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVendas_CellClick_1);
+            this.dgvClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.dgvClientes.Location = new System.Drawing.Point(13, 37);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.ReadOnly = true;
+            this.dgvClientes.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvClientes.RowTemplate.Height = 24;
+            this.dgvClientes.Size = new System.Drawing.Size(1322, 426);
+            this.dgvClientes.TabIndex = 165;
+            this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVendas_CellClick_1);
             // 
             // cmbCliente
             // 
@@ -178,9 +178,9 @@
             this.label1.Location = new System.Drawing.Point(492, 13);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(431, 52);
+            this.label1.Size = new System.Drawing.Size(412, 52);
             this.label1.TabIndex = 196;
-            this.label1.Text = "Clientes a Notificar";
+            this.label1.Text = "Contatar Clientes ";
             // 
             // btnEnviaMsg
             // 
@@ -245,11 +245,11 @@
             this.MinimizeBox = false;
             this.Name = "VendasAFinalizar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Vendas a Finalizar";
+            this.Text = "Contatar Clientes";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VendasAFinalizar_FormClosed);
             this.Load += new System.EventHandler(this.VendasAFinalizar_Load);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,7 +266,7 @@
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEnviaMsg;
-        private System.Windows.Forms.DataGridView dgvVendas;
+        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.Button btnEditaMsg;
     }
 }

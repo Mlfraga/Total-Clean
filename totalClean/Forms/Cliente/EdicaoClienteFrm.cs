@@ -289,7 +289,14 @@ namespace totalClean
             }
             else
             {
-
+                if (txtTelefone.Text.Length < maxChar)
+                {
+                    var choice2 = MessageBox.Show("O campo de telefone aparentemente não está com ddd, você deseja salvar mesmo assim?", "Confirmção", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    if (choice2 == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
 
 
                 int aNome = con.executar($"UPDATE [dbo].[Cliente] set nome = '" + cliente.nome + "' WHERE idCliente = " + cliente.id);

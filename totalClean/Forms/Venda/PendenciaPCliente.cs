@@ -253,7 +253,7 @@ namespace totalClean
         private void dgvPagamentosPendentes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             String formaPG;
-            formaPG = dgvPagamentosPendentes.CurrentRow.Cells[10].Value.ToString();
+            formaPG = dgvPagamentosPendentes.CurrentRow.Cells[10].Value.ToString().Trim();
 
             if (formaPG == "Dinheiro")
             {
@@ -298,7 +298,17 @@ namespace totalClean
                 SqlDataReader reader;
                 dgvPagamentosPendentes.Rows.Clear();
 
-                int cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                int cliente;
+                try
+                {
+                    cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Favor selcionar um cliente já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return;
+                }
 
                 reader = con.exeCliente("SELECT [Vendas].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento], [Vendas].[ValorCobrado] FROM [Vendas] INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente WHERE [Vendas].[pago]  = 0 AND Cliente.idCliente = " + cliente);
 

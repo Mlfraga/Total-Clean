@@ -217,7 +217,7 @@ namespace totalClean
                         }
 
 
-                        
+
 
 
                         listServicoVenda.Add(sv);
@@ -256,12 +256,21 @@ namespace totalClean
 
                     if (chkFiltroData.Checked == true)
                     {
-
+                        int cliente;
                         String carro = txtCarro.Text;
                         String placa = txtPlaca.Text;
                         DateTime dataI = DtInicialVenda.Value;
                         DateTime dataF = dtFinalVenda.Value;
-                        vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
+                        try
+                        {
+                            vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Favor selcionar um serviço já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            cmbServico.Text = " ";
+                            return;
+                        }
 
                         if (cmbCliente.Text == string.Empty)
                         {
@@ -270,7 +279,16 @@ namespace totalClean
                         }
                         else
                         {
-                            int cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                            try
+                            {
+                                cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Favor selcionar um cliente já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                return;
+                            }
                             reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[idCliente] = '{cliente}'  AND [Vendas].[carro] LIKE ('%{carro}%') AND [Vendas].[placa] LIKE ('%{placa}%') AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' AND [VendasServicos].idServico = ('{vs.servico1}')");
                         }
 
@@ -278,17 +296,37 @@ namespace totalClean
                     }
                     else
                     {
-
+                        int cliente;
                         String carro = txtCarro.Text;
                         String placa = txtPlaca.Text;
-                        vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
+                        try
+                        {
+                            vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Favor selcionar um serviço já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            cmbServico.Text = " ";
+                            return;
+                        }
+
+
                         if (cmbCliente.Text == string.Empty)
                         {
                             reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE  [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') AND [VendasServicos].idServico = ('{vs.servico1}') ");
                         }
                         else
                         {
-                            int cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                            try
+                            {
+                                cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Favor selcionar um cliente já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                cmbCliente.Text = " ";
+                                return;
+                            }
                             reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[idCliente] = ('{cliente}') and [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') AND [VendasServicos].idServico = ('{vs.servico1}') ");
                         }
 
@@ -298,7 +336,7 @@ namespace totalClean
                 {
                     if (chkFiltroData.Checked == true)
                     {
-
+                        int cliente;
                         String carro = txtCarro.Text;
                         String placa = txtPlaca.Text;
                         DateTime dataI = DtInicialVenda.Value;
@@ -309,13 +347,23 @@ namespace totalClean
                         }
                         else
                         {
-                            int cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                            try
+                            {
+                                cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Favor selcionar um cliente já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                cmbCliente.Text = " ";
+                                return;
+                            }
                             reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[idCliente] = ('{cliente}') and  [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') and [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}'");
                         }
 
                     }
                     else
                     {
+                        int cliente;
                         String carro = txtCarro.Text;
                         String placa = txtPlaca.Text;
                         if (cmbCliente.Text == string.Empty)
@@ -324,7 +372,17 @@ namespace totalClean
                         }
                         else
                         {
-                            int cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                            try
+                            {
+                                cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Favor selcionar um cliente já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                cmbCliente.Text = " ";
+                                return;
+                            }
+                            cliente = int.Parse(cmbCliente.SelectedValue.ToString());
                             reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[idCliente] = ('{cliente}') and  [Vendas].[carro] LIKE ('%{carro}%') and [Vendas].[placa] LIKE ('%{placa}%') ");
                         }
 

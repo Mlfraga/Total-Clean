@@ -179,7 +179,7 @@
     <Compile Include="Forms\Venda\MessageEdit.Designer.cs">
       <DependentUpon>MessageEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrecoVendaServico.cs" />
+    <Compile Include="Classes\PrecoVendaServico.cs" />
     <Compile Include="Util\Conexao.cs" />
     <Compile Include="Forms\Cliente\EdicaoClienteFrm.cs">
       <SubType>Form</SubType>
@@ -204,11 +204,11 @@
     <Compile Include="Classes\Venda.cs" />
     <Compile Include="Classes\ValorVenda.cs" />
     <Compile Include="Classes\VendaPendente.cs" />
-    <Compile Include="Forms\Venda\VendasAFinalizar.cs">
+    <Compile Include="Forms\Cliente\ContatarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Venda\VendasAFinalizar.Designer.cs">
-      <DependentUpon>VendasAFinalizar.cs</DependentUpon>
+    <Compile Include="Forms\Cliente\ContatarClientes.Designer.cs">
+      <DependentUpon>ContatarClientes.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\Venda\EdicaoVendaServicoShortCut.resx">
       <DependentUpon>EdicaoVendaServicoShortCut.cs</DependentUpon>
@@ -288,8 +288,8 @@
     <EmbeddedResource Include="Forms\Relatório\RelatorioGastos.resx">
       <DependentUpon>RelatorioGastos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Venda\VendasAFinalizar.resx">
-      <DependentUpon>VendasAFinalizar.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Cliente\ContatarClientes.resx">
+      <DependentUpon>ContatarClientes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

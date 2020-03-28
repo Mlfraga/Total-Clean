@@ -185,16 +185,33 @@ namespace totalClean
 
                     DateTime dataI = DtInicialVenda.Value;
                     DateTime dataF = dtFinalVenda.Value;
-                    vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
-
+                    try
+                    {
+                        vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Favor selcionar um serviço já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        cmbServico.Text = " ";
+                        return;
+                    }
 
 
                     List<ServicoVenda> listServicoVenda = new List<ServicoVenda>();
                     con.conectar();
 
                     SqlDataReader reader;
-
-                    int cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                    int cliente;
+                    try
+                    {
+                        cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Favor selcionar um cliente já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        cmbCliente.Text = " ";
+                        return;
+                    }
                     reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[idCliente] = '{cliente}' AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' AND [VendasServicos].idServico = ('{vs.servico1}')");
 
 
@@ -263,9 +280,17 @@ namespace totalClean
 
                     DateTime dataI = DtInicialVenda.Value;
                     DateTime dataF = dtFinalVenda.Value;
-
-                    int cliente = int.Parse(cmbCliente.SelectedValue.ToString());
-
+                    int cliente;
+                    try
+                    {
+                        cliente = int.Parse(cmbCliente.SelectedValue.ToString());
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Favor selcionar um cliente já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        cmbCliente.Text = " ";
+                        return;
+                    }
                     List<ServicoVenda> listServicoVenda = new List<ServicoVenda>();
                     con.conectar();
 

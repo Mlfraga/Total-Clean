@@ -129,7 +129,16 @@ namespace totalClean
             {
                 Gastos edicaoGastos = new Gastos();
 
-                edicaoGastos.id = int.Parse(cmbSetor.SelectedValue.ToString());
+                try
+                {
+                    edicaoGastos.id = int.Parse(cmbSetor.SelectedValue.ToString());
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Favor selcionar um setor já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cmbSetor.Text = " ";
+                    return;
+                }
                 DateTime dataI = DtInicialVencimento.Value;
                 DateTime dataF = dtFinalVencimento.Value;
 
@@ -249,7 +258,7 @@ namespace totalClean
             DateTime dataI = DtInicialVencimento.Value;
             DateTime dataF = dtFinalVencimento.Value;
 
-          
+
 
             if (cmbSetor.Text == String.Empty)
             {

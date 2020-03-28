@@ -25,7 +25,6 @@ namespace totalClean
 
         private void VendasAFinalizar_Load(object sender, EventArgs e)
         {
-            
             iniciaGrid();
             prencheCmbCliente();
             bloqueaBtns();
@@ -74,49 +73,39 @@ namespace totalClean
         }
         private void iniciaGrid()
         {
-            List<VendaFinalizada> listVendaFinalizada = new List<VendaFinalizada>();
+
+            List<Cliente> listCliente = new List<Cliente>();
             con.conectar();
 
             SqlDataReader reader;
 
-            reader = con.exeCliente("SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj] ,[Cliente].[telefone], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[finalizado] = 0");
+            reader = con.exeCliente("select * from Cliente");
 
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    VendaFinalizada sv = new VendaFinalizada();
+                    Cliente cliente = new Cliente();
 
-                    sv.idVenda = reader.GetInt32(0);
-                    sv.frotista = reader.GetBoolean(1);
-                    sv.cliente = reader.GetString(2);
+                    cliente.id = reader.GetInt32(0);
+                    cliente.nome = reader.GetString(1);
+                    cliente.telefone = reader.GetString(2);
+                    cliente.endereco = reader.GetString(3);
+                    cliente.frotista = reader.GetBoolean(4);
+
+
                     try
                     {
-                        sv.CpfCnpj = reader.GetString(3);
+                        cliente.cpf = reader.GetString(5);
                     }
                     catch (Exception)
                     {
 
                     }
-                    sv.telefone = reader.GetString(4);
-                    sv.carro = reader.GetString(5);
-                    sv.placa = reader.GetString(6);
-                    sv.servico = reader.GetString(7);
-                    sv.data = reader.GetDateTime(8);
-                    sv.preco = reader.GetDouble(9);
 
-                    sv.pago = reader.GetBoolean(10);
 
-                    try
-                    {
-                        sv.formaPagamento = reader.GetString(11);
-                    }
-                    catch
-                    {
 
-                    }
-
-                    listVendaFinalizada.Add(sv);
+                    listCliente.Add(cliente);
                 }
                 reader.Close();
             }
@@ -124,8 +113,8 @@ namespace totalClean
             {
                 Console.WriteLine("Não retornou dados");
             }
-            dgvVendas.DataSource = null;
-            dgvVendas.DataSource = listVendaFinalizada;
+            dgvClientes.DataSource = null;
+            dgvClientes.DataSource = listCliente;
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -142,30 +131,30 @@ namespace totalClean
 
         private void btnEnviaMsg_Click(object sender, EventArgs e)
         {
-           
+
             List<Cliente> listCliente = new List<Cliente>();
 
             con.conectar();
 
             SqlDataReader reader;
 
-        
+
 
             reader = con.exeCliente("SELECT mensagemWpp FROM Configuracao ");
             if (reader.HasRows)
-            {                
+            {
                 while (reader.Read())
                 {
-                   msg = reader.GetString(0);
-                
+                    msg = reader.GetString(0);
+
                 }
-                reader.Close();                
-            }           
+                reader.Close();
+            }
 
-            System.Diagnostics.Process.Start("chrome.exe", $"https://web.whatsapp.com/send?phone=55'{telefone}'&text={msg.Replace(" ", "%20")}" );
+            System.Diagnostics.Process.Start("chrome.exe", $"https://web.whatsapp.com/send?phone=55'{telefone}'&text={msg.Replace(" ", "%20")}");
 
 
-            int finalizado = con.executar("UPDATE[dbo].[Vendas] set finalizado = 1 WHERE idVenda = " + idVenda);
+
             bloqueaBtns();
             iniciaGrid();
             cmbCliente.Text = "";
@@ -183,69 +172,63 @@ namespace totalClean
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             btnCancelar.Enabled = true;
-            List<VendaFinalizada> listVendaFinalizada = new List<VendaFinalizada>();
+            List<Cliente> listCliente = new List<Cliente>();
             Cliente pesquisa = new Cliente();
-            pesquisa.id = int.Parse(cmbCliente.SelectedValue.ToString());
+            try
+            {
+                pesquisa.id = int.Parse(cmbCliente.SelectedValue.ToString());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Favor selcionar um cliente já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                cmbCliente.Text = "";
+                return;
+            }
             SqlDataReader reader;
 
-            reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Cliente].[telefone], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[finalizado] = 0 and [Cliente].[idCliente] = '{pesquisa.id}'");
-
+            reader = con.exeCliente($"select * from Cliente WHERE idCliente = '{pesquisa.id}'");
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    VendaFinalizada sv = new VendaFinalizada();
+                    Cliente cliente = new Cliente();
 
-                    sv.idVenda = reader.GetInt32(0);
-                    sv.frotista = reader.GetBoolean(1);
-                    sv.cliente = reader.GetString(2);
+                    cliente.id = reader.GetInt32(0);
+                    cliente.nome = reader.GetString(1);
+                    cliente.telefone = reader.GetString(2);
+                    cliente.endereco = reader.GetString(3);
+                    cliente.frotista = reader.GetBoolean(4);
+
+
                     try
                     {
-                        sv.CpfCnpj = reader.GetString(3);
+                        cliente.cpf = reader.GetString(5);
                     }
                     catch (Exception)
                     {
 
                     }
-                    sv.telefone = reader.GetString(4);
-                    sv.carro = reader.GetString(5);
-                    sv.placa = reader.GetString(6);
-                    sv.servico = reader.GetString(7);
-                    sv.data = reader.GetDateTime(8);
-                    sv.preco = reader.GetDouble(9);
 
-                    sv.pago = reader.GetBoolean(10);
 
-                    try
-                    {
-                        sv.formaPagamento = reader.GetString(11);
-                    }
-                    catch
-                    {
 
-                    }
-
-                    listVendaFinalizada.Add(sv);
+                    listCliente.Add(cliente);
                 }
-
+                reader.Close();
             }
             else
             {
                 Console.WriteLine("Não retornou dados");
             }
-            dgvVendas.DataSource = null;
-            dgvVendas.DataSource = listVendaFinalizada;
-
-            reader.Close();
+            dgvClientes.DataSource = null;
+            dgvClientes.DataSource = listCliente;
         }
 
         private void dgvVendas_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
- 
-
-            idVenda = int.Parse(dgvVendas.CurrentRow.Cells[0].Value.ToString());
-            telefone = dgvVendas.CurrentRow.Cells[4].Value.ToString();
+            idVenda = int.Parse(dgvClientes.CurrentRow.Cells[0].Value.ToString());
+            telefone = dgvClientes.CurrentRow.Cells[2].Value.ToString();
+            cmbCliente.SelectedValue = idVenda;
             desbloqueaBtns();
 
         }

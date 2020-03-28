@@ -27,7 +27,7 @@ namespace totalClean
             rdbDebito.Enabled = false;
             rdbDinheiro.Enabled = false;
             rdbPermuta.Enabled = false;
-            rdbTransferencia.Enabled = false;
+            rdbTransferencia.Enabled = false;         
         }
 
         public double setPreco(int num)
@@ -226,7 +226,7 @@ namespace totalClean
         private void dgvPagamentosPendentes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             String formaPG;
-            formaPG = dgvPagamentosPendentes.CurrentRow.Cells[10].Value.ToString();
+            formaPG = dgvPagamentosPendentes.CurrentRow.Cells[10].Value.ToString().Trim();
 
             if (formaPG == "Dinheiro")
             {
@@ -253,6 +253,8 @@ namespace totalClean
                 rdbTransferencia.Checked = true;
             }
 
+          
+
             btnPagamentoRealizado.Enabled = true;
             rdbBoleto.Enabled = true;
             rdbCredito.Enabled = true;
@@ -260,6 +262,8 @@ namespace totalClean
             rdbDinheiro.Enabled = true;
             rdbPermuta.Enabled = true;
             rdbTransferencia.Enabled = true;
+
+            
         }
 
 

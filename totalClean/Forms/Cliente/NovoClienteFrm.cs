@@ -131,7 +131,7 @@ namespace totalClean
 
                     if (escolha == DialogResult.Yes)
                     {
-                        int maxChar = 9;
+                        int maxChar = 11;
                         int maxCpf = 14;
 
                         if (txtTelefone.Text.Length > maxChar || txtCpf.Text.Length > maxCpf)
@@ -140,12 +140,20 @@ namespace totalClean
                         }
                         else
                         {
+                            if (txtTelefone.Text.Length < maxChar)
+                            {
+                                var choice2 = MessageBox.Show("O campo de telefone não está com ddd você deseja salvar mesmo assim?", "Confirmção", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                                if (choice2 != DialogResult.Yes)
+                                {
+                                    return;
+                                }
+                            }
 
                             Cliente cliente = new Cliente();
                             Conexao conexao = new Conexao();
                             conexao.conectar();
 
-                            int linhas = conexao.executar($"INSERT INTO Cliente (nome, telefone, endereco, frotista) VALUES ('{c.nome}','{c.telefone}','{c.endereco}','{statusCliente}')");
+                            int linhas = conexao.executar($"INSERT INTO Cliente (nome, telefone, endereco, frotista, pfpj) VALUES ('{c.nome}','{c.telefone}','{c.endereco}','{statusCliente}', '{c.cpf}')");
                             limparCampos();
                             MessageBox.Show("Dados salvos com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

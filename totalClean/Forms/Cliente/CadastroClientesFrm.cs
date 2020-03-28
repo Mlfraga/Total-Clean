@@ -118,14 +118,14 @@ namespace totalClean
 
                 int statusCliente = c.frotista ? 1 : 0;
 
-               
+
                 if (txtCpf.Text != string.Empty)
                 {
                     c.cpf = txtCpf.Text;
                 }
                 else
                 {
-                    
+
                 }
 
                 if (txtNome.Text != string.Empty && txtTelefone.Text != string.Empty)
@@ -139,10 +139,18 @@ namespace totalClean
 
                         if (txtTelefone.Text.Length > maxChar || txtCpf.Text.Length > maxCpf)
                         {
-                            MessageBox.Show("Campo de telefone ou cpf e cnpj com muitos caracteres", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Campo de telefone com mais de 11 caracteres ou de Cpf e Cnpj com mais de 14", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
+                            if (txtTelefone.Text.Length < maxChar)
+                            {
+                                var choice2 = MessageBox.Show("O campo de telefone aparentemente não está com ddd, você deseja salvar mesmo assim?", "Confirmção", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                                if (choice2 != DialogResult.Yes)
+                                {
+                                    return;
+                                }
+                            }
 
                             Cliente cliente = new Cliente();
                             Conexao conexao = new Conexao();

@@ -228,8 +228,15 @@ namespace totalClean
             if (cmbSetor.Text != string.Empty)
             {
                 Gastos edicaoGastos = new Gastos();
-
+                try { 
                 edicaoGastos.id= int.Parse(cmbSetor.SelectedValue.ToString());
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Favor selcionar um setor já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cmbSetor.Text = "";
+                    return;
+                }
                 edicaoGastos.descricao = txtDescricao.Text;
                 edicaoGastos.dataVencimento = DateTime.Parse(DtGasto.Value.ToString());
 

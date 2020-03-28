@@ -124,8 +124,16 @@ namespace totalClean
 
                     DateTime dataI = DtInicialVenda.Value;
                     DateTime dataF = dtFinalVenda.Value;
-                    vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
-
+                    try
+                    {
+                        vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Favor selcionar um serviço já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        cmbServico.Text = "";
+                        return;
+                    }
 
                     List<ServicoVenda> listServicoVenda = new List<ServicoVenda>();
                     con.conectar();
