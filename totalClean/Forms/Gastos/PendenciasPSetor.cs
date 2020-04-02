@@ -50,7 +50,7 @@ namespace totalClean
                     gasto.pago = reader.GetBoolean(6);
 
                     listGastos.Add(gasto);
-
+                    con.desconectar();
                 }
                 reader.Close();
                 dgvGastos.DataSource = null;
@@ -80,6 +80,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -143,6 +144,7 @@ namespace totalClean
 
                         }
                         reader.Close();
+                        con.desconectar();
                         dgvGastos.DataSource = null;
                         dgvGastos.DataSource = listGastos;
 
@@ -186,6 +188,7 @@ namespace totalClean
 
                         }
                         reader.Close();
+                        con.desconectar();
                         dgvGastos.DataSource = null;
                         dgvGastos.DataSource = listGastos;
 
@@ -234,6 +237,7 @@ namespace totalClean
 
                         }
                         reader1.Close();
+                        con.desconectar();
                         dgvGastos.DataSource = null;
                         dgvGastos.DataSource = listGastos1;
 
@@ -315,6 +319,7 @@ namespace totalClean
                 {
                     int att = con.executar($"UPDATE [dbo].[Gastos] set pago = 1 WHERE idGasto= " + id);
                     dgvGastos.DataSource = null;
+                    con.desconectar();
                     iniciarGrid();
                     cmbSetor.Text = "";
                     DtGasto.Value = DateTime.Now;

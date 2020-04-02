@@ -58,6 +58,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -71,8 +72,6 @@ namespace totalClean
 
         public double setPreco(int num)
         {
-
-
             con.conectar();
             SqlDataReader reader;
 
@@ -89,7 +88,9 @@ namespace totalClean
                     preco = reader.GetDouble(0) + preco;
 
                 }
-                return preco;
+                reader.Close();
+                con.desconectar();
+                return preco;                
             }
             return 0;
         }
@@ -151,6 +152,7 @@ namespace totalClean
                     dgvPagamentosPendentes.Rows.Add(sv.idVenda, sv.frotista, sv.cliente, sv.CpfCnpj, sv.carro, sv.placa, sv.data.ToShortDateString(), sv.pago, setPreco(sv.idVenda), sv.valorACobrar, formaPagamento);
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -196,6 +198,7 @@ namespace totalClean
                     }
                 }
                 reader.Close();
+                con.desconectar();
 
 
                 var choice = MessageBox.Show("O cliente efetuou o pagamento de R$" + preco + ",00 ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -233,8 +236,10 @@ namespace totalClean
                         venda.formaPagamento = "Transferência Bancária";
                     }
 
+                    con.conectar();
                     int attPG = con.executar($"UPDATE [dbo].[Vendas] set pago = 1 WHERE idVenda = " + id);
                     int att = con.executar($"UPDATE [dbo].[Vendas] set formaPagamento = '{venda.formaPagamento}' WHERE idVenda = " + id);
+                    con.desconectar();
                     iniciaGrid();
 
                 }
@@ -306,7 +311,7 @@ namespace totalClean
                 catch (Exception)
                 {
                     MessageBox.Show("Favor selcionar um cliente já cadastrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    con.desconectar();
                     return;
                 }
 

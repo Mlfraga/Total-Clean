@@ -28,13 +28,6 @@ namespace totalClean
             ocultaCmbs();
             prencheCmbCliente();
             PreencheCmb1();
-            PreencheCmb2();
-            PreencheCmb3();
-            PreencheCmb4();
-            PreencheCmb5();
-            PreencheCmb6();
-            PreencheCmb7();
-            PreencheCmb8();
             btnConcluido.Enabled = false;
             btnCancelar.Enabled = false;
             bloqueiaCampos();
@@ -120,14 +113,6 @@ namespace totalClean
                     }
 
 
-
-
-
-
-
-                    Conexao conexao = new Conexao();
-                    conexao.conectar();
-
                     // PEGAR PREÇO DO SERVIÇO
                     ValorVenda valorVenda = new ValorVenda();
 
@@ -143,7 +128,8 @@ namespace totalClean
                             valorVenda.precoServico = readerPreco.GetDouble(0);
                             valorVenda.qtd = double.Parse(cmbQtd1.Text);
                         }
-
+                        readerPreco.Close();
+                        con.desconectar();
                     }
 
                     double preco = valorVenda.precoServico * valorVenda.qtd;
@@ -316,7 +302,8 @@ namespace totalClean
 
 
 
-
+                        Conexao conexao = new Conexao();
+                        
 
                         var escolha = MessageBox.Show("O cliente efetuou o pagamento de R$" + preco + ",00 ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -325,11 +312,15 @@ namespace totalClean
                             var linhas = MessageBox.Show("Você deseja adicionar esse cliente a lista de clientes a notificar?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (linhas == DialogResult.Yes)
                             {
+                                conexao.conectar();
                                 int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado, formaPagamento, valorCobrado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, 0, '{venda.formaPagamento}', '{preco}')  ");
+                                conexao.desconectar();
                             }
                             else
                             {
+                                conexao.conectar();
                                 int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado, formaPagamento, valorCobrado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, 1, '{venda.formaPagamento}', '{preco}')  ");
+                                conexao.desconectar();
                             }
                         }
                         else
@@ -337,18 +328,20 @@ namespace totalClean
                             var escolha1 = MessageBox.Show("Você deseja adicionar esse cliente a lista de clientes a notificar?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (escolha1 == DialogResult.Yes)
                             {
+                                conexao.conectar();
                                 int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado, formaPagamento, valorCobrado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, 0, '{venda.formaPagamento}', '{preco}')  ");
+                                conexao.desconectar();
                             }
                             else
                             {
+                                conexao.conectar();
                                 int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado, formaPagamento, valorCobrado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, 1, '{venda.formaPagamento}', '{preco}')  ");
+                                conexao.desconectar();
                             }
 
-                        }
+                        }                    
 
-
-
-
+                                               
                         if (cmbServico1.Text != string.Empty && cmbServico2.Text != string.Empty && cmbServico3.Text != string.Empty && cmbServico4.Text != string.Empty && cmbServico5.Text != string.Empty && cmbServico6.Text != string.Empty && cmbServico7.Text != string.Empty && cmbServico8.Text != string.Empty)
                         {
                             descontoPServico = desconto / 8;
@@ -403,9 +396,8 @@ namespace totalClean
                                 venda.idCliente = readerIdVenda.GetInt32(4);
 
                             }
-
-
                             readerIdVenda.Close();
+                            con.desconectar();
                         }
 
 
@@ -435,10 +427,14 @@ namespace totalClean
 
                         valorCobrado = precoServicoVenda.valor - descontoPServico;
 
+
                         for (int i = 1; i <= vs.qtd1; i++)
                         {
+                            conexao.conectar();
                             int linhas1 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico1}','{idVenda}', '{valorCobrado}') ");
+                            conexao.desconectar();
                         }
+
 
 
                         if (cmbServico2.Text != string.Empty && cmbQtd2.Text != string.Empty)
@@ -469,10 +465,13 @@ namespace totalClean
                             vs.qtd2 = int.Parse(cmbQtd2.Text);
                             vs.servico2 = int.Parse(cmbServico2.SelectedValue.ToString());
 
+                            conexao.conectar();
+
                             for (int i = 1; i <= vs.qtd2; i++)
                             {
                                 int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico2}','{idVenda}', '{valorCobrado2}') ");
                             }
+                            conexao.desconectar();
                         }
                         else
                         {
@@ -506,10 +505,13 @@ namespace totalClean
                             vs.qtd3 = int.Parse(cmbQtd3.Text);
                             vs.servico3 = int.Parse(cmbServico3.SelectedValue.ToString());
 
+                            conexao.conectar();
+
                             for (int i = 1; i <= vs.qtd3; i++)
                             {
                                 int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico3}','{idVenda}', '{valorCobrado3}') ");
                             }
+                            conexao.desconectar();
                         }
                         else
                         {
@@ -541,11 +543,12 @@ namespace totalClean
 
                             vs.qtd4 = int.Parse(cmbQtd4.Text);
                             vs.servico4 = int.Parse(cmbServico4.SelectedValue.ToString());
-
+                            conexao.conectar();
                             for (int i = 1; i <= vs.qtd4; i++)
                             {
                                 int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico4}','{idVenda}', '{valorCobrado4}') ");
                             }
+                            conexao.desconectar();
                         }
                         else
                         {
@@ -577,11 +580,12 @@ namespace totalClean
 
                             vs.qtd5 = int.Parse(cmbQtd5.Text);
                             vs.servico5 = int.Parse(cmbServico5.SelectedValue.ToString());
-
+                            conexao.conectar();
                             for (int i = 1; i <= vs.qtd5; i++)
                             {
                                 int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico5}','{idVenda}', '{valorCobrado5}') ");
                             }
+                            conexao.desconectar();
                         }
                         else
                         {
@@ -613,11 +617,12 @@ namespace totalClean
 
                             vs.qtd6 = int.Parse(cmbQtd6.Text);
                             vs.servico6 = int.Parse(cmbServico6.SelectedValue.ToString());
-
+                            conexao.conectar();
                             for (int i = 1; i <= vs.qtd6; i++)
                             {
                                 int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico6}','{idVenda}', '{valorCobrado6}') ");
                             }
+                            conexao.desconectar();
                         }
                         else
                         {
@@ -649,11 +654,12 @@ namespace totalClean
 
                             vs.qtd7 = int.Parse(cmbQtd7.Text);
                             vs.servico7 = int.Parse(cmbServico7.SelectedValue.ToString());
-
+                            conexao.conectar();
                             for (int i = 1; i <= vs.qtd7; i++)
                             {
                                 int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico7}','{idVenda}', '{valorCobrado7}') ");
                             }
+                            conexao.desconectar();
                         }
                         else
                         {
@@ -685,11 +691,12 @@ namespace totalClean
 
                             vs.qtd8 = int.Parse(cmbQtd8.Text);
                             vs.servico8 = int.Parse(cmbServico8.SelectedValue.ToString());
-
+                            conexao.conectar();
                             for (int i = 1; i <= vs.qtd8; i++)
                             {
                                 int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico8}','{idVenda}', '{valorCobrado8}') ");
                             }
+                            conexao.desconectar();
                         }
                         else
                         {
@@ -852,6 +859,8 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
+
             }
             else
             {
@@ -885,6 +894,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -918,6 +928,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -951,6 +962,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -984,6 +996,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -1017,6 +1030,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -1050,6 +1064,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -1083,6 +1098,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -1116,6 +1132,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -1131,11 +1148,7 @@ namespace totalClean
         {
             if (cmbQtd1.Text != string.Empty && cmbServico1.Text != string.Empty)
             {
-                ComboBox ncmbServico2 = new ComboBox();
-                this.Controls.Add(ncmbServico2);
-                ncmbServico2.Location = new Point(25, 25);
-                ncmbServico2.Enabled = true;
-
+                PreencheCmb2();
                 lblQtd2.Visible = true;
                 lblServico2.Visible = true;
                 cmbServico2.Visible = true;
@@ -1151,6 +1164,7 @@ namespace totalClean
         {
             if (cmbQtd2.Text != string.Empty && cmbServico2.Text != string.Empty)
             {
+                PreencheCmb3();
                 lblQtd3.Visible = true;
                 lblServico3.Visible = true;
                 cmbServico3.Visible = true;
@@ -1167,6 +1181,7 @@ namespace totalClean
         {
             if (cmbQtd3.Text != string.Empty && cmbServico3.Text != string.Empty)
             {
+                PreencheCmb4();
                 lblQtd4.Visible = true;
                 lblServico4.Visible = true;
                 cmbServico4.Visible = true;
@@ -1182,6 +1197,7 @@ namespace totalClean
         {
             if (cmbQtd4.Text != string.Empty && cmbServico4.Text != string.Empty)
             {
+                PreencheCmb5();
                 lblQtd5.Visible = true;
                 lblServico5.Visible = true;
                 cmbServico5.Visible = true;
@@ -1198,6 +1214,7 @@ namespace totalClean
         {
             if (cmbQtd5.Text != string.Empty && cmbServico5.Text != string.Empty)
             {
+                PreencheCmb6();
                 lblQtd6.Visible = true;
                 lblServico6.Visible = true;
                 cmbServico6.Visible = true;
@@ -1213,6 +1230,7 @@ namespace totalClean
         {
             if (cmbQtd6.Text != string.Empty && cmbServico6.Text != string.Empty)
             {
+                PreencheCmb7();
                 lblQtd7.Visible = true;
                 lblServico7.Visible = true;
                 cmbServico7.Visible = true;
@@ -1226,7 +1244,7 @@ namespace totalClean
         }
         private void btnAdd7_Click(object sender, EventArgs e)
         {
-
+            PreencheCmb8();
             if (cmbQtd7.Text != string.Empty && cmbServico7.Text != string.Empty)
             {
                 lblQtd8.Visible = true;
@@ -1256,19 +1274,5 @@ namespace totalClean
 
         }
 
-        private void bunifuSeparator2_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCarro_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

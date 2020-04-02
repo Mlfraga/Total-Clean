@@ -79,6 +79,7 @@ namespace totalClean
                     listVendasServicos.Add(sv);
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -117,6 +118,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -149,6 +151,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -271,6 +274,7 @@ namespace totalClean
                         listServicoVenda.Add(sv);
                     }
                     reader.Close();
+                    con.desconectar();
                     dgvVendas.DataSource = null;
                     dgvVendas.DataSource = listServicoVenda;
                 }
@@ -493,6 +497,7 @@ namespace totalClean
                         listServicoVenda.Add(sv);
                     }
                     reader.Close();
+                    con.desconectar();
                     dgvVendas.DataSource = null;
                     dgvVendas.DataSource = listServicoVenda;
                 }
@@ -540,6 +545,7 @@ namespace totalClean
                 int linhas = con.executar($"DELETE FROM VendasServicos WHERE idVenda = '{n.idVenda}'");
                 int linhas1 = con.executar($"DELETE FROM Vendas WHERE idVenda = '{n.idVenda}'");
 
+                con.desconectar();
                 MessageBox.Show("Dados deletados com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 limpaCampos();

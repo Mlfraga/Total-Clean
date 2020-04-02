@@ -137,6 +137,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -210,6 +211,7 @@ namespace totalClean
                     int insere = conexao.executar($"INSERT INTO Gastos (idSetor, descricao, data, valor, formaPagamento, pago ) VALUES ('{c.id}','{c.descricao}','{c.dataVencimento}','{c.valor}','{c.formaPagamento}','{c.pago}')");
 
                     MessageBox.Show("Dados salvos com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    conexao.desconectar();
 
                     bloqueaCampos();
                     limpaCampos();

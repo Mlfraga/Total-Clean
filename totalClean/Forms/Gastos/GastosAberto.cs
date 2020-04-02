@@ -50,6 +50,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
                 dgvGastos.DataSource = null;
                 dgvGastos.DataSource = listGastos;
 
@@ -98,7 +99,7 @@ namespace totalClean
                     int att = con.executar($"UPDATE [dbo].[Gastos] set pago = 1 WHERE idGasto= " + id);
                     dgvGastos.DataSource = null;
                     iniciarGrid();
-
+                    con.desconectar();
 
                 }
                 else
@@ -106,7 +107,6 @@ namespace totalClean
 
                 }
             }
-
 
         }
 

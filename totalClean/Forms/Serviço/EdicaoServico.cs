@@ -43,6 +43,7 @@ namespace totalClean.Forms
                     listServico.Add(servico);
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -134,6 +135,7 @@ namespace totalClean.Forms
 
                         }
                         reader.Close();
+                        con.desconectar();
                         dgvServicos.DataSource = null;
                         dgvServicos.DataSource = listServico;
                     }
@@ -162,6 +164,7 @@ namespace totalClean.Forms
 
                         }
                         reader.Close();
+                        con.desconectar();
                         dgvServicos.DataSource = null;
                         dgvServicos.DataSource = listServico;
                     }
@@ -228,10 +231,13 @@ namespace totalClean.Forms
                 servico.ativo = false;
             }
 
+            con.conectar();
+
             int aNome = con.executar($"UPDATE [dbo].[Servicos] set nome = '" + servico.nome + "' WHERE idServico = " + servico.id);
             int apreco = con.executar($"UPDATE [dbo].[Servicos] set preco = '" + servico.preco + "' WHERE idServico = " + servico.id);
             int aEndereco = con.executar($"UPDATE [dbo].[Servicos] set ativo = '" + servico.ativo + "' WHERE idServico = " + servico.id);
 
+            con.desconectar();
             MessageBox.Show("Dados alterados com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Atualizar Grid com o cliente salvo
@@ -255,6 +261,7 @@ namespace totalClean.Forms
                     listServico.Add(servico);
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {

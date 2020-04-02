@@ -87,6 +87,7 @@ namespace totalClean
 
                 }
                 readerC.Close();
+                con.desconectar();
             }
 
             if (flag == 1)
@@ -154,49 +155,15 @@ namespace totalClean
                             conexao.conectar();
 
                             int linhas = conexao.executar($"INSERT INTO Cliente (nome, telefone, endereco, frotista, pfpj) VALUES ('{c.nome}','{c.telefone}','{c.endereco}','{statusCliente}', '{c.cpf}')");
+
                             limparCampos();
+
                             MessageBox.Show("Dados salvos com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-                            // Codigo para armazenar ultimo codigo salvo
-                            List<Cliente> listCliente = new List<Cliente>();
-                            con.conectar();
-
-                            SqlDataReader reader;
-
-                            reader = con.exeCliente("select * from Cliente");
-
-                            if (reader.HasRows)
-                            {
-                                while (reader.Read())
-                                {
-
-
-                                    cliente.id = reader.GetInt32(0);
-                                    cliente.nome = reader.GetString(1);
-                                    cliente.telefone = reader.GetString(2);
-                                    cliente.endereco = reader.GetString(3);
-                                    cliente.frotista = reader.GetBoolean(4);
-
-                                    listCliente.Add(cliente);
-                                }
-
-                                reader.Close();
-
-                                btnCancelar.Enabled = false;
-                                btnSalvar.Enabled = false;
-                                btnNovo.Enabled = true;
-
-                                bloqueiaCampos();
-                            }
+                            con.desconectar();
 
                         }
-                    }
-
-
-
-                    else
-                    {
+                    }else{
 
                     }
 

@@ -64,6 +64,7 @@ namespace totalClean
 
                 }
                 readerC.Close();
+                conexao.desconectar();
             }
 
 
@@ -79,6 +80,7 @@ namespace totalClean
 
                 int linhas = conexao.executar($"INSERT INTO SetorGastos (nome) VALUES ('{nomeSetor}')");
 
+                conexao.desconectar();
                 MessageBox.Show("Dados Salvos com sucesso", "Confirmação",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                 txtNome.Text = "";

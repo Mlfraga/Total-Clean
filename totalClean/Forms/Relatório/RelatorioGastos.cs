@@ -69,6 +69,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
                 dgvGastos.DataSource = null;
                 dgvGastos.DataSource = listGastos;
 
@@ -97,6 +98,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -165,6 +167,7 @@ namespace totalClean
 
                     }
                     reader.Close();
+                    con.desconectar();
                     dgvGastos.DataSource = null;
                     dgvGastos.DataSource = listGastos;
 
@@ -209,6 +212,7 @@ namespace totalClean
 
                     }
                     reader.Close();
+                    con.desconectar();
                     dgvGastos.DataSource = null;
                     dgvGastos.DataSource = listGastos;
 
@@ -295,6 +299,7 @@ namespace totalClean
                     xlWorkSheet.Cells[i, 4] = "Total:";
                     xlWorkSheet.Cells[i, 5] = "=SOMA(E2:E" + lastCell + ")";
                     reader.Close();
+                    con.desconectar();
 
                 }
                 //Salva o arquivo de acordo com a documentação do Excel.
@@ -371,7 +376,7 @@ namespace totalClean
                     xlWorkSheet.Cells[i, 4] = "Total:";
                     xlWorkSheet.Cells[i, 5] = "=SOMA(E2:E" + lastCell + ")";
                     reader.Close();
-
+                    con.desconectar();
                 }
                 //Salva o arquivo de acordo com a documentação do Excel.
                 try

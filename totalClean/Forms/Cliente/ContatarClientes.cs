@@ -61,6 +61,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -108,6 +109,7 @@ namespace totalClean
                     listCliente.Add(cliente);
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -149,6 +151,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
 
             System.Diagnostics.Process.Start("chrome.exe", $"https://web.whatsapp.com/send?phone=55'{telefone}'&text={msg.Replace(" ", "%20")}");
@@ -185,6 +188,7 @@ namespace totalClean
                 cmbCliente.Text = "";
                 return;
             }
+            con.conectar();
             SqlDataReader reader;
 
             reader = con.exeCliente($"select * from Cliente WHERE idCliente = '{pesquisa.id}'");
@@ -215,6 +219,7 @@ namespace totalClean
                     listCliente.Add(cliente);
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {

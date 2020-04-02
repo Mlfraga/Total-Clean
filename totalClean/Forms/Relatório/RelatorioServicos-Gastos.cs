@@ -56,6 +56,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
                 dgvGastos.DataSource = null;
                 dgvGastos.DataSource = listGastos;
 
@@ -121,6 +122,7 @@ namespace totalClean
                     listVendasServicos.Add(sv);
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -179,6 +181,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
                 dgvGastos.DataSource = null;
                 dgvGastos.DataSource = listGastos;
 
@@ -258,6 +261,7 @@ namespace totalClean
                     listServicoVenda.Add(servico);
                 }
                 reader.Close();
+                con.desconectar();
                 dgvVendas.DataSource = null;
                 dgvVendas.DataSource = listServicoVenda;
 
@@ -366,10 +370,12 @@ namespace totalClean
                 xlWorkSheet.Cells[i, 18] = "Total Gastos:";
                 xlWorkSheet.Cells[i, 19] = "=SOMA(Q2:Q" + lastCell + ")";
                 readerGasto.Close();
+                con.desconectar();
             }
 
             i = 3;
 
+            con.conectar();
             SqlDataReader readerVenda;
 
             readerVenda = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Vendas].[data], [Servicos].[preco],  [VendasServicos].[valorCobrado], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}'");
@@ -446,6 +452,7 @@ namespace totalClean
                 xlWorkSheet.Cells[i, 10] = "Total Vendas:";
                 xlWorkSheet.Cells[i, 11] = "=SOMA(J2:J" + lastCell + ")";
                 readerVenda.Close();
+                con.desconectar();
             }
 
 

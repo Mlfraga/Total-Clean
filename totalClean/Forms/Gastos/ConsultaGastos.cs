@@ -49,6 +49,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -124,6 +125,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
                 dgvGastos.DataSource = null;
                 dgvGastos.DataSource = listGastos;
 
@@ -218,6 +220,7 @@ namespace totalClean
 
                     }
                     reader.Close();
+                    con.desconectar();
                     dgvGastos.DataSource = null;
                     dgvGastos.DataSource = listGastos;
 
@@ -264,6 +267,7 @@ namespace totalClean
 
                     }
                     reader.Close();
+                    con.desconectar();
                     dgvGastos.DataSource = null;
                     dgvGastos.DataSource = listGastos;
 
@@ -312,6 +316,7 @@ namespace totalClean
 
                     }
                     reader.Close();
+                    con.desconectar();
                     dgvGastos.DataSource = null;
                     dgvGastos.DataSource = listGastos;
 
@@ -402,7 +407,7 @@ namespace totalClean
             int alteraPago = con.executar($"UPDATE [dbo].[Gastos] SET [pago] = '" + c.pago + "' WHERE idGasto = " + c.id);
 
             MessageBox.Show("Dados alterados com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            con.desconectar();
 
             // ATUALIZA GRID COM GASTO ALTERADO
 
@@ -431,6 +436,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
                 dgvGastos.DataSource = null;
                 dgvGastos.DataSource = listGastos1;
 

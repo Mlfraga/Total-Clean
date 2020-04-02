@@ -88,6 +88,7 @@ namespace totalClean
                     listVendasServicos.Add(sv);
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -188,6 +189,7 @@ namespace totalClean
                             listServicoVenda.Add(servico);
                         }
                         reader.Close();
+                        con.desconectar();
                         dgvVendas.DataSource = null;
                         dgvVendas.DataSource = listServicoVenda;
 
@@ -266,6 +268,7 @@ namespace totalClean
                             listServicoVenda.Add(servico);
                         }
                         reader.Close();
+                        con.desconectar();
                         dgvVendas.DataSource = null;
                         dgvVendas.DataSource = listServicoVenda;
 
@@ -347,6 +350,7 @@ namespace totalClean
                             listServicoVenda.Add(servico);
                         }
                         reader.Close();
+                        con.desconectar();
                         dgvVendas.DataSource = null;
                         dgvVendas.DataSource = listServicoVenda;
 
@@ -425,6 +429,7 @@ namespace totalClean
                             listServicoVenda.Add(servico);
                         }
                         reader.Close();
+                        con.desconectar();
                         dgvVendas.DataSource = null;
                         dgvVendas.DataSource = listServicoVenda;
 
@@ -505,6 +510,7 @@ namespace totalClean
                             listServicoVenda.Add(servico);
                         }
                         reader.Close();
+                        con.desconectar();
                         dgvVendas.DataSource = null;
                         dgvVendas.DataSource = listServicoVenda;
 
@@ -583,6 +589,7 @@ namespace totalClean
                             listServicoVenda.Add(servico);
                         }
                         reader.Close();
+                        con.desconectar();
                         dgvVendas.DataSource = null;
                         dgvVendas.DataSource = listServicoVenda;
 
@@ -619,6 +626,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -689,7 +697,7 @@ namespace totalClean
             DateTime dataF = dtFinalVenda.Value;
 
 
-
+            con.conectar();
             SqlDataReader reader;
 
             if (rdbAmbos.Checked == true)
@@ -762,6 +770,7 @@ namespace totalClean
                         xlWorkSheet.Cells[i, 8] = "Total:";
                         xlWorkSheet.Cells[i, 9] = "=SOMA(I2:I" + lastCell + ")";
                         reader.Close();
+                        con.desconectar();
                     }
 
 
@@ -870,6 +879,7 @@ namespace totalClean
                         xlWorkSheet.Cells[i, 8] = "Total:";
                         xlWorkSheet.Cells[i, 9] = "=SOMA(I2:I" + lastCell + ")";
                         reader.Close();
+                        con.desconectar();
                     }
 
 
@@ -980,6 +990,7 @@ namespace totalClean
                         xlWorkSheet.Cells[i, 8] = "Total:";
                         xlWorkSheet.Cells[i, 9] = "=SOMA(I2:I" + lastCell + ")";
                         reader.Close();
+                        con.desconectar();
                     }
 
 
@@ -1088,6 +1099,7 @@ namespace totalClean
                         xlWorkSheet.Cells[i, 8] = "Total:";
                         xlWorkSheet.Cells[i, 9] = "=SOMA(I2:I" + lastCell + ")";
                         reader.Close();
+                        con.desconectar();
                     }
 
 
@@ -1199,6 +1211,7 @@ namespace totalClean
                         xlWorkSheet.Cells[i, 8] = "Total:";
                         xlWorkSheet.Cells[i, 9] = "=SOMA(I2:I" + lastCell + ")";
                         reader.Close();
+                        con.desconectar();
                     }
 
 
@@ -1307,6 +1320,7 @@ namespace totalClean
                         xlWorkSheet.Cells[i, 8] = "Total:";
                         xlWorkSheet.Cells[i, 9] = "=SOMA(I2:I" + lastCell + ")";
                         reader.Close();
+                        con.desconectar();
                     }
 
 

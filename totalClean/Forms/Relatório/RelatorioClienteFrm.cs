@@ -96,6 +96,7 @@ namespace totalClean
                     listVendasServicos.Add(sv);
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -129,6 +130,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -162,6 +164,7 @@ namespace totalClean
 
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -259,6 +262,7 @@ namespace totalClean
                             listServicoVenda.Add(sv);
                         }
                         reader.Close();
+                        con.desconectar();
                         dgvVendasClientes.DataSource = null;
                         dgvVendasClientes.DataSource = listServicoVenda;
 
@@ -343,6 +347,7 @@ namespace totalClean
                             listServicoVenda.Add(sv);
                         }
                         reader.Close();
+                        con.desconectar();
                         dgvVendasClientes.DataSource = null;
                         dgvVendasClientes.DataSource = listServicoVenda;
 
@@ -420,6 +425,7 @@ namespace totalClean
             DateTime dataF = dtFinalVenda.Value;
             int cliente = int.Parse(cmbCliente.SelectedValue.ToString());
 
+            con.conectar();
             SqlDataReader reader;
 
             if (cmbServico.Text != string.Empty)
@@ -496,6 +502,7 @@ namespace totalClean
                 xlWorkSheet.Cells[i, 8] = "Total:";
                 xlWorkSheet.Cells[i, 9] = "=SOMA(I2:I" + lastCell + ")";
                 reader.Close();
+                con.desconectar();
             }
 
 

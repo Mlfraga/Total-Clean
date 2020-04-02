@@ -85,6 +85,7 @@ namespace totalClean
                             listCliente.Add(cliente);
                         }
                         reader.Close();
+                        con.desconectar();
                         dgvClientes.DataSource = null;
                         dgvClientes.DataSource = listCliente;
                     }
@@ -122,6 +123,7 @@ namespace totalClean
                             listCliente.Add(cliente);
                         }
                         reader.Close();
+                        con.desconectar();
                         dgvClientes.DataSource = null;
                         dgvClientes.DataSource = listCliente;
                     }
@@ -174,6 +176,7 @@ namespace totalClean
                     listCliente.Add(cliente);
                 }
                 reader.Close();
+                con.desconectar();
             }
             else
             {
@@ -298,6 +301,7 @@ namespace totalClean
                     }
                 }
 
+                con.conectar();
 
                 int aNome = con.executar($"UPDATE [dbo].[Cliente] set nome = '" + cliente.nome + "' WHERE idCliente = " + cliente.id);
                 int atelefone = con.executar($"UPDATE [dbo].[Cliente] set telefone = '" + cliente.telefone + "' WHERE idCliente = " + cliente.id);
@@ -305,6 +309,7 @@ namespace totalClean
                 int aTipo = con.executar($"UPDATE [dbo].[Cliente] set frotista = '" + cliente.frotista + "' WHERE idCliente = " + cliente.id);
                 int aCpf = con.executar($"UPDATE [dbo].[Cliente] set pfpj = '" + cliente.cpf + "' WHERE idCliente = " + cliente.id);
 
+                con.desconectar();
                 MessageBox.Show("Dados alterados com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -332,6 +337,7 @@ namespace totalClean
                         listCliente.Add(cliente);
                     }
                     reader.Close();
+                    con.desconectar();
                 }
                 else
                 {

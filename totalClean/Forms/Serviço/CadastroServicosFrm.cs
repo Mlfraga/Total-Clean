@@ -114,6 +114,7 @@ namespace totalClean
                         int linhas = conexao.executar($"INSERT INTO Servicos(nome, preco, ativo) VALUES ('{servico.nome}','{servico.preco}',{statusServico})");
                         limparCampos();
                         MessageBox.Show("Dados salvos com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        conexao.desconectar();
 
                         btnSalvar.Enabled = false;
                         btnCancelar.Enabled = false;

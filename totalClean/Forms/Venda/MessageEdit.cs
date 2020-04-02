@@ -35,13 +35,16 @@ namespace totalClean
                     txtMensagem.Text = reader.GetString(0);
                 }
                 reader.Close();
+                con.desconectar();
             }
         }
 
         private void btnConcluido_Click(object sender, EventArgs e)
         {
+            con.conectar();
             int aMmsg = con.executar($"UPDATE [dbo].[Configuracao] set mensagemWpp = '" + txtMensagem.Text + "' WHERE id = 1");
 
+            con.desconectar();
             MessageBox.Show("Mensagem alterada com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         
             
