@@ -34,7 +34,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente("SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[pago] = 0");
+            reader = con.exeCliente("SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[pago] = 0 ORDER BY idGasto DESC");
 
             if (reader.HasRows)
             {
@@ -50,9 +50,10 @@ namespace totalClean
                     gasto.pago = reader.GetBoolean(6);
 
                     listGastos.Add(gasto);
-                    con.desconectar();
+                    
                 }
                 reader.Close();
+                con.desconectar();
                 dgvGastos.DataSource = null;
                 dgvGastos.DataSource = listGastos;
 
@@ -125,7 +126,7 @@ namespace totalClean
 
                     SqlDataReader reader;
 
-                    reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[pago] = 0 AND [Gastos].[idSetor] = '{edicaoGastos.id}' AND [Gastos].[data] = '{edicaoGastos.dataVencimento}'");
+                    reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[pago] = 0 AND [Gastos].[idSetor] = '{edicaoGastos.id}' AND [Gastos].[data] = '{edicaoGastos.dataVencimento}' ORDER BY idGasto DESC");
 
                     if (reader.HasRows)
                     {
@@ -169,7 +170,7 @@ namespace totalClean
 
                     SqlDataReader reader;
 
-                    reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[pago] = 0 AND [Gastos].[data] = '{edicaoGastos.dataVencimento}'");
+                    reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[pago] = 0 AND [Gastos].[data] = '{edicaoGastos.dataVencimento}' ORDER BY idGasto DESC");
 
                     if (reader.HasRows)
                     {
@@ -218,7 +219,7 @@ namespace totalClean
 
                     SqlDataReader reader1;
 
-                    reader1 = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[pago] = 0 AND [Gastos].[idSetor] = '{edicaoGastos1.id}'");
+                    reader1 = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[pago] = 0 AND [Gastos].[idSetor] = '{edicaoGastos1.id}' ORDER BY idGasto DESC");
 
                     if (reader1.HasRows)
                     {

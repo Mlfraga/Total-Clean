@@ -158,7 +158,7 @@ namespace totalClean
                 if (txtId.Text != string.Empty)
                 {
                     int g = int.Parse(txtId.Text);
-                    reader = con.exeCliente($"SELECT * FROM Cliente WHERE idCliente = ('{g}') AND Nome LIKE ('%{nome}%') ");
+                    reader = con.exeCliente($"SELECT * FROM Cliente WHERE idCliente = ('{g}') AND Nome LIKE ('%{nome}%') order by idCliente DESC");
 
                     if (reader.HasRows)
                     {
@@ -194,7 +194,7 @@ namespace totalClean
 
                 else
                 {
-                    reader = con.exeCliente($"SELECT * FROM Cliente WHERE Nome LIKE ('%{nome}%') ");
+                    reader = con.exeCliente($"SELECT * FROM Cliente WHERE Nome LIKE ('%{nome}%') order by idCliente DESC");
 
                     if (reader.HasRows)
                     {
@@ -243,7 +243,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente("select * from Cliente");
+            reader = con.exeCliente("select * from Cliente order by idCliente DESC");
 
             if (reader.HasRows)
             {
@@ -329,6 +329,13 @@ namespace totalClean
         private void EdicaoClienteShorCut_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnCarrosCliente_Click(object sender, EventArgs e)
+        {
+            EditaCarros editaCarros = new EditaCarros(txtNome.Text);
+            editaCarros.Show();
+            this.Visible = false;
         }
     }
 }

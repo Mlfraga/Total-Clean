@@ -80,7 +80,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente("select * from Cliente");
+            reader = con.exeCliente("select * from Cliente order by idCliente DESC");
 
             if (reader.HasRows)
             {
@@ -191,7 +191,7 @@ namespace totalClean
             con.conectar();
             SqlDataReader reader;
 
-            reader = con.exeCliente($"select * from Cliente WHERE idCliente = '{pesquisa.id}'");
+            reader = con.exeCliente($"select * from Cliente WHERE idCliente = '{pesquisa.id}' order by idCliente DESC");
             if (reader.HasRows)
             {
                 while (reader.Read())

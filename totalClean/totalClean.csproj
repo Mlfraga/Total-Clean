@@ -51,8 +51,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Carros.cs" />
     <Compile Include="Classes\VendaFinalizada.cs" />
     <Compile Include="Classes\EdicaoGastos.cs" />
+    <Compile Include="Classes\edicaoCarros.cs" />
+    <Compile Include="Forms\Carros\EditaCarros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Carros\EditaCarros.Designer.cs">
+      <DependentUpon>EditaCarros.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Venda\EdicaoVendaServicoShortCut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,13 +181,19 @@
     <Compile Include="Forms\Relatório\RelatorioServicos-Gastos.Designer.cs">
       <DependentUpon>RelatorioServicos-Gastos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Venda\MessageEdit.cs">
+    <Compile Include="Forms\Cliente\MessageEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Venda\MessageEdit.Designer.cs">
+    <Compile Include="Forms\Cliente\MessageEdit.Designer.cs">
       <DependentUpon>MessageEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\PrecoVendaServico.cs" />
+    <Compile Include="Forms\Carros\SelecionaCarro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Carros\SelecionaCarro.Designer.cs">
+      <DependentUpon>SelecionaCarro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\Conexao.cs" />
     <Compile Include="Forms\Cliente\EdicaoClienteFrm.cs">
       <SubType>Form</SubType>
@@ -210,6 +224,9 @@
     <Compile Include="Forms\Cliente\ContatarClientes.Designer.cs">
       <DependentUpon>ContatarClientes.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\Carros\EditaCarros.resx">
+      <DependentUpon>EditaCarros.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Venda\EdicaoVendaServicoShortCut.resx">
       <DependentUpon>EdicaoVendaServicoShortCut.cs</DependentUpon>
     </EmbeddedResource>
@@ -267,7 +284,7 @@
     <EmbeddedResource Include="Forms\Gastos\PendenciasPSetor.resx">
       <DependentUpon>PendenciasPSetor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Venda\MessageEdit.resx">
+    <EmbeddedResource Include="Forms\Cliente\MessageEdit.resx">
       <DependentUpon>MessageEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -290,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cliente\ContatarClientes.resx">
       <DependentUpon>ContatarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Carros\SelecionaCarro.resx">
+      <DependentUpon>SelecionaCarro.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

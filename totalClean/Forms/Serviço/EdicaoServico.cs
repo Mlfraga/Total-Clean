@@ -26,7 +26,7 @@ namespace totalClean.Forms
 
             SqlDataReader reader;
 
-            reader = con.exeCliente("select * from Servicos");
+            reader = con.exeCliente("select * from Servicos ORDER BY idServico desc ");
 
             if (reader.HasRows)
             {
@@ -119,7 +119,7 @@ namespace totalClean.Forms
                 {
                     int g = int.Parse(txtId.Text);
                     
-                    reader = con.exeCliente($"SELECT * FROM Servicos WHERE idServico = ('{g}') AND Nome LIKE ('%{nome}%') ");
+                    reader = con.exeCliente($"SELECT * FROM Servicos WHERE idServico = ('{g}') AND Nome LIKE ('%{nome}%')  ORDER BY idServico desc ");
                     if (reader.HasRows)
                     {
                         while (reader.Read())
@@ -147,7 +147,7 @@ namespace totalClean.Forms
 
                 else
                 {
-                    reader = con.exeCliente($"SELECT * FROM Servicos WHERE Nome LIKE ('%{nome}%') ");
+                    reader = con.exeCliente($"SELECT * FROM Servicos WHERE Nome LIKE ('%{nome}%') ORDER BY idServico desc ");
 
                     if (reader.HasRows)
                     {

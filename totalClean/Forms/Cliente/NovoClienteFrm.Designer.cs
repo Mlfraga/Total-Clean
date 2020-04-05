@@ -53,6 +53,29 @@
             this.label7 = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.txtCpf = new System.Windows.Forms.TextBox();
+            this.bnfPlaca3 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txtPlaca3 = new System.Windows.Forms.TextBox();
+            this.lblPlaca3 = new System.Windows.Forms.Label();
+            this.bnfCarro3 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txtCarro3 = new System.Windows.Forms.TextBox();
+            this.lblCarro3 = new System.Windows.Forms.Label();
+            this.btnAdd2 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.bnfPlaca2 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txtPlaca2 = new System.Windows.Forms.TextBox();
+            this.lblPlaca2 = new System.Windows.Forms.Label();
+            this.bnfCarro2 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txtCarro2 = new System.Windows.Forms.TextBox();
+            this.lblCarro2 = new System.Windows.Forms.Label();
+            this.btnAdd1 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.bunifuSeparator8 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txtPlaca1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.bunifuSeparator7 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txtCarro1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnAddCarros = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAdd2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAdd1)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -392,12 +415,310 @@
             this.txtCpf.Size = new System.Drawing.Size(315, 25);
             this.txtCpf.TabIndex = 62;
             // 
+            // bnfPlaca3
+            // 
+            this.bnfPlaca3.BackColor = System.Drawing.Color.Transparent;
+            this.bnfPlaca3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bnfPlaca3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bnfPlaca3.LineThickness = 1;
+            this.bnfPlaca3.Location = new System.Drawing.Point(559, 664);
+            this.bnfPlaca3.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.bnfPlaca3.Name = "bnfPlaca3";
+            this.bnfPlaca3.Size = new System.Drawing.Size(284, 10);
+            this.bnfPlaca3.TabIndex = 142;
+            this.bnfPlaca3.Transparency = 255;
+            this.bnfPlaca3.Vertical = false;
+            // 
+            // txtPlaca3
+            // 
+            this.txtPlaca3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.txtPlaca3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPlaca3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlaca3.ForeColor = System.Drawing.SystemColors.Info;
+            this.txtPlaca3.HideSelection = false;
+            this.txtPlaca3.Location = new System.Drawing.Point(559, 645);
+            this.txtPlaca3.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPlaca3.Name = "txtPlaca3";
+            this.txtPlaca3.Size = new System.Drawing.Size(280, 25);
+            this.txtPlaca3.TabIndex = 141;
+            // 
+            // lblPlaca3
+            // 
+            this.lblPlaca3.AutoSize = true;
+            this.lblPlaca3.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaca3.ForeColor = System.Drawing.Color.White;
+            this.lblPlaca3.Location = new System.Drawing.Point(559, 618);
+            this.lblPlaca3.Name = "lblPlaca3";
+            this.lblPlaca3.Size = new System.Drawing.Size(68, 23);
+            this.lblPlaca3.TabIndex = 140;
+            this.lblPlaca3.Text = "Placa:";
+            // 
+            // bnfCarro3
+            // 
+            this.bnfCarro3.BackColor = System.Drawing.Color.Transparent;
+            this.bnfCarro3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bnfCarro3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bnfCarro3.LineThickness = 1;
+            this.bnfCarro3.Location = new System.Drawing.Point(247, 664);
+            this.bnfCarro3.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.bnfCarro3.Name = "bnfCarro3";
+            this.bnfCarro3.Size = new System.Drawing.Size(266, 10);
+            this.bnfCarro3.TabIndex = 139;
+            this.bnfCarro3.Transparency = 255;
+            this.bnfCarro3.Vertical = false;
+            // 
+            // txtCarro3
+            // 
+            this.txtCarro3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.txtCarro3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCarro3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCarro3.ForeColor = System.Drawing.SystemColors.Info;
+            this.txtCarro3.HideSelection = false;
+            this.txtCarro3.Location = new System.Drawing.Point(247, 645);
+            this.txtCarro3.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCarro3.Name = "txtCarro3";
+            this.txtCarro3.Size = new System.Drawing.Size(266, 25);
+            this.txtCarro3.TabIndex = 138;
+            // 
+            // lblCarro3
+            // 
+            this.lblCarro3.AutoSize = true;
+            this.lblCarro3.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarro3.ForeColor = System.Drawing.Color.White;
+            this.lblCarro3.Location = new System.Drawing.Point(243, 618);
+            this.lblCarro3.Name = "lblCarro3";
+            this.lblCarro3.Size = new System.Drawing.Size(71, 23);
+            this.lblCarro3.TabIndex = 137;
+            this.lblCarro3.Text = "Carro:";
+            // 
+            // btnAdd2
+            // 
+            this.btnAdd2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btnAdd2.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd2.Image")));
+            this.btnAdd2.ImageActive = null;
+            this.btnAdd2.Location = new System.Drawing.Point(854, 573);
+            this.btnAdd2.Name = "btnAdd2";
+            this.btnAdd2.Size = new System.Drawing.Size(31, 27);
+            this.btnAdd2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAdd2.TabIndex = 136;
+            this.btnAdd2.TabStop = false;
+            this.btnAdd2.Zoom = 10;
+            this.btnAdd2.Click += new System.EventHandler(this.btnAdd2_Click);
+            // 
+            // bnfPlaca2
+            // 
+            this.bnfPlaca2.BackColor = System.Drawing.Color.Transparent;
+            this.bnfPlaca2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bnfPlaca2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bnfPlaca2.LineThickness = 1;
+            this.bnfPlaca2.Location = new System.Drawing.Point(559, 594);
+            this.bnfPlaca2.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.bnfPlaca2.Name = "bnfPlaca2";
+            this.bnfPlaca2.Size = new System.Drawing.Size(284, 10);
+            this.bnfPlaca2.TabIndex = 135;
+            this.bnfPlaca2.Transparency = 255;
+            this.bnfPlaca2.Vertical = false;
+            // 
+            // txtPlaca2
+            // 
+            this.txtPlaca2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.txtPlaca2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPlaca2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlaca2.ForeColor = System.Drawing.SystemColors.Info;
+            this.txtPlaca2.HideSelection = false;
+            this.txtPlaca2.Location = new System.Drawing.Point(559, 575);
+            this.txtPlaca2.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPlaca2.Name = "txtPlaca2";
+            this.txtPlaca2.Size = new System.Drawing.Size(284, 25);
+            this.txtPlaca2.TabIndex = 134;
+            // 
+            // lblPlaca2
+            // 
+            this.lblPlaca2.AutoSize = true;
+            this.lblPlaca2.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaca2.ForeColor = System.Drawing.Color.White;
+            this.lblPlaca2.Location = new System.Drawing.Point(559, 548);
+            this.lblPlaca2.Name = "lblPlaca2";
+            this.lblPlaca2.Size = new System.Drawing.Size(68, 23);
+            this.lblPlaca2.TabIndex = 133;
+            this.lblPlaca2.Text = "Placa:";
+            // 
+            // bnfCarro2
+            // 
+            this.bnfCarro2.BackColor = System.Drawing.Color.Transparent;
+            this.bnfCarro2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bnfCarro2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bnfCarro2.LineThickness = 1;
+            this.bnfCarro2.Location = new System.Drawing.Point(247, 594);
+            this.bnfCarro2.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.bnfCarro2.Name = "bnfCarro2";
+            this.bnfCarro2.Size = new System.Drawing.Size(266, 10);
+            this.bnfCarro2.TabIndex = 132;
+            this.bnfCarro2.Transparency = 255;
+            this.bnfCarro2.Vertical = false;
+            // 
+            // txtCarro2
+            // 
+            this.txtCarro2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.txtCarro2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCarro2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCarro2.ForeColor = System.Drawing.SystemColors.Info;
+            this.txtCarro2.HideSelection = false;
+            this.txtCarro2.Location = new System.Drawing.Point(247, 575);
+            this.txtCarro2.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCarro2.Name = "txtCarro2";
+            this.txtCarro2.Size = new System.Drawing.Size(266, 25);
+            this.txtCarro2.TabIndex = 131;
+            // 
+            // lblCarro2
+            // 
+            this.lblCarro2.AutoSize = true;
+            this.lblCarro2.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarro2.ForeColor = System.Drawing.Color.White;
+            this.lblCarro2.Location = new System.Drawing.Point(243, 548);
+            this.lblCarro2.Name = "lblCarro2";
+            this.lblCarro2.Size = new System.Drawing.Size(71, 23);
+            this.lblCarro2.TabIndex = 130;
+            this.lblCarro2.Text = "Carro:";
+            // 
+            // btnAdd1
+            // 
+            this.btnAdd1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btnAdd1.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd1.Image")));
+            this.btnAdd1.ImageActive = null;
+            this.btnAdd1.Location = new System.Drawing.Point(851, 500);
+            this.btnAdd1.Name = "btnAdd1";
+            this.btnAdd1.Size = new System.Drawing.Size(31, 27);
+            this.btnAdd1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAdd1.TabIndex = 129;
+            this.btnAdd1.TabStop = false;
+            this.btnAdd1.Zoom = 10;
+            this.btnAdd1.Click += new System.EventHandler(this.btnAdd1_Click);
+            // 
+            // bunifuSeparator8
+            // 
+            this.bunifuSeparator8.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bunifuSeparator8.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bunifuSeparator8.LineThickness = 1;
+            this.bunifuSeparator8.Location = new System.Drawing.Point(559, 530);
+            this.bunifuSeparator8.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.bunifuSeparator8.Name = "bunifuSeparator8";
+            this.bunifuSeparator8.Size = new System.Drawing.Size(284, 10);
+            this.bunifuSeparator8.TabIndex = 128;
+            this.bunifuSeparator8.Transparency = 255;
+            this.bunifuSeparator8.Vertical = false;
+            // 
+            // txtPlaca1
+            // 
+            this.txtPlaca1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.txtPlaca1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPlaca1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlaca1.ForeColor = System.Drawing.SystemColors.Info;
+            this.txtPlaca1.HideSelection = false;
+            this.txtPlaca1.Location = new System.Drawing.Point(559, 511);
+            this.txtPlaca1.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPlaca1.Name = "txtPlaca1";
+            this.txtPlaca1.Size = new System.Drawing.Size(280, 25);
+            this.txtPlaca1.TabIndex = 127;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(559, 484);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 23);
+            this.label9.TabIndex = 126;
+            this.label9.Text = "Placa:";
+            // 
+            // bunifuSeparator7
+            // 
+            this.bunifuSeparator7.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bunifuSeparator7.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bunifuSeparator7.LineThickness = 1;
+            this.bunifuSeparator7.Location = new System.Drawing.Point(247, 530);
+            this.bunifuSeparator7.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.bunifuSeparator7.Name = "bunifuSeparator7";
+            this.bunifuSeparator7.Size = new System.Drawing.Size(266, 10);
+            this.bunifuSeparator7.TabIndex = 125;
+            this.bunifuSeparator7.Transparency = 255;
+            this.bunifuSeparator7.Vertical = false;
+            // 
+            // txtCarro1
+            // 
+            this.txtCarro1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.txtCarro1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCarro1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCarro1.ForeColor = System.Drawing.SystemColors.Info;
+            this.txtCarro1.HideSelection = false;
+            this.txtCarro1.Location = new System.Drawing.Point(247, 511);
+            this.txtCarro1.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCarro1.Name = "txtCarro1";
+            this.txtCarro1.Size = new System.Drawing.Size(266, 25);
+            this.txtCarro1.TabIndex = 124;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(243, 484);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 23);
+            this.label8.TabIndex = 123;
+            this.label8.Text = "Carro:";
+            // 
+            // btnAddCarros
+            // 
+            this.btnAddCarros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btnAddCarros.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAddCarros.FlatAppearance.BorderSize = 0;
+            this.btnAddCarros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAddCarros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnAddCarros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddCarros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCarros.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAddCarros.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCarros.Image")));
+            this.btnAddCarros.Location = new System.Drawing.Point(377, 411);
+            this.btnAddCarros.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddCarros.Name = "btnAddCarros";
+            this.btnAddCarros.Size = new System.Drawing.Size(377, 56);
+            this.btnAddCarros.TabIndex = 122;
+            this.btnAddCarros.Text = "   Vincular carros a esse cliente";
+            this.btnAddCarros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddCarros.UseVisualStyleBackColor = false;
+            this.btnAddCarros.Click += new System.EventHandler(this.btnAddCarros_Click);
+            // 
             // NovoClienteFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(1149, 604);
+            this.ClientSize = new System.Drawing.Size(1149, 725);
+            this.Controls.Add(this.bnfPlaca3);
+            this.Controls.Add(this.txtPlaca3);
+            this.Controls.Add(this.lblPlaca3);
+            this.Controls.Add(this.bnfCarro3);
+            this.Controls.Add(this.txtCarro3);
+            this.Controls.Add(this.lblCarro3);
+            this.Controls.Add(this.btnAdd2);
+            this.Controls.Add(this.bnfPlaca2);
+            this.Controls.Add(this.txtPlaca2);
+            this.Controls.Add(this.lblPlaca2);
+            this.Controls.Add(this.bnfCarro2);
+            this.Controls.Add(this.txtCarro2);
+            this.Controls.Add(this.lblCarro2);
+            this.Controls.Add(this.btnAdd1);
+            this.Controls.Add(this.bunifuSeparator8);
+            this.Controls.Add(this.txtPlaca1);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.bunifuSeparator7);
+            this.Controls.Add(this.txtCarro1);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.btnAddCarros);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.txtCpf);
@@ -427,6 +748,8 @@
             this.Text = "NovoClienteFrm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NovoClienteFrm_FormClosed);
             this.Load += new System.EventHandler(this.NovoClienteFrm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.btnAdd2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAdd1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,5 +781,26 @@
         private System.Windows.Forms.Label label7;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private System.Windows.Forms.TextBox txtCpf;
+        private Bunifu.Framework.UI.BunifuSeparator bnfPlaca3;
+        private System.Windows.Forms.TextBox txtPlaca3;
+        private System.Windows.Forms.Label lblPlaca3;
+        private Bunifu.Framework.UI.BunifuSeparator bnfCarro3;
+        private System.Windows.Forms.TextBox txtCarro3;
+        private System.Windows.Forms.Label lblCarro3;
+        private Bunifu.Framework.UI.BunifuImageButton btnAdd2;
+        private Bunifu.Framework.UI.BunifuSeparator bnfPlaca2;
+        private System.Windows.Forms.TextBox txtPlaca2;
+        private System.Windows.Forms.Label lblPlaca2;
+        private Bunifu.Framework.UI.BunifuSeparator bnfCarro2;
+        private System.Windows.Forms.TextBox txtCarro2;
+        private System.Windows.Forms.Label lblCarro2;
+        private Bunifu.Framework.UI.BunifuImageButton btnAdd1;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator8;
+        private System.Windows.Forms.TextBox txtPlaca1;
+        private System.Windows.Forms.Label label9;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator7;
+        private System.Windows.Forms.TextBox txtCarro1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnAddCarros;
     }
 }

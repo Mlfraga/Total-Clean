@@ -13,12 +13,28 @@ namespace totalClean
 {
     public partial class VendaFrm : Form
     {
+        int i;
         Conexao con = new Conexao();
+
         float descontoPServico;
+
+        public String getCarro;
+        public String getPlaca;
+        public String getCliente;
+
         public VendaFrm()
         {
             InitializeComponent();
         }
+        public VendaFrm(String carro, String placa, String cliente)
+        {
+            InitializeComponent();
+
+            getCarro = carro;
+            getPlaca = placa;
+            getCliente = cliente;
+        }
+
 
 
         private void VendaFrm_Load(object sender, EventArgs e)
@@ -30,7 +46,30 @@ namespace totalClean
             PreencheCmb1();
             btnConcluido.Enabled = false;
             btnCancelar.Enabled = false;
+            btnSelecionarCarro.Visible = false;
             bloqueiaCampos();
+
+
+
+            int index = cmbCliente.FindString(getCliente);
+            cmbCliente.SelectedIndex = index;
+
+            if (cmbCliente.Text != string.Empty)
+            {
+                txtCarro.Text = getCarro;
+                txtPlaca.Text = getPlaca;
+                btnSelecionarCarro.Visible = true;
+                                
+                desbloqueiaCampos();
+                btnConcluido.Enabled = true;
+                btnCancelar.Enabled = true;
+                btnNova.Enabled = false;
+            }
+
+            txtCarro.Text = getCarro;
+            txtPlaca.Text = getPlaca;
+
+
 
             txtDesconto.Text = "0";
         }
@@ -40,6 +79,8 @@ namespace totalClean
             btnConcluido.Enabled = true;
             btnCancelar.Enabled = true;
             btnNova.Enabled = false;
+
+            //btnSelecionarCarro.Visible = false;
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -303,45 +344,26 @@ namespace totalClean
 
 
                         Conexao conexao = new Conexao();
-                        
+
 
                         var escolha = MessageBox.Show("O cliente efetuou o pagamento de R$" + preco + ",00 ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (escolha == DialogResult.Yes)
                         {
-                            var linhas = MessageBox.Show("Você deseja adicionar esse cliente a lista de clientes a notificar?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            if (linhas == DialogResult.Yes)
-                            {
-                                conexao.conectar();
-                                int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado, formaPagamento, valorCobrado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, 0, '{venda.formaPagamento}', '{preco}')  ");
-                                conexao.desconectar();
-                            }
-                            else
-                            {
-                                conexao.conectar();
-                                int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado, formaPagamento, valorCobrado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, 1, '{venda.formaPagamento}', '{preco}')  ");
-                                conexao.desconectar();
-                            }
+                            conexao.conectar();
+                            int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, formaPagamento, valorCobrado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, '{venda.formaPagamento}', '{preco}')  ");
+                            conexao.desconectar();
+
                         }
                         else
                         {
-                            var escolha1 = MessageBox.Show("Você deseja adicionar esse cliente a lista de clientes a notificar?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            if (escolha1 == DialogResult.Yes)
-                            {
-                                conexao.conectar();
-                                int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado, formaPagamento, valorCobrado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, 0, '{venda.formaPagamento}', '{preco}')  ");
-                                conexao.desconectar();
-                            }
-                            else
-                            {
-                                conexao.conectar();
-                                int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, finalizado, formaPagamento, valorCobrado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, 1, '{venda.formaPagamento}', '{preco}')  ");
-                                conexao.desconectar();
-                            }
+                            conexao.conectar();
+                            int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, formaPagamento, valorCobrado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, '{venda.formaPagamento}', '{preco}')  ");
+                            conexao.desconectar();
 
-                        }                    
+                        }
 
-                                               
+
                         if (cmbServico1.Text != string.Empty && cmbServico2.Text != string.Empty && cmbServico3.Text != string.Empty && cmbServico4.Text != string.Empty && cmbServico5.Text != string.Empty && cmbServico6.Text != string.Empty && cmbServico7.Text != string.Empty && cmbServico8.Text != string.Empty)
                         {
                             descontoPServico = desconto / 8;
@@ -775,6 +797,13 @@ namespace totalClean
             cmbServico1.Enabled = false;
             cmbQtd1.Enabled = false;
             btnAdd1.Enabled = false;
+
+            rdbBoleto.Enabled = false;
+            rdbCredito.Enabled = false;
+            rdbDebito.Enabled = false;
+            rdbDinheiro.Enabled = false;
+            rdbPermuta.Enabled = false;
+            rdbTransferencia.Enabled = false;
         }
         private void desbloqueiaCampos()
         {
@@ -786,6 +815,14 @@ namespace totalClean
             cmbServico1.Enabled = true;
             cmbQtd1.Enabled = true;
             btnAdd1.Enabled = true;
+
+
+            rdbBoleto.Enabled = true;
+            rdbCredito.Enabled = true;
+            rdbDebito.Enabled = true;
+            rdbDinheiro.Enabled = true;
+            rdbPermuta.Enabled = true;
+            rdbTransferencia.Enabled = true;
         }
         private void ocultaCmbs()
         {
@@ -836,10 +873,16 @@ namespace totalClean
             cmbServico8.Visible = false;
             cmbQtd8.Visible = false;
 
+            btnSelecionarCarro.Visible = false;
+
         }
         private void prencheCmbCliente()
         {
+            Cliente primeiroValor = new Cliente();
             List<Cliente> listCliente = new List<Cliente>();
+
+            primeiroValor.nome = "";
+            listCliente.Add(primeiroValor);
 
             con.conectar();
 
@@ -1274,5 +1317,63 @@ namespace totalClean
 
         }
 
+        private void cmbCliente_TextUpdate(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCliente_TextChanged(object sender, EventArgs e)
+        {
+            if (cmbCliente.Text == "")
+            {
+                txtCarro.Text = "";
+                txtPlaca.Text = "";
+            }
+            else
+            {
+                String nomeTesta;
+
+                txtCarro.Text = "";
+                txtPlaca.Text = "";
+                
+                con.conectar();
+
+                SqlDataReader reader;
+
+                reader = con.exeCliente("SELECT carro, placa, [Cliente].[nome] FROM CarrosClientes INNER JOIN Cliente ON ([CarrosClientes].[idCliente] = [Cliente].[idCliente]) WHERE ativo = 1 ");
+
+                if (reader.HasRows)
+                {
+                    i = 0;
+                    while (reader.Read())
+                    {
+                        nomeTesta = reader.GetString(2);
+
+                        if (cmbCliente.Text == nomeTesta)
+                        {
+                            txtCarro.Text = reader.GetString(0).Trim();
+                            txtPlaca.Text = reader.GetString(1).Trim();
+                            i++;
+                        }
+
+                    }
+
+                    
+                        btnSelecionarCarro.Visible = true;
+                   
+
+                    reader.Close();
+                    con.desconectar();
+                }
+
+            }
+        }
+
+        private void btnSelecionarCarro_Click(object sender, EventArgs e)
+        {
+            SelecionaCarro selecionaCarro = new SelecionaCarro(cmbCliente.Text);
+            selecionaCarro.Show();
+            this.Visible = false;
+        }
     }
 }

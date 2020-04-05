@@ -242,6 +242,19 @@
         arEyAnPdQqKs1OJlfhKKqNTAli0t/5Uo+gZRfo5Eq+9HigAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="btnSelecionarCarro.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAHDSURBVFhH7ZahUsNAFEUrEAgkogJRUYFAVFRUIDqDQCARfAAfwAcgEQhERQUC0Q+oQCAQFQgk
+        AoFAIBBIBAKBQJTzdm86IZNs201nWoacmTtN9929eW0yyatVVFSsGuPxeBudolv0gl7RE7pBJ2hL1l9Y
+        TYeLwU6ErtE0vlEfbWqra8YK+loesg7Qh4XOwRtqI9eMobhykHOI7FensX/qCDVRA+2gY3SH0nzp06HI
+        eMiwk326NI/dMx2Vc6G+j97NnEWWeMgY+SjHM6qrFATfuduRQeU42N/yMQ67ZC2VguCb3DNZZImD/Rc+
+        xjHQchB8hc0YssXB/kcf4+hquRA8wWYMWSv+CbrsIXqyFoLHHp4JIy3HoZAipjZj4Eu/+860HIdC8pi1
+        mY63T2iqFIdCsvRVDoKvjuw1kzBUKR4FZXlAufNOAnV7wttrJsGe8g2V4/FZudgbvId20bq866iLBig7
+        GRgzXeYgCjLsCWyjRd6J5qFcUwqZjJ0c27B171anY1OCXbqsP74pNufOwKzvoStk90l6ALO5+hK1ZTXv
+        BlpcU4uABqqmZoIG/kRTQ7Sm8nKggaSp5TeToKZWo5mKctRqP+1WR6KXwDzfAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAUAgIAAAAEAIAAoCAEAVgAAAGBgAAABACAAqJQAAH4IAQBAQAAAAQAgAChCAAAmnQEAMDAAAAEA

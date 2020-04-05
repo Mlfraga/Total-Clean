@@ -57,6 +57,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.bunifuSeparator4 = new Bunifu.Framework.UI.BunifuSeparator();
             this.txtCpf = new System.Windows.Forms.TextBox();
+            this.btnCarrosCliente = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
@@ -84,7 +85,7 @@
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.Location = new System.Drawing.Point(294, 110);
+            this.btnPesquisar.Location = new System.Drawing.Point(196, 110);
             this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(190, 56);
@@ -277,7 +278,6 @@
             this.label2.Size = new System.Drawing.Size(63, 25);
             this.label2.TabIndex = 66;
             this.label2.Text = "Tipo:";
-
             // 
             // rdbParticular
             // 
@@ -291,7 +291,6 @@
             this.rdbParticular.TabStop = true;
             this.rdbParticular.Text = "Particular";
             this.rdbParticular.UseVisualStyleBackColor = true;
-
             // 
             // rdbFrotista
             // 
@@ -305,7 +304,6 @@
             this.rdbFrotista.TabStop = true;
             this.rdbFrotista.Text = "Frotista";
             this.rdbFrotista.UseVisualStyleBackColor = true;
-
             // 
             // groupBox1
             // 
@@ -361,7 +359,7 @@
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
-            this.btnSalvar.Location = new System.Drawing.Point(492, 110);
+            this.btnSalvar.Location = new System.Drawing.Point(394, 110);
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(190, 56);
@@ -382,7 +380,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(690, 110);
+            this.btnCancelar.Location = new System.Drawing.Point(592, 110);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(190, 56);
@@ -403,7 +401,7 @@
             this.btnLimpaCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpaCampos.ForeColor = System.Drawing.SystemColors.Control;
             this.btnLimpaCampos.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpaCampos.Image")));
-            this.btnLimpaCampos.Location = new System.Drawing.Point(888, 110);
+            this.btnLimpaCampos.Location = new System.Drawing.Point(790, 110);
             this.btnLimpaCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpaCampos.Name = "btnLimpaCampos";
             this.btnLimpaCampos.Size = new System.Drawing.Size(190, 56);
@@ -451,12 +449,34 @@
             this.txtCpf.Size = new System.Drawing.Size(315, 25);
             this.txtCpf.TabIndex = 74;
             // 
+            // btnCarrosCliente
+            // 
+            this.btnCarrosCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btnCarrosCliente.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCarrosCliente.FlatAppearance.BorderSize = 0;
+            this.btnCarrosCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnCarrosCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnCarrosCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarrosCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarrosCliente.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCarrosCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnCarrosCliente.Image")));
+            this.btnCarrosCliente.Location = new System.Drawing.Point(988, 110);
+            this.btnCarrosCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCarrosCliente.Name = "btnCarrosCliente";
+            this.btnCarrosCliente.Size = new System.Drawing.Size(210, 56);
+            this.btnCarrosCliente.TabIndex = 77;
+            this.btnCarrosCliente.Text = "  Carros do Cliente";
+            this.btnCarrosCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCarrosCliente.UseVisualStyleBackColor = false;
+            this.btnCarrosCliente.Click += new System.EventHandler(this.btnCarrosCliente_Click);
+            // 
             // EdicaoFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.btnCarrosCliente);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.bunifuSeparator4);
             this.Controls.Add(this.txtCpf);
@@ -527,5 +547,6 @@
         private System.Windows.Forms.Label label7;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator4;
         private System.Windows.Forms.TextBox txtCpf;
+        private System.Windows.Forms.Button btnCarrosCliente;
     }
 }

@@ -159,9 +159,9 @@
             this.groupBox1.Controls.Add(this.dgvVendasClientes);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(129, 269);
+            this.groupBox1.Location = new System.Drawing.Point(50, 269);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1123, 435);
+            this.groupBox1.Size = new System.Drawing.Size(1298, 435);
             this.groupBox1.TabIndex = 150;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados de Serviços Prestados";
@@ -171,7 +171,7 @@
             this.dgvVendasClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
             this.dgvVendasClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVendasClientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.dgvVendasClientes.Location = new System.Drawing.Point(77, 39);
+            this.dgvVendasClientes.Location = new System.Drawing.Point(41, 38);
             this.dgvVendasClientes.Name = "dgvVendasClientes";
             this.dgvVendasClientes.ReadOnly = true;
             this.dgvVendasClientes.RowHeadersWidth = 51;
@@ -179,7 +179,7 @@
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dgvVendasClientes.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvVendasClientes.RowTemplate.Height = 24;
-            this.dgvVendasClientes.Size = new System.Drawing.Size(964, 379);
+            this.dgvVendasClientes.Size = new System.Drawing.Size(1210, 379);
             this.dgvVendasClientes.TabIndex = 70;
             // 
             // btnPesquisar

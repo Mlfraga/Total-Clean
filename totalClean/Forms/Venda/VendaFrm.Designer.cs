@@ -97,6 +97,7 @@
             this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
             this.txtDesconto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnSelecionarCarro = new Bunifu.Framework.UI.BunifuImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd3)).BeginInit();
@@ -106,6 +107,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNovoCliente)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSelecionarCarro)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuSeparator6
@@ -257,6 +259,8 @@
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(246, 24);
             this.cmbCliente.TabIndex = 66;
+            this.cmbCliente.TextUpdate += new System.EventHandler(this.cmbCliente_TextUpdate);
+            this.cmbCliente.TextChanged += new System.EventHandler(this.cmbCliente_TextChanged);
             // 
             // label2
             // 
@@ -986,12 +990,27 @@
             this.label5.TabIndex = 157;
             this.label5.Text = "Desconto:";
             // 
+            // btnSelecionarCarro
+            // 
+            this.btnSelecionarCarro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btnSelecionarCarro.Image = ((System.Drawing.Image)(resources.GetObject("btnSelecionarCarro.Image")));
+            this.btnSelecionarCarro.ImageActive = null;
+            this.btnSelecionarCarro.Location = new System.Drawing.Point(849, 216);
+            this.btnSelecionarCarro.Name = "btnSelecionarCarro";
+            this.btnSelecionarCarro.Size = new System.Drawing.Size(31, 27);
+            this.btnSelecionarCarro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnSelecionarCarro.TabIndex = 161;
+            this.btnSelecionarCarro.TabStop = false;
+            this.btnSelecionarCarro.Zoom = 10;
+            this.btnSelecionarCarro.Click += new System.EventHandler(this.btnSelecionarCarro_Click);
+            // 
             // VendaFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.btnSelecionarCarro);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.bunifuSeparator3);
             this.Controls.Add(this.txtDesconto);
@@ -1072,6 +1091,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnNovoCliente)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSelecionarCarro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1147,5 +1167,6 @@
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator3;
         private System.Windows.Forms.TextBox txtDesconto;
         private System.Windows.Forms.Label label5;
+        private Bunifu.Framework.UI.BunifuImageButton btnSelecionarCarro;
     }
 }

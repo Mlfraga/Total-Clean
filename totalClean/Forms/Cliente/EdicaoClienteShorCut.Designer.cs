@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EdicaoClienteShorCut));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnLimpaCampos = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.bunifuSeparator7 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -54,6 +54,7 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCarrosCliente = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +70,7 @@
             this.btnLimpaCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpaCampos.ForeColor = System.Drawing.SystemColors.Control;
             this.btnLimpaCampos.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpaCampos.Image")));
-            this.btnLimpaCampos.Location = new System.Drawing.Point(888, 110);
+            this.btnLimpaCampos.Location = new System.Drawing.Point(790, 110);
             this.btnLimpaCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpaCampos.Name = "btnLimpaCampos";
             this.btnLimpaCampos.Size = new System.Drawing.Size(190, 56);
@@ -90,7 +91,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(690, 110);
+            this.btnCancelar.Location = new System.Drawing.Point(592, 110);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(190, 56);
@@ -125,7 +126,7 @@
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
-            this.btnSalvar.Location = new System.Drawing.Point(492, 110);
+            this.btnSalvar.Location = new System.Drawing.Point(394, 110);
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(190, 56);
@@ -156,9 +157,9 @@
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvClientes.RowTemplate.Height = 24;
             this.dgvClientes.Size = new System.Drawing.Size(1053, 229);
             this.dgvClientes.TabIndex = 70;
@@ -385,7 +386,7 @@
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.Location = new System.Drawing.Point(294, 110);
+            this.btnPesquisar.Location = new System.Drawing.Point(196, 110);
             this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(190, 56);
@@ -407,12 +408,34 @@
             this.label1.TabIndex = 74;
             this.label1.Text = "Consulta / Edição de Dados de Cientes";
             // 
+            // btnCarrosCliente
+            // 
+            this.btnCarrosCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btnCarrosCliente.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCarrosCliente.FlatAppearance.BorderSize = 0;
+            this.btnCarrosCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnCarrosCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnCarrosCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarrosCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarrosCliente.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCarrosCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnCarrosCliente.Image")));
+            this.btnCarrosCliente.Location = new System.Drawing.Point(988, 110);
+            this.btnCarrosCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCarrosCliente.Name = "btnCarrosCliente";
+            this.btnCarrosCliente.Size = new System.Drawing.Size(210, 56);
+            this.btnCarrosCliente.TabIndex = 97;
+            this.btnCarrosCliente.Text = "  Carros do Cliente";
+            this.btnCarrosCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCarrosCliente.UseVisualStyleBackColor = false;
+            this.btnCarrosCliente.Click += new System.EventHandler(this.btnCarrosCliente_Click);
+            // 
             // EdicaoClienteShorCut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.btnCarrosCliente);
             this.Controls.Add(this.btnLimpaCampos);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.bunifuSeparator7);
@@ -477,5 +500,6 @@
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnCarrosCliente;
     }
 }

@@ -328,9 +328,9 @@
             this.groupBox3.Controls.Add(this.dgvGastos);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(278, 362);
+            this.groupBox3.Location = new System.Drawing.Point(54, 362);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(890, 339);
+            this.groupBox3.Size = new System.Drawing.Size(1280, 339);
             this.groupBox3.TabIndex = 185;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dados de Gastos:";
@@ -348,7 +348,7 @@
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGastos.RowTemplate.Height = 24;
-            this.dgvGastos.Size = new System.Drawing.Size(826, 276);
+            this.dgvGastos.Size = new System.Drawing.Size(1214, 276);
             this.dgvGastos.TabIndex = 70;
             this.dgvGastos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGastos_CellClick);
             // 

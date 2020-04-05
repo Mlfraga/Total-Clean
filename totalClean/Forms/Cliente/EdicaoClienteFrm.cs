@@ -31,6 +31,7 @@ namespace totalClean
             rdbParticular.Enabled = false;
             btnCancelar.Enabled = false;
             btnSalvar.Enabled = false;
+            btnCarrosCliente.Enabled = false;
             //  btnAlterear.Enabled = false;
             iniciaGrid();
 
@@ -61,7 +62,7 @@ namespace totalClean
                 if (txtId.Text != string.Empty)
                 {
                     int g = int.Parse(txtId.Text);
-                    reader = con.exeCliente($"SELECT * FROM Cliente WHERE idCliente = ('{g}') AND Nome LIKE ('%{nome}%') ");
+                    reader = con.exeCliente($"SELECT * FROM Cliente WHERE idCliente = ('{g}') AND Nome LIKE ('%{nome}%') order by idCliente DESC");
 
                     if (reader.HasRows)
                     {
@@ -97,7 +98,7 @@ namespace totalClean
 
                 else
                 {
-                    reader = con.exeCliente($"SELECT * FROM Cliente WHERE Nome LIKE ('%{nome}%') ");
+                    reader = con.exeCliente($"SELECT * FROM Cliente WHERE Nome LIKE ('%{nome}%') order by idCliente DESC");
 
                     if (reader.HasRows)
                     {
@@ -147,7 +148,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente("select * from Cliente");
+            reader = con.exeCliente("select * from Cliente order by idCliente DESC");
 
             if (reader.HasRows)
             {
@@ -194,6 +195,7 @@ namespace totalClean
             btnPesquisar.Enabled = false;
             btnSalvar.Enabled = true;
             btnCancelar.Enabled = true;
+            btnCarrosCliente.Enabled = true;
             txtEndereco.ReadOnly = false;
             txtTelefone.ReadOnly = false;
             txtCpf.ReadOnly = false;
@@ -231,6 +233,7 @@ namespace totalClean
             btnCancelar.Enabled = false;
             btnSalvar.Enabled = false;
             btnPesquisar.Enabled = true;
+            btnCarrosCliente.Enabled = false;
             txtCpf.ReadOnly = true;
             txtTelefone.ReadOnly = true;
             txtEndereco.ReadOnly = true;
@@ -353,7 +356,12 @@ namespace totalClean
             Application.Exit();
         }
 
-
+        private void btnCarrosCliente_Click(object sender, EventArgs e)
+        {
+            EditaCarros editaCarros = new EditaCarros(txtNome.Text);
+            editaCarros.Show();
+            this.Visible = false;
+        }
     }
 
 }

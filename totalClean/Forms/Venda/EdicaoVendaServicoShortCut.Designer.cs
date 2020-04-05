@@ -380,7 +380,7 @@
             this.dgvVendas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
             this.dgvVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVendas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.dgvVendas.Location = new System.Drawing.Point(77, 29);
+            this.dgvVendas.Location = new System.Drawing.Point(19, 29);
             this.dgvVendas.Name = "dgvVendas";
             this.dgvVendas.ReadOnly = true;
             this.dgvVendas.RowHeadersWidth = 51;
@@ -388,7 +388,7 @@
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dgvVendas.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvVendas.RowTemplate.Height = 24;
-            this.dgvVendas.Size = new System.Drawing.Size(737, 264);
+            this.dgvVendas.Size = new System.Drawing.Size(1264, 296);
             this.dgvVendas.TabIndex = 70;
             this.dgvVendas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVendas_CellClick);
             // 
@@ -418,9 +418,9 @@
             this.groupBox1.Controls.Add(this.dgvVendas);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(235, 372);
+            this.groupBox1.Location = new System.Drawing.Point(43, 372);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(890, 311);
+            this.groupBox1.Size = new System.Drawing.Size(1304, 343);
             this.groupBox1.TabIndex = 150;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados de Serviços Prestados";
