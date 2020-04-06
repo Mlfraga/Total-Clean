@@ -80,7 +80,6 @@ namespace totalClean
             btnCancelar.Enabled = true;
             btnNova.Enabled = false;
 
-            //btnSelecionarCarro.Visible = false;
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -1324,13 +1323,16 @@ namespace totalClean
 
         private void cmbCliente_TextChanged(object sender, EventArgs e)
         {
-            if (cmbCliente.Text == "")
+            if (cmbCliente.Text == string.Empty)
             {
                 txtCarro.Text = "";
                 txtPlaca.Text = "";
+                
             }
             else
             {
+                btnSelecionarCarro.Visible = true;
+
                 String nomeTesta;
 
                 txtCarro.Text = "";
@@ -1359,12 +1361,11 @@ namespace totalClean
                     }
 
                     
-                        btnSelecionarCarro.Visible = true;
-                   
 
                     reader.Close();
                     con.desconectar();
                 }
+                
 
             }
         }
