@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon_tc.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>..\..\..\..\Desktop\Bunifu_UI_v1.52.dll</HintPath>
@@ -51,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\RelatorioCliente.cs" />
     <Compile Include="Classes\Carros.cs" />
     <Compile Include="Classes\VendaFinalizada.cs" />
     <Compile Include="Classes\EdicaoGastos.cs" />
@@ -125,11 +129,11 @@
       <DependentUpon>EdicaoServico.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\ServicoVenda.cs" />
-    <Compile Include="Forms\Relatório\RelatorioClienteFrm.cs">
+    <Compile Include="Forms\Relatório\RelatorioPClienteFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Relatório\RelatorioClienteFrm.Designer.cs">
-      <DependentUpon>RelatorioClienteFrm.cs</DependentUpon>
+    <Compile Include="Forms\Relatório\RelatorioPClienteFrm.Designer.cs">
+      <DependentUpon>RelatorioPClienteFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Relatório\RelatorioServico.cs">
       <SubType>Form</SubType>
@@ -193,6 +197,12 @@
     </Compile>
     <Compile Include="Forms\Carros\SelecionaCarro.Designer.cs">
       <DependentUpon>SelecionaCarro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatório\RelatorioDeCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatório\RelatorioDeCliente.Designer.cs">
+      <DependentUpon>RelatorioDeCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Conexao.cs" />
     <Compile Include="Forms\Cliente\EdicaoClienteFrm.cs">
@@ -296,8 +306,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\Relatório\RelatorioClienteFrm.resx">
-      <DependentUpon>RelatorioClienteFrm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Relatório\RelatorioPClienteFrm.resx">
+      <DependentUpon>RelatorioPClienteFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Relatório\RelatorioServico.resx">
       <DependentUpon>RelatorioServico.cs</DependentUpon>
@@ -310,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Carros\SelecionaCarro.resx">
       <DependentUpon>SelecionaCarro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatório\RelatorioDeCliente.resx">
+      <DependentUpon>RelatorioDeCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -352,6 +365,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon_tc.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

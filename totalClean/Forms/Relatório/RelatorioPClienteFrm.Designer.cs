@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RelatorioClienteFrm));
             this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,6 +46,9 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGerarRelatorio = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
+            this.rdbOrdenarPData = new System.Windows.Forms.RadioButton();
+            this.rdbOdrdenarPId = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendasClientes)).BeginInit();
             this.SuspendLayout();
@@ -156,12 +159,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rdbOrdenarPData);
+            this.groupBox1.Controls.Add(this.rdbOdrdenarPId);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.dgvVendasClientes);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(50, 269);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1298, 435);
+            this.groupBox1.Size = new System.Drawing.Size(1298, 446);
             this.groupBox1.TabIndex = 150;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados de Serviços Prestados";
@@ -175,11 +181,11 @@
             this.dgvVendasClientes.Name = "dgvVendasClientes";
             this.dgvVendasClientes.ReadOnly = true;
             this.dgvVendasClientes.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgvVendasClientes.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dgvVendasClientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvVendasClientes.RowTemplate.Height = 24;
-            this.dgvVendasClientes.Size = new System.Drawing.Size(1210, 379);
+            this.dgvVendasClientes.Size = new System.Drawing.Size(1210, 368);
             this.dgvVendasClientes.TabIndex = 70;
             // 
             // btnPesquisar
@@ -266,6 +272,45 @@
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
+            // rdbOrdenarPData
+            // 
+            this.rdbOrdenarPData.AutoSize = true;
+            this.rdbOrdenarPData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rdbOrdenarPData.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rdbOrdenarPData.Location = new System.Drawing.Point(220, 412);
+            this.rdbOrdenarPData.Name = "rdbOrdenarPData";
+            this.rdbOrdenarPData.Size = new System.Drawing.Size(68, 28);
+            this.rdbOrdenarPData.TabIndex = 174;
+            this.rdbOrdenarPData.Text = "Data";
+            this.rdbOrdenarPData.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.rdbOrdenarPData.UseVisualStyleBackColor = true;
+            this.rdbOrdenarPData.CheckedChanged += new System.EventHandler(this.rdbOrdenarPData_CheckedChanged);
+            // 
+            // rdbOdrdenarPId
+            // 
+            this.rdbOdrdenarPId.AutoSize = true;
+            this.rdbOdrdenarPId.Checked = true;
+            this.rdbOdrdenarPId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rdbOdrdenarPId.ForeColor = System.Drawing.Color.White;
+            this.rdbOdrdenarPId.Location = new System.Drawing.Point(168, 412);
+            this.rdbOdrdenarPId.Name = "rdbOdrdenarPId";
+            this.rdbOdrdenarPId.Size = new System.Drawing.Size(46, 28);
+            this.rdbOdrdenarPId.TabIndex = 173;
+            this.rdbOdrdenarPId.TabStop = true;
+            this.rdbOdrdenarPId.Text = "Id";
+            this.rdbOdrdenarPId.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(27, 415);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(135, 23);
+            this.label3.TabIndex = 172;
+            this.label3.Text = "Ordenar por:";
+            // 
             // RelatorioClienteFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -292,10 +337,11 @@
             this.MinimizeBox = false;
             this.Name = "RelatorioClienteFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Relatorio de Clientes";
+            this.Text = "Relatorio de Servços por Clientes";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RelatorioClienteFrm_FormClosed);
             this.Load += new System.EventHandler(this.RelatorioClienteFrm_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendasClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -320,5 +366,8 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGerarRelatorio;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.RadioButton rdbOrdenarPData;
+        private System.Windows.Forms.RadioButton rdbOdrdenarPId;
+        private System.Windows.Forms.Label label3;
     }
 }

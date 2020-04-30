@@ -143,11 +143,12 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(423, 216);
+            this.label3.Location = new System.Drawing.Point(424, 216);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 23);
             this.label3.TabIndex = 55;
             this.label3.Text = "Nome:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtId
             // 
@@ -169,11 +170,12 @@
             this.txtNome.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.ForeColor = System.Drawing.SystemColors.Info;
             this.txtNome.HideSelection = false;
-            this.txtNome.Location = new System.Drawing.Point(427, 243);
+            this.txtNome.Location = new System.Drawing.Point(428, 243);
             this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(315, 25);
             this.txtNome.TabIndex = 49;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // txtTelefone
             // 
@@ -219,13 +221,14 @@
             this.bunifuSeparator2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(427, 269);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(428, 269);
             this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
             this.bunifuSeparator2.Size = new System.Drawing.Size(315, 10);
             this.bunifuSeparator2.TabIndex = 62;
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = false;
+            this.bunifuSeparator2.Load += new System.EventHandler(this.bunifuSeparator2_Load);
             // 
             // bunifuSeparator1
             // 
@@ -416,11 +419,12 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(645, 326);
+            this.label7.Location = new System.Drawing.Point(646, 326);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 23);
             this.label7.TabIndex = 76;
             this.label7.Text = "Cpf ou Cnpj:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // bunifuSeparator4
             // 
@@ -428,13 +432,14 @@
             this.bunifuSeparator4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bunifuSeparator4.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.bunifuSeparator4.LineThickness = 1;
-            this.bunifuSeparator4.Location = new System.Drawing.Point(649, 379);
+            this.bunifuSeparator4.Location = new System.Drawing.Point(650, 379);
             this.bunifuSeparator4.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.bunifuSeparator4.Name = "bunifuSeparator4";
             this.bunifuSeparator4.Size = new System.Drawing.Size(315, 10);
             this.bunifuSeparator4.TabIndex = 75;
             this.bunifuSeparator4.Transparency = 255;
             this.bunifuSeparator4.Vertical = false;
+            this.bunifuSeparator4.Load += new System.EventHandler(this.bunifuSeparator4_Load);
             // 
             // txtCpf
             // 
@@ -443,11 +448,12 @@
             this.txtCpf.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpf.ForeColor = System.Drawing.SystemColors.Info;
             this.txtCpf.HideSelection = false;
-            this.txtCpf.Location = new System.Drawing.Point(649, 353);
+            this.txtCpf.Location = new System.Drawing.Point(650, 353);
             this.txtCpf.Margin = new System.Windows.Forms.Padding(4);
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(315, 25);
             this.txtCpf.TabIndex = 74;
+            this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged);
             // 
             // btnCarrosCliente
             // 

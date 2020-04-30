@@ -9,7 +9,7 @@ namespace totalClean
 {
     class Conexao
     {
-        private String dadosCon = @"SERVER = LAPTOP-CRGO785A; DATABASE = TesteWpp; INTEGRATED SECURITY = TRUE";
+        private String dadosCon = @"Server=localhost\SQLEXPRESS;Database=TotalClean_BaseTeste;Trusted_Connection=True;";
         private SqlConnection sqlCon;
 
         public void conectar()

@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "totalClean", "totalClean\totalClean.csproj", "{459F5966-BAAA-4CC1-8ABD-8848BDD3678D}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup Laja Jato", "Setup Laja Jato\Setup Laja Jato.vdproj", "{0806F1A8-2134-4B39-B6B8-4A2AFC4EA604}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TotalClean-Setup", "TotalClean-Setup\TotalClean-Setup.vdproj", "{A33D6C19-A7DA-4A32-AF55-29277141D826}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TotalClean-Instalador", "TotalClean-Instalador\TotalClean-Instalador.vdproj", "{A72D1D67-F5C7-42DA-90D6-DF48E098827E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +19,10 @@ Global
 		{459F5966-BAAA-4CC1-8ABD-8848BDD3678D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{459F5966-BAAA-4CC1-8ABD-8848BDD3678D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{459F5966-BAAA-4CC1-8ABD-8848BDD3678D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0806F1A8-2134-4B39-B6B8-4A2AFC4EA604}.Debug|Any CPU.ActiveCfg = Debug
-		{0806F1A8-2134-4B39-B6B8-4A2AFC4EA604}.Release|Any CPU.ActiveCfg = Release
+		{A33D6C19-A7DA-4A32-AF55-29277141D826}.Debug|Any CPU.ActiveCfg = Debug
+		{A33D6C19-A7DA-4A32-AF55-29277141D826}.Release|Any CPU.ActiveCfg = Release
+		{A72D1D67-F5C7-42DA-90D6-DF48E098827E}.Debug|Any CPU.ActiveCfg = Debug
+		{A72D1D67-F5C7-42DA-90D6-DF48E098827E}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

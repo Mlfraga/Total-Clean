@@ -37,6 +37,9 @@
             this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdbOrdenarPData = new System.Windows.Forms.RadioButton();
+            this.rdbOdrdenarPId = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
             this.dgvVendas = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.dtFinalVenda = new System.Windows.Forms.DateTimePicker();
@@ -165,15 +168,58 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rdbOrdenarPData);
+            this.groupBox1.Controls.Add(this.rdbOdrdenarPId);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.dgvVendas);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(44, 269);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1312, 435);
+            this.groupBox1.Size = new System.Drawing.Size(1312, 446);
             this.groupBox1.TabIndex = 161;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados de Serviços Prestados";
+            // 
+            // rdbOrdenarPData
+            // 
+            this.rdbOrdenarPData.AutoSize = true;
+            this.rdbOrdenarPData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rdbOrdenarPData.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rdbOrdenarPData.Location = new System.Drawing.Point(226, 407);
+            this.rdbOrdenarPData.Name = "rdbOrdenarPData";
+            this.rdbOrdenarPData.Size = new System.Drawing.Size(68, 28);
+            this.rdbOrdenarPData.TabIndex = 171;
+            this.rdbOrdenarPData.Text = "Data";
+            this.rdbOrdenarPData.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.rdbOrdenarPData.UseVisualStyleBackColor = true;
+            this.rdbOrdenarPData.CheckedChanged += new System.EventHandler(this.rdbOrdenarPData_CheckedChanged);
+            // 
+            // rdbOdrdenarPId
+            // 
+            this.rdbOdrdenarPId.AutoSize = true;
+            this.rdbOdrdenarPId.Checked = true;
+            this.rdbOdrdenarPId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rdbOdrdenarPId.ForeColor = System.Drawing.Color.White;
+            this.rdbOdrdenarPId.Location = new System.Drawing.Point(174, 407);
+            this.rdbOdrdenarPId.Name = "rdbOdrdenarPId";
+            this.rdbOdrdenarPId.Size = new System.Drawing.Size(46, 28);
+            this.rdbOdrdenarPId.TabIndex = 170;
+            this.rdbOdrdenarPId.TabStop = true;
+            this.rdbOdrdenarPId.Text = "Id";
+            this.rdbOdrdenarPId.UseVisualStyleBackColor = true;
+            this.rdbOdrdenarPId.CheckedChanged += new System.EventHandler(this.rdbOrdenarPData_CheckedChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(33, 410);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(135, 23);
+            this.label3.TabIndex = 169;
+            this.label3.Text = "Ordenar por:";
             // 
             // dgvVendas
             // 
@@ -188,7 +234,7 @@
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dgvVendas.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvVendas.RowTemplate.Height = 24;
-            this.dgvVendas.Size = new System.Drawing.Size(1239, 379);
+            this.dgvVendas.Size = new System.Drawing.Size(1239, 357);
             this.dgvVendas.TabIndex = 70;
             // 
             // label7
@@ -331,6 +377,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RelatorioServico_FormClosed);
             this.Load += new System.EventHandler(this.RelatorioServiço_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -359,5 +406,8 @@
         private System.Windows.Forms.RadioButton rdbAmbos;
         private System.Windows.Forms.RadioButton rdbParticulares;
         private System.Windows.Forms.RadioButton rdbFrotistas;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton rdbOrdenarPData;
+        private System.Windows.Forms.RadioButton rdbOdrdenarPId;
     }
 }

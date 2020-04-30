@@ -54,6 +54,7 @@
             this.excluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
+            this.relatóriosDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -286,7 +287,8 @@
             this.relatóriosVendasPServiçoToolStripMenuItem,
             this.relatóriosVendasPClienteToolStripMenuItem,
             this.relatóriosGastosToolStripMenuItem,
-            this.relatóriosVendasGastosToolStripMenuItem});
+            this.relatóriosVendasGastosToolStripMenuItem,
+            this.relatóriosDeClientesToolStripMenuItem});
             this.cadastrarSetorToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.cadastrarSetorToolStripMenuItem.Name = "cadastrarSetorToolStripMenuItem";
             this.cadastrarSetorToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
@@ -380,6 +382,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // relatóriosDeClientesToolStripMenuItem
+            // 
+            this.relatóriosDeClientesToolStripMenuItem.Name = "relatóriosDeClientesToolStripMenuItem";
+            this.relatóriosDeClientesToolStripMenuItem.Size = new System.Drawing.Size(281, 26);
+            this.relatóriosDeClientesToolStripMenuItem.Text = "Relatórios de Clientes";
+            this.relatóriosDeClientesToolStripMenuItem.Click += new System.EventHandler(this.relatóriosDeClientesToolStripMenuItem_Click);
+            // 
             // InicialFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -443,6 +452,7 @@
         private System.Windows.Forms.ToolStripMenuItem serviçosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem excluirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem relatóriosDeClientesToolStripMenuItem;
     }
 }
 

@@ -14,6 +14,7 @@ namespace totalClean
     public partial class VendaFrm : Form
     {
         int i;
+        public int flagCarro = 0;
         Conexao con = new Conexao();
 
         float descontoPServico;
@@ -59,7 +60,7 @@ namespace totalClean
                 txtCarro.Text = getCarro;
                 txtPlaca.Text = getPlaca;
                 btnSelecionarCarro.Visible = true;
-                                
+
                 desbloqueiaCampos();
                 btnConcluido.Enabled = true;
                 btnCancelar.Enabled = true;
@@ -362,6 +363,44 @@ namespace totalClean
 
                         }
 
+
+                        // Vincular carro nao cadastrado ao cliente
+
+                        con.conectar();
+                        SqlDataReader readerTestaCarro;
+                        flagCarro = 0;
+                        readerTestaCarro = con.exeCliente($"select carro, placa from CarrosClientes WHERE idCliente = ('{venda.idCliente}')");
+                        if (readerTestaCarro.HasRows)
+                        {
+                            while (readerTestaCarro.Read())
+                            {
+                                String carro = readerTestaCarro.GetString(0).Trim();
+                                String placa = readerTestaCarro.GetString(1).Trim();
+                                if (venda.carro == carro && venda.placa == placa)
+                                {
+                                    flagCarro = 1;
+                                }
+                            }
+
+                            readerTestaCarro.Close();
+                            con.desconectar();
+                        }
+
+                        if (flagCarro == 0)
+                        {
+                            var salvaCarro = MessageBox.Show("Esse veículo ainda não foi cadastrado no sistema, deseja cadastrá-lo agora?", "Cadastra de veículo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                            if (salvaCarro == DialogResult.Yes)
+                            {
+                                conexao.conectar();
+                                int insereCarro = conexao.executar($"INSERT INTO CarrosClientes(idCliente, carro, placa, ativo) VALUES('{venda.idCliente}','{venda.carro}','{venda.placa}', 1)");
+                                conexao.desconectar();
+                            }
+                            else
+                            {
+
+                            }
+                        }
 
                         if (cmbServico1.Text != string.Empty && cmbServico2.Text != string.Empty && cmbServico3.Text != string.Empty && cmbServico4.Text != string.Empty && cmbServico5.Text != string.Empty && cmbServico6.Text != string.Empty && cmbServico7.Text != string.Empty && cmbServico8.Text != string.Empty)
                         {
@@ -1327,7 +1366,7 @@ namespace totalClean
             {
                 txtCarro.Text = "";
                 txtPlaca.Text = "";
-                
+
             }
             else
             {
@@ -1337,7 +1376,7 @@ namespace totalClean
 
                 txtCarro.Text = "";
                 txtPlaca.Text = "";
-                
+
                 con.conectar();
 
                 SqlDataReader reader;
@@ -1360,12 +1399,12 @@ namespace totalClean
 
                     }
 
-                    
+
 
                     reader.Close();
                     con.desconectar();
                 }
-                
+
 
             }
         }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RelatorioGastos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnGerarRelatorio = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -43,6 +43,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dtFinalVencimento = new System.Windows.Forms.DateTimePicker();
             this.DtInicialVencimento = new System.Windows.Forms.DateTimePicker();
+            this.rdbOrdenarPData = new System.Windows.Forms.RadioButton();
+            this.rdbOdrdenarPId = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
             this.SuspendLayout();
@@ -178,6 +181,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rdbOrdenarPData);
+            this.groupBox2.Controls.Add(this.rdbOdrdenarPId);
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.dgvGastos);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
@@ -197,11 +203,11 @@
             this.dgvGastos.Name = "dgvGastos";
             this.dgvGastos.ReadOnly = true;
             this.dgvGastos.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGastos.RowTemplate.Height = 24;
-            this.dgvGastos.Size = new System.Drawing.Size(1322, 405);
+            this.dgvGastos.Size = new System.Drawing.Size(1322, 382);
             this.dgvGastos.TabIndex = 164;
             // 
             // label7
@@ -233,6 +239,45 @@
             this.DtInicialVencimento.Size = new System.Drawing.Size(220, 22);
             this.DtInicialVencimento.TabIndex = 168;
             // 
+            // rdbOrdenarPData
+            // 
+            this.rdbOrdenarPData.AutoSize = true;
+            this.rdbOrdenarPData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rdbOrdenarPData.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rdbOrdenarPData.Location = new System.Drawing.Point(218, 424);
+            this.rdbOrdenarPData.Name = "rdbOrdenarPData";
+            this.rdbOrdenarPData.Size = new System.Drawing.Size(68, 28);
+            this.rdbOrdenarPData.TabIndex = 174;
+            this.rdbOrdenarPData.Text = "Data";
+            this.rdbOrdenarPData.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.rdbOrdenarPData.UseVisualStyleBackColor = true;
+            this.rdbOrdenarPData.CheckedChanged += new System.EventHandler(this.rdbOrdenarPData_CheckedChanged);
+            // 
+            // rdbOdrdenarPId
+            // 
+            this.rdbOdrdenarPId.AutoSize = true;
+            this.rdbOdrdenarPId.Checked = true;
+            this.rdbOdrdenarPId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rdbOdrdenarPId.ForeColor = System.Drawing.Color.White;
+            this.rdbOdrdenarPId.Location = new System.Drawing.Point(166, 424);
+            this.rdbOdrdenarPId.Name = "rdbOdrdenarPId";
+            this.rdbOdrdenarPId.Size = new System.Drawing.Size(46, 28);
+            this.rdbOdrdenarPId.TabIndex = 173;
+            this.rdbOdrdenarPId.TabStop = true;
+            this.rdbOdrdenarPId.Text = "Id";
+            this.rdbOdrdenarPId.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(25, 427);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(135, 23);
+            this.label3.TabIndex = 172;
+            this.label3.Text = "Ordenar por:";
+            // 
             // RelatorioGastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -260,6 +305,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RelatorioGastos_FormClosed);
             this.Load += new System.EventHandler(this.RelatorioGastos_Load);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -280,5 +326,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtFinalVencimento;
         private System.Windows.Forms.DateTimePicker DtInicialVencimento;
+        private System.Windows.Forms.RadioButton rdbOrdenarPData;
+        private System.Windows.Forms.RadioButton rdbOdrdenarPId;
+        private System.Windows.Forms.Label label3;
     }
 }

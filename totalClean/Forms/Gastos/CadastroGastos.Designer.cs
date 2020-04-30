@@ -563,7 +563,7 @@
             // 
             this.cadastrarSetorToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.cadastrarSetorToolStripMenuItem.Name = "cadastrarSetorToolStripMenuItem";
-            this.cadastrarSetorToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
+            this.cadastrarSetorToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
             this.cadastrarSetorToolStripMenuItem.Text = "Cadastrar Setor";
             this.cadastrarSetorToolStripMenuItem.Click += new System.EventHandler(this.cadastrarSetorToolStripMenuItem_Click);
             // 
@@ -575,7 +575,7 @@
             this.cadastrarSetorToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1394, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1394, 28);
             this.menuStrip1.TabIndex = 161;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -584,7 +584,7 @@
             this.rdbAberto.AutoSize = true;
             this.rdbAberto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.rdbAberto.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rdbAberto.Location = new System.Drawing.Point(121, 41);
+            this.rdbAberto.Location = new System.Drawing.Point(121, 39);
             this.rdbAberto.Name = "rdbAberto";
             this.rdbAberto.Size = new System.Drawing.Size(121, 28);
             this.rdbAberto.TabIndex = 163;

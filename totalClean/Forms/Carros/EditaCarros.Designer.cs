@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditaCarros));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bnfPlaca3 = new Bunifu.Framework.UI.BunifuSeparator();
             this.txtPlaca = new System.Windows.Forms.TextBox();
             this.lblPlaca3 = new System.Windows.Forms.Label();
@@ -265,9 +265,9 @@
             this.dgvCarros.Name = "dgvCarros";
             this.dgvCarros.ReadOnly = true;
             this.dgvCarros.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dgvCarros.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvCarros.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCarros.RowTemplate.Height = 24;
             this.dgvCarros.Size = new System.Drawing.Size(693, 257);
             this.dgvCarros.TabIndex = 70;

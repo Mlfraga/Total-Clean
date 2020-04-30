@@ -36,14 +36,6 @@
             this.btnPagamentoRealizado = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvPagamentosPendentes = new System.Windows.Forms.DataGridView();
-            this.btnPendenciasPCliente = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdbTransferencia = new System.Windows.Forms.RadioButton();
-            this.rdbDebito = new System.Windows.Forms.RadioButton();
-            this.rdbPermuta = new System.Windows.Forms.RadioButton();
-            this.rdbCredito = new System.Windows.Forms.RadioButton();
-            this.rdbBoleto = new System.Windows.Forms.RadioButton();
-            this.rdbDinheiro = new System.Windows.Forms.RadioButton();
             this.IdVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Frotista = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +47,14 @@
             this.preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorACobrar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormaPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPendenciasPCliente = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdbTransferencia = new System.Windows.Forms.RadioButton();
+            this.rdbDebito = new System.Windows.Forms.RadioButton();
+            this.rdbPermuta = new System.Windows.Forms.RadioButton();
+            this.rdbCredito = new System.Windows.Forms.RadioButton();
+            this.rdbBoleto = new System.Windows.Forms.RadioButton();
+            this.rdbDinheiro = new System.Windows.Forms.RadioButton();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagamentosPendentes)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -170,6 +170,96 @@
             this.dgvPagamentosPendentes.TabIndex = 70;
             this.dgvPagamentosPendentes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagamentosPendentes_CellClick);
             // 
+            // IdVenda
+            // 
+            this.IdVenda.HeaderText = "IdVenda";
+            this.IdVenda.MinimumWidth = 6;
+            this.IdVenda.Name = "IdVenda";
+            this.IdVenda.ReadOnly = true;
+            this.IdVenda.Width = 125;
+            // 
+            // Frotista
+            // 
+            this.Frotista.HeaderText = "Frotista";
+            this.Frotista.MinimumWidth = 6;
+            this.Frotista.Name = "Frotista";
+            this.Frotista.ReadOnly = true;
+            this.Frotista.Width = 125;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.MinimumWidth = 6;
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            this.Cliente.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Cliente.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Cliente.Width = 125;
+            // 
+            // CPFCNPJ
+            // 
+            this.CPFCNPJ.HeaderText = "CPFCNPJ";
+            this.CPFCNPJ.MinimumWidth = 6;
+            this.CPFCNPJ.Name = "CPFCNPJ";
+            this.CPFCNPJ.ReadOnly = true;
+            this.CPFCNPJ.Width = 125;
+            // 
+            // Carro
+            // 
+            this.Carro.HeaderText = "Carro";
+            this.Carro.MinimumWidth = 6;
+            this.Carro.Name = "Carro";
+            this.Carro.ReadOnly = true;
+            this.Carro.Width = 125;
+            // 
+            // Placa
+            // 
+            this.Placa.HeaderText = "Placa";
+            this.Placa.MinimumWidth = 6;
+            this.Placa.Name = "Placa";
+            this.Placa.ReadOnly = true;
+            this.Placa.Width = 125;
+            // 
+            // Data
+            // 
+            this.Data.HeaderText = "Data";
+            this.Data.MinimumWidth = 6;
+            this.Data.Name = "Data";
+            this.Data.ReadOnly = true;
+            this.Data.Width = 125;
+            // 
+            // pago
+            // 
+            this.pago.HeaderText = "pago";
+            this.pago.MinimumWidth = 6;
+            this.pago.Name = "pago";
+            this.pago.ReadOnly = true;
+            this.pago.Width = 125;
+            // 
+            // preco
+            // 
+            this.preco.HeaderText = "preco";
+            this.preco.MinimumWidth = 6;
+            this.preco.Name = "preco";
+            this.preco.ReadOnly = true;
+            this.preco.Width = 125;
+            // 
+            // ValorACobrar
+            // 
+            this.ValorACobrar.HeaderText = "Valor a cobrar";
+            this.ValorACobrar.MinimumWidth = 6;
+            this.ValorACobrar.Name = "ValorACobrar";
+            this.ValorACobrar.ReadOnly = true;
+            this.ValorACobrar.Width = 125;
+            // 
+            // FormaPagamento
+            // 
+            this.FormaPagamento.HeaderText = "FormaPagamento";
+            this.FormaPagamento.MinimumWidth = 6;
+            this.FormaPagamento.Name = "FormaPagamento";
+            this.FormaPagamento.ReadOnly = true;
+            this.FormaPagamento.Width = 125;
+            // 
             // btnPendenciasPCliente
             // 
             this.btnPendenciasPCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
@@ -269,96 +359,6 @@
             this.rdbDinheiro.TabStop = true;
             this.rdbDinheiro.Text = "Dinheiro";
             this.rdbDinheiro.UseVisualStyleBackColor = true;
-            // 
-            // IdVenda
-            // 
-            this.IdVenda.HeaderText = "IdVenda";
-            this.IdVenda.MinimumWidth = 6;
-            this.IdVenda.Name = "IdVenda";
-            this.IdVenda.ReadOnly = true;
-            this.IdVenda.Width = 125;
-            // 
-            // Frotista
-            // 
-            this.Frotista.HeaderText = "Frotista";
-            this.Frotista.MinimumWidth = 6;
-            this.Frotista.Name = "Frotista";
-            this.Frotista.ReadOnly = true;
-            this.Frotista.Width = 125;
-            // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.MinimumWidth = 6;
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            this.Cliente.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Cliente.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Cliente.Width = 125;
-            // 
-            // CPFCNPJ
-            // 
-            this.CPFCNPJ.HeaderText = "CPFCNPJ";
-            this.CPFCNPJ.MinimumWidth = 6;
-            this.CPFCNPJ.Name = "CPFCNPJ";
-            this.CPFCNPJ.ReadOnly = true;
-            this.CPFCNPJ.Width = 125;
-            // 
-            // Carro
-            // 
-            this.Carro.HeaderText = "Carro";
-            this.Carro.MinimumWidth = 6;
-            this.Carro.Name = "Carro";
-            this.Carro.ReadOnly = true;
-            this.Carro.Width = 125;
-            // 
-            // Placa
-            // 
-            this.Placa.HeaderText = "Placa";
-            this.Placa.MinimumWidth = 6;
-            this.Placa.Name = "Placa";
-            this.Placa.ReadOnly = true;
-            this.Placa.Width = 125;
-            // 
-            // Data
-            // 
-            this.Data.HeaderText = "Data";
-            this.Data.MinimumWidth = 6;
-            this.Data.Name = "Data";
-            this.Data.ReadOnly = true;
-            this.Data.Width = 125;
-            // 
-            // pago
-            // 
-            this.pago.HeaderText = "pago";
-            this.pago.MinimumWidth = 6;
-            this.pago.Name = "pago";
-            this.pago.ReadOnly = true;
-            this.pago.Width = 125;
-            // 
-            // preco
-            // 
-            this.preco.HeaderText = "preco";
-            this.preco.MinimumWidth = 6;
-            this.preco.Name = "preco";
-            this.preco.ReadOnly = true;
-            this.preco.Width = 125;
-            // 
-            // ValorACobrar
-            // 
-            this.ValorACobrar.HeaderText = "Valor a cobrar";
-            this.ValorACobrar.MinimumWidth = 6;
-            this.ValorACobrar.Name = "ValorACobrar";
-            this.ValorACobrar.ReadOnly = true;
-            this.ValorACobrar.Width = 125;
-            // 
-            // FormaPagamento
-            // 
-            this.FormaPagamento.HeaderText = "FormaPagamento";
-            this.FormaPagamento.MinimumWidth = 6;
-            this.FormaPagamento.Name = "FormaPagamento";
-            this.FormaPagamento.ReadOnly = true;
-            this.FormaPagamento.Width = 125;
             // 
             // Pendentes
             // 

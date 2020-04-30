@@ -153,5 +153,12 @@ namespace totalClean
             n.Show();
             this.Visible = false;
         }
+
+        private void relatóriosDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RelatorioDeCliente n = new RelatorioDeCliente();
+            n.Show();
+            this.Visible = false;
+        }
     }
 }
