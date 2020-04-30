@@ -20,5 +20,6 @@ namespace totalClean
         public DateTime data { get; set; }
         public Boolean pago { get; set; }
         public String formaPagamento { get; set; }
+        public int idVendasServicos { get; set; }
     }
 }

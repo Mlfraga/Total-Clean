@@ -62,7 +62,7 @@ namespace totalClean
         }
         private void bloqueaBtns()
         {
-            btnSalvar.Enabled = false; 
+            btnSalvar.Enabled = false;
             btnCancelar.Enabled = false;
 
             rdbAberto.Enabled = false;
@@ -77,7 +77,7 @@ namespace totalClean
         {
             btnSalvar.Enabled = true;
             btnCancelar.Enabled = true;
-            
+
             rdbAberto.Enabled = true;
             rdbPago.Enabled = true;
             rdbDinheiro.Enabled = true;
@@ -91,7 +91,7 @@ namespace totalClean
         {
             txtDescricao.Enabled = false;
             txtValor.Enabled = false;
-        
+
         }
 
         private void desbloqueaCampos()
@@ -208,7 +208,7 @@ namespace totalClean
                     while (reader.Read())
                     {
                         Gastos gasto = new Gastos();
-                        gasto.id= reader.GetInt32(0);
+                        gasto.id = reader.GetInt32(0);
                         gasto.nome = reader.GetString(1);
                         gasto.descricao = reader.GetString(2);
                         gasto.dataVencimento = reader.GetDateTime(3);
@@ -231,8 +231,9 @@ namespace totalClean
             if (cmbSetor.Text != string.Empty)
             {
                 Gastos edicaoGastos = new Gastos();
-                try { 
-                edicaoGastos.id= int.Parse(cmbSetor.SelectedValue.ToString());
+                try
+                {
+                    edicaoGastos.id = int.Parse(cmbSetor.SelectedValue.ToString());
                 }
                 catch (Exception)
                 {
@@ -360,7 +361,7 @@ namespace totalClean
         {
             EdicaoGastos c = new EdicaoGastos();
 
-             c.id = int.Parse(txtIdGasto.Text.ToString());
+            c.id = int.Parse(txtIdGasto.Text.ToString());
             c.idSetor = int.Parse(cmbSetor.SelectedValue.ToString());
             c.descricao = txtDescricao.Text;
 
@@ -416,7 +417,7 @@ namespace totalClean
 
             SqlDataReader reader;
 
-            reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor]WHERE idGasto = '{c.id}'");
+            reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE idGasto = '{c.id}'");
 
             if (reader.HasRows)
             {
@@ -445,5 +446,5 @@ namespace totalClean
         }
 
     }
-    }
+}
 

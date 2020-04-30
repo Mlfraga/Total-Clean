@@ -39,7 +39,7 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblDtInicical = new System.Windows.Forms.Label();
             this.DtInicialVenda = new System.Windows.Forms.DateTimePicker();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.txtPlaca = new System.Windows.Forms.TextBox();
@@ -52,13 +52,25 @@
             this.txtIdVenda = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.chkFiltroData = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblDtFinal = new System.Windows.Forms.Label();
             this.dtFinalVenda = new System.Windows.Forms.DateTimePicker();
             this.lblServico1 = new System.Windows.Forms.Label();
             this.cmbServico = new System.Windows.Forms.ComboBox();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.dtpData = new System.Windows.Forms.DateTimePicker();
+            this.lblData = new System.Windows.Forms.Label();
+            this.gpBoxPagamento = new System.Windows.Forms.GroupBox();
+            this.rdbTransferencia = new System.Windows.Forms.RadioButton();
+            this.rdbDebito = new System.Windows.Forms.RadioButton();
+            this.rdbPermuta = new System.Windows.Forms.RadioButton();
+            this.rdbCredito = new System.Windows.Forms.RadioButton();
+            this.rdbBoleto = new System.Windows.Forms.RadioButton();
+            this.rdbDinheiro = new System.Windows.Forms.RadioButton();
+            this.lblIdVendasServicos = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).BeginInit();
+            this.gpBoxPagamento.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -122,7 +134,7 @@
             this.btnLimpaCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpaCampos.ForeColor = System.Drawing.SystemColors.Control;
             this.btnLimpaCampos.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpaCampos.Image")));
-            this.btnLimpaCampos.Location = new System.Drawing.Point(911, 110);
+            this.btnLimpaCampos.Location = new System.Drawing.Point(985, 110);
             this.btnLimpaCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpaCampos.Name = "btnLimpaCampos";
             this.btnLimpaCampos.Size = new System.Drawing.Size(190, 56);
@@ -143,7 +155,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(515, 110);
+            this.btnCancelar.Location = new System.Drawing.Point(589, 110);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(190, 56);
@@ -178,7 +190,7 @@
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.Location = new System.Drawing.Point(317, 110);
+            this.btnPesquisar.Location = new System.Drawing.Point(193, 110);
             this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(190, 56);
@@ -211,7 +223,7 @@
             this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.ForeColor = System.Drawing.SystemColors.Control;
             this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
-            this.btnExcluir.Location = new System.Drawing.Point(713, 110);
+            this.btnExcluir.Location = new System.Drawing.Point(787, 110);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(190, 56);
@@ -221,16 +233,16 @@
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
-            // label4
+            // lblDtInicical
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(670, 272);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 23);
-            this.label4.TabIndex = 126;
-            this.label4.Text = "Data Inicial:";
+            this.lblDtInicical.AutoSize = true;
+            this.lblDtInicical.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDtInicical.ForeColor = System.Drawing.Color.White;
+            this.lblDtInicical.Location = new System.Drawing.Point(670, 272);
+            this.lblDtInicical.Name = "lblDtInicical";
+            this.lblDtInicical.Size = new System.Drawing.Size(129, 23);
+            this.lblDtInicical.TabIndex = 126;
+            this.lblDtInicical.Text = "Data Inicial:";
             // 
             // DtInicialVenda
             // 
@@ -379,16 +391,16 @@
             this.chkFiltroData.UseVisualStyleBackColor = true;
             this.chkFiltroData.CheckedChanged += new System.EventHandler(this.chkFiltroData_CheckedChanged);
             // 
-            // label7
+            // lblDtFinal
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(911, 272);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(116, 23);
-            this.label7.TabIndex = 136;
-            this.label7.Text = "Data Final:";
+            this.lblDtFinal.AutoSize = true;
+            this.lblDtFinal.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDtFinal.ForeColor = System.Drawing.Color.White;
+            this.lblDtFinal.Location = new System.Drawing.Point(911, 272);
+            this.lblDtFinal.Name = "lblDtFinal";
+            this.lblDtFinal.Size = new System.Drawing.Size(116, 23);
+            this.lblDtFinal.TabIndex = 136;
+            this.lblDtFinal.Text = "Data Final:";
             // 
             // dtFinalVenda
             // 
@@ -426,22 +438,157 @@
             this.cmbCliente.Size = new System.Drawing.Size(243, 24);
             this.cmbCliente.TabIndex = 143;
             // 
+            // btnSalvar
+            // 
+            this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btnSalvar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnSalvar.FlatAppearance.BorderSize = 0;
+            this.btnSalvar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnSalvar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
+            this.btnSalvar.Location = new System.Drawing.Point(391, 110);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(190, 56);
+            this.btnSalvar.TabIndex = 144;
+            this.btnSalvar.Text = "   Salvar";
+            this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // dtpData
+            // 
+            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpData.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dtpData.Location = new System.Drawing.Point(522, 299);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(220, 22);
+            this.dtpData.TabIndex = 145;
+            // 
+            // lblData
+            // 
+            this.lblData.AutoSize = true;
+            this.lblData.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.ForeColor = System.Drawing.Color.White;
+            this.lblData.Location = new System.Drawing.Point(518, 272);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(63, 23);
+            this.lblData.TabIndex = 146;
+            this.lblData.Text = "Data:";
+            // 
+            // gpBoxPagamento
+            // 
+            this.gpBoxPagamento.Controls.Add(this.rdbTransferencia);
+            this.gpBoxPagamento.Controls.Add(this.rdbDebito);
+            this.gpBoxPagamento.Controls.Add(this.rdbPermuta);
+            this.gpBoxPagamento.Controls.Add(this.rdbCredito);
+            this.gpBoxPagamento.Controls.Add(this.rdbBoleto);
+            this.gpBoxPagamento.Controls.Add(this.rdbDinheiro);
+            this.gpBoxPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.gpBoxPagamento.ForeColor = System.Drawing.Color.White;
+            this.gpBoxPagamento.Location = new System.Drawing.Point(805, 254);
+            this.gpBoxPagamento.Name = "gpBoxPagamento";
+            this.gpBoxPagamento.Size = new System.Drawing.Size(306, 120);
+            this.gpBoxPagamento.TabIndex = 153;
+            this.gpBoxPagamento.TabStop = false;
+            this.gpBoxPagamento.Text = "Forma de Pagamento";
+            // 
+            // rdbTransferencia
+            // 
+            this.rdbTransferencia.AutoSize = true;
+            this.rdbTransferencia.Location = new System.Drawing.Point(151, 86);
+            this.rdbTransferencia.Name = "rdbTransferencia";
+            this.rdbTransferencia.Size = new System.Drawing.Size(146, 28);
+            this.rdbTransferencia.TabIndex = 5;
+            this.rdbTransferencia.Text = "Transferência";
+            this.rdbTransferencia.UseVisualStyleBackColor = true;
+            // 
+            // rdbDebito
+            // 
+            this.rdbDebito.AutoSize = true;
+            this.rdbDebito.Location = new System.Drawing.Point(25, 86);
+            this.rdbDebito.Name = "rdbDebito";
+            this.rdbDebito.Size = new System.Drawing.Size(85, 28);
+            this.rdbDebito.TabIndex = 4;
+            this.rdbDebito.Text = "Débito";
+            this.rdbDebito.UseVisualStyleBackColor = true;
+            // 
+            // rdbPermuta
+            // 
+            this.rdbPermuta.AutoSize = true;
+            this.rdbPermuta.Location = new System.Drawing.Point(151, 56);
+            this.rdbPermuta.Name = "rdbPermuta";
+            this.rdbPermuta.Size = new System.Drawing.Size(101, 28);
+            this.rdbPermuta.TabIndex = 3;
+            this.rdbPermuta.Text = "Permuta";
+            this.rdbPermuta.UseVisualStyleBackColor = true;
+            // 
+            // rdbCredito
+            // 
+            this.rdbCredito.AutoSize = true;
+            this.rdbCredito.Location = new System.Drawing.Point(24, 56);
+            this.rdbCredito.Name = "rdbCredito";
+            this.rdbCredito.Size = new System.Drawing.Size(91, 28);
+            this.rdbCredito.TabIndex = 2;
+            this.rdbCredito.Text = "Crédito";
+            this.rdbCredito.UseVisualStyleBackColor = true;
+            // 
+            // rdbBoleto
+            // 
+            this.rdbBoleto.AutoSize = true;
+            this.rdbBoleto.Location = new System.Drawing.Point(151, 27);
+            this.rdbBoleto.Name = "rdbBoleto";
+            this.rdbBoleto.Size = new System.Drawing.Size(84, 28);
+            this.rdbBoleto.TabIndex = 1;
+            this.rdbBoleto.Text = "Boleto";
+            this.rdbBoleto.UseVisualStyleBackColor = true;
+            // 
+            // rdbDinheiro
+            // 
+            this.rdbDinheiro.AutoSize = true;
+            this.rdbDinheiro.Checked = true;
+            this.rdbDinheiro.Location = new System.Drawing.Point(24, 27);
+            this.rdbDinheiro.Name = "rdbDinheiro";
+            this.rdbDinheiro.Size = new System.Drawing.Size(102, 28);
+            this.rdbDinheiro.TabIndex = 0;
+            this.rdbDinheiro.TabStop = true;
+            this.rdbDinheiro.Text = "Dinheiro";
+            this.rdbDinheiro.UseVisualStyleBackColor = true;
+            // 
+            // lblIdVendasServicos
+            // 
+            this.lblIdVendasServicos.AutoSize = true;
+            this.lblIdVendasServicos.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdVendasServicos.ForeColor = System.Drawing.Color.White;
+            this.lblIdVendasServicos.Location = new System.Drawing.Point(77, 228);
+            this.lblIdVendasServicos.Name = "lblIdVendasServicos";
+            this.lblIdVendasServicos.Size = new System.Drawing.Size(0, 23);
+            this.lblIdVendasServicos.TabIndex = 154;
+            // 
             // ConsultaVendaServiço
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.lblIdVendasServicos);
+            this.Controls.Add(this.gpBoxPagamento);
+            this.Controls.Add(this.lblData);
+            this.Controls.Add(this.dtpData);
+            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.cmbCliente);
             this.Controls.Add(this.cmbServico);
             this.Controls.Add(this.lblServico1);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lblDtFinal);
             this.Controls.Add(this.dtFinalVenda);
             this.Controls.Add(this.chkFiltroData);
             this.Controls.Add(this.bunifuSeparator4);
             this.Controls.Add(this.txtIdVenda);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblDtInicical);
             this.Controls.Add(this.DtInicialVenda);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.txtPlaca);
@@ -468,6 +615,8 @@
             this.Load += new System.EventHandler(this.ConsultaVendaServiço_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).EndInit();
+            this.gpBoxPagamento.ResumeLayout(false);
+            this.gpBoxPagamento.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -484,7 +633,7 @@
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblDtInicical;
         private System.Windows.Forms.DateTimePicker DtInicialVenda;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private System.Windows.Forms.TextBox txtPlaca;
@@ -497,10 +646,21 @@
         private System.Windows.Forms.TextBox txtIdVenda;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox chkFiltroData;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblDtFinal;
         private System.Windows.Forms.DateTimePicker dtFinalVenda;
         private System.Windows.Forms.Label lblServico1;
         private System.Windows.Forms.ComboBox cmbServico;
         private System.Windows.Forms.ComboBox cmbCliente;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.DateTimePicker dtpData;
+        private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.GroupBox gpBoxPagamento;
+        private System.Windows.Forms.RadioButton rdbTransferencia;
+        private System.Windows.Forms.RadioButton rdbDebito;
+        private System.Windows.Forms.RadioButton rdbPermuta;
+        private System.Windows.Forms.RadioButton rdbCredito;
+        private System.Windows.Forms.RadioButton rdbBoleto;
+        private System.Windows.Forms.RadioButton rdbDinheiro;
+        private System.Windows.Forms.Label lblIdVendasServicos;
     }
 }
