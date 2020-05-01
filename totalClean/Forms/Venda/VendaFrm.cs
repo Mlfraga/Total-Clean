@@ -11,13 +11,19 @@ using System.Data.SqlClient;
 
 namespace totalClean
 {
+
     public partial class VendaFrm : Form
     {
+        int contPendencias = 0;
+        double valorTotalaCobrar;
+
         int i;
         public int flagCarro = 0;
         Conexao con = new Conexao();
 
         float descontoPServico;
+
+        double precoAtt;
 
         public String getCarro;
         public String getPlaca;
@@ -50,7 +56,7 @@ namespace totalClean
             btnSelecionarCarro.Visible = false;
             bloqueiaCampos();
 
-
+            lblPendencias.Text = "";
 
             int index = cmbCliente.FindString(getCliente);
             cmbCliente.SelectedIndex = index;
@@ -89,7 +95,11 @@ namespace totalClean
             btnCancelar.Enabled = false;
             btnConcluido.Enabled = false;
             btnNova.Enabled = true;
+            lblTotal.Text = "0";
+            lblSubTotal.Text = "0";
             bloqueiaCampos();
+
+            lblPendencias.Text = "";
         }
         private void btnVoltar_Click(object sender, EventArgs e)
         {
@@ -154,7 +164,7 @@ namespace totalClean
                     }
 
 
-                    // PEGAR PREÇO DO SERVIÇO
+                    // PEGAR PREÇO DA SERVIÇO
                     ValorVenda valorVenda = new ValorVenda();
 
                     con.conectar();
@@ -328,6 +338,10 @@ namespace totalClean
                     decimal numero;
                     float desconto;
 
+                    if (txtDesconto.Text == string.Empty)
+                    {
+                        txtDesconto.Text = "0";
+                    }
 
                     if (decimal.TryParse(txtDesconto.Text, out numero))
                     {
@@ -763,6 +777,8 @@ namespace totalClean
 
                         }
                         MessageBox.Show("Prestação de Serviço Registrada com Sucesso", "Confirmção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                        lblPendencias.Text = "";
                         limpaCampos();
                         bloqueiaCampos();
                         ocultaCmbs();
@@ -787,7 +803,7 @@ namespace totalClean
             {
                 MessageBox.Show("É necessário preencher todos os dados!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            
         }
         private void VendaFrm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -1405,6 +1421,33 @@ namespace totalClean
                     con.desconectar();
                 }
 
+                con.conectar();
+
+                SqlDataReader readerPendencia;
+
+
+
+                readerPendencia = con.exeCliente($"SELECT valorCobrado from Vendas INNER JOIN Cliente ON ([Vendas].[idCliente] = [Cliente].[idCliente]) WHERE [Vendas].[pago] = 0 AND [Cliente].[nome] LIKE ('{cmbCliente.Text}')");
+
+                if (readerPendencia.HasRows)
+                {
+                    valorTotalaCobrar = 0;
+                    contPendencias = 0;
+                    while (readerPendencia.Read())
+                    {
+                        valorTotalaCobrar += readerPendencia.GetDouble(0);
+                        contPendencias++;
+                    }
+
+                    lblPendencias.Text = $"{cmbCliente.Text} tem {contPendencias} pendências no valor de {valorTotalaCobrar} reais";
+                }
+                else
+                {
+                    lblPendencias.Text = $"{cmbCliente.Text} não tem nenhuma pendência ";
+                }
+                readerPendencia.Close();
+                con.desconectar();
+
 
             }
         }
@@ -1414,6 +1457,486 @@ namespace totalClean
             SelecionaCarro selecionaCarro = new SelecionaCarro(cmbCliente.Text);
             selecionaCarro.Show();
             this.Visible = false;
+        }
+
+        private void atualizaSubTotal()
+        {
+            precoAtt = 0;
+            ValorVenda valorVenda = new ValorVenda();
+
+            con.conectar();
+
+            SqlDataReader readerPreco;
+
+
+            if (cmbServico1.Text != string.Empty && cmbQtd1.Text != string.Empty)
+            {
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico1.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd1.Text);
+                    }
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+
+                precoAtt = valorVenda.precoServico * valorVenda.qtd;
+
+            }
+
+            if (cmbServico2.Text != string.Empty && cmbQtd2.Text != string.Empty)
+            {
+                ValorVenda valorVenda2 = new ValorVenda();
+
+                con.conectar();
+
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico2.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd2.Text);
+                    }
+
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+
+                precoAtt += valorVenda.precoServico * valorVenda.qtd;
+            }
+            if (cmbServico3.Text != string.Empty && cmbQtd3.Text != string.Empty)
+            {
+                ValorVenda valorVenda3 = new ValorVenda();
+
+                con.conectar();
+
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico3.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd3.Text);
+                    }
+
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+                precoAtt += valorVenda.precoServico * valorVenda.qtd;
+
+            }
+            if (cmbServico4.Text != string.Empty && cmbQtd4.Text != string.Empty)
+            {
+                ValorVenda valorVenda4 = new ValorVenda();
+
+                con.conectar();
+
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico4.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd4.Text);
+                    }
+
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+                precoAtt += valorVenda.precoServico * valorVenda.qtd;
+
+            }
+            if (cmbServico5.Text != string.Empty && cmbQtd5.Text != string.Empty)
+            {
+                ValorVenda valorVenda5 = new ValorVenda();
+
+                con.conectar();
+
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico5.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd5.Text);
+                    }
+
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+                precoAtt += valorVenda.precoServico * valorVenda.qtd;
+
+            }
+            if (cmbServico6.Text != string.Empty && cmbQtd6.Text != string.Empty)
+            {
+                ValorVenda valorVenda6 = new ValorVenda();
+
+                con.conectar();
+
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico6.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd6.Text);
+                    }
+
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+                precoAtt += valorVenda.precoServico * valorVenda.qtd;
+
+            }
+            if (cmbServico7.Text != string.Empty && cmbQtd7.Text != string.Empty)
+            {
+                ValorVenda valorVenda7 = new ValorVenda();
+
+                con.conectar();
+
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico7.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd7.Text);
+                    }
+
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+                precoAtt += valorVenda.precoServico * valorVenda.qtd;
+
+            }
+            if (cmbServico8.Text != string.Empty && cmbQtd8.Text != string.Empty)
+            {
+                ValorVenda valorVenda3 = new ValorVenda();
+
+                con.conectar();
+
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico8.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd8.Text);
+                    }
+
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+                precoAtt += valorVenda.precoServico * valorVenda.qtd;
+
+            }
+            lblSubTotal.Text = precoAtt.ToString("C");
+        }
+
+        private void atualizaTotal()
+        {
+            precoAtt = 0;
+            ValorVenda valorVenda = new ValorVenda();
+
+            con.conectar();
+
+            SqlDataReader readerPreco;
+
+
+            if (cmbServico1.Text != string.Empty && cmbQtd1.Text != string.Empty)
+            {
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico1.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        try
+                        {
+                            valorVenda.qtd = double.Parse(cmbQtd1.Text);
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Valor selecionado de quantidade inválido");
+                            return;
+                        }
+                    }
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+                else
+                {
+                    MessageBox.Show("Serviço selecionado inválido.");
+                    return;
+                }
+
+                precoAtt = valorVenda.precoServico * valorVenda.qtd;
+
+            }
+
+            if (cmbServico2.Text != string.Empty && cmbQtd2.Text != string.Empty)
+            {
+                ValorVenda valorVenda2 = new ValorVenda();
+
+                con.conectar();
+
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico2.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd2.Text);
+                    }
+
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+
+                precoAtt += valorVenda.precoServico * valorVenda.qtd;
+            }
+            if (cmbServico3.Text != string.Empty && cmbQtd3.Text != string.Empty)
+            {
+                ValorVenda valorVenda3 = new ValorVenda();
+
+                con.conectar();
+
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico3.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd3.Text);
+                    }
+
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+                precoAtt += valorVenda.precoServico * valorVenda.qtd;
+
+            }
+            if (cmbServico4.Text != string.Empty && cmbQtd4.Text != string.Empty)
+            {
+                ValorVenda valorVenda4 = new ValorVenda();
+
+                con.conectar();
+
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico4.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd4.Text);
+                    }
+
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+                precoAtt += valorVenda.precoServico * valorVenda.qtd;
+
+            }
+            if (cmbServico5.Text != string.Empty && cmbQtd5.Text != string.Empty)
+            {
+                ValorVenda valorVenda5 = new ValorVenda();
+
+                con.conectar();
+
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico5.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd5.Text);
+                    }
+
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+                precoAtt += valorVenda.precoServico * valorVenda.qtd;
+
+            }
+            if (cmbServico6.Text != string.Empty && cmbQtd6.Text != string.Empty)
+            {
+                ValorVenda valorVenda6 = new ValorVenda();
+
+                con.conectar();
+
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico6.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd6.Text);
+                    }
+
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+                precoAtt += valorVenda.precoServico * valorVenda.qtd;
+
+            }
+            if (cmbServico7.Text != string.Empty && cmbQtd7.Text != string.Empty)
+            {
+                ValorVenda valorVenda7 = new ValorVenda();
+
+                con.conectar();
+
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico7.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd7.Text);
+                    }
+
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+                precoAtt += valorVenda.precoServico * valorVenda.qtd;
+
+            }
+            if (cmbServico8.Text != string.Empty && cmbQtd8.Text != string.Empty)
+            {
+                ValorVenda valorVenda3 = new ValorVenda();
+
+                con.conectar();
+
+                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico8.SelectedValue}')");
+                if (readerPreco.HasRows)
+                {
+                    while (readerPreco.Read())
+                    {
+                        valorVenda.precoServico = readerPreco.GetDouble(0);
+                        valorVenda.qtd = double.Parse(cmbQtd8.Text);
+                    }
+
+                    readerPreco.Close();
+                    con.desconectar();
+                }
+                precoAtt += valorVenda.precoServico * valorVenda.qtd;
+
+            }
+            if (txtDesconto.Text != string.Empty)
+            {
+                double desconto = double.Parse(txtDesconto.Text);
+                double precoTotal = precoAtt - desconto;
+                lblTotal.Text = precoTotal.ToString("C");
+            }
+            else
+            {
+                lblTotal.Text = precoAtt.ToString("C");
+            }
+        }
+
+        private void cmbServico1_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbQtd1_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbServico2_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbQtd2_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbServico3_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbQtd3_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbServico4_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbQtd4_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbServico5_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbQtd5_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbServico6_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbQtd6_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbServico7_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbQtd7_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbServico8_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void cmbQtd8_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
+        }
+
+        private void txtDesconto_TextChanged(object sender, EventArgs e)
+        {
+            atualizaSubTotal();
+            atualizaTotal();
         }
     }
 }

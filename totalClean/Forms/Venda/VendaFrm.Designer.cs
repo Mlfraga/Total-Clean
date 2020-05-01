@@ -98,6 +98,11 @@
             this.txtDesconto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSelecionarCarro = new Bunifu.Framework.UI.BunifuImageButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblSubTotal = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblPendencias = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd3)).BeginInit();
@@ -108,6 +113,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnNovoCliente)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSelecionarCarro)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuSeparator6
@@ -116,7 +123,7 @@
             this.bunifuSeparator6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bunifuSeparator6.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.bunifuSeparator6.LineThickness = 1;
-            this.bunifuSeparator6.Location = new System.Drawing.Point(451, 90);
+            this.bunifuSeparator6.Location = new System.Drawing.Point(461, 87);
             this.bunifuSeparator6.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.bunifuSeparator6.Name = "bunifuSeparator6";
             this.bunifuSeparator6.Size = new System.Drawing.Size(510, 10);
@@ -128,11 +135,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(461, 35);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(469, 52);
+            this.label1.Size = new System.Drawing.Size(479, 53);
             this.label1.TabIndex = 58;
             this.label1.Text = "Pestação de serviços";
             // 
@@ -365,6 +372,7 @@
             this.cmbServico1.Name = "cmbServico1";
             this.cmbServico1.Size = new System.Drawing.Size(208, 24);
             this.cmbServico1.TabIndex = 76;
+            this.cmbServico1.TextChanged += new System.EventHandler(this.cmbServico1_TextChanged);
             // 
             // lblServico1
             // 
@@ -395,6 +403,7 @@
             this.cmbQtd1.Name = "cmbQtd1";
             this.cmbQtd1.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd1.TabIndex = 78;
+            this.cmbQtd1.TextChanged += new System.EventHandler(this.cmbQtd1_TextChanged);
             // 
             // label7
             // 
@@ -425,6 +434,7 @@
             this.cmbServico2.Name = "cmbServico2";
             this.cmbServico2.Size = new System.Drawing.Size(208, 24);
             this.cmbServico2.TabIndex = 80;
+            this.cmbServico2.TextChanged += new System.EventHandler(this.cmbServico2_TextChanged);
             // 
             // lblServico2
             // 
@@ -455,6 +465,7 @@
             this.cmbServico3.Name = "cmbServico3";
             this.cmbServico3.Size = new System.Drawing.Size(208, 24);
             this.cmbServico3.TabIndex = 84;
+            this.cmbServico3.TextChanged += new System.EventHandler(this.cmbServico3_TextChanged);
             // 
             // lblServico3
             // 
@@ -485,6 +496,7 @@
             this.cmbServico4.Name = "cmbServico4";
             this.cmbServico4.Size = new System.Drawing.Size(208, 24);
             this.cmbServico4.TabIndex = 88;
+            this.cmbServico4.TextChanged += new System.EventHandler(this.cmbServico4_TextChanged);
             // 
             // lblServico4
             // 
@@ -515,6 +527,7 @@
             this.cmbServico5.Name = "cmbServico5";
             this.cmbServico5.Size = new System.Drawing.Size(208, 24);
             this.cmbServico5.TabIndex = 92;
+            this.cmbServico5.TextChanged += new System.EventHandler(this.cmbServico5_TextChanged);
             // 
             // lblServico5
             // 
@@ -545,6 +558,7 @@
             this.cmbServico6.Name = "cmbServico6";
             this.cmbServico6.Size = new System.Drawing.Size(208, 24);
             this.cmbServico6.TabIndex = 96;
+            this.cmbServico6.TextChanged += new System.EventHandler(this.cmbServico6_TextChanged);
             // 
             // lblServico6
             // 
@@ -575,6 +589,7 @@
             this.cmbServico7.Name = "cmbServico7";
             this.cmbServico7.Size = new System.Drawing.Size(208, 24);
             this.cmbServico7.TabIndex = 100;
+            this.cmbServico7.TextChanged += new System.EventHandler(this.cmbServico7_TextChanged);
             // 
             // lblServico7
             // 
@@ -605,6 +620,7 @@
             this.cmbServico8.Name = "cmbServico8";
             this.cmbServico8.Size = new System.Drawing.Size(208, 24);
             this.cmbServico8.TabIndex = 104;
+            this.cmbServico8.TextChanged += new System.EventHandler(this.cmbServico8_TextChanged);
             // 
             // lblServico8
             // 
@@ -649,6 +665,7 @@
             this.cmbQtd2.Name = "cmbQtd2";
             this.cmbQtd2.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd2.TabIndex = 109;
+            this.cmbQtd2.TextChanged += new System.EventHandler(this.cmbQtd2_TextChanged);
             // 
             // cmbQtd3
             // 
@@ -668,6 +685,7 @@
             this.cmbQtd3.Name = "cmbQtd3";
             this.cmbQtd3.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd3.TabIndex = 110;
+            this.cmbQtd3.TextChanged += new System.EventHandler(this.cmbQtd3_TextChanged);
             // 
             // cmbQtd4
             // 
@@ -687,6 +705,7 @@
             this.cmbQtd4.Name = "cmbQtd4";
             this.cmbQtd4.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd4.TabIndex = 111;
+            this.cmbQtd4.TextChanged += new System.EventHandler(this.cmbQtd4_TextChanged);
             // 
             // cmbQtd5
             // 
@@ -706,6 +725,7 @@
             this.cmbQtd5.Name = "cmbQtd5";
             this.cmbQtd5.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd5.TabIndex = 112;
+            this.cmbQtd5.TextChanged += new System.EventHandler(this.cmbQtd5_TextChanged);
             // 
             // cmbQtd6
             // 
@@ -725,6 +745,7 @@
             this.cmbQtd6.Name = "cmbQtd6";
             this.cmbQtd6.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd6.TabIndex = 113;
+            this.cmbQtd6.TextChanged += new System.EventHandler(this.cmbQtd6_TextChanged);
             // 
             // cmbQtd7
             // 
@@ -744,6 +765,7 @@
             this.cmbQtd7.Name = "cmbQtd7";
             this.cmbQtd7.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd7.TabIndex = 114;
+            this.cmbQtd7.TextChanged += new System.EventHandler(this.cmbQtd7_TextChanged);
             // 
             // cmbQtd8
             // 
@@ -763,6 +785,7 @@
             this.cmbQtd8.Name = "cmbQtd8";
             this.cmbQtd8.Size = new System.Drawing.Size(66, 24);
             this.cmbQtd8.TabIndex = 115;
+            this.cmbQtd8.TextChanged += new System.EventHandler(this.cmbQtd8_TextChanged);
             // 
             // btnAdd2
             // 
@@ -978,6 +1001,7 @@
             this.txtDesconto.Name = "txtDesconto";
             this.txtDesconto.Size = new System.Drawing.Size(104, 25);
             this.txtDesconto.TabIndex = 158;
+            this.txtDesconto.TextChanged += new System.EventHandler(this.txtDesconto_TextChanged);
             // 
             // label5
             // 
@@ -1004,12 +1028,72 @@
             this.btnSelecionarCarro.Zoom = 10;
             this.btnSelecionarCarro.Click += new System.EventHandler(this.btnSelecionarCarro_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblSubTotal);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(849, 629);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(192, 63);
+            this.groupBox1.TabIndex = 153;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Subtotal";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lblTotal);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(1047, 629);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(192, 63);
+            this.groupBox3.TabIndex = 154;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Total";
+            // 
+            // lblSubTotal
+            // 
+            this.lblSubTotal.AutoSize = true;
+            this.lblSubTotal.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.lblSubTotal.Location = new System.Drawing.Point(42, 22);
+            this.lblSubTotal.Name = "lblSubTotal";
+            this.lblSubTotal.Size = new System.Drawing.Size(97, 34);
+            this.lblSubTotal.TabIndex = 162;
+            this.lblSubTotal.Text = "00,00";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.lblTotal.Location = new System.Drawing.Point(46, 21);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(97, 34);
+            this.lblTotal.TabIndex = 163;
+            this.lblTotal.Text = "00,00";
+            // 
+            // lblPendencias
+            // 
+            this.lblPendencias.AutoSize = true;
+            this.lblPendencias.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendencias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.lblPendencias.Location = new System.Drawing.Point(12, 693);
+            this.lblPendencias.Name = "lblPendencias";
+            this.lblPendencias.Size = new System.Drawing.Size(71, 25);
+            this.lblPendencias.TabIndex = 163;
+            this.lblPendencias.Text = "00,00";
+            // 
             // VendaFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.lblPendencias);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSelecionarCarro);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.bunifuSeparator3);
@@ -1092,6 +1176,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSelecionarCarro)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1168,5 +1256,10 @@
         private System.Windows.Forms.TextBox txtDesconto;
         private System.Windows.Forms.Label label5;
         private Bunifu.Framework.UI.BunifuImageButton btnSelecionarCarro;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblSubTotal;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblPendencias;
     }
 }

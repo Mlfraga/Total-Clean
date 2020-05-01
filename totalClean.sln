@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "totalClean", "totalClean\to
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TotalClean-Instalador", "TotalClean-Instalador\TotalClean-Instalador.vdproj", "{A72D1D67-F5C7-42DA-90D6-DF48E098827E}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TotalClean - Setup", "TotalClean - Setup\TotalClean - Setup.vdproj", "{C308EC63-0F48-4134-B725-F943093AEA75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,8 @@ Global
 		{459F5966-BAAA-4CC1-8ABD-8848BDD3678D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A72D1D67-F5C7-42DA-90D6-DF48E098827E}.Debug|Any CPU.ActiveCfg = Debug
 		{A72D1D67-F5C7-42DA-90D6-DF48E098827E}.Release|Any CPU.ActiveCfg = Release
+		{C308EC63-0F48-4134-B725-F943093AEA75}.Debug|Any CPU.ActiveCfg = Debug
+		{C308EC63-0F48-4134-B725-F943093AEA75}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

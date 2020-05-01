@@ -100,6 +100,7 @@ namespace totalClean
             BloqueaBtns();
             PreencheCmbServico();
             prencheCmbCliente();
+            txtIdVenda.Enabled = false;
             lblIdVendasServicos.Visible = false;
 
             lblData.Visible = false;
@@ -551,8 +552,6 @@ namespace totalClean
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            iniciaGrid();
-
             btnSalvar.Enabled = false;
             chkFiltroData.Enabled = true;
 
@@ -570,6 +569,7 @@ namespace totalClean
             dtFinalVenda.Visible = true;
             DtInicialVenda.Visible = true;
 
+            iniciaGrid();
             limpaCampos();
         }
         private void limpaCampos()
@@ -598,6 +598,7 @@ namespace totalClean
         {
             btnExcluir.Enabled = false;
             btnCancelar.Enabled = false;
+            btnSalvar.Enabled = false;
 
             txtIdVenda.ReadOnly = true;
             cmbCliente.Enabled = true;
@@ -814,7 +815,8 @@ namespace totalClean
                             diferenca = preco - valorCobrado;
                         }
                     }
-
+                    con.desconectar();
+                    readerCalculaValorCobrado.Close();
 
                     con.conectar();
 

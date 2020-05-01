@@ -160,5 +160,12 @@ namespace totalClean
             n.Show();
             this.Visible = false;
         }
+
+        private void vendasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            EdicaoVendaServicoShortCut n = new EdicaoVendaServicoShortCut();
+            n.Show();
+            this.Visible = false;
+        }
     }
 }
