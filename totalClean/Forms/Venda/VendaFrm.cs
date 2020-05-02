@@ -14,6 +14,11 @@ namespace totalClean
 
     public partial class VendaFrm : Form
     {
+        int flagPreencheCmb2, flagPreencheCmb3, flagPreencheCmb4, flagPreencheCmb5, flagPreencheCmb6, flagPreencheCmb7, flagPreencheCmb8;
+        int flagLimpaCampos;
+        int FlagPreencheCmbCliente;
+        int FlagPreencheCmbServico;
+
         int contPendencias = 0;
         double valorTotalaCobrar;
 
@@ -46,16 +51,28 @@ namespace totalClean
 
         private void VendaFrm_Load(object sender, EventArgs e)
         {
-            this.AcceptButton = btnConcluido;
+            /*flagLimpaCampos = 0;
+            flagPreencheCmb2 = 0;
+            flagPreencheCmb3 = 0;
+            flagPreencheCmb4 = 0;
+            flagPreencheCmb5 = 0;
+            flagPreencheCmb6 = 0;
+            flagPreencheCmb7 = 0;
+            flagPreencheCmb8 = 0;
+            FlagPreencheCmbCliente = 0;
+            FlagPreencheCmbServico = 0;*/
+
             limpaCampos();
             ocultaCmbs();
-            prencheCmbCliente();
-            PreencheCmb1();
+
             btnConcluido.Enabled = false;
             btnCancelar.Enabled = false;
             btnSelecionarCarro.Visible = false;
+
             bloqueiaCampos();
 
+            prencheCmbCliente();
+            PreencheCmb1();
             lblPendencias.Text = "";
 
             int index = cmbCliente.FindString(getCliente);
@@ -72,10 +89,6 @@ namespace totalClean
                 btnCancelar.Enabled = true;
                 btnNova.Enabled = false;
             }
-
-            txtCarro.Text = getCarro;
-            txtPlaca.Text = getPlaca;
-
 
 
             txtDesconto.Text = "0";
@@ -777,7 +790,7 @@ namespace totalClean
 
                         }
                         MessageBox.Show("Prestação de Serviço Registrada com Sucesso", "Confirmção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
+
                         lblPendencias.Text = "";
                         limpaCampos();
                         bloqueiaCampos();
@@ -803,7 +816,7 @@ namespace totalClean
             {
                 MessageBox.Show("É necessário preencher todos os dados!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
         private void VendaFrm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -811,6 +824,7 @@ namespace totalClean
         }
         private void limpaCampos()
         {
+            flagLimpaCampos = 1;
             txtPlaca.Text = "";
             txtCarro.Text = "";
             txtDesconto.Text = "0";
@@ -840,6 +854,7 @@ namespace totalClean
 
             cmbServico8.Text = "";
             cmbQtd8.Text = "";
+            flagLimpaCampos = 0;
         }
         private void bloqueiaCampos()
         {
@@ -967,10 +982,13 @@ namespace totalClean
             cmbCliente.ValueMember = "id";
             cmbCliente.DisplayMember = "nome";
             cmbCliente.Text = "";
+            FlagPreencheCmbCliente = 1;
+
+
         }
         private void PreencheCmb1()
         {
-
+            FlagPreencheCmbServico = 0;
             List<Servico> listServico = new List<Servico>();
 
             con.conectar();
@@ -1001,10 +1019,11 @@ namespace totalClean
             cmbServico1.ValueMember = "id";
             cmbServico1.DisplayMember = "nome";
             cmbServico1.Text = "";
+            FlagPreencheCmbServico = 1;
         }
         private void PreencheCmb2()
         {
-
+            flagPreencheCmb2 = 0;
             List<Servico> listServico = new List<Servico>();
 
             con.conectar();
@@ -1035,10 +1054,11 @@ namespace totalClean
             cmbServico2.ValueMember = "id";
             cmbServico2.DisplayMember = "nome";
             cmbServico2.Text = "";
+            flagPreencheCmb2 = 1;
         }
         private void PreencheCmb3()
         {
-
+            flagPreencheCmb3 = 0;
             List<Servico> listServico = new List<Servico>();
 
             con.conectar();
@@ -1069,10 +1089,11 @@ namespace totalClean
             cmbServico3.ValueMember = "id";
             cmbServico3.DisplayMember = "nome";
             cmbServico3.Text = "";
+            flagPreencheCmb3 = 1;
         }
         private void PreencheCmb4()
         {
-
+            flagPreencheCmb4 = 0;
             List<Servico> listServico = new List<Servico>();
 
             con.conectar();
@@ -1103,10 +1124,11 @@ namespace totalClean
             cmbServico4.ValueMember = "id";
             cmbServico4.DisplayMember = "nome";
             cmbServico4.Text = "";
+            flagPreencheCmb4 = 1;
         }
         private void PreencheCmb5()
         {
-
+            flagPreencheCmb5 = 0;
             List<Servico> listServico = new List<Servico>();
 
             con.conectar();
@@ -1137,10 +1159,11 @@ namespace totalClean
             cmbServico5.ValueMember = "id";
             cmbServico5.DisplayMember = "nome";
             cmbServico5.Text = "";
+            flagPreencheCmb5 = 1;
         }
         private void PreencheCmb6()
         {
-
+            flagPreencheCmb6 = 0;
             List<Servico> listServico = new List<Servico>();
 
             con.conectar();
@@ -1171,10 +1194,11 @@ namespace totalClean
             cmbServico6.ValueMember = "id";
             cmbServico6.DisplayMember = "nome";
             cmbServico6.Text = "";
+            flagPreencheCmb6 = 1;
         }
         private void PreencheCmb7()
         {
-
+            flagPreencheCmb7 = 0;
             List<Servico> listServico = new List<Servico>();
 
             con.conectar();
@@ -1205,10 +1229,11 @@ namespace totalClean
             cmbServico7.ValueMember = "id";
             cmbServico7.DisplayMember = "nome";
             cmbServico7.Text = "";
+            flagPreencheCmb7 = 1;
         }
         private void PreencheCmb8()
         {
-
+            flagPreencheCmb8 = 0;
             List<Servico> listServico = new List<Servico>();
 
             con.conectar();
@@ -1239,13 +1264,17 @@ namespace totalClean
             cmbServico8.ValueMember = "id";
             cmbServico8.DisplayMember = "nome";
             cmbServico8.Text = "";
+            flagPreencheCmb8 = 1;
         }
 
         private void btnAdd1_Click(object sender, EventArgs e)
         {
             if (cmbQtd1.Text != string.Empty && cmbServico1.Text != string.Empty)
             {
-                PreencheCmb2();
+                if (flagPreencheCmb2 == 0)
+                {
+                    PreencheCmb2();
+                }
                 lblQtd2.Visible = true;
                 lblServico2.Visible = true;
                 cmbServico2.Visible = true;
@@ -1261,7 +1290,10 @@ namespace totalClean
         {
             if (cmbQtd2.Text != string.Empty && cmbServico2.Text != string.Empty)
             {
-                PreencheCmb3();
+                if (flagPreencheCmb3 == 0)
+                {
+                    PreencheCmb3();
+                }
                 lblQtd3.Visible = true;
                 lblServico3.Visible = true;
                 cmbServico3.Visible = true;
@@ -1278,7 +1310,10 @@ namespace totalClean
         {
             if (cmbQtd3.Text != string.Empty && cmbServico3.Text != string.Empty)
             {
-                PreencheCmb4();
+                if (flagPreencheCmb4 == 0)
+                {
+                    PreencheCmb4();
+                }
                 lblQtd4.Visible = true;
                 lblServico4.Visible = true;
                 cmbServico4.Visible = true;
@@ -1294,7 +1329,10 @@ namespace totalClean
         {
             if (cmbQtd4.Text != string.Empty && cmbServico4.Text != string.Empty)
             {
-                PreencheCmb5();
+                if (flagPreencheCmb5 == 0)
+                {
+                    PreencheCmb5();
+                }
                 lblQtd5.Visible = true;
                 lblServico5.Visible = true;
                 cmbServico5.Visible = true;
@@ -1311,7 +1349,10 @@ namespace totalClean
         {
             if (cmbQtd5.Text != string.Empty && cmbServico5.Text != string.Empty)
             {
-                PreencheCmb6();
+                if (flagPreencheCmb6 == 0)
+                {
+                    PreencheCmb6();
+                }
                 lblQtd6.Visible = true;
                 lblServico6.Visible = true;
                 cmbServico6.Visible = true;
@@ -1327,7 +1368,10 @@ namespace totalClean
         {
             if (cmbQtd6.Text != string.Empty && cmbServico6.Text != string.Empty)
             {
-                PreencheCmb7();
+                if (flagPreencheCmb7 == 0)
+                {
+                    PreencheCmb7();
+                }
                 lblQtd7.Visible = true;
                 lblServico7.Visible = true;
                 cmbServico7.Visible = true;
@@ -1341,7 +1385,10 @@ namespace totalClean
         }
         private void btnAdd7_Click(object sender, EventArgs e)
         {
-            PreencheCmb8();
+            if (flagPreencheCmb8 == 0)
+            {
+                PreencheCmb8();
+            }
             if (cmbQtd7.Text != string.Empty && cmbServico7.Text != string.Empty)
             {
                 lblQtd8.Visible = true;
@@ -1405,7 +1452,6 @@ namespace totalClean
                     while (reader.Read())
                     {
                         nomeTesta = reader.GetString(2);
-
                         if (cmbCliente.Text == nomeTesta)
                         {
                             txtCarro.Text = reader.GetString(0).Trim();
@@ -1415,40 +1461,42 @@ namespace totalClean
 
                     }
 
-
-
                     reader.Close();
                     con.desconectar();
                 }
 
-                con.conectar();
-
-                SqlDataReader readerPendencia;
-
-
-
-                readerPendencia = con.exeCliente($"SELECT valorCobrado from Vendas INNER JOIN Cliente ON ([Vendas].[idCliente] = [Cliente].[idCliente]) WHERE [Vendas].[pago] = 0 AND [Cliente].[nome] LIKE ('{cmbCliente.Text}')");
-
-                if (readerPendencia.HasRows)
+                if (FlagPreencheCmbCliente == 0)
                 {
-                    valorTotalaCobrar = 0;
-                    contPendencias = 0;
-                    while (readerPendencia.Read())
-                    {
-                        valorTotalaCobrar += readerPendencia.GetDouble(0);
-                        contPendencias++;
-                    }
-
-                    lblPendencias.Text = $"{cmbCliente.Text} tem {contPendencias} pendências no valor de {valorTotalaCobrar} reais";
+                    return;
                 }
                 else
                 {
-                    lblPendencias.Text = $"{cmbCliente.Text} não tem nenhuma pendência ";
+                    con.conectar();
+
+                    SqlDataReader readerPendencia;
+
+                    readerPendencia = con.exeCliente($"SELECT valorCobrado from Vendas INNER JOIN Cliente ON ([Vendas].[idCliente] = [Cliente].[idCliente]) WHERE [Vendas].[pago] = 0 AND [Cliente].[nome] LIKE ('{cmbCliente.Text}')");
+
+                    if (readerPendencia.HasRows)
+                    {
+                        valorTotalaCobrar = 0;
+                        contPendencias = 0;
+                        while (readerPendencia.Read())
+                        {
+                            valorTotalaCobrar += readerPendencia.GetDouble(0);
+                            contPendencias++;
+                        }
+
+                        lblPendencias.Text = $"{cmbCliente.Text} tem {contPendencias} pendências no valor de {valorTotalaCobrar} reais";
+                    }
+                    else
+                    {
+                        lblPendencias.Text = $"{cmbCliente.Text} não tem nenhuma pendência ";
+                    }
+                    readerPendencia.Close();
+                    con.desconectar();
+
                 }
-                readerPendencia.Close();
-                con.desconectar();
-
-
             }
         }
 
@@ -1459,8 +1507,13 @@ namespace totalClean
             this.Visible = false;
         }
 
-        private void atualizaSubTotal()
+        private void atualizaTotalESubTotal()
         {
+            if (FlagPreencheCmbServico == 0)
+            {
+                return;
+            }
+
             precoAtt = 0;
             ValorVenda valorVenda = new ValorVenda();
 
@@ -1635,196 +1688,7 @@ namespace totalClean
 
             }
             lblSubTotal.Text = precoAtt.ToString("C");
-        }
 
-        private void atualizaTotal()
-        {
-            precoAtt = 0;
-            ValorVenda valorVenda = new ValorVenda();
-
-            con.conectar();
-
-            SqlDataReader readerPreco;
-
-
-            if (cmbServico1.Text != string.Empty && cmbQtd1.Text != string.Empty)
-            {
-                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico1.SelectedValue}')");
-                if (readerPreco.HasRows)
-                {
-                    while (readerPreco.Read())
-                    {
-                        valorVenda.precoServico = readerPreco.GetDouble(0);
-                        try
-                        {
-                            valorVenda.qtd = double.Parse(cmbQtd1.Text);
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Valor selecionado de quantidade inválido");
-                            return;
-                        }
-                    }
-                    readerPreco.Close();
-                    con.desconectar();
-                }
-                else
-                {
-                    MessageBox.Show("Serviço selecionado inválido.");
-                    return;
-                }
-
-                precoAtt = valorVenda.precoServico * valorVenda.qtd;
-
-            }
-
-            if (cmbServico2.Text != string.Empty && cmbQtd2.Text != string.Empty)
-            {
-                ValorVenda valorVenda2 = new ValorVenda();
-
-                con.conectar();
-
-                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico2.SelectedValue}')");
-                if (readerPreco.HasRows)
-                {
-                    while (readerPreco.Read())
-                    {
-                        valorVenda.precoServico = readerPreco.GetDouble(0);
-                        valorVenda.qtd = double.Parse(cmbQtd2.Text);
-                    }
-
-                    readerPreco.Close();
-                    con.desconectar();
-                }
-
-                precoAtt += valorVenda.precoServico * valorVenda.qtd;
-            }
-            if (cmbServico3.Text != string.Empty && cmbQtd3.Text != string.Empty)
-            {
-                ValorVenda valorVenda3 = new ValorVenda();
-
-                con.conectar();
-
-                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico3.SelectedValue}')");
-                if (readerPreco.HasRows)
-                {
-                    while (readerPreco.Read())
-                    {
-                        valorVenda.precoServico = readerPreco.GetDouble(0);
-                        valorVenda.qtd = double.Parse(cmbQtd3.Text);
-                    }
-
-                    readerPreco.Close();
-                    con.desconectar();
-                }
-                precoAtt += valorVenda.precoServico * valorVenda.qtd;
-
-            }
-            if (cmbServico4.Text != string.Empty && cmbQtd4.Text != string.Empty)
-            {
-                ValorVenda valorVenda4 = new ValorVenda();
-
-                con.conectar();
-
-                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico4.SelectedValue}')");
-                if (readerPreco.HasRows)
-                {
-                    while (readerPreco.Read())
-                    {
-                        valorVenda.precoServico = readerPreco.GetDouble(0);
-                        valorVenda.qtd = double.Parse(cmbQtd4.Text);
-                    }
-
-                    readerPreco.Close();
-                    con.desconectar();
-                }
-                precoAtt += valorVenda.precoServico * valorVenda.qtd;
-
-            }
-            if (cmbServico5.Text != string.Empty && cmbQtd5.Text != string.Empty)
-            {
-                ValorVenda valorVenda5 = new ValorVenda();
-
-                con.conectar();
-
-                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico5.SelectedValue}')");
-                if (readerPreco.HasRows)
-                {
-                    while (readerPreco.Read())
-                    {
-                        valorVenda.precoServico = readerPreco.GetDouble(0);
-                        valorVenda.qtd = double.Parse(cmbQtd5.Text);
-                    }
-
-                    readerPreco.Close();
-                    con.desconectar();
-                }
-                precoAtt += valorVenda.precoServico * valorVenda.qtd;
-
-            }
-            if (cmbServico6.Text != string.Empty && cmbQtd6.Text != string.Empty)
-            {
-                ValorVenda valorVenda6 = new ValorVenda();
-
-                con.conectar();
-
-                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico6.SelectedValue}')");
-                if (readerPreco.HasRows)
-                {
-                    while (readerPreco.Read())
-                    {
-                        valorVenda.precoServico = readerPreco.GetDouble(0);
-                        valorVenda.qtd = double.Parse(cmbQtd6.Text);
-                    }
-
-                    readerPreco.Close();
-                    con.desconectar();
-                }
-                precoAtt += valorVenda.precoServico * valorVenda.qtd;
-
-            }
-            if (cmbServico7.Text != string.Empty && cmbQtd7.Text != string.Empty)
-            {
-                ValorVenda valorVenda7 = new ValorVenda();
-
-                con.conectar();
-
-                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico7.SelectedValue}')");
-                if (readerPreco.HasRows)
-                {
-                    while (readerPreco.Read())
-                    {
-                        valorVenda.precoServico = readerPreco.GetDouble(0);
-                        valorVenda.qtd = double.Parse(cmbQtd7.Text);
-                    }
-
-                    readerPreco.Close();
-                    con.desconectar();
-                }
-                precoAtt += valorVenda.precoServico * valorVenda.qtd;
-
-            }
-            if (cmbServico8.Text != string.Empty && cmbQtd8.Text != string.Empty)
-            {
-                ValorVenda valorVenda3 = new ValorVenda();
-
-                con.conectar();
-
-                readerPreco = con.exeCliente($"select preco from Servicos WHERE idServico = ('{cmbServico8.SelectedValue}')");
-                if (readerPreco.HasRows)
-                {
-                    while (readerPreco.Read())
-                    {
-                        valorVenda.precoServico = readerPreco.GetDouble(0);
-                        valorVenda.qtd = double.Parse(cmbQtd8.Text);
-                    }
-
-                    readerPreco.Close();
-                    con.desconectar();
-                }
-                precoAtt += valorVenda.precoServico * valorVenda.qtd;
-
-            }
             if (txtDesconto.Text != string.Empty)
             {
                 double desconto = double.Parse(txtDesconto.Text);
@@ -1839,104 +1703,187 @@ namespace totalClean
 
         private void cmbServico1_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (FlagPreencheCmbServico == 1 && flagLimpaCampos == 0)
+            {
+                atualizaTotalESubTotal();
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void cmbQtd1_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagLimpaCampos == 1)
+            {
+                return;
+            }
+            atualizaTotalESubTotal();
+
         }
 
         private void cmbServico2_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagPreencheCmb2 == 0 || flagLimpaCampos == 1)
+            {
+                return;
+            }
+            else
+            {
+                atualizaTotalESubTotal();
+            }
         }
 
         private void cmbQtd2_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagLimpaCampos == 1)
+            {
+                return;
+            }
+            atualizaTotalESubTotal();
         }
 
         private void cmbServico3_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagPreencheCmb3 == 0 || flagLimpaCampos == 1)
+            {
+                return;
+            }
+            else
+            {
+                atualizaTotalESubTotal();
+            }
         }
 
         private void cmbQtd3_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagLimpaCampos == 1)
+            {
+                return;
+            }
+            atualizaTotalESubTotal();
         }
 
         private void cmbServico4_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagPreencheCmb4 == 0 || flagLimpaCampos == 1)
+            {
+                return;
+            }
+            else
+            {
+                atualizaTotalESubTotal();
+            }
         }
 
         private void cmbQtd4_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagLimpaCampos == 1)
+            {
+                return;
+            }
+            atualizaTotalESubTotal();
         }
 
         private void cmbServico5_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagPreencheCmb5 == 0 || flagLimpaCampos == 1)
+            {
+                return;
+            }
+            else
+            {
+                atualizaTotalESubTotal();
+            }
         }
 
         private void cmbQtd5_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagLimpaCampos == 1)
+            {
+                return;
+            }
+            atualizaTotalESubTotal();
         }
 
         private void cmbServico6_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagPreencheCmb6 == 0 || flagLimpaCampos == 1)
+            {
+                return;
+            }
+            else
+            {
+                atualizaTotalESubTotal();
+            }
         }
 
         private void cmbQtd6_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagLimpaCampos == 1)
+            {
+                return;
+            }
+            atualizaTotalESubTotal();
         }
 
         private void cmbServico7_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagPreencheCmb7 == 0 || flagLimpaCampos == 1)
+            {
+                return;
+            }
+            else
+            {
+                atualizaTotalESubTotal();
+            }
         }
 
         private void cmbQtd7_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagLimpaCampos == 1)
+            {
+                return;
+            }
+            atualizaTotalESubTotal();
         }
 
         private void cmbServico8_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagPreencheCmb8 == 0 || flagLimpaCampos == 1)
+            {
+                return;
+            }
+            else
+            {
+                atualizaTotalESubTotal();
+            }
         }
 
         private void cmbQtd8_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagLimpaCampos == 1)
+            {
+                return;
+            }
+            atualizaTotalESubTotal();
+
         }
 
         private void txtDesconto_TextChanged(object sender, EventArgs e)
         {
-            atualizaSubTotal();
-            atualizaTotal();
+            if (flagLimpaCampos == 1)
+            {
+                return;
+            }
+            atualizaTotalESubTotal();
+
+        }
+
+        private void cmbServico1_MouseEnter(object sender, EventArgs e)
+        {
+
         }
     }
 }

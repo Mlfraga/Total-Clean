@@ -98,11 +98,11 @@
             this.txtDesconto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSelecionarCarro = new Bunifu.Framework.UI.BunifuImageButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblSubTotal = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
             this.lblPendencias = new System.Windows.Forms.Label();
+            this.lblSubTotal = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd3)).BeginInit();
@@ -139,7 +139,7 @@
             this.label1.Location = new System.Drawing.Point(461, 35);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(479, 53);
+            this.label1.Size = new System.Drawing.Size(469, 52);
             this.label1.TabIndex = 58;
             this.label1.Text = "Pestação de serviços";
             // 
@@ -373,6 +373,7 @@
             this.cmbServico1.Size = new System.Drawing.Size(208, 24);
             this.cmbServico1.TabIndex = 76;
             this.cmbServico1.TextChanged += new System.EventHandler(this.cmbServico1_TextChanged);
+            this.cmbServico1.MouseEnter += new System.EventHandler(this.cmbServico1_MouseEnter);
             // 
             // lblServico1
             // 
@@ -1028,29 +1029,16 @@
             this.btnSelecionarCarro.Zoom = 10;
             this.btnSelecionarCarro.Click += new System.EventHandler(this.btnSelecionarCarro_Click);
             // 
-            // groupBox1
+            // lblPendencias
             // 
-            this.groupBox1.Controls.Add(this.lblSubTotal);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(849, 629);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(192, 63);
-            this.groupBox1.TabIndex = 153;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Subtotal";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.lblTotal);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(1047, 629);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(192, 63);
-            this.groupBox3.TabIndex = 154;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Total";
+            this.lblPendencias.AutoSize = true;
+            this.lblPendencias.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendencias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.lblPendencias.Location = new System.Drawing.Point(12, 693);
+            this.lblPendencias.Name = "lblPendencias";
+            this.lblPendencias.Size = new System.Drawing.Size(124, 25);
+            this.lblPendencias.TabIndex = 163;
+            this.lblPendencias.Text = "Pendencias";
             // 
             // lblSubTotal
             // 
@@ -1063,6 +1051,18 @@
             this.lblSubTotal.TabIndex = 162;
             this.lblSubTotal.Text = "00,00";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblSubTotal);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(849, 629);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(192, 63);
+            this.groupBox1.TabIndex = 153;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Subtotal";
+            // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
@@ -1074,16 +1074,17 @@
             this.lblTotal.TabIndex = 163;
             this.lblTotal.Text = "00,00";
             // 
-            // lblPendencias
+            // groupBox3
             // 
-            this.lblPendencias.AutoSize = true;
-            this.lblPendencias.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendencias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.lblPendencias.Location = new System.Drawing.Point(12, 693);
-            this.lblPendencias.Name = "lblPendencias";
-            this.lblPendencias.Size = new System.Drawing.Size(71, 25);
-            this.lblPendencias.TabIndex = 163;
-            this.lblPendencias.Text = "00,00";
+            this.groupBox3.Controls.Add(this.lblTotal);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(1047, 629);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(192, 63);
+            this.groupBox3.TabIndex = 154;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Total";
             // 
             // VendaFrm
             // 
@@ -1256,10 +1257,10 @@
         private System.Windows.Forms.TextBox txtDesconto;
         private System.Windows.Forms.Label label5;
         private Bunifu.Framework.UI.BunifuImageButton btnSelecionarCarro;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblSubTotal;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblPendencias;
+        private System.Windows.Forms.Label lblSubTotal;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
