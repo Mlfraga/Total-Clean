@@ -18,6 +18,7 @@ namespace totalClean
     public partial class RelatorioGastos : Form
     {
         Conexao con = new Conexao();
+        int lastCell;
         public RelatorioGastos()
         {
             InitializeComponent();
@@ -246,6 +247,41 @@ namespace totalClean
 
         private void btnGerarRelatorio_Click(object sender, EventArgs e)
         {
+            DateTime dataI = DtInicialVencimento.Value;
+            DateTime dataF = dtFinalVencimento.Value;
+
+            Gastos edicaoGastos = new Gastos();
+            edicaoGastos.id = int.Parse(cmbSetor.SelectedValue.ToString());
+
+
+            SqlDataReader reader;
+
+            if (cmbSetor.Text == String.Empty)
+            {
+                List<Gastos> listGastos = new List<Gastos>();
+                con.conectar();
+
+                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[data] BETWEEN '{dataI}' AND '{dataF}'");
+
+            }
+            else
+            {               
+                List<Gastos> listGastos = new List<Gastos>();
+                con.conectar();
+
+                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[data] BETWEEN '{dataI}' AND '{dataF}' AND [Gastos].[idSetor] = '{edicaoGastos.id}'");
+            }
+
+            construtor(reader);
+        }
+
+        private void rdbOrdenarPData_CheckedChanged(object sender, EventArgs e)
+        {
+            iniciarGrid();
+        }
+
+        public void construtor(SqlDataReader reader)
+        {
             int i = 2;
 
             String answer = Interaction.InputBox("Digite o nome do arquivo de relatorio", "", null, -1, -1);
@@ -261,12 +297,19 @@ namespace totalClean
             Excel.Application xlApp;
             Excel.Workbook xlWorkBook;
             Excel.Worksheet xlWorkSheet;
+            Excel.Range rangeTitulo;
+            Excel.Range rangeValores;
+            Excel.Range rangeTabela;
             object misValue = System.Reflection.Missing.Value;
 
             //Cria uma planilha temporária na memória do computador
             xlApp = new Excel.Application();
             xlWorkBook = xlApp.Workbooks.Add(misValue);
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+
+            //Auto size columns
+            xlWorkSheet.Columns.AutoFit();
 
             //incluindo dados
             xlWorkSheet.Cells[1, 1] = "Id";
@@ -277,166 +320,102 @@ namespace totalClean
             xlWorkSheet.Cells[1, 6] = "Forma de Pagamento";
             xlWorkSheet.Cells[1, 7] = "Pago";
 
-            DateTime dataI = DtInicialVencimento.Value;
-            DateTime dataF = dtFinalVencimento.Value;
 
 
 
-            if (cmbSetor.Text == String.Empty)
+            if (reader.HasRows)
             {
-                List<Gastos> listGastos = new List<Gastos>();
-                con.conectar();
-
-                SqlDataReader reader;
-
-                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[data] BETWEEN '{dataI}' AND '{dataF}'");
-
-                if (reader.HasRows)
+                while (reader.Read())
                 {
-                    while (reader.Read())
+                    xlWorkSheet.Cells[i, 1] = reader.GetInt32(0);
+                    xlWorkSheet.Cells[i, 2] = reader.GetString(1);
+                    xlWorkSheet.Cells[i, 3] = reader.GetString(2);
+                    xlWorkSheet.Cells[i, 4] = reader.GetDateTime(3);
+                    xlWorkSheet.Cells[i, 5] = reader.GetDouble(4);
+                    xlWorkSheet.Cells[i, 6] = reader.GetString(5);
+                    Boolean pg = reader.GetBoolean(6);
+                    if (pg == true)
                     {
-                        xlWorkSheet.Cells[i, 1] = reader.GetInt32(0);
-                        xlWorkSheet.Cells[i, 2] = reader.GetString(1);
-                        xlWorkSheet.Cells[i, 3] = reader.GetString(2);
-                        xlWorkSheet.Cells[i, 4] = reader.GetDateTime(3);
-                        xlWorkSheet.Cells[i, 5] = reader.GetDouble(4);
-                        xlWorkSheet.Cells[i, 6] = reader.GetString(5);
-                        Boolean pg = reader.GetBoolean(6);
-                        if (pg == true)
-                        {
-                            xlWorkSheet.Cells[i, 7] = "PG";
-                        }
-                        else
-                        {
-                            xlWorkSheet.Cells[i, 7] = "EM ABERTO";
-                        }
-
-                        i++;
+                        xlWorkSheet.Cells[i, 7] = "PG";
                     }
-                    int lastCell = i - 1;
-                    xlWorkSheet.Cells[i, 4] = "Total:";
-                    xlWorkSheet.Cells[i, 5] = "=SOMA(E2:E" + lastCell + ")";
-                    reader.Close();
-                    con.desconectar();
+                    else
+                    {
+                        xlWorkSheet.Cells[i, 7] = "EM ABERTO";
+                    }
 
+                    i++;
                 }
-                //Salva o arquivo de acordo com a documentação do Excel.
+                
+                //Atribuindo valores do total
+                lastCell = i - 1;
+                xlWorkSheet.Cells[i, 4] = "Total:";
+                xlWorkSheet.Cells[i, 4].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+                xlWorkSheet.Cells[i, 5].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                xlWorkSheet.Cells[i, 5].Formula = "=SUM(E2:E" + lastCell + ")";
+                xlWorkSheet.Calculate();
+                xlWorkSheet.Cells[i, 5].NumberFormat = "R$#,##0.00";
+                xlWorkSheet.Cells[i, 5].Columns.AutoFit();
+
+                reader.Close();
+                con.desconectar();
+
+            }
+
+            //Colocando borda 
+            rangeTabela = xlWorkSheet.get_Range("A1", "G" + lastCell);
+            rangeTabela.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                        
+            //Colocando cores nas células de identificação 
+            rangeTitulo = xlWorkSheet.get_Range("A1", "L1");
+            //rangeTitulo.Interior.Color = ColorTranslator.FromHtml("#9ea7aa");
+            rangeTitulo.Font.Bold = true;
+
+            // Colocando R$
+            rangeValores = xlWorkSheet.get_Range("E2", "E" + i);
+            rangeValores.NumberFormat = "R$#,##0.00";
+
+            rangeTabela.Columns.AutoFit();
+            rangeValores.Columns.AutoFit();
+
+
+
+            
+
+            //Salva o arquivo de acordo com a documentação do Excel.
+            try
+            {
+
+                xlWorkBook.SaveAs(answer, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
+                Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlWorkBook.Close(true, misValue, misValue);
+                xlApp.Quit();
+                //o arquivo foi salvo na pasta Meus Documentos.
+                string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                //MessageBox.Show("Concluído. Verifique em " + caminho + "arquivo.xls");
+
+
                 try
                 {
-
-                    xlWorkBook.SaveAs(answer, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
-                    Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                    xlWorkBook.Close(true, misValue, misValue);
-                    xlApp.Quit();
-                    //o arquivo foi salvo na pasta Meus Documentos.
-                    string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                    //MessageBox.Show("Concluído. Verifique em " + caminho + "arquivo.xls");
-
-
-                    try
+                    FileInfo fi = new FileInfo($@"{caminho}/{answer}.xls");
+                    if (fi.Exists)
                     {
-                        FileInfo fi = new FileInfo($@"{caminho}/{answer}.xls");
-                        if (fi.Exists)
-                        {
-                            System.Diagnostics.Process.Start($@"{caminho}/{answer}.xls");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Arquivo não encontrado");
-                        }
+                        System.Diagnostics.Process.Start($@"{caminho}/{answer}.xls");
                     }
-                    catch
+                    else
                     {
-                        MessageBox.Show("Test");
+                        MessageBox.Show("Arquivo não encontrado");
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("Não foi possivel salvar");
+                    MessageBox.Show("Test");
                 }
-
             }
-            else
+            catch
             {
-                Gastos edicaoGastos = new Gastos();
-                edicaoGastos.id = int.Parse(cmbSetor.SelectedValue.ToString());
-
-                List<Gastos> listGastos = new List<Gastos>();
-                con.conectar();
-
-                SqlDataReader reader;
-
-                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[data] BETWEEN '{dataI}' AND '{dataF}' AND [Gastos].[idSetor] = '{edicaoGastos.id}'");
-
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        xlWorkSheet.Cells[i, 1] = reader.GetInt32(0);
-                        xlWorkSheet.Cells[i, 2] = reader.GetString(1);
-                        xlWorkSheet.Cells[i, 3] = reader.GetString(2);
-                        xlWorkSheet.Cells[i, 4] = reader.GetDateTime(3);
-                        xlWorkSheet.Cells[i, 5] = reader.GetDouble(4);
-                        xlWorkSheet.Cells[i, 6] = reader.GetString(5);
-                        Boolean pg = reader.GetBoolean(6);
-                        if (pg == true)
-                        {
-                            xlWorkSheet.Cells[i, 7] = "PG";
-                        }
-                        else
-                        {
-                            xlWorkSheet.Cells[i, 7] = "EM ABERTO";
-                        }
-
-                        i++;
-                    }
-                    int lastCell = i - 1;
-                    xlWorkSheet.Cells[i, 4] = "Total:";
-                    xlWorkSheet.Cells[i, 5] = "=SOMA(E2:E" + lastCell + ")";
-                    reader.Close();
-                    con.desconectar();
-                }
-                //Salva o arquivo de acordo com a documentação do Excel.
-                try
-                {
-
-                    xlWorkBook.SaveAs(answer, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
-                    Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                    xlWorkBook.Close(true, misValue, misValue);
-                    xlApp.Quit();
-                    //o arquivo foi salvo na pasta Meus Documentos.
-                    string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                    //MessageBox.Show("Concluído. Verifique em " + caminho + "arquivo.xls");
-
-
-                    try
-                    {
-                        FileInfo fi = new FileInfo($@"{caminho}/{answer}.xls");
-                        if (fi.Exists)
-                        {
-                            System.Diagnostics.Process.Start($@"{caminho}/{answer}.xls");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Arquivo não encontrado");
-                        }
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Test");
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("Não foi possivel salvar");
-                }
-
+                MessageBox.Show("Não foi possivel salvar");
             }
-        }
-
-        private void rdbOrdenarPData_CheckedChanged(object sender, EventArgs e)
-        {
-            iniciarGrid();
         }
     }
 }

@@ -19,6 +19,8 @@ namespace totalClean
         int FlagPreencheCmbCliente;
         int FlagPreencheCmbServico;
 
+        int flagIndex;
+
         int contPendencias = 0;
         double valorTotalaCobrar;
 
@@ -51,8 +53,9 @@ namespace totalClean
 
         private void VendaFrm_Load(object sender, EventArgs e)
         {
-            /*flagLimpaCampos = 0;
-            flagPreencheCmb2 = 0;
+            flagLimpaCampos = 1;
+            /*
+             * flagPreencheCmb2 = 0;
             flagPreencheCmb3 = 0;
             flagPreencheCmb4 = 0;
             flagPreencheCmb5 = 0;
@@ -60,9 +63,10 @@ namespace totalClean
             flagPreencheCmb7 = 0;
             flagPreencheCmb8 = 0;
             FlagPreencheCmbCliente = 0;
-            FlagPreencheCmbServico = 0;*/
+            FlagPreencheCmbServico = 0;
 
             limpaCampos();
+            */
             ocultaCmbs();
 
             btnConcluido.Enabled = false;
@@ -73,9 +77,10 @@ namespace totalClean
 
             prencheCmbCliente();
             PreencheCmb1();
-            lblPendencias.Text = "";
 
             int index = cmbCliente.FindString(getCliente);
+
+
             cmbCliente.SelectedIndex = index;
 
             if (cmbCliente.Text != string.Empty)
@@ -92,6 +97,7 @@ namespace totalClean
 
 
             txtDesconto.Text = "0";
+            flagLimpaCampos = 0;
         }
         private void btnNova_Click(object sender, EventArgs e)
         {
@@ -947,6 +953,7 @@ namespace totalClean
         }
         private void prencheCmbCliente()
         {
+            FlagPreencheCmbCliente = 0;
             Cliente primeiroValor = new Cliente();
             List<Cliente> listCliente = new List<Cliente>();
 
@@ -954,7 +961,6 @@ namespace totalClean
             listCliente.Add(primeiroValor);
 
             con.conectar();
-
             SqlDataReader reader;
 
             reader = con.exeCliente("select idCliente, nome from CLiente order by nome ASC");
@@ -1425,6 +1431,10 @@ namespace totalClean
 
         private void cmbCliente_TextChanged(object sender, EventArgs e)
         {
+            if (flagLimpaCampos == 1 ||FlagPreencheCmbCliente == 0)
+            {
+                return;
+            }
             if (cmbCliente.Text == string.Empty)
             {
                 txtCarro.Text = "";
@@ -1475,7 +1485,10 @@ namespace totalClean
 
                     SqlDataReader readerPendencia;
 
+
                     readerPendencia = con.exeCliente($"SELECT valorCobrado from Vendas INNER JOIN Cliente ON ([Vendas].[idCliente] = [Cliente].[idCliente]) WHERE [Vendas].[pago] = 0 AND [Cliente].[nome] LIKE ('{cmbCliente.Text}')");
+
+                    
 
                     if (readerPendencia.HasRows)
                     {
@@ -1516,11 +1529,10 @@ namespace totalClean
 
             precoAtt = 0;
             ValorVenda valorVenda = new ValorVenda();
-
             con.conectar();
 
             SqlDataReader readerPreco;
-
+                        
 
             if (cmbServico1.Text != string.Empty && cmbQtd1.Text != string.Empty)
             {
@@ -1826,6 +1838,11 @@ namespace totalClean
                 return;
             }
             atualizaTotalESubTotal();
+        }
+
+        private void cmbServico1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void cmbServico7_TextChanged(object sender, EventArgs e)

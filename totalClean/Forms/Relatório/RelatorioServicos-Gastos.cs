@@ -18,6 +18,8 @@ namespace totalClean
     public partial class RelatorioServicos_Gastos : Form
     {
         Conexao con = new Conexao();
+        int lastCell;
+        int lastCellVendas;
         public RelatorioServicos_Gastos()
         {
             InitializeComponent();
@@ -301,6 +303,15 @@ namespace totalClean
             Excel.Application xlApp;
             Excel.Workbook xlWorkBook;
             Excel.Worksheet xlWorkSheet;
+
+            Excel.Range rangeTituloVendas;
+            Excel.Range rangeValoresVendas;
+            Excel.Range rangeTabelaVendas;
+
+            Excel.Range rangeTituloGastos;
+            Excel.Range rangeValoresGastos;
+            Excel.Range rangeTabelaGastos;
+
             object misValue = System.Reflection.Missing.Value;
 
             //Cria uma planilha temporária na memória do computador
@@ -323,14 +334,14 @@ namespace totalClean
             xlWorkSheet.Cells[2, 11] = "Pagamento";
             xlWorkSheet.Cells[2, 12] = "Forma Pagamento";
 
-            xlWorkSheet.Cells[1, 13] = "Tabela Gastos";
-            xlWorkSheet.Cells[2, 13] = "Id";
-            xlWorkSheet.Cells[2, 14] = "Setor";
-            xlWorkSheet.Cells[2, 15] = "Descrição";
-            xlWorkSheet.Cells[2, 16] = "Data Vencimento";
-            xlWorkSheet.Cells[2, 17] = "Valor";
-            xlWorkSheet.Cells[2, 18] = "Pagamento";
-            xlWorkSheet.Cells[2, 19] = "Forma de Pagamento";
+            xlWorkSheet.Cells[1, 14] = "Tabela Gastos";
+            xlWorkSheet.Cells[2, 14] = "Id";
+            xlWorkSheet.Cells[2, 15] = "Setor";
+            xlWorkSheet.Cells[2, 16] = "Descrição";
+            xlWorkSheet.Cells[2, 17] = "Data Vencimento";
+            xlWorkSheet.Cells[2, 18] = "Valor";
+            xlWorkSheet.Cells[2, 19] = "Pagamento";
+            xlWorkSheet.Cells[2, 20] = "Forma de Pagamento";
 
 
             //inclui dados de gastos
@@ -348,30 +359,58 @@ namespace totalClean
             {
                 while (readerGasto.Read())
                 {
-                    xlWorkSheet.Cells[i, 13] = readerGasto.GetInt32(0);
-                    xlWorkSheet.Cells[i, 14] = readerGasto.GetString(1);
-                    xlWorkSheet.Cells[i, 15] = readerGasto.GetString(2);
-                    xlWorkSheet.Cells[i, 16] = readerGasto.GetDateTime(3);
-                    xlWorkSheet.Cells[i, 17] = readerGasto.GetDouble(4);
-                    xlWorkSheet.Cells[i, 19] = readerGasto.GetString(6);
+                    xlWorkSheet.Cells[i, 14] = readerGasto.GetInt32(0);
+                    xlWorkSheet.Cells[i, 15] = readerGasto.GetString(1);
+                    xlWorkSheet.Cells[i, 16] = readerGasto.GetString(2);
+                    xlWorkSheet.Cells[i, 17] = readerGasto.GetDateTime(3);
+                    xlWorkSheet.Cells[i, 18] = readerGasto.GetDouble(4);
+                    xlWorkSheet.Cells[i, 20] = readerGasto.GetString(6);
                     Boolean pg = readerGasto.GetBoolean(5);
                     if (pg == true)
                     {
-                        xlWorkSheet.Cells[i, 18] = "PG";
+                        xlWorkSheet.Cells[i, 19] = "PG";
                     }
                     else
                     {
-                        xlWorkSheet.Cells[i, 18] = "EM ABERTO";
+                        xlWorkSheet.Cells[i, 19] = "EM ABERTO";
                     }
 
                     i++;
                 }
-                int lastCell = i - 1;
-                xlWorkSheet.Cells[i, 18] = "Total Gastos:";
-                xlWorkSheet.Cells[i, 19] = "=SOMA(Q2:Q" + lastCell + ")";
+                lastCell = i - 1;
+                xlWorkSheet.Cells[i, 17] = "Total Gastos:";
+                xlWorkSheet.Cells[i, 17].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+
+                xlWorkSheet.Cells[i, 18].Formula = "=SUM(R2:R" + lastCell + ")";
+                xlWorkSheet.Cells[i, 18].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                xlWorkSheet.Cells[i, 18].NumberFormat = "R$#,##0.00";
+                xlWorkSheet.Calculate();
+
                 readerGasto.Close();
                 con.desconectar();
+
             }
+
+            //Colocando borda 
+            rangeTabelaGastos = xlWorkSheet.get_Range("N1", "T" + lastCell);
+            rangeTabelaGastos.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+            // Alinha colunas
+            rangeTabelaGastos.Columns.AutoFit();
+            //Colocando negrito nas células de identificação 
+            rangeTituloGastos = xlWorkSheet.get_Range("N1", "T2");
+            rangeTituloGastos.Font.Bold = true;
+
+
+            //xlWorkSheet.Range[xlWorkSheet.Cells[13, 1], xlWorkSheet.Cells[19, 1]].Merge();
+            xlWorkSheet.get_Range("N1", "T1").Merge();
+            xlWorkSheet.get_Range("N1", "T1").HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlCenter;
+
+
+            // Colocando R$
+            rangeValoresGastos = xlWorkSheet.get_Range("R2", "R" + i);
+            rangeValoresGastos.NumberFormat = "R$#,##0.00";
+            rangeValoresGastos.Columns.AutoFit();
 
             i = 3;
 
@@ -448,14 +487,43 @@ namespace totalClean
                     }
                     i++;
                 }
-                int lastCell = i - 1;
-                xlWorkSheet.Cells[i, 10] = "Total Vendas:";
-                xlWorkSheet.Cells[i, 11] = "=SOMA(J2:J" + lastCell + ")";
+                lastCellVendas = i - 1;
+                xlWorkSheet.Cells[i, 8] = "Total:";
+                xlWorkSheet.Cells[i, 8].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+                xlWorkSheet.Cells[i, 9].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                xlWorkSheet.Cells[i, 9].Formula = "=SUM(I2:I" + lastCellVendas + ")";
+                xlWorkSheet.Cells[i, 9].NumberFormat = "R$#,##0.00";
+                xlWorkSheet.Calculate();
+
+                xlWorkSheet.Cells[i, 10].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                xlWorkSheet.Cells[i, 10].Formula = "=SUM(J2:J" + lastCellVendas + ")";
+                xlWorkSheet.Cells[i, 10].NumberFormat = "R$#,##0.00";
+                xlWorkSheet.Calculate();
+
                 readerVenda.Close();
                 con.desconectar();
             }
 
+            //Colocando borda 
+            rangeTabelaVendas = xlWorkSheet.get_Range("A1", "L" + lastCellVendas);
+            rangeTabelaVendas.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
 
+            // Alinha colunas
+            rangeTabelaVendas.Columns.AutoFit();
+
+            //Colocando negrito nos titulos
+            rangeTituloVendas = xlWorkSheet.get_Range("A1", "L2");
+            rangeTituloVendas.Font.Bold = true;
+
+            //Mesclando e centralizando
+            xlWorkSheet.get_Range("A1", "L1").Merge();
+            xlWorkSheet.get_Range("A1", "L1").HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlCenter;
+
+
+            rangeValoresVendas = xlWorkSheet.get_Range("I2", "J" + i);
+            rangeValoresVendas.NumberFormat = "R$#,##0.00";
+            rangeValoresVendas.Columns.AutoFit();
 
             //Salva o arquivo de acordo com a documentação do Excel.
             try

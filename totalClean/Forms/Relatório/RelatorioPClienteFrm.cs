@@ -17,6 +17,7 @@ namespace totalClean
 {
     public partial class RelatorioClienteFrm : Form
     {
+        int lastCell;
         public RelatorioClienteFrm()
         {
             InitializeComponent();
@@ -418,12 +419,19 @@ namespace totalClean
             Excel.Application xlApp;
             Excel.Workbook xlWorkBook;
             Excel.Worksheet xlWorkSheet;
+            Excel.Range rangeTitulo;
+            Excel.Range rangeValores;
+            Excel.Range rangeTabela;
             object misValue = System.Reflection.Missing.Value;
 
             //Cria uma planilha temporária na memória do computador
             xlApp = new Excel.Application();
             xlWorkBook = xlApp.Workbooks.Add(misValue);
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+
+            //Auto size columns
+            xlWorkSheet.Columns.AutoFit();
 
             //incluindo dados
             xlWorkSheet.Cells[1, 1] = "Id Venda";
@@ -518,14 +526,48 @@ namespace totalClean
 
                     i++;
                 }
-                int lastCell = i - 1;
-                xlWorkSheet.Cells[i, 8] = "Total:";
-                xlWorkSheet.Cells[i, 9] = "=SOMA(I2:I" + lastCell + ")";
+
+                //Atribuindo valore de subtotal e total
+                lastCell = i - 1;
+                xlWorkSheet.Cells[i, 7] = "Total:";
+                //xlWorkSheet.Cells[i, 7].Interior.Color = ColorTranslator.FromHtml("#9ea7aa");
+                xlWorkSheet.Cells[i, 7].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+                // xlWorkSheet.Cells[i, 9].Interior.Color = ColorTranslator.FromHtml("#cfd8dc");
+                xlWorkSheet.Cells[i, 9].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                xlWorkSheet.Cells[i, 9].Formula = "=SUM(I2:I" + lastCell + ")";
+                xlWorkSheet.Calculate();
+                xlWorkSheet.Cells[i, 9].NumberFormat = "R$#,##0.00";
+
+                xlWorkSheet.Cells[i, 8].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                //   xlWorkSheet.Cells[i, 8].Interior.Color = ColorTranslator.FromHtml("#cfd8dc");
+                xlWorkSheet.Cells[i, 8].Formula = "=SUM(H2:H" + lastCell + ")";
+                xlWorkSheet.Calculate();
+                xlWorkSheet.Cells[i, 8].NumberFormat = "R$#,##0.00";
+
+
                 reader.Close();
                 con.desconectar();
+
             }
 
+            //Colocando borda 
+            rangeTabela = xlWorkSheet.get_Range("A1", "L" + lastCell);
+            rangeTabela.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
 
+            // Alinha colunas
+            rangeTabela.Columns.AutoFit();
+
+            //Colocando cores nas células de identificação 
+            rangeTitulo = xlWorkSheet.get_Range("A1", "L1");
+
+            //rangeTitulo.Interior.Color = ColorTranslator.FromHtml("#9ea7aa");
+            rangeTitulo.Font.Bold = true;
+
+            // Colocando R$
+            rangeValores = xlWorkSheet.get_Range("H2", "I" + i);
+            rangeValores.NumberFormat = "R$#,##0.00";
+            rangeValores.Columns.AutoFit();
 
             //Salva o arquivo de acordo com a documentação do Excel.
             try

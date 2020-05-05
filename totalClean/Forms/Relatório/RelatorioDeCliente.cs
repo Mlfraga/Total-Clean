@@ -233,7 +233,7 @@ namespace totalClean
 
         private void btnGerarRelatorio_Click(object sender, EventArgs e)
         {
-            int i = 2;
+            int i = 3;
 
             String answer = Interaction.InputBox("Digite o nome do arquivo de relatorio", "", null, -1, -1);
 
@@ -248,6 +248,9 @@ namespace totalClean
             Excel.Application xlApp;
             Excel.Workbook xlWorkBook;
             Excel.Worksheet xlWorkSheet;
+            Excel.Range rangeTitulo;
+            Excel.Range rangeValores;
+            Excel.Range rangeTabela;
             object misValue = System.Reflection.Missing.Value;
 
             //Cria uma planilha temporária na memória do computador
@@ -256,10 +259,11 @@ namespace totalClean
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
             //incluindo dados
-            xlWorkSheet.Cells[1, 1] = "Nome";
-            xlWorkSheet.Cells[1, 2] = "Telefone";
-            xlWorkSheet.Cells[1, 3] = "Endereço";
-            xlWorkSheet.Cells[1, 4] = "Cpf ou Cnpj";
+            xlWorkSheet.Cells[1, 1] = "Lista de Clientes";
+            xlWorkSheet.Cells[2, 1] = "Nome";
+            xlWorkSheet.Cells[2, 2] = "Telefone";
+            xlWorkSheet.Cells[2, 3] = "Endereço";
+            xlWorkSheet.Cells[2, 4] = "Cpf ou Cnpj";
 
             con.conectar();
             SqlDataReader reader;
@@ -312,7 +316,7 @@ namespace totalClean
                     {
                         xlWorkSheet.Cells[i, 1] = reader.GetString(0);
                         xlWorkSheet.Cells[i, 2] = reader.GetString(1).Trim();
-                      
+
                         try
                         {
                             xlWorkSheet.Cells[i, 3] = reader.GetString(2).Trim();
@@ -373,6 +377,15 @@ namespace totalClean
                 con.desconectar();
             }
 
+            rangeTitulo = xlWorkSheet.get_Range("A1", "D2");
+            rangeTitulo.Font.Bold = true;
+
+            rangeTabela = xlWorkSheet.get_Range("A1", "D" + (i - 1));
+            rangeTabela.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+            rangeTabela.Columns.AutoFit();
+
+            xlWorkSheet.get_Range("A1", "D1").Merge();
+            xlWorkSheet.get_Range("A1", "D1").HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlCenter;
 
             //Salva o arquivo de acordo com a documentação do Excel.
             try

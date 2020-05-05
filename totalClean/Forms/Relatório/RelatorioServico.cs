@@ -17,6 +17,8 @@ namespace totalClean
 {
     public partial class RelatorioServico : Form
     {
+        int lastCell;
+       
         public RelatorioServico()
         {
             InitializeComponent();
@@ -495,7 +497,7 @@ namespace totalClean
                     {
                         reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[frotista] = 0 AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' AND [VendasServicos].idServico = ('{vs.servico1}') ORDER BY idVenda DESC");
                     }
-                    
+
                     else
                     {
                         reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[frotista] = 0 AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' AND [VendasServicos].idServico = ('{vs.servico1}') ORDER BY [Vendas].[data] DESC");
@@ -699,6 +701,64 @@ namespace totalClean
 
         private void btnGerarRelatorio_Click(object sender, EventArgs e)
         {
+
+            // Incluindo os dados das linhas
+
+            Classes.VendasServicos vs = new Classes.VendasServicos();
+
+            DateTime dataI = DtInicialVenda.Value;
+            DateTime dataF = dtFinalVenda.Value;
+            vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
+
+            con.conectar();
+            SqlDataReader reader;
+            if (rdbAmbos.Checked == true)
+            {
+
+                if (cmbServico.Text == "")
+                {
+                    reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
+                    construtor(reader);
+                }
+                else
+                {
+                    reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [VendasServicos].idServico = ('{vs.servico1}') AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
+                    construtor(reader);
+                }
+
+            }
+            if (rdbFrotistas.Checked == true)
+            {
+                if (cmbServico.Text == "")
+                {
+                    reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[frotista] = 1 AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
+                    construtor(reader);
+                }
+                else
+                {
+                    reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[frotista] = 1 AND [VendasServicos].idServico = ('{vs.servico1}') AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
+                    construtor(reader);
+                }
+            }
+            if (rdbParticulares.Checked == true)
+            {
+                if (cmbServico.Text == "")
+                {
+                    reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[frotista] = 0 AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
+                    construtor(reader);
+                }
+                else
+                {
+                    reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[frotista] = 0 AND [VendasServicos].idServico = ('{vs.servico1}') AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
+                    construtor(reader);
+                }
+            }
+            
+        }
+       
+
+        public void construtor(SqlDataReader reader)
+        {
             int i = 2;
 
             String answer = Interaction.InputBox("Digite o nome do arquivo de relatorio", "", null, -1, -1);
@@ -714,6 +774,9 @@ namespace totalClean
             Excel.Application xlApp;
             Excel.Workbook xlWorkBook;
             Excel.Worksheet xlWorkSheet;
+            Excel.Range rangeTitulo;
+            Excel.Range rangeValores;
+            Excel.Range rangeTabela;
             object misValue = System.Reflection.Missing.Value;
 
             //Cria uma planilha temporária na memória do computador
@@ -721,7 +784,12 @@ namespace totalClean
             xlWorkBook = xlApp.Workbooks.Add(misValue);
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
-            //incluindo dados
+
+            //Auto size columns
+            xlWorkSheet.Columns.AutoFit();
+
+
+            //incluindo os títulos de cada coluna
             xlWorkSheet.Cells[1, 1] = "Id Venda";
             xlWorkSheet.Cells[1, 2] = "Classificação";
             xlWorkSheet.Cells[1, 3] = "Cliente";
@@ -735,679 +803,163 @@ namespace totalClean
             xlWorkSheet.Cells[1, 11] = "Pagamento";
             xlWorkSheet.Cells[1, 12] = "Forma de Pagamento";
 
-            Classes.VendasServicos vs = new Classes.VendasServicos();
 
-            DateTime dataI = DtInicialVenda.Value;
-            DateTime dataF = dtFinalVenda.Value;
-
-
-            con.conectar();
-            SqlDataReader reader;
-
-            if (rdbAmbos.Checked == true)
+            if (reader.HasRows)
             {
-                if (cmbServico.Text == "")
+
+
+                while (reader.Read())
                 {
-                    reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
-                    if (reader.HasRows)
+                    xlWorkSheet.Cells[i, 1] = reader.GetInt32(0);
+                    Boolean tipo = reader.GetBoolean(1);
+
+                    if (tipo == true)
                     {
-                        while (reader.Read())
-                        {
-                            xlWorkSheet.Cells[i, 1] = reader.GetInt32(0);
-                            Boolean tipo = reader.GetBoolean(1);
-
-                            if (tipo == true)
-                            {
-                                xlWorkSheet.Cells[i, 2] = "Frotista";
-                            }
-                            else
-                            {
-                                xlWorkSheet.Cells[i, 2] = "Particular";
-                            }
-
-                            xlWorkSheet.Cells[i, 3] = reader.GetString(2).Trim();
-
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 4] = reader.GetString(3).Trim();
-                            }
-                            catch
-                            {
-                                xlWorkSheet.Cells[i, 4] = "";
-                            }
-
-                            xlWorkSheet.Cells[i, 5] = reader.GetString(4);
-                            xlWorkSheet.Cells[i, 6] = reader.GetString(5);
-                            xlWorkSheet.Cells[i, 7] = reader.GetString(6);
-                            xlWorkSheet.Cells[i, 8] = reader.GetDouble(7);
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 9] = reader.GetDouble(8);
-                            }
-                            catch
-                            {
-                                xlWorkSheet.Cells[i, 9] = reader.GetDouble(7);
-                            }
-                            xlWorkSheet.Cells[i, 10] = reader.GetDateTime(9);
-
-                            Boolean pg = reader.GetBoolean(10);
-
-                            if (pg == true)
-                            {
-                                xlWorkSheet.Cells[i, 11] = "PG";
-                            }
-                            else
-                            {
-                                xlWorkSheet.Cells[i, 11] = "EM ABERTO";
-                            }
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 12] = reader.GetString(11);
-                            }
-                            catch (Exception)
-                            {
-
-                            }
-                            i++;
-                        }
-                        int lastCell = i - 1;
-                        xlWorkSheet.Cells[i, 8] = "Total:";
-                        xlWorkSheet.Cells[i, 9] = "=SOMA(I2:I" + lastCell + ")";
-                        reader.Close();
-                        con.desconectar();
+                        xlWorkSheet.Cells[i, 2] = "Frotista";
+                    }
+                    else
+                    {
+                        xlWorkSheet.Cells[i, 2] = "Particular";
                     }
 
 
+                    xlWorkSheet.Cells[i, 3] = reader.GetString(2).Trim();
 
-                    //Salva o arquivo de acordo com a documentação do Excel.
+
                     try
                     {
+                        xlWorkSheet.Cells[i, 4] = reader.GetString(3).Trim();
 
-                        xlWorkBook.SaveAs(answer, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
-                        Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                        xlWorkBook.Close(true, misValue, misValue);
-                        xlApp.Quit();
-                        //o arquivo foi salvo na pasta Meus Documentos.
-                        string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                        //MessageBox.Show("Concluído. Verifique em " + caminho + "arquivo.xls");
-
-
-                        try
-                        {
-                            FileInfo fi = new FileInfo($@"{caminho}/{answer}.xls");
-                            if (fi.Exists)
-                            {
-                                System.Diagnostics.Process.Start($@"{caminho}/{answer}.xls");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Arquivo não encontrado");
-                            }
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Test");
-                        }
                     }
                     catch
                     {
-                        MessageBox.Show("Não foi possivel salvar");
-                    }
-                }
-                else
-                {
-                    vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
-                    reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [VendasServicos].idServico = ('{vs.servico1}') AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            xlWorkSheet.Cells[i, 1] = reader.GetInt32(0);
-                            Boolean tipo = reader.GetBoolean(1);
+                        xlWorkSheet.Cells[i, 4] = "";
 
-                            if (tipo == true)
-                            {
-                                xlWorkSheet.Cells[i, 2] = "Frotista";
-                            }
-                            else
-                            {
-                                xlWorkSheet.Cells[i, 2] = "Particular";
-                            }
-
-                            xlWorkSheet.Cells[i, 3] = reader.GetString(2).Trim();
-
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 4] = reader.GetString(3).Trim();
-                            }
-                            catch
-                            {
-                                xlWorkSheet.Cells[i, 4] = "";
-                            }
-
-                            xlWorkSheet.Cells[i, 5] = reader.GetString(4);
-                            xlWorkSheet.Cells[i, 6] = reader.GetString(5);
-                            xlWorkSheet.Cells[i, 7] = reader.GetString(6);
-                            xlWorkSheet.Cells[i, 8] = reader.GetDouble(7);
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 9] = reader.GetDouble(8);
-                            }
-                            catch
-                            {
-                                xlWorkSheet.Cells[i, 9] = reader.GetDouble(7);
-                            }
-                            xlWorkSheet.Cells[i, 10] = reader.GetDateTime(9);
-
-                            Boolean pg = reader.GetBoolean(10);
-
-                            if (pg == true)
-                            {
-                                xlWorkSheet.Cells[i, 11] = "PG";
-                            }
-                            else
-                            {
-                                xlWorkSheet.Cells[i, 11] = "EM ABERTO";
-                            }
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 12] = reader.GetString(11);
-                            }
-                            catch (Exception)
-                            {
-
-                            }
-                            i++;
-                        }
-                        int lastCell = i - 1;
-                        xlWorkSheet.Cells[i, 8] = "Total:";
-                        xlWorkSheet.Cells[i, 9] = "=SOMA(I2:I" + lastCell + ")";
-                        reader.Close();
-                        con.desconectar();
                     }
 
+                    xlWorkSheet.Cells[i, 5] = reader.GetString(4);
 
+                    xlWorkSheet.Cells[i, 6] = reader.GetString(5);
 
-                    //Salva o arquivo de acordo com a documentação do Excel.
+                    xlWorkSheet.Cells[i, 7] = reader.GetString(6);
+
+                    xlWorkSheet.Cells[i, 8] = reader.GetDouble(7);
+
                     try
                     {
+                        xlWorkSheet.Cells[i, 9] = reader.GetDouble(8);
 
-                        xlWorkBook.SaveAs(answer, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
-                        Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                        xlWorkBook.Close(true, misValue, misValue);
-                        xlApp.Quit();
-                        //o arquivo foi salvo na pasta Meus Documentos.
-                        string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                        //MessageBox.Show("Concluído. Verifique em " + caminho + "arquivo.xls");
-
-
-                        try
-                        {
-                            FileInfo fi = new FileInfo($@"{caminho}/{answer}.xls");
-                            if (fi.Exists)
-                            {
-                                System.Diagnostics.Process.Start($@"{caminho}/{answer}.xls");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Arquivo não encontrado");
-                            }
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Test");
-                        }
                     }
                     catch
                     {
-                        MessageBox.Show("Não foi possivel salvar");
+                        xlWorkSheet.Cells[i, 9] = reader.GetDouble(7);
                     }
-                }
-            }
-            if (rdbFrotistas.Checked == true)
-            {
-                if (cmbServico.Text == "")
-                {
-                    reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[frotista] = 1 AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
-                    if (reader.HasRows)
+
+                    xlWorkSheet.Cells[i, 10] = reader.GetDateTime(9);
+
+                    Boolean pg = reader.GetBoolean(10);
+
+                    if (pg == true)
                     {
-                        while (reader.Read())
-                        {
-                            xlWorkSheet.Cells[i, 1] = reader.GetInt32(0);
-                            Boolean tipo = reader.GetBoolean(1);
-
-                            if (tipo == true)
-                            {
-                                xlWorkSheet.Cells[i, 2] = "Frotista";
-                            }
-                            else
-                            {
-                                xlWorkSheet.Cells[i, 2] = "Particular";
-                            }
-
-                            xlWorkSheet.Cells[i, 3] = reader.GetString(2).Trim();
-
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 4] = reader.GetString(3).Trim();
-                            }
-                            catch
-                            {
-                                xlWorkSheet.Cells[i, 4] = "";
-                            }
-
-                            xlWorkSheet.Cells[i, 5] = reader.GetString(4);
-                            xlWorkSheet.Cells[i, 6] = reader.GetString(5);
-                            xlWorkSheet.Cells[i, 7] = reader.GetString(6);
-                            xlWorkSheet.Cells[i, 8] = reader.GetDouble(7);
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 9] = reader.GetDouble(8);
-                            }
-                            catch
-                            {
-                                xlWorkSheet.Cells[i, 9] = reader.GetDouble(7);
-                            }
-                            xlWorkSheet.Cells[i, 10] = reader.GetDateTime(9);
-
-                            Boolean pg = reader.GetBoolean(10);
-
-                            if (pg == true)
-                            {
-                                xlWorkSheet.Cells[i, 11] = "PG";
-                            }
-                            else
-                            {
-                                xlWorkSheet.Cells[i, 11] = "EM ABERTO";
-                            }
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 12] = reader.GetString(11);
-                            }
-                            catch (Exception)
-                            {
-
-                            }
-                            i++;
-                        }
-                        int lastCell = i - 1;
-                        xlWorkSheet.Cells[i, 8] = "Total:";
-                        xlWorkSheet.Cells[i, 9] = "=SOMA(I2:I" + lastCell + ")";
-                        reader.Close();
-                        con.desconectar();
+                        xlWorkSheet.Cells[i, 11] = "PG";
                     }
-
-
-
-                    //Salva o arquivo de acordo com a documentação do Excel.
+                    else
+                    {
+                        xlWorkSheet.Cells[i, 11] = "EM ABERTO";
+                    }
                     try
                     {
-
-                        xlWorkBook.SaveAs(answer, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
-                        Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                        xlWorkBook.Close(true, misValue, misValue);
-                        xlApp.Quit();
-                        //o arquivo foi salvo na pasta Meus Documentos.
-                        string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                        //MessageBox.Show("Concluído. Verifique em " + caminho + "arquivo.xls");
-
-
-                        try
-                        {
-                            FileInfo fi = new FileInfo($@"{caminho}/{answer}.xls");
-                            if (fi.Exists)
-                            {
-                                System.Diagnostics.Process.Start($@"{caminho}/{answer}.xls");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Arquivo não encontrado");
-                            }
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Test");
-                        }
+                        xlWorkSheet.Cells[i, 12] = reader.GetString(11);
                     }
-                    catch
+                    catch (Exception)
                     {
-                        MessageBox.Show("Não foi possivel salvar");
+
                     }
+                    i++;
                 }
-                else
-                {
-                    vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
-                    reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[frotista] = 1 AND [VendasServicos].idServico = ('{vs.servico1}') AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            xlWorkSheet.Cells[i, 1] = reader.GetInt32(0);
-                            Boolean tipo = reader.GetBoolean(1);
 
-                            if (tipo == true)
-                            {
-                                xlWorkSheet.Cells[i, 2] = "Frotista";
-                            }
-                            else
-                            {
-                                xlWorkSheet.Cells[i, 2] = "Particular";
-                            }
+                //Atribuindo valore de subtotal e total
+                lastCell = i - 1;
+                xlWorkSheet.Cells[i, 7] = "Total:";
+                //xlWorkSheet.Cells[i, 7].Interior.Color = ColorTranslator.FromHtml("#9ea7aa");
+                xlWorkSheet.Cells[i, 7].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
 
-                            xlWorkSheet.Cells[i, 3] = reader.GetString(2).Trim();
+               // xlWorkSheet.Cells[i, 9].Interior.Color = ColorTranslator.FromHtml("#cfd8dc");
+                xlWorkSheet.Cells[i, 9].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                xlWorkSheet.Cells[i, 9].Formula = "=SUM(I2:I" + lastCell + ")";
+                xlWorkSheet.Cells[i, 9].NumberFormat = "R$#,##0.00";
+                xlWorkSheet.Calculate();
 
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 4] = reader.GetString(3).Trim();
-                            }
-                            catch
-                            {
-                                xlWorkSheet.Cells[i, 4] = "";
-                            }
+                xlWorkSheet.Cells[i, 8].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+             //   xlWorkSheet.Cells[i, 8].Interior.Color = ColorTranslator.FromHtml("#cfd8dc");
+                xlWorkSheet.Cells[i, 8].Formula = "=SUM(H2:H" + lastCell + ")";
+                xlWorkSheet.Cells[i, 8].NumberFormat = "R$#,##0.00";
+                xlWorkSheet.Calculate();
 
-                            xlWorkSheet.Cells[i, 5] = reader.GetString(4);
-                            xlWorkSheet.Cells[i, 6] = reader.GetString(5);
-                            xlWorkSheet.Cells[i, 7] = reader.GetString(6);
-                            xlWorkSheet.Cells[i, 8] = reader.GetDouble(7);
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 9] = reader.GetDouble(8);
-                            }
-                            catch
-                            {
-                                xlWorkSheet.Cells[i, 9] = reader.GetDouble(7);
-                            }
-                            xlWorkSheet.Cells[i, 10] = reader.GetDateTime(9);
-
-                            Boolean pg = reader.GetBoolean(10);
-
-                            if (pg == true)
-                            {
-                                xlWorkSheet.Cells[i, 11] = "PG";
-                            }
-                            else
-                            {
-                                xlWorkSheet.Cells[i, 11] = "EM ABERTO";
-                            }
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 12] = reader.GetString(11);
-                            }
-                            catch (Exception)
-                            {
-
-                            }
-                            i++;
-                        }
-                        int lastCell = i - 1;
-                        xlWorkSheet.Cells[i, 8] = "Total:";
-                        xlWorkSheet.Cells[i, 9] = "=SOMA(I2:I" + lastCell + ")";
-                        reader.Close();
-                        con.desconectar();
-                    }
-
-
-
-                    //Salva o arquivo de acordo com a documentação do Excel.
-                    try
-                    {
-
-                        xlWorkBook.SaveAs(answer, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
-                        Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                        xlWorkBook.Close(true, misValue, misValue);
-                        xlApp.Quit();
-                        //o arquivo foi salvo na pasta Meus Documentos.
-                        string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                        //MessageBox.Show("Concluído. Verifique em " + caminho + "arquivo.xls");
-
-
-                        try
-                        {
-                            FileInfo fi = new FileInfo($@"{caminho}/{answer}.xls");
-                            if (fi.Exists)
-                            {
-                                System.Diagnostics.Process.Start($@"{caminho}/{answer}.xls");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Arquivo não encontrado");
-                            }
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Test");
-                        }
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Não foi possivel salvar");
-                    }
-                }
+                reader.Close();
+                con.desconectar();
             }
 
-            if (rdbParticulares.Checked == true)
+            //Colocando borda 
+            rangeTabela = xlWorkSheet.get_Range("A1", "L" + lastCell);
+            rangeTabela.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+            // Alinha colunas
+            rangeTabela.Columns.AutoFit();
+
+            //Colocando cor nas linhas de dados
+           // rangeTabela.Interior.Color = ColorTranslator.FromHtml("#cfd8dc");
+
+
+            //Colocando cores nas células de identificação 
+            rangeTitulo = xlWorkSheet.get_Range("A1", "L1");
+           
+            //rangeTitulo.Interior.Color = ColorTranslator.FromHtml("#9ea7aa");
+            rangeTitulo.Font.Bold = true;
+
+            // Colocando R$
+            rangeValores = xlWorkSheet.get_Range("H2", "I" + i);
+            rangeValores.NumberFormat = "R$#,##0.00";
+            rangeValores.Columns.AutoFit();
+
+            //Salva o arquivo de acordo com a documentação do Excel.
+            try
             {
-                if (cmbServico.Text == "")
+
+                xlWorkBook.SaveAs(answer, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
+                Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlWorkBook.Close(true, misValue, misValue);
+                xlApp.Quit();
+                //o arquivo foi salvo na pasta Meus Documentos.
+                string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                try
                 {
-                    reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[frotista] = 0 AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
-                    if (reader.HasRows)
+                    FileInfo fi = new FileInfo($@"{caminho}/{answer}.xls");
+                    if (fi.Exists)
                     {
-                        while (reader.Read())
-                        {
-                            xlWorkSheet.Cells[i, 1] = reader.GetInt32(0);
-                            Boolean tipo = reader.GetBoolean(1);
-
-                            if (tipo == true)
-                            {
-                                xlWorkSheet.Cells[i, 2] = "Frotista";
-                            }
-                            else
-                            {
-                                xlWorkSheet.Cells[i, 2] = "Particular";
-                            }
-
-                            xlWorkSheet.Cells[i, 3] = reader.GetString(2).Trim();
-
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 4] = reader.GetString(3).Trim();
-                            }
-                            catch
-                            {
-                                xlWorkSheet.Cells[i, 4] = "";
-                            }
-
-                            xlWorkSheet.Cells[i, 5] = reader.GetString(4);
-                            xlWorkSheet.Cells[i, 6] = reader.GetString(5);
-                            xlWorkSheet.Cells[i, 7] = reader.GetString(6);
-                            xlWorkSheet.Cells[i, 8] = reader.GetDouble(7);
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 9] = reader.GetDouble(8);
-                            }
-                            catch
-                            {
-                                xlWorkSheet.Cells[i, 9] = reader.GetDouble(7);
-                            }
-                            xlWorkSheet.Cells[i, 10] = reader.GetDateTime(9);
-
-                            Boolean pg = reader.GetBoolean(10);
-
-                            if (pg == true)
-                            {
-                                xlWorkSheet.Cells[i, 11] = "PG";
-                            }
-                            else
-                            {
-                                xlWorkSheet.Cells[i, 11] = "EM ABERTO";
-                            }
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 12] = reader.GetString(11);
-                            }
-                            catch (Exception)
-                            {
-
-                            }
-                            i++;
-                        }
-                        int lastCell = i - 1;
-                        xlWorkSheet.Cells[i, 8] = "Total:";
-                        xlWorkSheet.Cells[i, 9] = "=SOMA(I2:I" + lastCell + ")";
-                        reader.Close();
-                        con.desconectar();
+                        System.Diagnostics.Process.Start($@"{caminho}/{answer}.xls");
                     }
-
-
-
-                    //Salva o arquivo de acordo com a documentação do Excel.
-                    try
+                    else
                     {
-
-                        xlWorkBook.SaveAs(answer, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
-                        Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                        xlWorkBook.Close(true, misValue, misValue);
-                        xlApp.Quit();
-                        //o arquivo foi salvo na pasta Meus Documentos.
-                        string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                        //MessageBox.Show("Concluído. Verifique em " + caminho + "arquivo.xls");
-
-
-                        try
-                        {
-                            FileInfo fi = new FileInfo($@"{caminho}/{answer}.xls");
-                            if (fi.Exists)
-                            {
-                                System.Diagnostics.Process.Start($@"{caminho}/{answer}.xls");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Arquivo não encontrado");
-                            }
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Test");
-                        }
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Não foi possivel salvar");
+                        MessageBox.Show("Arquivo não encontrado");
                     }
                 }
-                else
+                catch
                 {
-                    vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
-                    reader = con.exeCliente($"SELECT [VendasServicos].[idVenda], [Cliente].[frotista], [Cliente].[nome] as 'Cliente', [Cliente].[pfpj], [Vendas].[carro], [Vendas].[placa], [Servicos].[nome] as 'Serviço', [Servicos].[preco], [VendasServicos].[valorCobrado], [Vendas].[data], [Vendas].[pago], [Vendas].[formaPagamento] FROM [VendasServicos] INNER JOIN Vendas ON ([VendasServicos].[idVenda] = [Vendas].[idVenda])INNER JOIN Cliente ON Vendas.idCliente = Cliente.idCliente INNER JOIN Servicos ON [VendasServicos].idServico = Servicos.idServico WHERE [Cliente].[frotista] = 0 AND [VendasServicos].idServico = ('{vs.servico1}') AND [Vendas].[data] BETWEEN '{dataI}' AND '{dataF}' ");
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            xlWorkSheet.Cells[i, 1] = reader.GetInt32(0);
-                            Boolean tipo = reader.GetBoolean(1);
-
-                            if (tipo == true)
-                            {
-                                xlWorkSheet.Cells[i, 2] = "Frotista";
-                            }
-                            else
-                            {
-                                xlWorkSheet.Cells[i, 2] = "Particular";
-                            }
-
-                            xlWorkSheet.Cells[i, 3] = reader.GetString(2).Trim();
-
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 4] = reader.GetString(3).Trim();
-                            }
-                            catch
-                            {
-                                xlWorkSheet.Cells[i, 4] = "";
-                            }
-
-                            xlWorkSheet.Cells[i, 5] = reader.GetString(4);
-                            xlWorkSheet.Cells[i, 6] = reader.GetString(5);
-                            xlWorkSheet.Cells[i, 7] = reader.GetString(6);
-                            xlWorkSheet.Cells[i, 8] = reader.GetDouble(7);
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 9] = reader.GetDouble(8);
-                            }
-                            catch
-                            {
-                                xlWorkSheet.Cells[i, 9] = reader.GetDouble(7);
-                            }
-                            xlWorkSheet.Cells[i, 10] = reader.GetDateTime(9);
-
-                            Boolean pg = reader.GetBoolean(10);
-
-                            if (pg == true)
-                            {
-                                xlWorkSheet.Cells[i, 11] = "PG";
-                            }
-                            else
-                            {
-                                xlWorkSheet.Cells[i, 11] = "EM ABERTO";
-                            }
-                            try
-                            {
-                                xlWorkSheet.Cells[i, 12] = reader.GetString(11);
-                            }
-                            catch (Exception)
-                            {
-
-                            }
-                            i++;
-                        }
-                        int lastCell = i - 1;
-                        xlWorkSheet.Cells[i, 8] = "Total:";
-                        xlWorkSheet.Cells[i, 9] = "=SOMA(I2:I" + lastCell + ")";
-                        reader.Close();
-                        con.desconectar();
-                    }
-
-
-
-                    //Salva o arquivo de acordo com a documentação do Excel.
-                    try
-                    {
-
-                        xlWorkBook.SaveAs(answer, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
-                        Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                        xlWorkBook.Close(true, misValue, misValue);
-                        xlApp.Quit();
-                        //o arquivo foi salvo na pasta Meus Documentos.
-                        string caminho = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                        //MessageBox.Show("Concluído. Verifique em " + caminho + "arquivo.xls");
-
-
-                        try
-                        {
-                            FileInfo fi = new FileInfo($@"{caminho}/{answer}.xls");
-                            if (fi.Exists)
-                            {
-                                System.Diagnostics.Process.Start($@"{caminho}/{answer}.xls");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Arquivo não encontrado");
-                            }
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Test");
-                        }
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Não foi possivel salvar");
-                    }
+                    MessageBox.Show("Test");
                 }
+
+
             }
+            catch
+            {
+                MessageBox.Show("Não foi possivel salvar");
+            }
+
+
+
         }
-
-    
 
         private void rdbOrdenarPData_CheckedChanged(object sender, EventArgs e)
         {

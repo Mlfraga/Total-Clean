@@ -9,7 +9,7 @@ namespace totalClean
 {
     class Conexao
     {
-        private String dadosCon = @"Server=localhost\SQLEXPRESS;Database=TotalClean_BaseTeste;Trusted_Connection=True;";
+        private String dadosCon = @"SERVER = fraga.database.windows.net; DATABASE = TotalClean_db; UID = matheus; PASSWORD = Mm884741";
         private SqlConnection sqlCon;
 
         public void conectar()
@@ -32,6 +32,7 @@ namespace totalClean
         public void desconectar()
         {
             sqlCon.Close();
+            Console.WriteLine("desconectado");
         }
 
         public int executar(String sql)

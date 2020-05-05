@@ -372,6 +372,7 @@
             this.cmbServico1.Name = "cmbServico1";
             this.cmbServico1.Size = new System.Drawing.Size(208, 24);
             this.cmbServico1.TabIndex = 76;
+            this.cmbServico1.SelectedIndexChanged += new System.EventHandler(this.cmbServico1_SelectedIndexChanged);
             this.cmbServico1.TextChanged += new System.EventHandler(this.cmbServico1_TextChanged);
             this.cmbServico1.MouseEnter += new System.EventHandler(this.cmbServico1_MouseEnter);
             // 
