@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "totalClean", "totalClean\totalClean.csproj", "{459F5966-BAAA-4CC1-8ABD-8848BDD3678D}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TotalClean - Setup", "TotalClean - Setup\TotalClean - Setup.vdproj", "{C308EC63-0F48-4134-B725-F943093AEA75}"
-EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Total Clean - Instalador", "Total Clean - Instalador\Total Clean - Instalador.vdproj", "{621AEFAD-6B8C-4F27-8A84-9FBFC587819C}"
 EndProject
 Global
@@ -19,8 +17,6 @@ Global
 		{459F5966-BAAA-4CC1-8ABD-8848BDD3678D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{459F5966-BAAA-4CC1-8ABD-8848BDD3678D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{459F5966-BAAA-4CC1-8ABD-8848BDD3678D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C308EC63-0F48-4134-B725-F943093AEA75}.Debug|Any CPU.ActiveCfg = Debug
-		{C308EC63-0F48-4134-B725-F943093AEA75}.Release|Any CPU.ActiveCfg = Release
 		{621AEFAD-6B8C-4F27-8A84-9FBFC587819C}.Debug|Any CPU.ActiveCfg = Debug
 		{621AEFAD-6B8C-4F27-8A84-9FBFC587819C}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
