@@ -14,7 +14,7 @@ namespace totalClean
         public String CpfCnpj { get; set; }
         public String carro { get; set; }
         public String placa { get; set; }
-        public DateTime data { get; set; }
+        public String data { get; set; }
         public Boolean pago { get; set; }
         public Double valorACobrar { get; set; }
     }

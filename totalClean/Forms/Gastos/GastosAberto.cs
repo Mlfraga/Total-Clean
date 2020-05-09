@@ -41,7 +41,7 @@ namespace totalClean
                     gasto.id = reader.GetInt32(0);
                     gasto.nome = reader.GetString(1);
                     gasto.descricao = reader.GetString(2);
-                    gasto.dataVencimento = reader.GetDateTime(3);
+                    gasto.dataVencimento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
                     gasto.valor = reader.GetDouble(4);
                     gasto.formaPagamento = reader.GetString(5);
                     gasto.pago = reader.GetBoolean(6);

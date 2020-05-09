@@ -126,7 +126,7 @@ namespace totalClean
                     }
                     sv.carro = reader.GetString(4);
                     sv.placa = reader.GetString(5);
-                    sv.data = reader.GetDateTime(6);
+                    sv.data = reader.GetDateTime(6).ToString("dd/MM/yyyy");
                     sv.pago = reader.GetBoolean(7);
 
                     String formaPagamento;
@@ -149,7 +149,7 @@ namespace totalClean
                     }
 
                     dgvPagamentosPendentes.DataSource = null;
-                    dgvPagamentosPendentes.Rows.Add(sv.idVenda, sv.frotista, sv.cliente, sv.CpfCnpj, sv.carro, sv.placa, sv.data.ToShortDateString(), sv.pago, setPreco(sv.idVenda), sv.valorACobrar, formaPagamento);
+                    dgvPagamentosPendentes.Rows.Add(sv.idVenda, sv.frotista, sv.cliente, sv.CpfCnpj, sv.carro, sv.placa, sv.data, sv.pago, setPreco(sv.idVenda), sv.valorACobrar, formaPagamento);
                 }
                 reader.Close();
                 con.desconectar();
@@ -336,7 +336,7 @@ namespace totalClean
                         }
                         sv.carro = reader.GetString(4);
                         sv.placa = reader.GetString(5);
-                        sv.data = reader.GetDateTime(6);
+                        sv.data = reader.GetDateTime(6).ToString("dd/MM/yyyy");
                         sv.pago = reader.GetBoolean(7);
 
                         String formaPagamento;
@@ -360,7 +360,7 @@ namespace totalClean
                         }
 
                         dgvPagamentosPendentes.DataSource = null;
-                        dgvPagamentosPendentes.Rows.Add(sv.idVenda, sv.frotista, sv.cliente, sv.CpfCnpj, sv.carro, sv.placa, sv.data.ToShortDateString(), sv.pago, setPreco(sv.idVenda), sv.valorACobrar, formaPagamento);
+                        dgvPagamentosPendentes.Rows.Add(sv.idVenda, sv.frotista, sv.cliente, sv.CpfCnpj, sv.carro, sv.placa, sv.data, sv.pago, setPreco(sv.idVenda), sv.valorACobrar, formaPagamento);
                     }
                     reader.Close();
                     con.desconectar();

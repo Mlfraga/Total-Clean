@@ -49,7 +49,7 @@ namespace totalClean
                     gasto.id = reader.GetInt32(0);
                     gasto.nome = reader.GetString(1);
                     gasto.descricao = reader.GetString(2);
-                    gasto.dataVencimento = reader.GetDateTime(3);
+                    gasto.dataVencimento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
                     gasto.valor = reader.GetDouble(4);
                     gasto.formaPagamento = reader.GetString(5);
                     gasto.pago = reader.GetBoolean(6);
@@ -95,7 +95,7 @@ namespace totalClean
                     sv.carro = reader.GetString(4);
                     sv.placa = reader.GetString(5);
                     sv.servico = reader.GetString(6);
-                    sv.data = reader.GetDateTime(7);
+                    sv.data = reader.GetDateTime(7).ToString("dd/MM/yyyy");
                     sv.preco = reader.GetDouble(8);
 
                     try
@@ -156,12 +156,13 @@ namespace totalClean
         }
         private void pesquisaGastos()
         {
-            DateTime dataI = DtInicial.Value;
-            DateTime dataF = dtFinal.Value;
+            String dataI = DtInicial.Value.ToString("MM/dd/yyyy");
+            String dataF = dtFinal.Value.ToString("MM/dd/yyyy");
 
             List<Gastos> listGastos = new List<Gastos>();
             con.conectar();
 
+   
             SqlDataReader reader;
 
             reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[data] BETWEEN '{dataI}' AND '{dataF}' ORDER BY idGasto DESC");
@@ -174,7 +175,7 @@ namespace totalClean
                     gasto.id = reader.GetInt32(0);
                     gasto.nome = reader.GetString(1);
                     gasto.descricao = reader.GetString(2);
-                    gasto.dataVencimento = reader.GetDateTime(3);
+                    gasto.dataVencimento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
                     gasto.valor = reader.GetDouble(4);
                     gasto.formaPagamento = reader.GetString(5);
                     gasto.pago = reader.GetBoolean(6);
@@ -197,8 +198,8 @@ namespace totalClean
         }
         private void pesquisaVendas()
         {
-            DateTime dataI = DtInicial.Value;
-            DateTime dataF = dtFinal.Value;
+            String dataI = DtInicial.Value.ToString("MM/dd/yyyy");
+            String dataF = dtFinal.Value.ToString("MM/dd/yyyy");
 
 
 
@@ -231,7 +232,7 @@ namespace totalClean
                     servico.carro = reader.GetString(4);
                     servico.placa = reader.GetString(5);
                     servico.servico = reader.GetString(6);
-                    servico.data = reader.GetDateTime(7);
+                    servico.data = reader.GetDateTime(7).ToString("dd/MM/yyyy");
                     servico.preco = reader.GetDouble(8);
 
                     try
@@ -345,8 +346,8 @@ namespace totalClean
 
 
             //inclui dados de gastos
-            DateTime dataI = DtInicial.Value;
-            DateTime dataF = dtFinal.Value;
+            String dataI = DtInicial.Value.ToString("MM/dd/yyyy");
+            String dataF = dtFinal.Value.ToString("MM/dd/yyyy");
 
             List<Gastos> listGastos = new List<Gastos>();
             con.conectar();

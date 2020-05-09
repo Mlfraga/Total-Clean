@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CadGastos.cs" />
     <Compile Include="Classes\RelatorioCliente.cs" />
     <Compile Include="Classes\Carros.cs" />
     <Compile Include="Classes\VendaFinalizada.cs" />

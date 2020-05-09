@@ -44,7 +44,7 @@ namespace totalClean
                     gasto.id = reader.GetInt32(0);
                     gasto.nome = reader.GetString(1);
                     gasto.descricao = reader.GetString(2);
-                    gasto.dataVencimento = reader.GetDateTime(3);
+                    gasto.dataVencimento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
                     gasto.valor = reader.GetDouble(4);
                     gasto.formaPagamento = reader.GetString(5);
                     gasto.pago = reader.GetBoolean(6);
@@ -119,7 +119,7 @@ namespace totalClean
                         return;
                     }
 
-                    edicaoGastos.dataVencimento = DateTime.Parse(DtGasto.Value.ToString());
+                    edicaoGastos.dataVencimento = DtGasto.Value.ToString("dd/MM/yyyy");
 
                     List<Gastos> listGastos = new List<Gastos>();
                     con.conectar();
@@ -136,7 +136,7 @@ namespace totalClean
                             gasto.id = reader.GetInt32(0);
                             gasto.nome = reader.GetString(1);
                             gasto.descricao = reader.GetString(2);
-                            gasto.dataVencimento = reader.GetDateTime(3);
+                            gasto.dataVencimento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
                             gasto.valor = reader.GetDouble(4);
                             gasto.formaPagamento = reader.GetString(5);
                             gasto.pago = reader.GetBoolean(6);
@@ -163,7 +163,7 @@ namespace totalClean
                     Gastos edicaoGastos = new Gastos();
 
                     edicaoGastos.id = int.Parse(cmbSetor.SelectedValue.ToString());
-                    edicaoGastos.dataVencimento = DateTime.Parse(DtGasto.Value.ToString());
+                    edicaoGastos.dataVencimento = DtGasto.Value.ToString("dd/MM/yyyy");
 
                     List<Gastos> listGastos = new List<Gastos>();
                     con.conectar();
@@ -180,7 +180,7 @@ namespace totalClean
                             gasto.id = reader.GetInt32(0);
                             gasto.nome = reader.GetString(1);
                             gasto.descricao = reader.GetString(2);
-                            gasto.dataVencimento = reader.GetDateTime(3);
+                            gasto.dataVencimento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
                             gasto.valor = reader.GetDouble(4);
                             gasto.formaPagamento = reader.GetString(5);
                             gasto.pago = reader.GetBoolean(6);
@@ -212,7 +212,7 @@ namespace totalClean
                     Gastos edicaoGastos1 = new Gastos();
 
                     edicaoGastos1.id = int.Parse(cmbSetor.SelectedValue.ToString());
-                    edicaoGastos1.dataVencimento = DateTime.Parse(DtGasto.Value.ToString());
+                    edicaoGastos1.dataVencimento = DtGasto.Value.ToString("dd/MM/yyyy");
 
                     List<Gastos> listGastos1 = new List<Gastos>();
                     con.conectar();
@@ -229,7 +229,7 @@ namespace totalClean
                             gasto.id = reader1.GetInt32(0);
                             gasto.nome = reader1.GetString(1);
                             gasto.descricao = reader1.GetString(2);
-                            gasto.dataVencimento = reader1.GetDateTime(3);
+                            gasto.dataVencimento = reader1.GetDateTime(3).ToString("dd/MM/yyyy");
                             gasto.valor = reader1.GetDouble(4);
                             gasto.formaPagamento = reader1.GetString(5);
                             gasto.pago = reader1.GetBoolean(6);

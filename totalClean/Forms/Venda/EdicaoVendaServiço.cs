@@ -24,7 +24,7 @@ namespace totalClean
         private void iniciaGrid()
         {
 
-            List<ServicoVenda> listVendasServicos = new List<ServicoVenda>();
+            List<ServicoVenda> ServicoVenda = new List<ServicoVenda>();
             con.conectar();
 
             SqlDataReader reader;
@@ -53,7 +53,7 @@ namespace totalClean
                     sv.carro = reader.GetString(4);
                     sv.placa = reader.GetString(5);
                     sv.servico = reader.GetString(6);
-                    sv.data = reader.GetDateTime(7);
+                    sv.data = reader.GetDateTime(7).ToString("dd/MM/yyyy");
                     sv.preco = reader.GetDouble(8);
 
                     try
@@ -80,7 +80,7 @@ namespace totalClean
 
                     sv.idVendasServicos = reader.GetInt32(12);
 
-                    listVendasServicos.Add(sv);
+                    ServicoVenda.Add(sv);
                 }
                 reader.Close();
                 con.desconectar();
@@ -90,7 +90,7 @@ namespace totalClean
                 Console.WriteLine("Não retornou dados");
             }
             dgvVendas.DataSource = null;
-            dgvVendas.DataSource = listVendasServicos;
+            dgvVendas.DataSource = ServicoVenda;
         }
 
 
@@ -204,7 +204,7 @@ namespace totalClean
                         sv.carro = reader.GetString(4);
                         sv.placa = reader.GetString(5);
                         sv.servico = reader.GetString(6);
-                        sv.data = reader.GetDateTime(7);
+                        sv.data = reader.GetDateTime(7).ToString("dd/MM/yyyy");
                         sv.preco = reader.GetDouble(8);
 
                         try
@@ -423,7 +423,7 @@ namespace totalClean
                         sv.carro = reader.GetString(4);
                         sv.placa = reader.GetString(5);
                         sv.servico = reader.GetString(6);
-                        sv.data = reader.GetDateTime(7);
+                        sv.data = reader.GetDateTime(7).ToString("dd/MM/yyyy");
                         sv.preco = reader.GetDouble(8);
 
                         try
@@ -746,6 +746,7 @@ namespace totalClean
                     venda.carro = txtCarro.Text;
                     venda.placa = txtPlaca.Text;
                     venda.data = dtpData.Value;
+                    String dataAmericanFormat = dtpData.Value.ToString("MM/dd/yyyy");
 
                     if (rdbTransferencia.Checked == true)
                     {
@@ -842,7 +843,7 @@ namespace totalClean
                     int alteraCliente = con.executar($"UPDATE [dbo].[Vendas] SET [idCliente] = '" + venda.idCliente + "' WHERE idVenda = " + idVenda);
                     int alteraCarro = con.executar($"UPDATE [dbo].[Vendas] SET [carro] = '" + venda.carro + "' WHERE idVenda = " + idVenda);
                     int alteraPlaca = con.executar($"UPDATE [dbo].[Vendas] SET [placa] = '" + venda.placa + "' WHERE idVenda = " + idVenda);
-                    int alteraData = con.executar($"UPDATE [dbo].[Vendas] SET [data] = '" + venda.data + "' WHERE idVenda = " + idVenda);
+                    int alteraData = con.executar($"UPDATE [dbo].[Vendas] SET [data] = '" + dataAmericanFormat + "' WHERE idVenda = " + idVenda);
                     int alteraFormaPagamento = con.executar($"UPDATE [dbo].[Vendas] SET [formaPagamento] = '" + venda.formaPagamento + "' WHERE idVenda = " + idVenda);
 
                     int alteraServico = con.executar($"UPDATE [dbo].[VendasServicos] SET [idServico] = '" + servico + "' WHERE idVendasServicos = " + idVendasServicos);
@@ -881,7 +882,7 @@ namespace totalClean
                             sv.carro = reader.GetString(4);
                             sv.placa = reader.GetString(5);
                             sv.servico = reader.GetString(6);
-                            sv.data = reader.GetDateTime(7);
+                            sv.data = reader.GetDateTime(7).ToString("dd/MM/yyyy");
                             sv.preco = reader.GetDouble(8);
 
                             try

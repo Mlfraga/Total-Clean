@@ -116,7 +116,7 @@ namespace totalClean
                     gasto.id = reader.GetInt32(0);
                     gasto.nome = reader.GetString(1);
                     gasto.descricao = reader.GetString(2);
-                    gasto.dataVencimento = reader.GetDateTime(3);
+                    gasto.dataVencimento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
                     gasto.valor = reader.GetDouble(4);
                     gasto.formaPagamento = reader.GetString(5);
                     gasto.pago = reader.GetBoolean(6);
@@ -194,14 +194,16 @@ namespace totalClean
 
                 edicaoGastos.id = int.Parse(cmbSetor.SelectedValue.ToString());
                 edicaoGastos.descricao = txtDescricao.Text;
-                edicaoGastos.dataVencimento = DateTime.Parse(DtGasto.Value.ToString());
+                edicaoGastos.dataVencimento = DtGasto.Value.ToString();
+
+                String dataAmericanFormat = DtGasto.Value.ToString("MM/dd/yyyy");
 
                 List<Gastos> listGastos = new List<Gastos>();
                 con.conectar();
 
                 SqlDataReader reader;
 
-                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [SetorGastos].[idSetor] = '{edicaoGastos.id}' AND [Gastos].[descricao] LIKE '%{edicaoGastos.descricao}%' AND [Gastos].[data] = '{edicaoGastos.dataVencimento}' ORDER BY idGasto DESC");
+                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [SetorGastos].[idSetor] = '{edicaoGastos.id}' AND [Gastos].[descricao] LIKE '%{edicaoGastos.descricao}%' AND [Gastos].[data] = '{dataAmericanFormat}' ORDER BY idGasto DESC");
 
                 if (reader.HasRows)
                 {
@@ -211,7 +213,7 @@ namespace totalClean
                         gasto.id = reader.GetInt32(0);
                         gasto.nome = reader.GetString(1);
                         gasto.descricao = reader.GetString(2);
-                        gasto.dataVencimento = reader.GetDateTime(3);
+                        gasto.dataVencimento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
                         gasto.valor = reader.GetDouble(4);
                         gasto.formaPagamento = reader.GetString(5);
                         gasto.pago = reader.GetBoolean(6);
@@ -242,14 +244,16 @@ namespace totalClean
                     return;
                 }
                 edicaoGastos.descricao = txtDescricao.Text;
-                edicaoGastos.dataVencimento = DateTime.Parse(DtGasto.Value.ToString());
+                edicaoGastos.dataVencimento = DtGasto.Value.ToString();
+
+                String dataAmericanFormat = DtGasto.Value.ToString("MM/dd/yyyy");
 
                 List<Gastos> listGastos = new List<Gastos>();
                 con.conectar();
 
                 SqlDataReader reader;
 
-                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [SetorGastos].[idSetor] = '{edicaoGastos.id}' AND  [Gastos].[data] = '{edicaoGastos.dataVencimento}' ORDER BY idGasto DESC");
+                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [SetorGastos].[idSetor] = '{edicaoGastos.id}' AND  [Gastos].[data] = '{dataAmericanFormat}' ORDER BY idGasto DESC");
 
                 if (reader.HasRows)
                 {
@@ -259,7 +263,7 @@ namespace totalClean
                         gasto.id = reader.GetInt32(0);
                         gasto.nome = reader.GetString(1);
                         gasto.descricao = reader.GetString(2);
-                        gasto.dataVencimento = reader.GetDateTime(3);
+                        gasto.dataVencimento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
                         gasto.valor = reader.GetDouble(4);
                         gasto.formaPagamento = reader.GetString(5);
                         gasto.pago = reader.GetBoolean(6);
@@ -291,14 +295,15 @@ namespace totalClean
 
                 edicaoGastos.id = int.Parse(cmbSetor.SelectedValue.ToString());
                 edicaoGastos.descricao = txtDescricao.Text;
-                edicaoGastos.dataVencimento = DateTime.Parse(DtGasto.Value.ToString());
+                edicaoGastos.dataVencimento = DtGasto.Value.ToString();
+                String dataAmericanFormat = DtGasto.Value.ToString("MM/dd/yyyy");
 
                 List<Gastos> listGastos = new List<Gastos>();
                 con.conectar();
 
                 SqlDataReader reader;
 
-                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[data] = '{edicaoGastos.dataVencimento}' ORDER BY idGasto DESC");
+                reader = con.exeCliente($"SELECT [Gastos].[idGasto], [SetorGastos].[nome] as 'Setor Gasto', [Gastos].[descricao] as 'Descriçao', [Gastos].[data], [Gastos].[valor], [Gastos].[formaPagamento], [Gastos].[pago] FROM [dbo].[Gastos] INNER JOIN SetorGastos ON [Gastos].[idSetor] = [SetorGastos].[idSetor] WHERE [Gastos].[data] = '{dataAmericanFormat}' ORDER BY idGasto DESC");
 
                 if (reader.HasRows)
                 {
@@ -308,7 +313,7 @@ namespace totalClean
                         gasto.id = reader.GetInt32(0);
                         gasto.nome = reader.GetString(1);
                         gasto.descricao = reader.GetString(2);
-                        gasto.dataVencimento = reader.GetDateTime(3);
+                        gasto.dataVencimento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
                         gasto.valor = reader.GetDouble(4);
                         gasto.formaPagamento = reader.GetString(5);
                         gasto.pago = reader.GetBoolean(6);
@@ -382,7 +387,7 @@ namespace totalClean
                 c.formaPagamento = "Cartão";
             }
 
-            c.dataVencimento = DtGasto.Value;
+            String dataAmericanFormat = DtGasto.Value.ToString("MM/dd/yyyy");
             c.valor = Double.Parse(txtValor.Text);
 
             if (rdbPago.Checked)
@@ -403,7 +408,7 @@ namespace totalClean
             int alteraSetor = con.executar($"UPDATE [dbo].[Gastos] SET [idSetor] = '" + c.idSetor + "' WHERE idGasto = " + c.id);
             int alteraDescricao = con.executar($"UPDATE [dbo].[Gastos] SET [descricao] = '" + c.descricao + "' WHERE idGasto = " + c.id);
             int alteraFPagamento = con.executar($"UPDATE [dbo].[Gastos] SET [formaPagamento] = '" + c.formaPagamento + "' WHERE idGasto = " + c.id);
-            int alteraData = con.executar($"UPDATE [dbo].[Gastos] SET [data] = '" + c.dataVencimento + "' WHERE idGasto = " + c.id);
+            int alteraData = con.executar($"UPDATE [dbo].[Gastos] SET [data] = '" + dataAmericanFormat + "' WHERE idGasto = " + c.id);
             int alteraValor = con.executar($"UPDATE [dbo].[Gastos] SET [valor] = '" + c.valor + "' WHERE idGasto = " + c.id);
             int alteraPago = con.executar($"UPDATE [dbo].[Gastos] SET [pago] = '" + c.pago + "' WHERE idGasto = " + c.id);
 
@@ -427,7 +432,7 @@ namespace totalClean
                     gasto.id = reader.GetInt32(0);
                     gasto.nome = reader.GetString(1);
                     gasto.descricao = reader.GetString(2);
-                    gasto.dataVencimento = reader.GetDateTime(3);
+                    gasto.dataVencimento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
                     gasto.valor = reader.GetDouble(4);
                     gasto.formaPagamento = reader.GetString(5);
                     gasto.pago = reader.GetBoolean(6);

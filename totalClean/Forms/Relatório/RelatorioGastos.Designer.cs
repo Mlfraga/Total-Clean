@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RelatorioGastos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnGerarRelatorio = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -39,15 +39,21 @@
             this.cmbSetor = new System.Windows.Forms.ComboBox();
             this.lblServico1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdbOrdenarPData = new System.Windows.Forms.RadioButton();
+            this.rdbOdrdenarPId = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
             this.dgvGastos = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.dtFinalVencimento = new System.Windows.Forms.DateTimePicker();
             this.DtInicialVencimento = new System.Windows.Forms.DateTimePicker();
-            this.rdbOrdenarPData = new System.Windows.Forms.RadioButton();
-            this.rdbOdrdenarPId = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnGeraPdf = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdbAmbas = new System.Windows.Forms.RadioButton();
+            this.rdbAberto = new System.Windows.Forms.RadioButton();
+            this.rdbPago = new System.Windows.Forms.RadioButton();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSair
@@ -82,7 +88,7 @@
             this.btnGerarRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerarRelatorio.ForeColor = System.Drawing.SystemColors.Control;
             this.btnGerarRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btnGerarRelatorio.Image")));
-            this.btnGerarRelatorio.Location = new System.Drawing.Point(834, 103);
+            this.btnGerarRelatorio.Location = new System.Drawing.Point(669, 97);
             this.btnGerarRelatorio.Margin = new System.Windows.Forms.Padding(4);
             this.btnGerarRelatorio.Name = "btnGerarRelatorio";
             this.btnGerarRelatorio.Size = new System.Drawing.Size(264, 56);
@@ -103,7 +109,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(562, 103);
+            this.btnCancelar.Location = new System.Drawing.Point(397, 97);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(264, 56);
@@ -124,7 +130,7 @@
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.Location = new System.Drawing.Point(290, 103);
+            this.btnPesquisar.Location = new System.Drawing.Point(125, 97);
             this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(264, 56);
@@ -163,7 +169,7 @@
             // cmbSetor
             // 
             this.cmbSetor.FormattingEnabled = true;
-            this.cmbSetor.Location = new System.Drawing.Point(367, 204);
+            this.cmbSetor.Location = new System.Drawing.Point(507, 201);
             this.cmbSetor.Name = "cmbSetor";
             this.cmbSetor.Size = new System.Drawing.Size(208, 24);
             this.cmbSetor.TabIndex = 190;
@@ -173,7 +179,7 @@
             this.lblServico1.AutoSize = true;
             this.lblServico1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServico1.ForeColor = System.Drawing.Color.White;
-            this.lblServico1.Location = new System.Drawing.Point(363, 177);
+            this.lblServico1.Location = new System.Drawing.Point(503, 174);
             this.lblServico1.Name = "lblServico1";
             this.lblServico1.Size = new System.Drawing.Size(70, 23);
             this.lblServico1.TabIndex = 189;
@@ -193,51 +199,6 @@
             this.groupBox2.TabIndex = 194;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Gastos";
-            // 
-            // dgvGastos
-            // 
-            this.dgvGastos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGastos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.dgvGastos.Location = new System.Drawing.Point(13, 36);
-            this.dgvGastos.Name = "dgvGastos";
-            this.dgvGastos.ReadOnly = true;
-            this.dgvGastos.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvGastos.RowTemplate.Height = 24;
-            this.dgvGastos.Size = new System.Drawing.Size(1322, 382);
-            this.dgvGastos.TabIndex = 164;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(696, 172);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(271, 23);
-            this.label7.TabIndex = 171;
-            this.label7.Text = "Data De Vencimento Entre:";
-            // 
-            // dtFinalVencimento
-            // 
-            this.dtFinalVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFinalVencimento.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dtFinalVencimento.Location = new System.Drawing.Point(845, 206);
-            this.dtFinalVencimento.Name = "dtFinalVencimento";
-            this.dtFinalVencimento.Size = new System.Drawing.Size(220, 22);
-            this.dtFinalVencimento.TabIndex = 170;
-            // 
-            // DtInicialVencimento
-            // 
-            this.DtInicialVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtInicialVencimento.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DtInicialVencimento.Location = new System.Drawing.Point(604, 206);
-            this.DtInicialVencimento.Name = "DtInicialVencimento";
-            this.DtInicialVencimento.Size = new System.Drawing.Size(220, 22);
-            this.DtInicialVencimento.TabIndex = 168;
             // 
             // rdbOrdenarPData
             // 
@@ -278,12 +239,132 @@
             this.label3.TabIndex = 172;
             this.label3.Text = "Ordenar por:";
             // 
+            // dgvGastos
+            // 
+            this.dgvGastos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGastos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.dgvGastos.Location = new System.Drawing.Point(13, 36);
+            this.dgvGastos.Name = "dgvGastos";
+            this.dgvGastos.ReadOnly = true;
+            this.dgvGastos.RowHeadersWidth = 51;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvGastos.RowTemplate.Height = 24;
+            this.dgvGastos.Size = new System.Drawing.Size(1322, 382);
+            this.dgvGastos.TabIndex = 164;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(836, 169);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(271, 23);
+            this.label7.TabIndex = 171;
+            this.label7.Text = "Data De Vencimento Entre:";
+            // 
+            // dtFinalVencimento
+            // 
+            this.dtFinalVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFinalVencimento.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dtFinalVencimento.Location = new System.Drawing.Point(985, 203);
+            this.dtFinalVencimento.Name = "dtFinalVencimento";
+            this.dtFinalVencimento.Size = new System.Drawing.Size(220, 22);
+            this.dtFinalVencimento.TabIndex = 170;
+            // 
+            // DtInicialVencimento
+            // 
+            this.DtInicialVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtInicialVencimento.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.DtInicialVencimento.Location = new System.Drawing.Point(744, 203);
+            this.DtInicialVencimento.Name = "DtInicialVencimento";
+            this.DtInicialVencimento.Size = new System.Drawing.Size(220, 22);
+            this.DtInicialVencimento.TabIndex = 168;
+            // 
+            // btnGeraPdf
+            // 
+            this.btnGeraPdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btnGeraPdf.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGeraPdf.FlatAppearance.BorderSize = 0;
+            this.btnGeraPdf.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnGeraPdf.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnGeraPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGeraPdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGeraPdf.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnGeraPdf.Image = ((System.Drawing.Image)(resources.GetObject("btnGeraPdf.Image")));
+            this.btnGeraPdf.Location = new System.Drawing.Point(941, 97);
+            this.btnGeraPdf.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGeraPdf.Name = "btnGeraPdf";
+            this.btnGeraPdf.Size = new System.Drawing.Size(264, 56);
+            this.btnGeraPdf.TabIndex = 195;
+            this.btnGeraPdf.Text = "  Gerar PDF";
+            this.btnGeraPdf.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGeraPdf.UseVisualStyleBackColor = false;
+            this.btnGeraPdf.Click += new System.EventHandler(this.btnGeraPdf_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdbAmbas);
+            this.groupBox1.Controls.Add(this.rdbAberto);
+            this.groupBox1.Controls.Add(this.rdbPago);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(92, 169);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(335, 64);
+            this.groupBox1.TabIndex = 196;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Situação";
+            // 
+            // rdbAmbas
+            // 
+            this.rdbAmbas.AutoSize = true;
+            this.rdbAmbas.Checked = true;
+            this.rdbAmbas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rdbAmbas.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rdbAmbas.Location = new System.Drawing.Point(226, 26);
+            this.rdbAmbas.Name = "rdbAmbas";
+            this.rdbAmbas.Size = new System.Drawing.Size(90, 28);
+            this.rdbAmbas.TabIndex = 164;
+            this.rdbAmbas.TabStop = true;
+            this.rdbAmbas.Text = "Ambas";
+            this.rdbAmbas.UseVisualStyleBackColor = true;
+            // 
+            // rdbAberto
+            // 
+            this.rdbAberto.AutoSize = true;
+            this.rdbAberto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rdbAberto.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rdbAberto.Location = new System.Drawing.Point(99, 26);
+            this.rdbAberto.Name = "rdbAberto";
+            this.rdbAberto.Size = new System.Drawing.Size(121, 28);
+            this.rdbAberto.TabIndex = 163;
+            this.rdbAberto.Text = "Em Aberto";
+            this.rdbAberto.UseVisualStyleBackColor = true;
+            // 
+            // rdbPago
+            // 
+            this.rdbPago.AutoSize = true;
+            this.rdbPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rdbPago.ForeColor = System.Drawing.Color.White;
+            this.rdbPago.Location = new System.Drawing.Point(18, 26);
+            this.rdbPago.Name = "rdbPago";
+            this.rdbPago.Size = new System.Drawing.Size(75, 28);
+            this.rdbPago.TabIndex = 162;
+            this.rdbPago.Text = "Pago";
+            this.rdbPago.UseVisualStyleBackColor = true;
+            // 
             // RelatorioGastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnGeraPdf);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dtFinalVencimento);
@@ -307,6 +388,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,5 +412,10 @@
         private System.Windows.Forms.RadioButton rdbOrdenarPData;
         private System.Windows.Forms.RadioButton rdbOdrdenarPId;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnGeraPdf;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rdbAmbas;
+        private System.Windows.Forms.RadioButton rdbAberto;
+        private System.Windows.Forms.RadioButton rdbPago;
     }
 }

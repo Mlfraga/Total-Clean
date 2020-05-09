@@ -17,7 +17,7 @@ namespace totalClean
         public String servico { get; set; }
         public Double preco { get; set; }
         public Double valorCobrado { get; set; }
-        public DateTime data { get; set; }
+        public String data { get; set; }
         public Boolean pago { get; set; }
         public String formaPagamento { get; set; }
         public int idVendasServicos { get; set; }

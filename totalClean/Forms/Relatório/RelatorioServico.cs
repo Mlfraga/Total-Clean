@@ -16,6 +16,7 @@ using iTextSharp;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Microsoft.Office.Interop.Excel;
+using System.Linq.Expressions;
 
 namespace totalClean
 {
@@ -85,7 +86,7 @@ namespace totalClean
                         sv.valorCobrado = sv.preco;
                     }
 
-                    sv.data = reader.GetDateTime(9);
+                    sv.data = reader.GetDateTime(9).ToString("dd/MM/yyyy");
                     sv.pago = reader.GetBoolean(10);
                     try
                     {
@@ -135,8 +136,8 @@ namespace totalClean
 
                     btnGerarRelatorio.Enabled = true;
 
-                    DateTime dataI = DtInicialVenda.Value;
-                    DateTime dataF = dtFinalVenda.Value;
+                    String dataI = DtInicialVenda.Value.ToString("MM/dd/yyyy");
+                    String dataF = dtFinalVenda.Value.ToString("MM/dd/yyyy");
                     try
                     {
                         vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
@@ -193,7 +194,7 @@ namespace totalClean
                                 servico.valorCobrado = servico.preco;
                             }
 
-                            servico.data = reader.GetDateTime(9);
+                            servico.data = reader.GetDateTime(9).ToString("dd/MM/yyyy");
                             servico.pago = reader.GetBoolean(10);
                             try
                             {
@@ -226,8 +227,8 @@ namespace totalClean
 
                     btnGerarRelatorio.Enabled = true;
 
-                    DateTime dataI = DtInicialVenda.Value;
-                    DateTime dataF = dtFinalVenda.Value;
+                    String dataI = DtInicialVenda.Value.ToString("MM/dd/yyyy");
+                    String dataF = dtFinalVenda.Value.ToString("MM/dd/yyyy");
 
 
 
@@ -276,7 +277,7 @@ namespace totalClean
                                 servico.valorCobrado = servico.preco;
                             }
 
-                            servico.data = reader.GetDateTime(9);
+                            servico.data = reader.GetDateTime(9).ToString("dd/MM/yyyy");
                             servico.pago = reader.GetBoolean(10);
                             try
                             {
@@ -313,8 +314,8 @@ namespace totalClean
 
                     btnGerarRelatorio.Enabled = true;
 
-                    DateTime dataI = DtInicialVenda.Value;
-                    DateTime dataF = dtFinalVenda.Value;
+                    String dataI = DtInicialVenda.Value.ToString("MM/dd/yyyy");
+                    String dataF = dtFinalVenda.Value.ToString("MM/dd/yyyy");
                     vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
 
 
@@ -366,7 +367,7 @@ namespace totalClean
                                 servico.valorCobrado = servico.preco;
                             }
 
-                            servico.data = reader.GetDateTime(9);
+                            servico.data = reader.GetDateTime(9).ToString("dd/MM/yyyy");
                             servico.pago = reader.GetBoolean(10);
                             try
                             {
@@ -400,8 +401,8 @@ namespace totalClean
 
                     btnGerarRelatorio.Enabled = true;
 
-                    DateTime dataI = DtInicialVenda.Value;
-                    DateTime dataF = dtFinalVenda.Value;
+                    String dataI = DtInicialVenda.Value.ToString("MM/dd/yyyy");
+                    String dataF = dtFinalVenda.Value.ToString("MM/dd/yyyy");
 
 
 
@@ -452,7 +453,7 @@ namespace totalClean
                                 servico.valorCobrado = servico.preco;
                             }
 
-                            servico.data = reader.GetDateTime(9);
+                            servico.data = reader.GetDateTime(9).ToString("dd/MM/yyyy");
                             servico.pago = reader.GetBoolean(10);
                             try
                             {
@@ -488,8 +489,8 @@ namespace totalClean
 
                     btnGerarRelatorio.Enabled = true;
 
-                    DateTime dataI = DtInicialVenda.Value;
-                    DateTime dataF = dtFinalVenda.Value;
+                    String dataI = DtInicialVenda.Value.ToString("MM/dd/yyyy");
+                    String dataF = dtFinalVenda.Value.ToString("MM/dd/yyyy");
                     vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
 
 
@@ -541,7 +542,7 @@ namespace totalClean
                                 servico.valorCobrado = servico.preco;
                             }
 
-                            servico.data = reader.GetDateTime(9);
+                            servico.data = reader.GetDateTime(9).ToString("dd/MM/yyyy");
                             servico.pago = reader.GetBoolean(10);
                             try
                             {
@@ -575,9 +576,8 @@ namespace totalClean
 
                     btnGerarRelatorio.Enabled = true;
 
-                    DateTime dataI = DtInicialVenda.Value;
-                    DateTime dataF = dtFinalVenda.Value;
-
+                    String dataI = DtInicialVenda.Value.ToString("MM/dd/yyyy");
+                    String dataF = dtFinalVenda.Value.ToString("MM/dd/yyyy");
 
 
                     List<ServicoVenda> listServicoVenda = new List<ServicoVenda>();
@@ -626,7 +626,7 @@ namespace totalClean
                                 servico.valorCobrado = servico.preco;
                             }
 
-                            servico.data = reader.GetDateTime(9);
+                            servico.data = reader.GetDateTime(9).ToString("dd/MM/yyyy");
                             servico.pago = reader.GetBoolean(10);
                             try
                             {
@@ -717,8 +717,8 @@ namespace totalClean
 
             Classes.VendasServicos vs = new Classes.VendasServicos();
 
-            DateTime dataI = DtInicialVenda.Value;
-            DateTime dataF = dtFinalVenda.Value;
+            String dataI = DtInicialVenda.Value.ToString("MM/dd/yyyy");
+            String dataF = dtFinalVenda.Value.ToString("MM/dd/yyyy");
             vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
 
             con.conectar();
@@ -985,13 +985,16 @@ namespace totalClean
         public void construtorPdf(SqlDataReader reader)
         {
 
-
-
             String answer = Interaction.InputBox("Digite o nome do arquivo de relatorio", "", null, -1, -1);
 
             while (answer == null)
             {
                 answer = Interaction.InputBox("Digite o nome do arquivo de relatorio", "", null, -1, -1);
+            }
+
+            if (answer == string.Empty)
+            {
+                return;
             }
 
             //caminho onde sera criado o pdf + nome desejado
@@ -1002,16 +1005,19 @@ namespace totalClean
             doc.SetMargins(40, 40, 40, 80); // Estipulando margens
             doc.AddCreationDate(); // Adicionando configurações
 
+
             //criando o arquivo pdf embranco
             PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(caminho, FileMode.Create));
 
             doc.Open();
 
+
             #region Cabeçalho
-            //-------------------------------------------CABEÇALHO---------------------------------------------
+
 
             BaseColor preto = new BaseColor(0, 0, 0);
             iTextSharp.text.Font font = FontFactory.GetFont("Roboto", 8, iTextSharp.text.Font.NORMAL, preto);
+            iTextSharp.text.Font nomeRelatorio = FontFactory.GetFont("Roboto", 10, iTextSharp.text.Font.BOLD, preto);
             iTextSharp.text.Font titulo = FontFactory.GetFont("Roboto", 12, iTextSharp.text.Font.BOLD, preto);
             float[] sizes = new float[] { 1f, 3f, 1f };
 
@@ -1022,7 +1028,7 @@ namespace totalClean
             #region Logo Empresa
             iTextSharp.text.Image foot;
 
-            foot = iTextSharp.text.Image.GetInstance(@"F:\Matheus\Projeto-TotalClean\favicon_tc.png");
+            foot = iTextSharp.text.Image.GetInstance(@"C:\Program Files (x86)\Total Clean\Total Clean\favicon_tc.png");
 
             foot.ScalePercent(60);
 
@@ -1040,7 +1046,7 @@ namespace totalClean
             cell.Border = 0;
             cell.HorizontalAlignment = Element.ALIGN_CENTER;
             micros.AddCell(cell);
-            cell = new PdfPCell(new Phrase("Relátórios de compra por data", font));
+            cell = new PdfPCell(new Phrase("Relátórios de vendas", nomeRelatorio));
             cell.Border = 0;
             cell.HorizontalAlignment = Element.ALIGN_CENTER;
             micros.AddCell(cell);
@@ -1056,7 +1062,7 @@ namespace totalClean
 
             #region Data Emissão
             micros = new PdfPTable(1);
-            cell = new PdfPCell(new Phrase("Data emissão: " + DateTime.Now.ToShortDateString(), font));
+            cell = new PdfPCell(new Phrase("Data emissão: " + DateTime.Today.ToString("dd/MM/yyyy"), font));
             cell.Border = 0;
             cell.HorizontalAlignment = Element.ALIGN_RIGHT;
             micros.AddCell(cell);
@@ -1074,40 +1080,40 @@ namespace totalClean
 
             #endregion
 
-            #region Período
+            #region Filtros
             iTextSharp.text.Font fontPeriodo = FontFactory.GetFont("Roboto", 10, iTextSharp.text.Font.BOLD, preto);
 
-            Paragraph periodo = new Paragraph((new Phrase("\nPeríodo de tempo pesquisado: \n" + DtInicialVenda.Value.ToShortDateString() + " a " + dtFinalVenda.Value.ToShortDateString() + "\n", fontPeriodo)));
+            Paragraph periodo = new Paragraph((new Phrase("\nPeríodo de tempo pesquisado: \n" + DtInicialVenda.Value.ToString("dd/MM/yyyy") + " a " + dtFinalVenda.Value.ToString("dd/MM/yyyy") + "\n", fontPeriodo)));
             periodo.Alignment = Element.ALIGN_LEFT;
-         //   doc.Add(periodo);
+            //   doc.Add(periodo);
 
-            
+
             if (rdbParticulares.Checked == true)
             {
                 tpClientePesquisado = "particulares";
             }
-            if(rdbFrotistas.Checked == true)
+            if (rdbFrotistas.Checked == true)
             {
                 tpClientePesquisado = "frotistas";
             }
-            if(rdbAmbos.Checked == true)
+            if (rdbAmbos.Checked == true)
             {
                 tpClientePesquisado = "ambos";
             }
 
             Paragraph tpCliente = new Paragraph((new Phrase(" \nTipo de cliente pesquisado: \n" + tpClientePesquisado + "\n", fontPeriodo)));
             tpCliente.Alignment = Element.ALIGN_LEFT;
-        //    doc.Add(tpCliente);
+            //    doc.Add(tpCliente);
 
             String servicoTexto = cmbServico.Text;
-            if(cmbServico.Text == string.Empty)
+            if (cmbServico.Text == string.Empty)
             {
                 servicoTexto = "---";
             }
 
-            Paragraph servico = new Paragraph((new Phrase("\nVendas pesquisadas por serviço: \n" + servicoTexto+ "\n", fontPeriodo)));
+            Paragraph servico = new Paragraph((new Phrase("\nVendas pesquisadas por serviço: \n" + servicoTexto + "\n", fontPeriodo)));
             servico.Alignment = Element.ALIGN_LEFT;
-            
+
 
             Paragraph filtros = new Paragraph((new Phrase("\n\n\nFiltros:", fontPeriodo)));
             filtros.Alignment = Element.ALIGN_LEFT;
@@ -1128,15 +1134,17 @@ namespace totalClean
 
             #endregion
 
-            PdfPTable tableTitulos = new PdfPTable(5);
-            construtorPDF(reader, doc);
+
+            construtorCorpoDados(reader, doc);
+
+            doc.AddCreator("Matheus Fraga");
 
 
             doc.Close();
             System.Diagnostics.Process.Start(caminho);
         }
 
-        public void construtorPDF(SqlDataReader reader, Document doc)
+        public void construtorCorpoDados(SqlDataReader reader, Document doc)
         {
             BaseColor preto = new BaseColor(0, 0, 0);
             iTextSharp.text.Font font = FontFactory.GetFont("Roboto", 8, iTextSharp.text.Font.NORMAL, preto);
@@ -1148,6 +1156,8 @@ namespace totalClean
             int idVendaOld = 0;
             double somaSubTotal = 0;
             double somaTotal = 0;
+            double totalSomaTotal = 0;
+            double totalSomaSubTotal = 0;
             int contador = 0;
 
             ServicoVenda servico = new ServicoVenda();
@@ -1166,7 +1176,9 @@ namespace totalClean
                         tableTotal.PaddingTop = 5;
 
                         tableTotal.DefaultCell.Border = PdfPCell.BOTTOM_BORDER;
-
+                        
+                        tableTotal.KeepTogether = true;
+                        tableTotal.KeepRowsTogether(0);
 
                         tableTotal.AddCell(getNewCell("Total:", titulo, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, branco));
                         tableTotal.AddCell(getNewCell(somaSubTotal.ToString("c"), font, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, branco));
@@ -1192,10 +1204,13 @@ namespace totalClean
                         tableTitulos.DefaultCell.BorderColor = preto;
                         tableTitulos.DefaultCell.BorderColorBottom = new BaseColor(255, 255, 255);
 
+                        tableTitulos.KeepTogether = true;
+                        tableTitulos.KeepRowsTogether(0);
+
                         servico.cliente = reader.GetString(1);
                         servico.carro = reader.GetString(2);
                         servico.placa = reader.GetString(3);
-                        servico.data = reader.GetDateTime(7);
+                        servico.data = reader.GetDateTime(7).ToString("dd/MM/yyyy");
 
 
                         tableTitulos.AddCell(getNewCell("OS:", fontPeriodo, Element.ALIGN_LEFT, 2, PdfPCell.NO_BORDER, preto, fundo));
@@ -1209,7 +1224,7 @@ namespace totalClean
                         tableTitulos.AddCell(getNewCell(servico.cliente, font, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, fundo));
                         tableTitulos.AddCell(getNewCell(servico.carro, font, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, fundo));
                         tableTitulos.AddCell(getNewCell(servico.placa, font, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, fundo));
-                        tableTitulos.AddCell(getNewCell(servico.data.ToShortDateString(), font, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, fundo));
+                        tableTitulos.AddCell(getNewCell(servico.data, font, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, fundo));
 
                         PdfPTable tableTitulosDados = new PdfPTable(5);
                         float[] colstableTitulosDados = { 25, 5, 10, 10, 15 };
@@ -1217,6 +1232,9 @@ namespace totalClean
                         tableTitulosDados.WidthPercentage = 100f;
 
                         tableTitulosDados.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                        tableTitulosDados.KeepTogether = true;
+                        tableTitulosDados.KeepRowsTogether(0);
 
                         Paragraph espaco = new Paragraph((new Phrase("\n")));
                         doc.Add(espaco);
@@ -1226,6 +1244,8 @@ namespace totalClean
                         tableTitulosDados.AddCell(getNewCell("Valor Cobrado:", titulo, Element.ALIGN_LEFT, 2, PdfPCell.NO_BORDER, preto, branco));
                         tableTitulosDados.AddCell(getNewCell("Situação:", titulo, Element.ALIGN_LEFT, 2, PdfPCell.NO_BORDER, preto, branco));
                         tableTitulosDados.AddCell(getNewCell("Forma de Pagamento:", titulo, Element.ALIGN_LEFT, 2, PdfPCell.NO_BORDER, preto, branco));
+
+
 
                         doc.Add(tableTitulos);
                         doc.Add(tableTitulosDados);
@@ -1237,7 +1257,14 @@ namespace totalClean
 
                     servico.servico = reader.GetString(4);
                     servico.preco = reader.GetDouble(5);
-                    servico.valorCobrado = reader.GetDouble(6);
+                    try
+                    {
+                        servico.valorCobrado = reader.GetDouble(6);
+                    }
+                    catch (Exception)
+                    {
+                        servico.valorCobrado = servico.preco;
+                    }
                     servico.formaPagamento = reader.GetString(9);
 
                     PdfPTable tableDados = new PdfPTable(5);
@@ -1247,6 +1274,9 @@ namespace totalClean
 
                     tableDados.DefaultCell.Border = PdfPCell.TOP_BORDER;
                     tableDados.DefaultCell.Border = PdfPCell.BOTTOM_BORDER;
+
+                    tableDados.KeepTogether = true;
+                    tableDados.KeepRowsTogether(0);
 
                     tableDados.AddCell(getNewCell(servico.servico, font, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, branco));
                     tableDados.AddCell(getNewCell(servico.preco.ToString("C"), font, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, branco));
@@ -1267,11 +1297,64 @@ namespace totalClean
                     somaSubTotal += servico.preco;
                     somaTotal += servico.valorCobrado;
 
+                    totalSomaTotal += servico.valorCobrado;
+                    totalSomaSubTotal += servico.preco;
+
+
+
                     doc.Add(tableDados);
 
 
                 }
 
+                PdfPTable tableUltimoTotal = new PdfPTable(3);
+                float[] colstableUltimoTotal = { 14, 3, 20 };
+                tableUltimoTotal.SetWidths(colstableUltimoTotal);
+                tableUltimoTotal.WidthPercentage = 100f;
+                tableUltimoTotal.PaddingTop = 5;
+
+                tableUltimoTotal.DefaultCell.Border = PdfPCell.BOTTOM_BORDER;
+
+
+
+                tableUltimoTotal.AddCell(getNewCell("Total:", titulo, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, branco));
+                tableUltimoTotal.AddCell(getNewCell(somaSubTotal.ToString("c"), font, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, branco));
+                tableUltimoTotal.AddCell(getNewCell(somaTotal.ToString("C"), font, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, branco));
+
+                tableUltimoTotal.KeepTogether = true;
+                //E ou...
+                tableUltimoTotal.KeepRowsTogether(0);
+
+                doc.Add(tableUltimoTotal);
+
+
+                Paragraph espaco2 = new Paragraph((new Phrase("\n\n\n")));
+                doc.Add(espaco2);
+
+
+                PdfPTable tableSomaFinal = new PdfPTable(2);
+                float[] colsTableSomaFinal = { 10, 10 };
+                tableSomaFinal.SetWidths(colsTableSomaFinal);
+                tableSomaFinal.WidthPercentage = 100f;
+                tableSomaFinal.PaddingTop = 5;
+
+                tableSomaFinal.DefaultCell.Border = PdfPCell.BOTTOM_BORDER;
+
+                tableSomaFinal.AddCell(getNewCell("Soma Final:", titulo, Element.ALIGN_CENTER, 2, PdfPCell.TOP_BORDER, preto, branco));
+                tableSomaFinal.AddCell(getNewCell("", font, Element.ALIGN_LEFT, 2, PdfPCell.TOP_BORDER, preto, branco));
+
+                tableSomaFinal.AddCell(getNewCell("Total:", titulo, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, branco));
+                tableSomaFinal.AddCell(getNewCell(totalSomaSubTotal.ToString("c"), font, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, branco));
+
+                tableSomaFinal.AddCell(getNewCell("Valor Cobrado:", titulo, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, branco));
+                tableSomaFinal.AddCell(getNewCell(totalSomaTotal.ToString("c"), font, Element.ALIGN_LEFT, 2, PdfPCell.BOTTOM_BORDER, preto, branco));
+
+
+
+                tableSomaFinal.KeepTogether = true;
+                tableSomaFinal.KeepRowsTogether(0);
+
+                doc.Add(tableSomaFinal);
             }
 
 
@@ -1282,8 +1365,9 @@ namespace totalClean
 
             Classes.VendasServicos vs = new Classes.VendasServicos();
 
-            DateTime dataI = DtInicialVenda.Value;
-            DateTime dataF = dtFinalVenda.Value;
+            String dataI = DtInicialVenda.Value.ToString("MM/dd/yyyy");
+            String dataF = dtFinalVenda.Value.ToString("MM/dd/yyyy");
+
             vs.servico1 = int.Parse(cmbServico.SelectedValue.ToString());
 
             con.conectar();
@@ -1330,7 +1414,9 @@ namespace totalClean
                 }
             }
 
-     
+            con.desconectar();
+
+
         }
     }
 }

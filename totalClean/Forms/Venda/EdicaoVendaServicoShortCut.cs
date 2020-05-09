@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Globalization;
+using System.Threading;
 
 namespace totalClean
 {
@@ -16,6 +18,7 @@ namespace totalClean
         double diferenca;
         public EdicaoVendaServicoShortCut()
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-BR", true);
             InitializeComponent();
         }
 
@@ -52,7 +55,7 @@ namespace totalClean
                     sv.carro = reader.GetString(4);
                     sv.placa = reader.GetString(5);
                     sv.servico = reader.GetString(6);
-                    sv.data = reader.GetDateTime(7);
+                    sv.data = reader.GetDateTime(7).ToString("dd/MM/yyyy");
                     sv.preco = reader.GetDouble(8);
 
                     try
@@ -254,7 +257,7 @@ namespace totalClean
                         sv.carro = reader.GetString(4);
                         sv.placa = reader.GetString(5);
                         sv.servico = reader.GetString(6);
-                        sv.data = reader.GetDateTime(7);
+                        sv.data = reader.GetDateTime(7).ToString("dd/MM/yyyy");
                         sv.preco = reader.GetDouble(8);
 
                         try
@@ -473,7 +476,7 @@ namespace totalClean
                         sv.carro = reader.GetString(4);
                         sv.placa = reader.GetString(5);
                         sv.servico = reader.GetString(6);
-                        sv.data = reader.GetDateTime(7);
+                        sv.data = reader.GetDateTime(7).ToString("dd/MM/yyyy");
                         sv.preco = reader.GetDouble(8);
 
                         try
@@ -599,6 +602,8 @@ namespace totalClean
 
         private void dgvVendas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            DateTime data;
+            String stringDataCorrigida;
             String formaPagamento;
 
             btnSalvar.Enabled = true;
@@ -606,12 +611,21 @@ namespace totalClean
             btnPesquisar.Enabled = false;
             btnExcluir.Enabled = true;
 
+
+     
+
+            
+
+
             txtIdVenda.Text = dgvVendas.CurrentRow.Cells[0].Value.ToString();
             cmbCliente.Text = dgvVendas.CurrentRow.Cells[2].Value.ToString();
             txtCarro.Text = dgvVendas.CurrentRow.Cells[4].Value.ToString();
             txtPlaca.Text = dgvVendas.CurrentRow.Cells[5].Value.ToString();
             cmbServico.Text = dgvVendas.CurrentRow.Cells[6].Value.ToString();
             dtpData.Value = DateTime.Parse(dgvVendas.CurrentRow.Cells[9].Value.ToString());
+            String dataTeste = dtpData.Value.ToString("MM/dd/yyyy");
+
+            MessageBox.Show(dataTeste);
             formaPagamento = dgvVendas.CurrentRow.Cells[11].Value.ToString().Trim();
 
             if (formaPagamento == "Transferência Bancária")
@@ -721,7 +735,10 @@ namespace totalClean
 
                     venda.carro = txtCarro.Text;
                     venda.placa = txtPlaca.Text;
-                    venda.data = dtpData.Value;
+                    venda.data = dtpData.Value.Date;
+                    String dataAmericanFormat = dtpData.Value.ToString("MM/dd/yyyy");
+
+                    MessageBox.Show(dataAmericanFormat);
 
                     if (rdbTransferencia.Checked == true)
                     {
@@ -818,7 +835,7 @@ namespace totalClean
                     int alteraCliente = con.executar($"UPDATE [dbo].[Vendas] SET [idCliente] = '" + venda.idCliente + "' WHERE idVenda = " + idVenda);
                     int alteraCarro = con.executar($"UPDATE [dbo].[Vendas] SET [carro] = '" + venda.carro + "' WHERE idVenda = " + idVenda);
                     int alteraPlaca = con.executar($"UPDATE [dbo].[Vendas] SET [placa] = '" + venda.placa + "' WHERE idVenda = " + idVenda);
-                    int alteraData = con.executar($"UPDATE [dbo].[Vendas] SET [data] = '" + venda.data + "' WHERE idVenda = " + idVenda);
+                    int alteraData = con.executar($"UPDATE [dbo].[Vendas] SET [data] = '" + dataAmericanFormat + "' WHERE idVenda = " + idVenda);
                     int alteraFormaPagamento = con.executar($"UPDATE [dbo].[Vendas] SET [formaPagamento] = '" + venda.formaPagamento + "' WHERE idVenda = " + idVenda);
 
                     int alteraServico = con.executar($"UPDATE [dbo].[VendasServicos] SET [idServico] = '" + servico + "' WHERE idVendasServicos = " + idVendasServicos);
@@ -857,7 +874,7 @@ namespace totalClean
                             sv.carro = reader.GetString(4);
                             sv.placa = reader.GetString(5);
                             sv.servico = reader.GetString(6);
-                            sv.data = reader.GetDateTime(7);
+                            sv.data = reader.GetDateTime(7).ToString("dd/MM/yyyy");
                             sv.preco = reader.GetDouble(8);
 
                             try

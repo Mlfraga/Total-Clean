@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Globalization;
+using System.Threading;
 
 namespace totalClean
 {
@@ -38,10 +40,13 @@ namespace totalClean
 
         public VendaFrm()
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-BR", true);
+            CultureInfo cultura = new CultureInfo("pt-BR");
             InitializeComponent();
         }
         public VendaFrm(String carro, String placa, String cliente)
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-BR", true);
             InitializeComponent();
 
             getCarro = carro;
@@ -149,7 +154,14 @@ namespace totalClean
                     }
                     venda.carro = txtCarro.Text;
                     venda.placa = txtPlaca.Text;
-                    venda.data = DtVenda.Value;
+
+                    venda.data = DtVenda.Value.Date;
+                    String dataAmericanFormat = DtVenda.Value.ToString("MM/dd/yyyy");
+                    //venda.data = DateTime.Parse(dataTeste);
+
+                     //= DateTime.Parse(dataTeste);
+
+                    
 
 
                     if (rdbTransferencia.Checked == true)
@@ -384,14 +396,14 @@ namespace totalClean
                         if (escolha == DialogResult.Yes)
                         {
                             conexao.conectar();
-                            int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, formaPagamento, valorCobrado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, '{venda.formaPagamento}', '{preco}')  ");
+                            int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, formaPagamento, valorCobrado) VALUES('{dataAmericanFormat}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, '{venda.formaPagamento}', '{preco}')  ");
                             conexao.desconectar();
 
                         }
                         else
                         {
                             conexao.conectar();
-                            int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, formaPagamento, valorCobrado) VALUES('{venda.data}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, '{venda.formaPagamento}', '{preco}')  ");
+                            int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, formaPagamento, valorCobrado) VALUES('{dataAmericanFormat}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, '{venda.formaPagamento}', '{preco}')  ");
                             conexao.desconectar();
 
                         }
