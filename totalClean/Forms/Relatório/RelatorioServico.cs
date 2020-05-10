@@ -898,13 +898,13 @@ namespace totalClean
                 // xlWorkSheet.Cells[i, 9].Interior.Color = ColorTranslator.FromHtml("#cfd8dc");
                 xlWorkSheet.Cells[i, 9].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
                 xlWorkSheet.Cells[i, 9].Formula = "=SUM(I2:I" + lastCell + ")";
-                xlWorkSheet.Cells[i, 9].NumberFormat = "R$#,##0.00";
+                xlWorkSheet.Cells[i, 9].NumberFormat = "$#,##0.00";
                 xlWorkSheet.Calculate();
 
                 xlWorkSheet.Cells[i, 8].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
                 //   xlWorkSheet.Cells[i, 8].Interior.Color = ColorTranslator.FromHtml("#cfd8dc");
                 xlWorkSheet.Cells[i, 8].Formula = "=SUM(H2:H" + lastCell + ")";
-                xlWorkSheet.Cells[i, 8].NumberFormat = "R$#,##0.00";
+                xlWorkSheet.Cells[i, 8].NumberFormat = "$#,##0.00";
                 xlWorkSheet.Calculate();
 
                 reader.Close();

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Threading;
+using System.Data.SqlTypes;
 
 namespace totalClean
 {
@@ -42,11 +43,15 @@ namespace totalClean
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-BR", true);
             CultureInfo cultura = new CultureInfo("pt-BR");
+            cultura.NumberFormat.NumberDecimalSeparator = ",";
+
             InitializeComponent();
         }
         public VendaFrm(String carro, String placa, String cliente)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-BR", true);
+            CultureInfo cultura = new CultureInfo("pt-BR");
+            cultura.NumberFormat.NumberDecimalSeparator = ".";
             InitializeComponent();
 
             getCarro = carro;
@@ -159,9 +164,9 @@ namespace totalClean
                     String dataAmericanFormat = DtVenda.Value.ToString("MM/dd/yyyy");
                     //venda.data = DateTime.Parse(dataTeste);
 
-                     //= DateTime.Parse(dataTeste);
+                    //= DateTime.Parse(dataTeste);
 
-                    
+
 
 
                     if (rdbTransferencia.Checked == true)
@@ -386,24 +391,23 @@ namespace totalClean
                             preco -= desconto;
                         }
 
-
+                        string precoStr = preco.ToString("0.00", new CultureInfo("en-US"));
 
                         Conexao conexao = new Conexao();
 
-
-                        var escolha = MessageBox.Show("O cliente efetuou o pagamento de R$" + preco + ",00 ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        var escolha = MessageBox.Show("O cliente efetuou o pagamento de " + preco.ToString("c") + " ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (escolha == DialogResult.Yes)
                         {
                             conexao.conectar();
-                            int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, formaPagamento, valorCobrado) VALUES('{dataAmericanFormat}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, '{venda.formaPagamento}', '{preco}')  ");
+                            int insere = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, formaPagamento, valorCobrado) VALUES('{dataAmericanFormat}','{venda.carro}','{venda.placa}','{venda.idCliente}', 1, '{venda.formaPagamento}', {precoStr})  ");
                             conexao.desconectar();
 
                         }
                         else
                         {
                             conexao.conectar();
-                            int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, formaPagamento, valorCobrado) VALUES('{dataAmericanFormat}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, '{venda.formaPagamento}', '{preco}')  ");
+                            int insere2 = conexao.executar($"INSERT INTO Vendas(data, carro, placa, idCliente, pago, formaPagamento, valorCobrado) VALUES('{dataAmericanFormat}','{venda.carro}','{venda.placa}','{venda.idCliente}', 0, '{venda.formaPagamento}', {precoStr})  ");
                             conexao.desconectar();
 
                         }
@@ -449,35 +453,78 @@ namespace totalClean
 
                         if (cmbServico1.Text != string.Empty && cmbServico2.Text != string.Empty && cmbServico3.Text != string.Empty && cmbServico4.Text != string.Empty && cmbServico5.Text != string.Empty && cmbServico6.Text != string.Empty && cmbServico7.Text != string.Empty && cmbServico8.Text != string.Empty)
                         {
-                            descontoPServico = desconto / 8;
+                            int qtd = int.Parse(cmbQtd1.Text);
+                            int qtd2 = int.Parse(cmbQtd2.Text);
+                            int qtd3 = int.Parse(cmbQtd3.Text);
+                            int qtd4 = int.Parse(cmbQtd4.Text);
+                            int qtd5 = int.Parse(cmbQtd5.Text);
+                            int qtd6 = int.Parse(cmbQtd6.Text);
+                            int qtd7 = int.Parse(cmbQtd7.Text);
+                            int qtd8 = int.Parse(cmbQtd8.Text);
+                            int qtdFinal = qtd + qtd2 + qtd3 + qtd4 + qtd5 + qtd6 + qtd7 + qtd8;
+                            descontoPServico = desconto / qtdFinal;
                         }
                         if (cmbServico1.Text != string.Empty && cmbServico2.Text != string.Empty && cmbServico3.Text != string.Empty && cmbServico4.Text != string.Empty && cmbServico5.Text != string.Empty && cmbServico6.Text != string.Empty && cmbServico7.Text != string.Empty && cmbServico8.Text == string.Empty)
                         {
-                            descontoPServico = desconto / 7;
+                            int qtd = int.Parse(cmbQtd1.Text);
+                            int qtd2 = int.Parse(cmbQtd2.Text);
+                            int qtd3 = int.Parse(cmbQtd3.Text);
+                            int qtd4 = int.Parse(cmbQtd4.Text);
+                            int qtd5 = int.Parse(cmbQtd5.Text);
+                            int qtd6 = int.Parse(cmbQtd6.Text);
+                            int qtd7 = int.Parse(cmbQtd7.Text);
+                            int qtdFinal = qtd + qtd2 + qtd3 + qtd4 + qtd5 + qtd6 + qtd7;
+                            descontoPServico = desconto / qtdFinal;
                         }
                         if (cmbServico1.Text != string.Empty && cmbServico2.Text != string.Empty && cmbServico3.Text != string.Empty && cmbServico4.Text != string.Empty && cmbServico5.Text != string.Empty && cmbServico6.Text != string.Empty && cmbServico7.Text == string.Empty && cmbServico8.Text == string.Empty)
                         {
-                            descontoPServico = desconto / 6;
+                            int qtd = int.Parse(cmbQtd1.Text);
+                            int qtd2 = int.Parse(cmbQtd2.Text);
+                            int qtd3 = int.Parse(cmbQtd3.Text);
+                            int qtd4 = int.Parse(cmbQtd4.Text);
+                            int qtd5 = int.Parse(cmbQtd5.Text);
+                            int qtd6 = int.Parse(cmbQtd6.Text);
+                            int qtdFinal = qtd + qtd2 + qtd3 + qtd4 + qtd5 + qtd6;
+                            descontoPServico = desconto / qtdFinal;
                         }
                         if (cmbServico1.Text != string.Empty && cmbServico2.Text != string.Empty && cmbServico3.Text != string.Empty && cmbServico4.Text != string.Empty && cmbServico5.Text != string.Empty && cmbServico6.Text == string.Empty && cmbServico7.Text == string.Empty && cmbServico8.Text == string.Empty)
                         {
-                            descontoPServico = desconto / 5;
+                            int qtd = int.Parse(cmbQtd1.Text);
+                            int qtd2 = int.Parse(cmbQtd2.Text);
+                            int qtd3 = int.Parse(cmbQtd3.Text);
+                            int qtd4 = int.Parse(cmbQtd4.Text);
+                            int qtd5 = int.Parse(cmbQtd5.Text);
+                            int qtdFinal = qtd + qtd2 + qtd3 + qtd4 + qtd5;
+                            descontoPServico = desconto / qtdFinal;
                         }
                         if (cmbServico1.Text != string.Empty && cmbServico2.Text != string.Empty && cmbServico3.Text != string.Empty && cmbServico4.Text != string.Empty && cmbServico5.Text == string.Empty && cmbServico6.Text == string.Empty && cmbServico7.Text == string.Empty && cmbServico8.Text == string.Empty)
                         {
-                            descontoPServico = desconto / 4;
+                            int qtd = int.Parse(cmbQtd1.Text);
+                            int qtd2 = int.Parse(cmbQtd2.Text);
+                            int qtd3 = int.Parse(cmbQtd3.Text);
+                            int qtd4 = int.Parse(cmbQtd4.Text);
+                            int qtdFinal = qtd + qtd2 + qtd3 + qtd4;
+                            descontoPServico = desconto / qtdFinal;
                         }
                         if (cmbServico1.Text != string.Empty && cmbServico2.Text != string.Empty && cmbServico3.Text != string.Empty && cmbServico4.Text == string.Empty && cmbServico5.Text == string.Empty && cmbServico6.Text == string.Empty && cmbServico7.Text == string.Empty && cmbServico8.Text == string.Empty)
                         {
-                            descontoPServico = desconto / 3;
+                            int qtd = int.Parse(cmbQtd1.Text);
+                            int qtd2 = int.Parse(cmbQtd2.Text);
+                            int qtd3 = int.Parse(cmbQtd3.Text);
+                            int qtdFinal = qtd + qtd2 + qtd3;
+                            descontoPServico = desconto / qtdFinal;
                         }
                         if (cmbServico1.Text != string.Empty && cmbServico2.Text != string.Empty && cmbServico3.Text == string.Empty && cmbServico4.Text == string.Empty && cmbServico5.Text == string.Empty && cmbServico6.Text == string.Empty && cmbServico7.Text == string.Empty && cmbServico8.Text == string.Empty)
                         {
-                            descontoPServico = desconto / 2;
+                            int qtd = int.Parse(cmbQtd1.Text);
+                            int qtd2 = int.Parse(cmbQtd2.Text);
+                            int qtdFinal = qtd + qtd2;
+                            descontoPServico = desconto / qtdFinal;
                         }
                         if (cmbServico1.Text != string.Empty && cmbServico2.Text == string.Empty && cmbServico3.Text == string.Empty && cmbServico4.Text == string.Empty && cmbServico5.Text == string.Empty && cmbServico6.Text == string.Empty && cmbServico7.Text == string.Empty && cmbServico8.Text == string.Empty)
                         {
-                            descontoPServico = desconto;
+                            int qtd = int.Parse(cmbQtd1.Text);
+                            descontoPServico = desconto / qtd;
                         }
 
 
@@ -531,12 +578,12 @@ namespace totalClean
                         double valorCobrado;
 
                         valorCobrado = precoServicoVenda.valor - descontoPServico;
-
+                        string valorCobradoStr = valorCobrado.ToString("0.00", new CultureInfo("en-US"));
 
                         for (int i = 1; i <= vs.qtd1; i++)
                         {
                             conexao.conectar();
-                            int linhas1 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico1}','{idVenda}', '{valorCobrado}') ");
+                            int linhas1 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico1}','{idVenda}', {valorCobradoStr}) ");
                             conexao.desconectar();
                         }
 
@@ -566,6 +613,7 @@ namespace totalClean
                             double valorCobrado2;
 
                             valorCobrado2 = precoServicoVenda2.valor - descontoPServico;
+                            string valorCobrado2Str = valorCobrado2.ToString("0.00", new CultureInfo("en-US"));
 
                             vs.qtd2 = int.Parse(cmbQtd2.Text);
                             vs.servico2 = int.Parse(cmbServico2.SelectedValue.ToString());
@@ -574,7 +622,7 @@ namespace totalClean
 
                             for (int i = 1; i <= vs.qtd2; i++)
                             {
-                                int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico2}','{idVenda}', '{valorCobrado2}') ");
+                                int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico2}','{idVenda}', {valorCobrado2Str}) ");
                             }
                             conexao.desconectar();
                         }
@@ -605,7 +653,7 @@ namespace totalClean
                             double valorCobrado3;
 
                             valorCobrado3 = precoServicoVenda3.valor - descontoPServico;
-
+                            string valorCobrado3Str = valorCobrado3.ToString("0.00", new CultureInfo("en-US"));
 
                             vs.qtd3 = int.Parse(cmbQtd3.Text);
                             vs.servico3 = int.Parse(cmbServico3.SelectedValue.ToString());
@@ -614,7 +662,7 @@ namespace totalClean
 
                             for (int i = 1; i <= vs.qtd3; i++)
                             {
-                                int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico3}','{idVenda}', '{valorCobrado3}') ");
+                                int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico3}','{idVenda}', {valorCobrado3Str}) ");
                             }
                             conexao.desconectar();
                         }
@@ -645,13 +693,15 @@ namespace totalClean
                             double valorCobrado4;
 
                             valorCobrado4 = precoServicoVenda4.valor - descontoPServico;
+                            string valorCobrado4Str = valorCobrado4.ToString("0.00", new CultureInfo("en-US"));
+
 
                             vs.qtd4 = int.Parse(cmbQtd4.Text);
                             vs.servico4 = int.Parse(cmbServico4.SelectedValue.ToString());
                             conexao.conectar();
                             for (int i = 1; i <= vs.qtd4; i++)
                             {
-                                int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico4}','{idVenda}', '{valorCobrado4}') ");
+                                int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico4}','{idVenda}', {valorCobrado4Str}) ");
                             }
                             conexao.desconectar();
                         }
@@ -682,13 +732,14 @@ namespace totalClean
                             double valorCobrado5;
 
                             valorCobrado5 = precoServicoVenda5.valor - descontoPServico;
+                            string valorCobrado5Str = valorCobrado5.ToString("0.00", new CultureInfo("en-US"));
 
                             vs.qtd5 = int.Parse(cmbQtd5.Text);
                             vs.servico5 = int.Parse(cmbServico5.SelectedValue.ToString());
                             conexao.conectar();
                             for (int i = 1; i <= vs.qtd5; i++)
                             {
-                                int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico5}','{idVenda}', '{valorCobrado5}') ");
+                                int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico5}','{idVenda}', {valorCobrado5Str}) ");
                             }
                             conexao.desconectar();
                         }
@@ -719,13 +770,14 @@ namespace totalClean
                             double valorCobrado6;
 
                             valorCobrado6 = precoServicoVenda6.valor - descontoPServico;
+                            string valorCobrado6Str = valorCobrado6.ToString("0.00", new CultureInfo("en-US"));
 
                             vs.qtd6 = int.Parse(cmbQtd6.Text);
                             vs.servico6 = int.Parse(cmbServico6.SelectedValue.ToString());
                             conexao.conectar();
                             for (int i = 1; i <= vs.qtd6; i++)
                             {
-                                int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico6}','{idVenda}', '{valorCobrado6}') ");
+                                int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico6}','{idVenda}', {valorCobrado6Str}) ");
                             }
                             conexao.desconectar();
                         }
@@ -756,13 +808,15 @@ namespace totalClean
                             double valorCobrado7;
 
                             valorCobrado7 = precoServicoVenda7.valor - descontoPServico;
+                            string valorCobrado7Str = valorCobrado7.ToString("0.00", new CultureInfo("en-US"));
+
 
                             vs.qtd7 = int.Parse(cmbQtd7.Text);
                             vs.servico7 = int.Parse(cmbServico7.SelectedValue.ToString());
                             conexao.conectar();
                             for (int i = 1; i <= vs.qtd7; i++)
                             {
-                                int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico7}','{idVenda}', '{valorCobrado7}') ");
+                                int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico7}','{idVenda}', {valorCobrado7Str}) ");
                             }
                             conexao.desconectar();
                         }
@@ -793,13 +847,14 @@ namespace totalClean
                             double valorCobrado8;
 
                             valorCobrado8 = precoServicoVenda8.valor - descontoPServico;
+                            string valorCobrado8Str = valorCobrado8.ToString("0.00", new CultureInfo("en-US"));
 
                             vs.qtd8 = int.Parse(cmbQtd8.Text);
                             vs.servico8 = int.Parse(cmbServico8.SelectedValue.ToString());
                             conexao.conectar();
                             for (int i = 1; i <= vs.qtd8; i++)
                             {
-                                int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico8}','{idVenda}', '{valorCobrado8}') ");
+                                int linhas2 = conexao.executar($"INSERT INTO VendasServicos(idServico, idVenda, valorCobrado) VALUES('{vs.servico8}','{idVenda}', {valorCobrado8Str}) ");
                             }
                             conexao.desconectar();
                         }
@@ -1443,7 +1498,7 @@ namespace totalClean
 
         private void cmbCliente_TextChanged(object sender, EventArgs e)
         {
-            if (flagLimpaCampos == 1 ||FlagPreencheCmbCliente == 0)
+            if (flagLimpaCampos == 1 || FlagPreencheCmbCliente == 0)
             {
                 return;
             }
@@ -1500,7 +1555,7 @@ namespace totalClean
 
                     readerPendencia = con.exeCliente($"SELECT valorCobrado from Vendas INNER JOIN Cliente ON ([Vendas].[idCliente] = [Cliente].[idCliente]) WHERE [Vendas].[pago] = 0 AND [Cliente].[nome] LIKE ('{cmbCliente.Text}')");
 
-                    
+
 
                     if (readerPendencia.HasRows)
                     {
@@ -1544,7 +1599,7 @@ namespace totalClean
             con.conectar();
 
             SqlDataReader readerPreco;
-                        
+
 
             if (cmbServico1.Text != string.Empty && cmbQtd1.Text != string.Empty)
             {

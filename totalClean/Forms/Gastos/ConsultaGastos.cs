@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Globalization;
+using System.Threading;
 
 namespace totalClean
 {
@@ -390,6 +392,8 @@ namespace totalClean
             String dataAmericanFormat = DtGasto.Value.ToString("MM/dd/yyyy");
             c.valor = Double.Parse(txtValor.Text);
 
+            string valorStr = c.valor.ToString("N", CultureInfo.CreateSpecificCulture("en-US"));
+
             if (rdbPago.Checked)
             {
                 c.pago = true;
@@ -409,7 +413,7 @@ namespace totalClean
             int alteraDescricao = con.executar($"UPDATE [dbo].[Gastos] SET [descricao] = '" + c.descricao + "' WHERE idGasto = " + c.id);
             int alteraFPagamento = con.executar($"UPDATE [dbo].[Gastos] SET [formaPagamento] = '" + c.formaPagamento + "' WHERE idGasto = " + c.id);
             int alteraData = con.executar($"UPDATE [dbo].[Gastos] SET [data] = '" + dataAmericanFormat + "' WHERE idGasto = " + c.id);
-            int alteraValor = con.executar($"UPDATE [dbo].[Gastos] SET [valor] = '" + c.valor + "' WHERE idGasto = " + c.id);
+            int alteraValor = con.executar($"UPDATE [dbo].[Gastos] SET [valor] = '" + valorStr + "' WHERE idGasto = " + c.id);
             int alteraPago = con.executar($"UPDATE [dbo].[Gastos] SET [pago] = '" + c.pago + "' WHERE idGasto = " + c.id);
 
             MessageBox.Show("Dados alterados com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);

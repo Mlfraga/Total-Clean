@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RelatorioDeCliente));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnGerarRelatorio = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -38,14 +38,22 @@
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             this.label1 = new System.Windows.Forms.Label();
-            this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.label3 = new System.Windows.Forms.Label();
+            this.bnfspNome = new Bunifu.Framework.UI.BunifuSeparator();
+            this.lblNome = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.bunifuSeparator4 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.lblCpf = new System.Windows.Forms.Label();
+            this.bnfspCpf = new Bunifu.Framework.UI.BunifuSeparator();
             this.txtCpf = new System.Windows.Forms.TextBox();
+            this.chkPesquisaEspecifica = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.gpboxCliente = new System.Windows.Forms.GroupBox();
+            this.rdbAmbos = new System.Windows.Forms.RadioButton();
+            this.rdbFrotistas = new System.Windows.Forms.RadioButton();
+            this.rdbParticulares = new System.Windows.Forms.RadioButton();
+            this.btnGeraPdf = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            this.gpboxCliente.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSair
@@ -80,7 +88,7 @@
             this.btnGerarRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerarRelatorio.ForeColor = System.Drawing.SystemColors.Control;
             this.btnGerarRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btnGerarRelatorio.Image")));
-            this.btnGerarRelatorio.Location = new System.Drawing.Point(849, 102);
+            this.btnGerarRelatorio.Location = new System.Drawing.Point(701, 94);
             this.btnGerarRelatorio.Margin = new System.Windows.Forms.Padding(4);
             this.btnGerarRelatorio.Name = "btnGerarRelatorio";
             this.btnGerarRelatorio.Size = new System.Drawing.Size(264, 56);
@@ -101,7 +109,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(577, 102);
+            this.btnCancelar.Location = new System.Drawing.Point(429, 94);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(264, 56);
@@ -122,7 +130,7 @@
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.Location = new System.Drawing.Point(305, 102);
+            this.btnPesquisar.Location = new System.Drawing.Point(157, 94);
             this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(264, 56);
@@ -153,9 +161,9 @@
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvClientes.RowTemplate.Height = 24;
             this.dgvClientes.Size = new System.Drawing.Size(1210, 379);
             this.dgvClientes.TabIndex = 70;
@@ -186,30 +194,30 @@
             this.label1.TabIndex = 155;
             this.label1.Text = "Relatório de Clientes";
             // 
-            // bunifuSeparator2
+            // bnfspNome
             // 
-            this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(389, 238);
-            this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.bunifuSeparator2.Name = "bunifuSeparator2";
-            this.bunifuSeparator2.Size = new System.Drawing.Size(315, 10);
-            this.bunifuSeparator2.TabIndex = 172;
-            this.bunifuSeparator2.Transparency = 255;
-            this.bunifuSeparator2.Vertical = false;
+            this.bnfspNome.BackColor = System.Drawing.Color.Transparent;
+            this.bnfspNome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bnfspNome.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bnfspNome.LineThickness = 1;
+            this.bnfspNome.Location = new System.Drawing.Point(354, 250);
+            this.bnfspNome.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.bnfspNome.Name = "bnfspNome";
+            this.bnfspNome.Size = new System.Drawing.Size(315, 10);
+            this.bnfspNome.TabIndex = 172;
+            this.bnfspNome.Transparency = 255;
+            this.bnfspNome.Vertical = false;
             // 
-            // label3
+            // lblNome
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(385, 185);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 23);
-            this.label3.TabIndex = 171;
-            this.label3.Text = "Nome:";
+            this.lblNome.AutoSize = true;
+            this.lblNome.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.ForeColor = System.Drawing.Color.White;
+            this.lblNome.Location = new System.Drawing.Point(350, 197);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(74, 23);
+            this.lblNome.TabIndex = 171;
+            this.lblNome.Text = "Nome:";
             // 
             // txtNome
             // 
@@ -218,36 +226,36 @@
             this.txtNome.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.ForeColor = System.Drawing.SystemColors.Info;
             this.txtNome.HideSelection = false;
-            this.txtNome.Location = new System.Drawing.Point(389, 212);
+            this.txtNome.Location = new System.Drawing.Point(354, 224);
             this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(315, 25);
             this.txtNome.TabIndex = 170;
             // 
-            // label7
+            // lblCpf
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(731, 185);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(133, 23);
-            this.label7.TabIndex = 175;
-            this.label7.Text = "Cpf ou Cnpj:";
+            this.lblCpf.AutoSize = true;
+            this.lblCpf.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCpf.ForeColor = System.Drawing.Color.White;
+            this.lblCpf.Location = new System.Drawing.Point(696, 197);
+            this.lblCpf.Name = "lblCpf";
+            this.lblCpf.Size = new System.Drawing.Size(133, 23);
+            this.lblCpf.TabIndex = 175;
+            this.lblCpf.Text = "Cpf ou Cnpj:";
             // 
-            // bunifuSeparator4
+            // bnfspCpf
             // 
-            this.bunifuSeparator4.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bunifuSeparator4.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.bunifuSeparator4.LineThickness = 1;
-            this.bunifuSeparator4.Location = new System.Drawing.Point(735, 238);
-            this.bunifuSeparator4.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.bunifuSeparator4.Name = "bunifuSeparator4";
-            this.bunifuSeparator4.Size = new System.Drawing.Size(315, 10);
-            this.bunifuSeparator4.TabIndex = 174;
-            this.bunifuSeparator4.Transparency = 255;
-            this.bunifuSeparator4.Vertical = false;
+            this.bnfspCpf.BackColor = System.Drawing.Color.Transparent;
+            this.bnfspCpf.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bnfspCpf.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bnfspCpf.LineThickness = 1;
+            this.bnfspCpf.Location = new System.Drawing.Point(700, 250);
+            this.bnfspCpf.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.bnfspCpf.Name = "bnfspCpf";
+            this.bnfspCpf.Size = new System.Drawing.Size(315, 10);
+            this.bnfspCpf.TabIndex = 174;
+            this.bnfspCpf.Transparency = 255;
+            this.bnfspCpf.Vertical = false;
             // 
             // txtCpf
             // 
@@ -256,11 +264,109 @@
             this.txtCpf.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpf.ForeColor = System.Drawing.SystemColors.Info;
             this.txtCpf.HideSelection = false;
-            this.txtCpf.Location = new System.Drawing.Point(735, 212);
+            this.txtCpf.Location = new System.Drawing.Point(700, 224);
             this.txtCpf.Margin = new System.Windows.Forms.Padding(4);
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(315, 25);
             this.txtCpf.TabIndex = 173;
+            // 
+            // chkPesquisaEspecifica
+            // 
+            this.chkPesquisaEspecifica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
+            this.chkPesquisaEspecifica.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.chkPesquisaEspecifica.Checked = true;
+            this.chkPesquisaEspecifica.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
+            this.chkPesquisaEspecifica.ForeColor = System.Drawing.Color.White;
+            this.chkPesquisaEspecifica.Location = new System.Drawing.Point(79, 220);
+            this.chkPesquisaEspecifica.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkPesquisaEspecifica.Name = "chkPesquisaEspecifica";
+            this.chkPesquisaEspecifica.Size = new System.Drawing.Size(20, 20);
+            this.chkPesquisaEspecifica.TabIndex = 189;
+            this.chkPesquisaEspecifica.OnChange += new System.EventHandler(this.chkPesquisaEspecifica_OnChange);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(106, 217);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(194, 23);
+            this.label2.TabIndex = 190;
+            this.label2.Text = "Pesquisa específica";
+            // 
+            // gpboxCliente
+            // 
+            this.gpboxCliente.Controls.Add(this.rdbAmbos);
+            this.gpboxCliente.Controls.Add(this.rdbFrotistas);
+            this.gpboxCliente.Controls.Add(this.rdbParticulares);
+            this.gpboxCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.gpboxCliente.ForeColor = System.Drawing.Color.White;
+            this.gpboxCliente.Location = new System.Drawing.Point(488, 194);
+            this.gpboxCliente.Name = "gpboxCliente";
+            this.gpboxCliente.Size = new System.Drawing.Size(353, 64);
+            this.gpboxCliente.TabIndex = 197;
+            this.gpboxCliente.TabStop = false;
+            this.gpboxCliente.Text = "Tipo de cliente";
+            // 
+            // rdbAmbos
+            // 
+            this.rdbAmbos.AutoSize = true;
+            this.rdbAmbos.Checked = true;
+            this.rdbAmbos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rdbAmbos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rdbAmbos.Location = new System.Drawing.Point(250, 27);
+            this.rdbAmbos.Name = "rdbAmbos";
+            this.rdbAmbos.Size = new System.Drawing.Size(85, 28);
+            this.rdbAmbos.TabIndex = 164;
+            this.rdbAmbos.TabStop = true;
+            this.rdbAmbos.Text = "Todos";
+            this.rdbAmbos.UseVisualStyleBackColor = true;
+            // 
+            // rdbFrotistas
+            // 
+            this.rdbFrotistas.AutoSize = true;
+            this.rdbFrotistas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rdbFrotistas.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rdbFrotistas.Location = new System.Drawing.Point(144, 27);
+            this.rdbFrotistas.Name = "rdbFrotistas";
+            this.rdbFrotistas.Size = new System.Drawing.Size(100, 28);
+            this.rdbFrotistas.TabIndex = 163;
+            this.rdbFrotistas.Text = "Frotistas";
+            this.rdbFrotistas.UseVisualStyleBackColor = true;
+            // 
+            // rdbParticulares
+            // 
+            this.rdbParticulares.AutoSize = true;
+            this.rdbParticulares.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rdbParticulares.ForeColor = System.Drawing.Color.White;
+            this.rdbParticulares.Location = new System.Drawing.Point(10, 26);
+            this.rdbParticulares.Name = "rdbParticulares";
+            this.rdbParticulares.Size = new System.Drawing.Size(128, 28);
+            this.rdbParticulares.TabIndex = 162;
+            this.rdbParticulares.Text = "Particulares";
+            this.rdbParticulares.UseVisualStyleBackColor = true;
+            // 
+            // btnGeraPdf
+            // 
+            this.btnGeraPdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btnGeraPdf.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGeraPdf.FlatAppearance.BorderSize = 0;
+            this.btnGeraPdf.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnGeraPdf.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnGeraPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGeraPdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGeraPdf.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnGeraPdf.Image = ((System.Drawing.Image)(resources.GetObject("btnGeraPdf.Image")));
+            this.btnGeraPdf.Location = new System.Drawing.Point(973, 94);
+            this.btnGeraPdf.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGeraPdf.Name = "btnGeraPdf";
+            this.btnGeraPdf.Size = new System.Drawing.Size(264, 56);
+            this.btnGeraPdf.TabIndex = 198;
+            this.btnGeraPdf.Text = "  Gerar PDF";
+            this.btnGeraPdf.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGeraPdf.UseVisualStyleBackColor = false;
+            this.btnGeraPdf.Click += new System.EventHandler(this.btnGeraPdf_Click);
             // 
             // RelatorioDeCliente
             // 
@@ -268,11 +374,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1394, 727);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.bunifuSeparator4);
+            this.Controls.Add(this.btnGeraPdf);
+            this.Controls.Add(this.gpboxCliente);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.chkPesquisaEspecifica);
+            this.Controls.Add(this.lblCpf);
+            this.Controls.Add(this.bnfspCpf);
             this.Controls.Add(this.txtCpf);
-            this.Controls.Add(this.bunifuSeparator2);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.bnfspNome);
+            this.Controls.Add(this.lblNome);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnGerarRelatorio);
@@ -289,6 +399,8 @@
             this.Load += new System.EventHandler(this.RelatorioDeCliente_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            this.gpboxCliente.ResumeLayout(false);
+            this.gpboxCliente.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,11 +416,18 @@
         private System.Windows.Forms.DataGridView dgvClientes;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator6;
         private System.Windows.Forms.Label label1;
-        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
-        private System.Windows.Forms.Label label3;
+        private Bunifu.Framework.UI.BunifuSeparator bnfspNome;
+        private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label label7;
-        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator4;
+        private System.Windows.Forms.Label lblCpf;
+        private Bunifu.Framework.UI.BunifuSeparator bnfspCpf;
         private System.Windows.Forms.TextBox txtCpf;
+        private Bunifu.Framework.UI.BunifuCheckbox chkPesquisaEspecifica;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox gpboxCliente;
+        private System.Windows.Forms.RadioButton rdbAmbos;
+        private System.Windows.Forms.RadioButton rdbFrotistas;
+        private System.Windows.Forms.RadioButton rdbParticulares;
+        private System.Windows.Forms.Button btnGeraPdf;
     }
 }

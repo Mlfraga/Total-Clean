@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Globalization;
+using System.Threading;
+
 namespace totalClean
 {
     public partial class ConsultaVendaServiço : Form
     {
         double diferenca;
+        Double valorCobradoVenda;
 
         public ConsultaVendaServiço()
         {
@@ -836,7 +840,10 @@ namespace totalClean
                         con.desconectar();
                     }
 
+                 
+
                     novoValorCobrado = precoServicoVenda.valor - diferenca;
+                    string novoValorCobradoStr = novoValorCobrado.ToString("N", CultureInfo.CreateSpecificCulture("en-US"));
 
                     con.conectar();
 
@@ -847,7 +854,30 @@ namespace totalClean
                     int alteraFormaPagamento = con.executar($"UPDATE [dbo].[Vendas] SET [formaPagamento] = '" + venda.formaPagamento + "' WHERE idVenda = " + idVenda);
 
                     int alteraServico = con.executar($"UPDATE [dbo].[VendasServicos] SET [idServico] = '" + servico + "' WHERE idVendasServicos = " + idVendasServicos);
-                    int alteraValorCobrado = con.executar($"UPDATE [dbo].[VendasServicos] SET [valorCobrado] = '" + novoValorCobrado + "' WHERE idVendasServicos = " + idVendasServicos);
+                    int alteraValorCobrado = con.executar($"UPDATE [dbo].[VendasServicos] SET [valorCobrado] = " + novoValorCobradoStr + " WHERE idVendasServicos = " + idVendasServicos);
+                    con.desconectar();
+
+                    con.conectar();
+                    SqlDataReader readerPrecoVenda;
+
+
+                    valorCobradoVenda = 0;
+                    readerPrecoVenda = con.exeCliente($"select [VendasServicos].[valorCobrado] from VendasServicos INNER JOIN Vendas ON [VendasServicos].[idVenda] = [Vendas].[idVenda] WHERE [Vendas].[idVenda] = {idVenda}");
+                    if (readerPrecoVenda.HasRows)
+                    {
+                        while (readerPrecoVenda.Read())
+                        {
+                            valorCobradoVenda += readerPrecoVenda.GetDouble(0);
+                        }
+
+                        readerPrecoVenda.Close();
+                        con.desconectar();
+                    }
+
+                    string valorCobradoVendaStr = valorCobradoVenda.ToString("N", CultureInfo.CreateSpecificCulture("en-US"));
+                    con.conectar();
+
+                    int alteraValorCobradoVenda = con.executar($"UPDATE [dbo].[Vendas] SET [valorCobrado] = " + valorCobradoVendaStr + " WHERE idVenda = " + idVenda);
 
                     MessageBox.Show("Dados alterados com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     con.desconectar();

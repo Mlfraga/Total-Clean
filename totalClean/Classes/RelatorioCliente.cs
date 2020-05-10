@@ -8,6 +8,7 @@ namespace totalClean
 {
     class RelatorioCliente
     {
+        public Boolean frotista { get; set; }
         public String nome { get; set; }
         public String telefone { get; set; }
         public String endereco { get; set; }

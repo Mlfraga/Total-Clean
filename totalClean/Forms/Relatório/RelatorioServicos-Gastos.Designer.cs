@@ -169,10 +169,10 @@
             this.bunifuSeparator6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bunifuSeparator6.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.bunifuSeparator6.LineThickness = 1;
-            this.bunifuSeparator6.Location = new System.Drawing.Point(470, 75);
+            this.bunifuSeparator6.Location = new System.Drawing.Point(359, 67);
             this.bunifuSeparator6.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.bunifuSeparator6.Name = "bunifuSeparator6";
-            this.bunifuSeparator6.Size = new System.Drawing.Size(495, 10);
+            this.bunifuSeparator6.Size = new System.Drawing.Size(721, 10);
             this.bunifuSeparator6.TabIndex = 194;
             this.bunifuSeparator6.Transparency = 255;
             this.bunifuSeparator6.Vertical = false;
@@ -182,12 +182,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(494, 17);
+            this.label1.Location = new System.Drawing.Point(383, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(444, 52);
+            this.label1.Size = new System.Drawing.Size(674, 52);
             this.label1.TabIndex = 192;
-            this.label1.Text = "Relatório de Gastos";
+            this.label1.Text = "Relatório de Serviços - Gastos";
             // 
             // groupBox2
             // 

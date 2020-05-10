@@ -12,6 +12,8 @@ using Excel = Microsoft.Office.Interop.Excel;
 using System.Diagnostics;
 using System.IO;
 using Microsoft.VisualBasic;
+using System.Globalization;
+using System.Threading;
 
 namespace totalClean
 {
@@ -199,6 +201,8 @@ namespace totalClean
                     String dataAmericanFromat = DtGasto.Value.ToString("MM/dd/yyyy");
                     c.valor = Double.Parse(txtValor.Text);
 
+                    string valorStr = c.valor.ToString("0.00", new CultureInfo("en-US"));
+
                     if (rdbPago.Checked)
                     {
                         c.pago = true;
@@ -209,7 +213,7 @@ namespace totalClean
                     }
                     conexao.conectar();
 
-                    int insere = conexao.executar($"INSERT INTO Gastos (idSetor, descricao, data, valor, formaPagamento, pago ) VALUES ('{c.id}','{c.descricao}','{dataAmericanFromat}','{c.valor}','{c.formaPagamento}','{c.pago}')");
+                    int insere = conexao.executar($"INSERT INTO Gastos (idSetor, descricao, data, valor, formaPagamento, pago ) VALUES ('{c.id}','{c.descricao}','{dataAmericanFromat}', {valorStr},'{c.formaPagamento}','{c.pago}')");
 
                     MessageBox.Show("Dados salvos com sucesso", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     conexao.desconectar();
