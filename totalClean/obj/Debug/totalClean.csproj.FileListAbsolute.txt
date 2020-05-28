@@ -752,3 +752,203 @@ F:\Matheus\Programação\VisualStudioProjects\Total-Clean - lastUpdates\totalCle
 F:\Matheus\Programação\VisualStudioProjects\Total-Clean - lastUpdates\totalClean\bin\Debug\itextsharp.dll
 F:\Matheus\Programação\VisualStudioProjects\Total-Clean - lastUpdates\totalClean\bin\Debug\itextsharp.xml
 F:\Matheus\Programação\VisualStudioProjects\Total-Clean - lastUpdates\totalClean\obj\Debug\totalClean.csproj.CopyComplete
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\bin\Debug\totalClean.exe.config
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\bin\Debug\totalClean.exe
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\bin\Debug\totalClean.pdb
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\bin\Debug\itextsharp.dll
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\bin\Debug\itextsharp.xml
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.csprojAssemblyReference.cache
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.csproj.ResolveComReference.cache
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.EditaCarros.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.EdicaoVendaServicoShortCut.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.EdicaoServicoShortCut.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.EdicaoClienteShorCut.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.ConsultaGastos.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.CadastroSetor.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.CadastroGastos.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.CadastroClientes.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.RelatorioServicos_Gastos.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.CadastroServicosFrm.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.ConsultaVendaServiço.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.EdicaoFrm.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.Forms.EdicaoServico.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.InicialFrm.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.PendenciaPCliente.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.VendaFrm.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.Pendentes.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.NovoClienteFrm.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.GastosAberto.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.PendenciasPSetor.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.MessageEdit.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.Properties.Resources.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.RelatorioClienteFrm.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.RelatorioServico.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.RelatorioGastos.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.VendasAFinalizar.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.SelecionaCarro.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.RelatorioDeCliente.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.csproj.GenerateResource.cache
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.csproj.CoreCompileInputs.cache
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.csproj.CopyComplete
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.exe
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Teste - Copia\totalClean\obj\Debug\totalClean.pdb
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\bin\Debug\totalClean.exe.config
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\bin\Debug\totalClean.exe
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\bin\Debug\totalClean.pdb
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\bin\Debug\itextsharp.dll
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\bin\Debug\itextsharp.xml
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csprojAssemblyReference.cache
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csproj.ResolveComReference.cache
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EditaCarros.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EdicaoVendaServicoShortCut.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EdicaoServicoShortCut.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EdicaoClienteShorCut.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.ConsultaGastos.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.CadastroSetor.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.CadastroGastos.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.CadastroClientes.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioServicos_Gastos.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.CadastroServicosFrm.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.ConsultaVendaServiço.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EdicaoFrm.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.Forms.EdicaoServico.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.InicialFrm.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.PendenciaPCliente.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.VendaFrm.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.Pendentes.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.NovoClienteFrm.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.GastosAberto.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.PendenciasPSetor.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.MessageEdit.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.Properties.Resources.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioClienteFrm.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioServico.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioGastos.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.VendasAFinalizar.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.SelecionaCarro.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioDeCliente.resources
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csproj.GenerateResource.cache
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csproj.CoreCompileInputs.cache
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csproj.CopyComplete
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.exe
+F:\Matheus\Programação\VisualStudioProjects\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.pdb
+C:\Projetos\Total-Clean - Base Azure\totalClean\bin\Debug\totalClean.exe.config
+C:\Projetos\Total-Clean - Base Azure\totalClean\bin\Debug\totalClean.exe
+C:\Projetos\Total-Clean - Base Azure\totalClean\bin\Debug\totalClean.pdb
+C:\Projetos\Total-Clean - Base Azure\totalClean\bin\Debug\itextsharp.dll
+C:\Projetos\Total-Clean - Base Azure\totalClean\bin\Debug\itextsharp.xml
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csprojAssemblyReference.cache
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csproj.ResolveComReference.cache
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EditaCarros.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EdicaoVendaServicoShortCut.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EdicaoServicoShortCut.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EdicaoClienteShorCut.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.ConsultaGastos.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.CadastroSetor.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.CadastroGastos.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.CadastroClientes.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioServicos_Gastos.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.CadastroServicosFrm.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.ConsultaVendaServiço.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EdicaoFrm.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.Forms.EdicaoServico.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.InicialFrm.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.PendenciaPCliente.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.VendaFrm.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.Pendentes.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.NovoClienteFrm.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.GastosAberto.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.PendenciasPSetor.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.MessageEdit.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.Properties.Resources.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioClienteFrm.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioServico.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioGastos.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.VendasAFinalizar.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.SelecionaCarro.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioDeCliente.resources
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csproj.GenerateResource.cache
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csproj.CoreCompileInputs.cache
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csproj.CopyComplete
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.exe
+C:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.pdb
+F:\Projetos\Total-Clean - Base Azure\totalClean\bin\Debug\totalClean.exe.config
+F:\Projetos\Total-Clean - Base Azure\totalClean\bin\Debug\totalClean.exe
+F:\Projetos\Total-Clean - Base Azure\totalClean\bin\Debug\totalClean.pdb
+F:\Projetos\Total-Clean - Base Azure\totalClean\bin\Debug\itextsharp.dll
+F:\Projetos\Total-Clean - Base Azure\totalClean\bin\Debug\itextsharp.xml
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csprojAssemblyReference.cache
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csproj.ResolveComReference.cache
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EditaCarros.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EdicaoVendaServicoShortCut.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EdicaoServicoShortCut.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EdicaoClienteShorCut.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.ConsultaGastos.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.CadastroSetor.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.CadastroGastos.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.CadastroClientes.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioServicos_Gastos.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.CadastroServicosFrm.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.ConsultaVendaServiço.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.EdicaoFrm.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.Forms.EdicaoServico.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.InicialFrm.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.PendenciaPCliente.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.VendaFrm.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.Pendentes.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.NovoClienteFrm.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.GastosAberto.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.PendenciasPSetor.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.MessageEdit.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.Properties.Resources.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioClienteFrm.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioServico.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioGastos.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.VendasAFinalizar.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.SelecionaCarro.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.RelatorioDeCliente.resources
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csproj.GenerateResource.cache
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csproj.CoreCompileInputs.cache
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.csproj.CopyComplete
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.exe
+F:\Projetos\Total-Clean - Base Azure\totalClean\obj\Debug\totalClean.pdb
+F:\Projetos\Total-Clean - Base Teste\totalClean\bin\Debug\totalClean.exe.config
+F:\Projetos\Total-Clean - Base Teste\totalClean\bin\Debug\totalClean.exe
+F:\Projetos\Total-Clean - Base Teste\totalClean\bin\Debug\totalClean.pdb
+F:\Projetos\Total-Clean - Base Teste\totalClean\bin\Debug\itextsharp.dll
+F:\Projetos\Total-Clean - Base Teste\totalClean\bin\Debug\itextsharp.xml
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.csprojAssemblyReference.cache
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.csproj.ResolveComReference.cache
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.EditaCarros.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.EdicaoVendaServicoShortCut.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.EdicaoServicoShortCut.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.EdicaoClienteShorCut.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.ConsultaGastos.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.CadastroSetor.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.CadastroGastos.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.CadastroClientes.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.RelatorioServicos_Gastos.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.CadastroServicosFrm.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.ConsultaVendaServiço.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.EdicaoFrm.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.Forms.EdicaoServico.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.InicialFrm.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.PendenciaPCliente.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.VendaFrm.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.Pendentes.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.NovoClienteFrm.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.GastosAberto.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.PendenciasPSetor.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.MessageEdit.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.Properties.Resources.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.RelatorioClienteFrm.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.RelatorioServico.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.RelatorioGastos.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.VendasAFinalizar.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.SelecionaCarro.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.RelatorioDeCliente.resources
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.csproj.GenerateResource.cache
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.csproj.CoreCompileInputs.cache
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.csproj.CopyComplete
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.exe
+F:\Projetos\Total-Clean - Base Teste\totalClean\obj\Debug\totalClean.pdb

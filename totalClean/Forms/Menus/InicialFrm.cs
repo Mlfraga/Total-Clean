@@ -167,5 +167,10 @@ namespace totalClean
             n.Show();
             this.Visible = false;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("chrome.exe", $"http://localhost:3000");
+        }
     }
 }

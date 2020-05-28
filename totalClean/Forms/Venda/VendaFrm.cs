@@ -25,7 +25,7 @@ namespace totalClean
         int flagIndex;
 
         int contPendencias = 0;
-        double valorTotalaCobrar;
+        SqlMoney valorTotalaCobrar;
 
         int i;
         public int flagCarro = 0;
@@ -1563,7 +1563,8 @@ namespace totalClean
                         contPendencias = 0;
                         while (readerPendencia.Read())
                         {
-                            valorTotalaCobrar += readerPendencia.GetDouble(0);
+                            valorTotalaCobrar += readerPendencia.GetSqlMoney(0); 
+                        
                             contPendencias++;
                         }
 
